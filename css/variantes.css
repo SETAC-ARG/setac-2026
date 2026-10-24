@@ -202,61 +202,64 @@ body[data-theme="poster"] {
    ========================================================================== */
 
 /* ==========================================================================
-   2.0 CABECERA: [data-header="poster-fluid"] -> AFICHE FLUIDO (INTEGRADO, SIN RECUADRO)
+   2.0 CABECERA: [data-header="poster-fluid"] -> AFICHE FLUIDO CON FOTO NATURAL Y CORTE
    ========================================================================== */
 
-/* Fondo general fluido para el tema celeste con la lógica del afiche */
+/* Fondo general fluido continuo para celeste oficial */
 body[data-theme="celeste"][data-header="poster-fluid"],
 body:not([data-theme])[data-header="poster-fluid"] {
-  background: linear-gradient(180deg, #bbd6ed 0%, #cee3f4 260px, #e1eef8 540px, #edf5fa 100%) !important;
+  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 200px, #d8eaf7 480px, #eef6fc 100%) !important;
   background-attachment: fixed !important;
 }
 
 body[data-header="poster-fluid"] .asym-header {
   position: relative !important;
-  overflow: visible !important;
-  margin-top: 6px !important;
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: 4px !important;
   margin-bottom: 22px !important;
-  padding: 6px 4px 18px !important;
+  padding: 10px 10px 16px !important;
+  background-color: transparent !important;
 }
 
-/* La textura aérea de La Plata difuminada e integrada en la parte superior derecha */
+/* 1. Foto de La Plata en color natural sobre el sector superior derecho, con corte inferior a 180px */
 body[data-header="poster-fluid"] .asym-header::before {
   content: '';
   position: absolute;
-  top: -12px;
-  right: -15px;
-  width: 100%;
-  max-width: 540px;
-  height: 340px;
-  background-image: url('../images/laplata_fluid_sky_official.png');
+  top: 0;
+  right: 0;
+  width: 65%;
+  max-width: 380px;
+  height: 180px; /* Corte preciso de la foto por debajo */
+  background-image: url('../images/laplata_natural_faded_sky.png');
   background-repeat: no-repeat;
   background-position: top right;
-  background-size: contain;
+  background-size: cover;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.95;
 }
 
-/* Faceta angular decorativa inferior izquierda (corte geométrico del afiche) */
+/* 2. Faceta angular decorativa inferior izquierda (corte geométrico idéntico al afiche) */
 body[data-header="poster-fluid"] .asym-header::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: -6px;
-  width: 75px;
-  height: 48px;
+  left: 0;
+  width: 80px;
+  height: 50px;
   background: linear-gradient(135deg, #2b709e 0%, #4a8eb9 100%);
-  clip-path: polygon(0 45%, 100% 100%, 0 100%);
-  opacity: 0.75;
+  clip-path: polygon(0 42%, 100% 100%, 0 100%);
+  opacity: 0.85;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
-/* Eliminamos completamente la caja/recuadro */
+/* Eliminamos la caja y bordes de la tarjeta */
 body[data-header="poster-fluid"] .header-card {
   position: relative !important;
-  z-index: 1 !important;
+  z-index: 2 !important;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
@@ -271,10 +274,12 @@ body[data-header="poster-fluid"] .header-main-row {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  gap: 10px !important;
+  gap: 8px !important;
+  position: relative !important;
+  z-index: 2 !important;
 }
 
-/* Logos agrupados a la izquierda manteniendo escala 1.63x */
+/* Logos calibrados a escala exacta 1.63x */
 body[data-header="poster-fluid"] .header-logos-col {
   display: flex !important;
   align-items: center !important;
@@ -287,106 +292,111 @@ body[data-header="poster-fluid"] .header-logos-col {
 body[data-header="poster-fluid"] .asym-logo-hex {
   height: 64px !important;
   max-width: 72px !important;
-  filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.22)) !important;
+  filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.2)) !important;
 }
 
 body[data-header="poster-fluid"] .asym-logo-circle {
   height: 39px !important;
   max-width: 48px !important;
-  filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.22)) !important;
+  filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.2)) !important;
 }
 
-/* Tipografía oficial del afiche */
+/* Tipografía oficial afín al afiche */
 body[data-header="poster-fluid"] .header-titles-col {
   text-align: left !important;
-}
-
-/* Badge de fechas y lugar con efecto translúcido sutil */
-body[data-header="poster-fluid"] .header-dates-badge {
-  display: inline-flex !important;
-  align-items: center !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  letter-spacing: .08em !important;
-  text-transform: uppercase !important;
-  color: #124d77 !important;
-  background: rgba(255, 255, 255, 0.72) !important;
-  backdrop-filter: blur(8px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  border-radius: 9999px !important;
-  padding: 3px 10px !important;
-  margin-bottom: 5px !important;
-  box-shadow: 0 2px 8px rgba(18, 77, 121, 0.1) !important;
 }
 
 body[data-header="poster-fluid"] .asym-title {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  line-height: 1.08 !important;
+  line-height: 1.06 !important;
   margin: 0 0 6px 0 !important;
 }
 
 body[data-header="poster-fluid"] .asym-title-light {
   font-size: 15px !important;
   font-weight: 800 !important;
-  letter-spacing: .14em !important;
+  letter-spacing: .15em !important;
   text-transform: uppercase !important;
-  color: #185c88 !important;
+  color: #124d77 !important;
   display: block !important;
+  margin-bottom: 2px !important;
 }
 
 body[data-header="poster-fluid"] .asym-title-bold {
-  font-size: 30px !important;
+  font-size: 29px !important;
   font-weight: 900 !important;
   letter-spacing: -.02em !important;
   color: #0b325c !important;
   display: block !important;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Fecha y Sede ubicadas en la zona celeste limpia tras el corte */
+body[data-header="poster-fluid"] .header-dates-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  color: #104a75 !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(6px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 9999px !important;
+  padding: 3px 10px !important;
+  margin-bottom: 4px !important;
+  box-shadow: 0 2px 6px rgba(18, 77, 121, 0.08) !important;
 }
 
 body[data-header="poster-fluid"] .asym-venue {
-  font-size: 12.5px !important;
+  font-size: 12px !important;
   font-weight: 700 !important;
-  color: #1e5c89 !important;
-  margin: 0 0 12px 0 !important;
+  color: #185c88 !important;
+  margin: 4px 0 2px 0 !important;
   display: flex !important;
   align-items: center !important;
   gap: 5px !important;
 }
 
 body[data-header="poster-fluid"] .asym-venue svg {
-  color: #185c88 !important;
+  color: #124d77 !important;
 }
 
-/* Lema oficial integrado fluidamente */
+/* 3. Lema oficial sobre la zona celeste limpia (estética de afiche con tarjeta pero fluida) */
 body[data-header="poster-fluid"] .header-motto-row {
-  margin-top: 4px !important;
-  padding: 8px 14px !important;
-  background: linear-gradient(90deg, rgba(14, 58, 92, 0.94) 0%, rgba(24, 92, 136, 0.88) 65%, rgba(24, 92, 136, 0.35) 100%) !important;
-  border-left: 4px solid #38bdf8 !important;
-  border-radius: 6px !important;
-  box-shadow: 0 4px 16px rgba(14, 58, 92, 0.22) !important;
-  display: inline-block !important;
+  position: relative !important;
+  z-index: 2 !important;
+  margin-top: 10px !important;
+  padding: 7px 14px !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(6px) !important;
+  border-left: 3.5px solid #16537e !important;
+  border-radius: 8px !important;
+  box-shadow: 0 3px 12px rgba(18, 77, 121, 0.08) !important;
+  display: block !important;
+  text-align: left !important;
   width: auto !important;
   max-width: 100% !important;
 }
 
 body[data-header="poster-fluid"] .header-motto-text {
-  font-size: 12px !important;
+  font-size: 12.5px !important;
   font-style: italic !important;
-  color: #e0f2fe !important;
+  font-weight: 700 !important;
+  color: #124d79 !important;
   letter-spacing: .02em !important;
 }
 
 body[data-header="poster-fluid"] .header-motto-text strong {
-  font-weight: 800 !important;
-  color: #67e8f9 !important;
   font-style: normal !important;
-  letter-spacing: .05em !important;
+  font-weight: 900 !important;
+  color: #0c3b60 !important;
+  letter-spacing: .03em !important;
 }
 
-/* Soporte para Midnight con Afiche Fluido */
+/* Compatibilidad con Midnight si el usuario alterna paleta */
 body[data-theme="midnight"][data-header="poster-fluid"] {
   background: linear-gradient(180deg, #071526 0%, #0c2038 300px, #071322 100%) !important;
 }
@@ -400,7 +410,6 @@ body[data-theme="midnight"][data-header="poster-fluid"] .header-dates-badge {
   background: rgba(14, 38, 64, 0.8) !important;
   border-color: rgba(56, 189, 248, 0.3) !important;
   color: #7dd3fc !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
 }
 
 body[data-theme="midnight"][data-header="poster-fluid"] .asym-title-light {
@@ -409,21 +418,23 @@ body[data-theme="midnight"][data-header="poster-fluid"] .asym-title-light {
 
 body[data-theme="midnight"][data-header="poster-fluid"] .asym-title-bold {
   color: #ffffff !important;
-  text-shadow: 0 2px 12px rgba(56, 189, 248, 0.25) !important;
 }
 
 body[data-theme="midnight"][data-header="poster-fluid"] .asym-venue {
   color: #94a3b8 !important;
 }
 
-body[data-theme="midnight"][data-header="poster-fluid"] .asym-venue svg {
-  color: #38bdf8 !important;
+body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-row {
+  background: rgba(15, 38, 64, 0.85) !important;
+  border-left-color: #38bdf8 !important;
 }
 
-body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-row {
-  background: linear-gradient(90deg, rgba(8, 26, 44, 0.95) 0%, rgba(15, 45, 75, 0.85) 70%, rgba(15, 45, 75, 0.2) 100%) !important;
-  border-left-color: #38bdf8 !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45) !important;
+body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-text {
+  color: #bae6fd !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-text strong {
+  color: #ffffff !important;
 }
 
 /* 2.1 CABECERA: [data-header="poster-laplata"] -> ESTILO AFICHE CON TRAMA URBANA */
