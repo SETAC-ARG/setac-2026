@@ -51,7 +51,7 @@ git add .
 git commit -m "feat: Hub inicial LittleLink X Congreso SETAC 2026"
 
 # 4. Vincular a tu repositorio de GitHub (reemplaza con tu usuario y repo)
-git remote add origin https://github.com/TU-USUARIO/setac-2026.git
+git remote add origin https://github.com/SETAC-ARG/setac-2026.git
 
 # 5. Subir los cambios
 git push -u origin main
@@ -65,7 +65,7 @@ git push -u origin main
    - Selecciona la carpeta `/ (root)`.
    - Haz clic en **Save**.
 4. En 1 o 2 minutos, GitHub te dará la URL pública oficial, con la forma:  
-   `https://TU-USUARIO.github.io/setac-2026/`
+   `https://setac-arg.github.io/setac-2026/`
 
 ---
 
