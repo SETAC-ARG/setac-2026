@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Laboratorio de Variantes Estéticas | X Congreso SETAC 2026</title>
-  <meta name="description" content="Laboratorio interactivo para comparar variantes visuales del portal del X Congreso SETAC Argentina 2026.">
+  <meta name="description" content="Laboratorio interactivo para comparar variantes visuales y botones versátiles del X Congreso SETAC Argentina 2026.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/brands.css">
   <link rel="stylesheet" href="css/setac-theme.css?v=11">
-  <link rel="stylesheet" href="css/variantes.css?v=1">
+  <link rel="stylesheet" href="css/variantes.css?v=2">
 </head>
-<body data-theme="celeste">
+<body data-theme="midnight-fluid">
 
   <!-- ========================================================
        BARRA FLOTANTE DE CONTROL INTERACTIVO (SWITCHER)
@@ -26,26 +26,33 @@
       <div class="preview-bar-top">
         <span class="preview-badge-label">
           <span class="dot"></span>
-          Laboratorio de Estilos
+          Estilo Visual:
         </span>
         <div class="preview-theme-switcher" role="group" aria-label="Selector de Tema">
-          <button class="preview-theme-btn active" data-set-theme="celeste">☀️ Celeste</button>
-          <button class="preview-theme-btn" data-set-theme="midnight">🌙 Midnight</button>
+          <button class="preview-theme-btn" data-set-theme="celeste">☀️ Celeste Tarjeta</button>
+          <button class="preview-theme-btn" data-set-theme="celeste-fluid">💧 Celeste Fluido</button>
+          <button class="preview-theme-btn" data-set-theme="midnight">🌙 Midnight Tarjeta</button>
+          <button class="preview-theme-btn active" data-set-theme="midnight-fluid">🌌 Midnight Fluido</button>
           <button class="preview-theme-btn" data-set-theme="poster">📐 Facetado</button>
         </div>
       </div>
       <div class="preview-bar-bottom">
-        <span>Probá cómo se ve cada propuesta en tu celular:</span>
-        <button id="toggleHeroBtn" class="preview-toggle-btn" title="Simular botón de actividad en vivo">
-          ⭐ Probar Botón Destacado
-        </button>
+        <span>📅 Simular Actividad Destacada del Día:</span>
+        <div class="preview-day-selector" role="group" aria-label="Selector de Día">
+          <button class="preview-day-btn active" data-day="dia2">Mié 28 (Plenaria/Asamblea)</button>
+          <button class="preview-day-btn" data-day="dia1">Mar 27 (Cursos)</button>
+          <button class="preview-day-btn" data-day="dia3">Jue 29 (Votación)</button>
+          <button class="preview-day-btn" data-day="dia4">Vie 30 (Cierre)</button>
+          <button class="preview-day-btn" data-day="form">Formulario</button>
+          <button class="preview-day-btn" data-day="none">Ocultar</button>
+        </div>
       </div>
     </div>
   </aside>
 
   <div class="hub-container">
 
-    <!-- CABECERA ASIMÉTRICA OFICIAL (Calibrada con escala 1.6x entre logos) -->
+    <!-- CABECERA PRINCIPAL (Calibrada con escala 1.6x entre logos) -->
     <header class="asym-header">
       <div class="header-card">
         <div class="header-main-row">
@@ -112,20 +119,22 @@
       </button>
     </section>
 
+    <!-- RANURA PARA ACTIVIDAD DESTACADA DEL DÍA (DINÁMICA Y VERSÁTIL) -->
+    <div id="dailyFeaturedSlot" class="daily-featured-wrapper"></div>
+
     <!-- NAVEGACIÓN Y ACCESOS PRINCIPALES -->
     <main>
 
-      <!-- BOTÓN PRINCIPAL DESTACADO (Puede mutar a Botón Héroe en vivo con el toggle) -->
-      <a id="mainScheduleBtn" class="btn-congress btn-primary-highlight" href="programa.html">
+      <!-- BOTÓN PRINCIPAL: CRONOGRAMA Y BUSCADOR INTERACTIVO -->
+      <a class="btn-congress btn-primary-highlight" href="programa.html">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
           <div class="btn-text-group">
-            <div id="heroBadgeContainer"></div>
-            <span id="mainScheduleTitle" class="btn-title">🔍 BUSCADOR Y CRONOGRAMA INTERACTIVO</span>
-            <span id="mainScheduleDesc" class="btn-desc">Filtrar por día (27 al 30), sala, autor o título en vivo</span>
+            <span class="btn-title">🔍 BUSCADOR Y CRONOGRAMA COMPLETO</span>
+            <span class="btn-desc">Filtrar por día (27 al 30), sala, autor o título en vivo</span>
           </div>
         </div>
         <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -293,9 +302,9 @@
   <!-- SCRIPT DEL LABORATORIO DE VARIANTES -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Manejo del conmutador de temas
+      // 1. Manejo del conmutador de temas (5 opciones)
       const themeButtons = document.querySelectorAll('[data-set-theme]');
-      const savedTheme = localStorage.getItem('setac_preview_theme') || 'celeste';
+      const savedTheme = localStorage.getItem('setac_preview_theme') || 'midnight-fluid';
       
       function setTheme(themeName) {
         document.body.setAttribute('data-theme', themeName);
@@ -307,48 +316,109 @@
 
       themeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-          const theme = btn.getAttribute('data-set-theme');
-          setTheme(theme);
+          setTheme(btn.getAttribute('data-set-theme'));
         });
       });
 
       // Inicializar tema activo
       setTheme(savedTheme);
 
-      // 2. Manejo del botón de demostración de Actividad Destacada / En Vivo
-      const toggleHeroBtn = document.getElementById('toggleHeroBtn');
-      const mainScheduleBtn = document.getElementById('mainScheduleBtn');
-      const heroBadgeContainer = document.getElementById('heroBadgeContainer');
-      const mainScheduleTitle = document.getElementById('mainScheduleTitle');
-      const mainScheduleDesc = document.getElementById('mainScheduleDesc');
-      let isHeroActive = false;
-
-      toggleHeroBtn.addEventListener('click', () => {
-        isHeroActive = !isHeroActive;
-        toggleHeroBtn.classList.toggle('active', isHeroActive);
-
-        if (isHeroActive) {
-          toggleHeroBtn.innerHTML = '🔴 Modo Destacado: ACTIVO';
-          mainScheduleBtn.classList.add('btn-hero-highlight');
-          heroBadgeContainer.innerHTML = `
-            <div class="btn-hero-badge-row">
-              <span class="live-beacon-pill">
-                <span class="live-beacon-dot"></span>
-                EN VIVO AHORA
-              </span>
-              <span class="featured-beacon-pill">Auditorio Central</span>
-            </div>
-          `;
-          mainScheduleTitle.textContent = '🌟 CONFERENCIA PLENARIA DE APERTURA';
-          mainScheduleDesc.textContent = 'Dra. María Laura Gómez • "Una Salud y Ecotoxicología en el Cono Sur"';
-        } else {
-          toggleHeroBtn.innerHTML = '⭐ Probar Botón Destacado';
-          mainScheduleBtn.classList.remove('btn-hero-highlight');
-          heroBadgeContainer.innerHTML = '';
-          mainScheduleTitle.textContent = '🔍 BUSCADOR Y CRONOGRAMA INTERACTIVO';
-          mainScheduleDesc.textContent = 'Filtrar por día (27 al 30), sala, autor o título en vivo';
+      // 2. Base de datos para la simulación de actividades destacadas
+      const agendaData = {
+        'dia1': {
+          tag: 'MARTES 27 • CURSOS PRECONGRESO',
+          tagClass: 'featured-pill-tag',
+          room: 'Desde las 08:30 hs • Hall Central',
+          title: 'Acreditaciones & Inicio de Cursos de Posgrado',
+          desc: 'Microplásticos, qPCR, Zebrafish y Ecotoxicología en aves',
+          href: 'programa.html#dia1',
+          iconSvg: '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>'
+        },
+        'dia2': {
+          tag: 'MIÉRCOLES 28 • ACTIVIDAD CENTRAL',
+          tagClass: 'featured-pill-tag accent-red',
+          room: '14:30 hs • Auditorio Central Karakachoff',
+          title: '🌟 Conferencia Plenaria de Apertura & Asamblea de Socios',
+          desc: 'Dra. María Laura Gómez / 17:30 hs Asamblea Ordinaria SETAC',
+          href: 'programa.html#dia2',
+          iconSvg: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>'
+        },
+        'dia3': {
+          tag: 'JUEVES 29 • SESIÓN DE POSTERS Y PREMIOS',
+          tagClass: 'featured-pill-tag',
+          room: '15:00 a 17:00 hs • 2do Subsuelo',
+          title: '🏆 Sesión de Posters y Votación de Premios SETAC',
+          desc: 'Emitir tu voto para las mejores presentaciones de estudiantes',
+          href: 'programa.html#dia3',
+          iconSvg: '<circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>'
+        },
+        'dia4': {
+          tag: 'VIERNES 30 • CLAUSURA DEL CONGRESO',
+          tagClass: 'featured-pill-tag accent-red',
+          room: '18:00 hs • Auditorio Central',
+          title: '🎉 Acto de Cierre, Premiación y Brindis de Despedida',
+          desc: 'Entrega de distinciones, anuncios 2028 y festejo final',
+          href: 'programa.html#dia4',
+          iconSvg: '<path d="M18 6L6 18M6 6l12 12"></path>'
+        },
+        'form': {
+          tag: 'FORMULARIO ESPECIAL • OPINIÓN Y EVALUACIÓN',
+          tagClass: 'featured-pill-tag',
+          room: 'Online • 3 minutos',
+          title: '📋 Encuesta de Evaluación y Feedback del Congreso',
+          desc: 'Tu opinión nos ayuda a seguir mejorando para próximas ediciones',
+          href: 'https://docs.google.com/forms',
+          iconSvg: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>'
         }
+      };
+
+      const dailySlot = document.getElementById('dailyFeaturedSlot');
+      const dayButtons = document.querySelectorAll('[data-day]');
+
+      function renderFeaturedDay(dayKey) {
+        dayButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-day') === dayKey);
+        });
+
+        if (dayKey === 'none' || !agendaData[dayKey]) {
+          dailySlot.innerHTML = '';
+          return;
+        }
+
+        const item = agendaData[dayKey];
+        dailySlot.innerHTML = `
+          <a class="btn-congress btn-daily-featured" href="${item.href}">
+            <div class="btn-content-left">
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                ${item.iconSvg}
+              </svg>
+              <div class="btn-text-group">
+                <div class="featured-tag-row">
+                  <span class="${item.tagClass}">
+                    <span class="live-beacon-dot"></span>
+                    ${item.tag}
+                  </span>
+                  <span class="featured-room-tag">${item.room}</span>
+                </div>
+                <span class="btn-title">${item.title}</span>
+                <span class="btn-desc">${item.desc}</span>
+              </div>
+            </div>
+            <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        `;
+      }
+
+      dayButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          renderFeaturedDay(btn.getAttribute('data-day'));
+        });
       });
+
+      // Render inicial (Día 2 activo como ejemplo fuerte)
+      renderFeaturedDay('dia2');
 
       // 3. Copiado de WiFi
       const copyBtn = document.getElementById('copyWifiBtn');
