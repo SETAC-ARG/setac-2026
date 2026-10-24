@@ -41,12 +41,15 @@
 }
 
 body {
-  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background: 
+    radial-gradient(circle at 50% 120px, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 65%),
+    url('../images/watermark_bg.png') no-repeat top 25px center / 320px auto,
+    linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
   background-attachment: fixed;
   color: var(--text-main);
   min-height: 100vh;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 18px 15px 50px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -56,69 +59,100 @@ body {
 }
 
 /* ==========================================
-   HEADER Y LOGOTIPOS
+   HEADER COMPACTO Y LOGOTIPOS EN PRIMER PLANO (OPCIÓN 1)
    ========================================== */
 .hub-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+  padding-top: 4px;
+}
+
+.header-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.header-logo-mini {
+  height: 38px;
+  width: auto;
+  max-width: 65px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(27, 113, 168, 0.15));
 }
 
 .avatar-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 16px;
-}
-
-.avatar {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  border-radius: 18px;
-  background-color: #ffffff;
-  padding: 10px 16px;
-  box-shadow: 0 4px 18px rgba(18, 81, 122, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  display: block;
+  display: none;
 }
 
 .congress-badge {
   display: inline-block;
-  padding: 5px 14px;
-  background-color: #e0f0fc;
+  padding: 4px 14px;
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(4px);
   color: #12517a;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: .06em;
   text-transform: uppercase;
   border-radius: 20px;
-  margin-bottom: 8px;
-  border: 1px solid #b5daf5;
+  border: 1px solid #b8daf2;
+  box-shadow: 0 1px 4px rgba(27, 113, 168, 0.08);
 }
 
 .congress-title {
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 800;
   color: #0f4c81;
-  margin: 4px 0 6px;
-  line-height: 1.25;
+  margin: 2px 0 4px;
+  line-height: 1.2;
 }
 
 .congress-subtitle {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #27557e;
-  margin: 0 0 6px;
+  margin: 0 0 4px;
 }
 
 .congress-venue {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: #35628a;
+  color: #3f698e;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
+}
+
+/* Footer institucional con logos */
+.footer-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  border: 1px solid rgba(184, 218, 242, 0.6);
+}
+
+.footer-logo {
+  height: 42px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(27, 113, 168, 0.12));
+  opacity: 0.92;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 .congress-venue svg {
