@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/brands.css">
-  <link rel="stylesheet" href="css/setac-theme.css?v=11">
-  <link rel="stylesheet" href="css/variantes.css?v=3">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261024_fluid">
+  <link rel="stylesheet" href="css/variantes.css?v=20261024_fluid">
 </head>
 <body data-theme="celeste" data-header="poster-fluid">
 
@@ -336,15 +336,15 @@
       const themeButtons = document.querySelectorAll('[data-set-theme]');
       const headerButtons = document.querySelectorAll('[data-set-header]');
 
-      let currentTheme = localStorage.getItem('setac_preview_theme') || 'celeste';
-      let currentHeader = localStorage.getItem('setac_preview_header') || 'poster-fluid';
+      let currentTheme = localStorage.getItem('setac_preview_theme_v3') || 'celeste';
+      let currentHeader = localStorage.getItem('setac_preview_header_v3') || 'poster-fluid';
 
       function applyState() {
         document.body.setAttribute('data-theme', currentTheme);
         document.body.setAttribute('data-header', currentHeader);
 
-        localStorage.setItem('setac_preview_theme', currentTheme);
-        localStorage.setItem('setac_preview_header', currentHeader);
+        localStorage.setItem('setac_preview_theme_v3', currentTheme);
+        localStorage.setItem('setac_preview_header_v3', currentHeader);
 
         themeButtons.forEach(btn => {
           btn.classList.toggle('active', btn.getAttribute('data-set-theme') === currentTheme);
