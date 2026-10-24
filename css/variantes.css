@@ -920,3 +920,68 @@ body[data-theme="poster"][data-header="card"] .header-card {
   50% { transform: scale(1.4); opacity: 0.5; }
   100% { transform: scale(0.9); opacity: 1; }
 }
+
+
+/* ==========================================================================
+   4. CAPA DE MARCA DE AGUA FIJA AL HACER SCROLL (data-watermark)
+   ========================================================================== */
+.preview-watermark-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+/* 4.1 Dual Centrada Fija (Logos a escala 1.63x) */
+body[data-watermark="dual"] .preview-watermark-layer {
+  display: block;
+  background-image: url('../images/watermark_dual_16x.png');
+  background-repeat: no-repeat;
+  background-position: center 58%;
+  background-size: min(85vw, 420px) auto;
+  opacity: 0.16;
+}
+
+/* 4.2 Hexágono Gigante Asimétrico */
+body[data-watermark="hex"] .preview-watermark-layer {
+  display: block;
+  background-image: url('../images/watermark_hex_clean.png');
+  background-repeat: no-repeat;
+  background-position: right -35px center;
+  background-size: min(80vw, 380px) auto;
+  opacity: 0.14;
+}
+
+/* 4.3 Círculo Argentina Fijo */
+body[data-watermark="circle"] .preview-watermark-layer {
+  display: block;
+  background-image: url('../images/watermark_arg_clean.png');
+  background-repeat: no-repeat;
+  background-position: center 62%;
+  background-size: min(70vw, 320px) auto;
+  opacity: 0.15;
+}
+
+/* 4.4 Sin Marca de Agua */
+body[data-watermark="none"] .preview-watermark-layer {
+  display: none;
+}
+
+/* Soporte para Midnight si se cambia de paleta */
+body[data-theme="midnight"][data-watermark="dual"] .preview-watermark-layer {
+  opacity: 0.08;
+  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
+}
+body[data-theme="midnight"][data-watermark="hex"] .preview-watermark-layer {
+  opacity: 0.07;
+  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
+}
+body[data-theme="midnight"][data-watermark="circle"] .preview-watermark-layer {
+  opacity: 0.08;
+  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
+}

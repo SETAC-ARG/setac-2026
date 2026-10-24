@@ -13,10 +13,13 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/brands.css">
-  <link rel="stylesheet" href="css/setac-theme.css?v=20261024_unclipped">
-  <link rel="stylesheet" href="css/variantes.css?v=20261024_unclipped">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261024_watermark">
+  <link rel="stylesheet" href="css/variantes.css?v=20261024_watermark">
 </head>
-<body data-theme="celeste" data-header="poster-fluid">
+<body data-theme="celeste" data-header="banner-faded" data-watermark="dual">
+
+  <!-- Capa de Marca de Agua Fija en el fondo durante el scroll -->
+  <div class="preview-watermark-layer" aria-hidden="true"></div>
 
   <!-- ========================================================
        BARRA FLOTANTE DE CONTROL INTERACTIVO (SWITCHER MODULAR)
@@ -44,13 +47,27 @@
           ✨ Cabecera:
         </span>
         <div class="control-button-group" role="group" aria-label="Selector de Cabecera">
-          <button class="ctrl-btn active" data-set-header="poster-fluid">🌊 Afiche Fluido (Foto limpia & Logos blancos)</button>
-          <button class="ctrl-btn" data-set-header="banner-faded">🖼️ Banner Real Difuminado</button>
+          <button class="ctrl-btn active" data-set-header="banner-faded">🖼️ Banner Real Difuminado</button>
+          <button class="ctrl-btn" data-set-header="poster-fluid">🌊 Afiche Fluido (Foto limpia & Logos)</button>
           <button class="ctrl-btn" data-set-header="banner-graphic">🎴 Banner con Tarjeta</button>
           <button class="ctrl-btn" data-set-header="poster-laplata">🏛️ Afiche con Tarjeta</button>
           <button class="ctrl-btn" data-set-header="minimal">✨ Pura Tipografía</button>
           <button class="ctrl-btn" data-set-header="lateral">↔️ Logos al Costado</button>
         </div>
+
+      <!-- Fila 3: Marca de Agua Fija en el Fondo -->
+      <div class="control-row">
+        <span class="control-label">
+          <span class="dot"></span>
+          💧 Marca Fija:
+        </span>
+        <div class="control-button-group" role="group" aria-label="Selector de Marca de Agua">
+          <button class="ctrl-btn active" data-set-watermark="dual">🛡️ Dual Centrada</button>
+          <button class="ctrl-btn" data-set-watermark="hex">🔷 Hexágono Gigante</button>
+          <button class="ctrl-btn" data-set-watermark="circle">⚪ Círculo Argentina</button>
+          <button class="ctrl-btn" data-set-watermark="none">🚫 Sin Marca</button>
+        </div>
+      </div>
       </div>
 
       <!-- Fila 3: Simulador de Actividades Diarias -->
@@ -337,19 +354,23 @@
   <!-- SCRIPT DEL LABORATORIO MODULAR -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Manejo modular de Paleta y Cabecera
+      // 1. Manejo modular de Paleta, Cabecera y Marca de Agua Fija
       const themeButtons = document.querySelectorAll('[data-set-theme]');
       const headerButtons = document.querySelectorAll('[data-set-header]');
+      const watermarkButtons = document.querySelectorAll('[data-set-watermark]');
 
-      let currentTheme = localStorage.getItem('setac_preview_theme_v3') || 'celeste';
-      let currentHeader = localStorage.getItem('setac_preview_header_v3') || 'poster-fluid';
+      let currentTheme = localStorage.getItem('setac_preview_theme_v4') || 'celeste';
+      let currentHeader = localStorage.getItem('setac_preview_header_v4') || 'banner-faded';
+      let currentWatermark = localStorage.getItem('setac_preview_watermark_v4') || 'dual';
 
       function applyState() {
         document.body.setAttribute('data-theme', currentTheme);
         document.body.setAttribute('data-header', currentHeader);
+        document.body.setAttribute('data-watermark', currentWatermark);
 
-        localStorage.setItem('setac_preview_theme_v3', currentTheme);
-        localStorage.setItem('setac_preview_header_v3', currentHeader);
+        localStorage.setItem('setac_preview_theme_v4', currentTheme);
+        localStorage.setItem('setac_preview_header_v4', currentHeader);
+        localStorage.setItem('setac_preview_watermark_v4', currentWatermark);
 
         themeButtons.forEach(btn => {
           btn.classList.toggle('active', btn.getAttribute('data-set-theme') === currentTheme);
@@ -357,6 +378,10 @@
 
         headerButtons.forEach(btn => {
           btn.classList.toggle('active', btn.getAttribute('data-set-header') === currentHeader);
+        });
+
+        watermarkButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-set-watermark') === currentWatermark);
         });
       }
 
@@ -370,6 +395,13 @@
       headerButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           currentHeader = btn.getAttribute('data-set-header');
+          applyState();
+        });
+      });
+
+      watermarkButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentWatermark = btn.getAttribute('data-set-watermark');
           applyState();
         });
       });
