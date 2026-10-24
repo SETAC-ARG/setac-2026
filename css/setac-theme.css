@@ -59,38 +59,45 @@ body {
 }
 
 /* ==========================================
-   HEADER COMPACTO Y LOGOTIPOS EN PRIMER PLANO (OPCIÓN 1)
+   HEADER Y JERARQUÍA VISUAL (CONGRESO DESTACADO Y LOGOS REALZADOS)
    ========================================== */
 .hub-header {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   padding-top: 4px;
 }
 
 .header-top-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
 }
 
 .header-logo-mini {
-  height: 38px;
+  height: 48px;
   width: auto;
-  max-width: 65px;
+  max-width: 95px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(27, 113, 168, 0.15));
+  filter: drop-shadow(0 2px 5px rgba(27, 113, 168, 0.16));
+  transition: transform 0.2s ease;
+}
+
+.header-logo-mini:hover {
+  transform: scale(1.04);
 }
 
 .avatar-wrapper {
   display: none;
 }
 
-.congress-badge {
-  display: inline-block;
-  padding: 4px 14px;
-  background-color: rgba(255, 255, 255, 0.88);
+.header-edition-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(4px);
   color: #12517a;
   font-size: 11px;
@@ -99,22 +106,40 @@ body {
   text-transform: uppercase;
   border-radius: 20px;
   border: 1px solid #b8daf2;
-  box-shadow: 0 1px 4px rgba(27, 113, 168, 0.08);
+  box-shadow: 0 2px 6px rgba(27, 113, 168, 0.08);
+  white-space: nowrap;
+}
+
+.pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #0284c7;
 }
 
 .congress-title {
-  font-size: 21px;
+  font-size: 26px;
   font-weight: 800;
   color: #0f4c81;
-  margin: 2px 0 4px;
-  line-height: 1.2;
+  margin: 6px 0 4px;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
 }
 
-.congress-subtitle {
-  font-size: 13px;
-  font-weight: 700;
+.congress-motto {
+  font-size: 14.5px;
+  font-style: italic;
+  font-weight: 600;
   color: #27557e;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+
+.congress-dates {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #12517a;
+  margin: 0 0 6px;
 }
 
 .congress-venue {
@@ -125,6 +150,29 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5px;
+}
+
+.congress-venue svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--color-primary);
+}
+
+@media (max-width: 420px) {
+  .header-logo-mini {
+    height: 40px;
+    max-width: 78px;
+  }
+  .congress-title {
+    font-size: 22px;
+  }
+  .congress-motto {
+    font-size: 13px;
+  }
+  .header-edition-pill {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
 }
 
 /* Footer institucional con logos */
