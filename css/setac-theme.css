@@ -85,20 +85,24 @@ body {
   border-right: 1px solid rgba(184, 218, 242, 0.7);
 }
 
+/* Proporción fiel al afiche oficial (Hexágono SETAC ~1.62x respecto al Círculo ARG) */
 .asym-logo-hex {
-  height: 54px;
+  height: 68px;
   width: auto;
-  max-width: 60px;
+  max-width: 75px;
   object-fit: contain;
   filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16));
+  flex-shrink: 0;
 }
 
 .asym-logo-circle {
-  height: 52px;
+  height: 42px;
   width: auto;
-  max-width: 58px;
+  max-width: 48px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16));
+  filter: drop-shadow(0 2px 4px rgba(18, 77, 121, 0.14));
+  flex-shrink: 0;
+  margin-top: 4px; /* Acompaña el eje del afiche */
 }
 
 /* Columna de títulos a la derecha */
@@ -597,12 +601,21 @@ body {
 }
 
 .footer-logo {
-  height: 42px;
   width: auto;
-  max-width: 80px;
   object-fit: contain;
   opacity: 0.92;
   transition: transform .2s ease;
+}
+
+.footer-logo-hex {
+  height: 46px;
+  max-width: 55px;
+}
+
+.footer-logo-circle {
+  height: 29px;
+  max-width: 36px;
+  margin-top: 3px;
 }
 
 .footer-logo:hover {
@@ -687,13 +700,13 @@ body {
   }
   
   .asym-logo-hex {
-    height: 46px;
-    max-width: 52px;
+    height: 58px;
+    max-width: 65px;
   }
   
   .asym-logo-circle {
-    height: 44px;
-    max-width: 50px;
+    height: 36px;
+    max-width: 42px;
   }
   
   .asym-title-light {
