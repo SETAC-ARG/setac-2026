@@ -224,19 +224,19 @@ body[data-header="poster-fluid"] .asym-header {
   background-color: transparent !important;
 }
 
-/* 1. Foto de La Plata en color natural sobre el sector superior derecho, con corte inferior a 180px */
+/* 1. Foto de La Plata con color natural, facetas triangulares en esquinas superior e inferior derecha y corte */
 body[data-header="poster-fluid"] .asym-header::before {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
-  width: 65%;
-  max-width: 380px;
-  height: 180px; /* Corte preciso de la foto por debajo */
-  background-image: url('../images/laplata_natural_faded_sky.png');
+  width: 58%;
+  max-width: 310px;
+  height: 205px; /* Corte preciso por debajo antes del lema */
+  background-image: url('../images/laplata_natural_faded_sky.png?v=facets');
   background-repeat: no-repeat;
   background-position: top right;
-  background-size: cover;
+  background-size: contain;
   pointer-events: none;
   z-index: 0;
 }
@@ -290,14 +290,16 @@ body[data-header="poster-fluid"] .header-logos-col {
 }
 
 body[data-header="poster-fluid"] .asym-logo-hex {
-  height: 64px !important;
-  max-width: 72px !important;
+  height: 65px !important;
+  width: auto !important;
+  max-width: 55px !important;
   filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.2)) !important;
 }
 
 body[data-header="poster-fluid"] .asym-logo-circle {
-  height: 39px !important;
-  max-width: 48px !important;
+  height: 40px !important;
+  width: auto !important;
+  max-width: 35px !important;
   filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.2)) !important;
 }
 
@@ -585,6 +587,41 @@ body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-row {
 }
 body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-text { color: #bae6fd !important; }
 body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-text strong { color: #ffffff !important; }
+
+/* ==========================================================================
+   2.1.B CABECERA: [data-header="banner-faded"] -> BANNER REAL DIFUMINADO CON EL FONDO
+   ========================================================================== */
+.header-banner-faded {
+  display: none;
+}
+
+body[data-header="banner-faded"] .header-card,
+body[data-header="banner-faded"] .header-banner-graphic {
+  display: none !important;
+}
+
+body[data-header="banner-faded"] .header-banner-faded {
+  display: block !important;
+  margin-top: 4px !important;
+  margin-bottom: 20px !important;
+  position: relative !important;
+  text-align: center !important;
+}
+
+body[data-header="banner-faded"] .banner-faded-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 18px rgba(18, 77, 121, 0.14));
+}
+
+body[data-theme="celeste"][data-header="banner-faded"],
+body:not([data-theme])[data-header="banner-faded"] {
+  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 240px, #d8eaf7 480px, #edf5fa 100%) !important;
+  background-attachment: fixed !important;
+}
 
 /* 2.2 CABECERA: [data-header="banner-graphic"] -> BANNER GRÁFICO REAL */
 .header-banner-graphic {
