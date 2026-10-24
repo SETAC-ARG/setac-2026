@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/brands.css">
   <link rel="stylesheet" href="css/setac-theme.css?v=20261024_leadblue">
 </head>
-<body>
+<body data-sponsors-style="con-cajitas">
 
   <!-- Capa de Marca de Agua Fija en el fondo durante el scroll (Hexágono Gigante) -->
   <div class="fixed-watermark-layer" aria-hidden="true"></div>
@@ -259,6 +259,13 @@
       <!-- BLOQUE DE AVALES Y PATROCINIOS (Estructura oficial del documento Word) -->
       <section class="sponsors-container" aria-label="Avales Institucionales y Patrocinadores">
 
+        <!-- Conmutador rápido de alternativas visuales (para probar en vivo) -->
+        <div class="sponsors-style-switcher" role="toolbar" aria-label="Alternativas de diseño">
+          <button class="sponsors-switch-btn active" data-style="con-cajitas" title="Tarjetas con borde y fondo">📦 Con Cajitas</button>
+          <button class="sponsors-switch-btn" data-style="sin-cajitas" title="Logos flotantes limpios sin marco">✨ Sin Cajitas</button>
+          <button class="sponsors-switch-btn" data-style="panel-glass" title="Panel de vidrio esmerilado">🪟 Panel Vidrio</button>
+        </div>
+
         <!-- 1. AVALES INSTITUCIONALES -->
         <div class="sponsors-group">
           <div class="sponsors-header">
@@ -266,22 +273,22 @@
             <span class="sponsors-badge">🏛️ AVALES INSTITUCIONALES</span>
             <div class="sponsors-line"></div>
           </div>
-          <!-- Fila 1: Sponsor 1 y 2 -->
-          <div class="sponsors-row sponsors-row-2">
-            <div class="sponsor-box box-w-87">
-              <img src="images/sponsors/sponsor_1.png" alt="Aval Institucional" class="sponsor-logo" loading="lazy">
+          <!-- Fila 1: Sponsor 1 (UNLP 30.8mm) y Sponsor 2 (64.0mm) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-aval-1">
+              <img src="images/sponsors/sponsor_1.png" alt="Aval Institucional" class="sponsor-logo logo-aval-1" loading="lazy">
             </div>
-            <div class="sponsor-box box-w-181">
-              <img src="images/sponsors/sponsor_2.png" alt="Aval Institucional" class="sponsor-logo" loading="lazy">
+            <div class="sponsor-box box-aval-2">
+              <img src="images/sponsors/sponsor_2.png" alt="Aval Institucional" class="sponsor-logo logo-aval-2" loading="lazy">
             </div>
           </div>
-          <!-- Fila 2: Sponsor 3 y 4 -->
-          <div class="sponsors-row sponsors-row-2">
-            <div class="sponsor-box box-w-162">
-              <img src="images/sponsors/sponsor_3.png" alt="Aval Institucional" class="sponsor-logo" loading="lazy">
+          <!-- Fila 2: Sponsor 3 (57.1mm) y Sponsor 4 (26.2mm) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-aval-3">
+              <img src="images/sponsors/sponsor_3.png" alt="Aval Institucional" class="sponsor-logo logo-aval-3" loading="lazy">
             </div>
-            <div class="sponsor-box box-w-74">
-              <img src="images/sponsors/sponsor_4.png" alt="Aval Institucional" class="sponsor-logo" loading="lazy">
+            <div class="sponsor-box box-aval-4">
+              <img src="images/sponsors/sponsor_4.png" alt="Aval Institucional" class="sponsor-logo logo-aval-4" loading="lazy">
             </div>
           </div>
         </div>
@@ -293,31 +300,31 @@
             <span class="sponsors-badge">⭐ PATROCINANTES</span>
             <div class="sponsors-line"></div>
           </div>
-          <!-- Nivel Principal / Hero -->
-          <div class="sponsors-row sponsors-row-center">
-            <div class="sponsor-box box-w-283">
-              <img src="images/sponsors/sponsor_5.png" alt="Patrocinante Principal" class="sponsor-logo" loading="lazy">
+          <!-- Nivel Principal / Hero: Bayer (100.0 mm x 41.4 mm) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-pat-hero">
+              <img src="images/sponsors/sponsor_5.png" alt="Patrocinante Principal - Bayer" class="sponsor-logo logo-pat-hero" loading="lazy">
             </div>
           </div>
-          <!-- Nivel Medio: Sponsor 6 y 7 -->
-          <div class="sponsors-row sponsors-row-2">
-            <div class="sponsor-box box-w-212">
-              <img src="images/sponsors/sponsor_6.png" alt="Patrocinante" class="sponsor-logo" loading="lazy">
+          <!-- Nivel Medio: Tier 2 (75.0 mm cada uno) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-pat-t2a">
+              <img src="images/sponsors/sponsor_6.png" alt="Patrocinante" class="sponsor-logo logo-pat-t2a" loading="lazy">
             </div>
-            <div class="sponsor-box box-w-212">
-              <img src="images/sponsors/sponsor_7.png" alt="Patrocinante" class="sponsor-logo" loading="lazy">
+            <div class="sponsor-box box-pat-t2b">
+              <img src="images/sponsors/sponsor_7.png" alt="Patrocinante" class="sponsor-logo logo-pat-t2b" loading="lazy">
             </div>
           </div>
-          <!-- Nivel Estándar: Sponsor 8, 9 y 10 -->
-          <div class="sponsors-row sponsors-row-3">
-            <div class="sponsor-box box-w-142">
-              <img src="images/sponsors/sponsor_8.png" alt="Patrocinante" class="sponsor-logo" loading="lazy">
+          <!-- Nivel Estándar: Tier 3 (50.0 mm cada uno: 8, Induser y Silvarum) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-pat-t3a">
+              <img src="images/sponsors/sponsor_8.png" alt="Patrocinante" class="sponsor-logo logo-pat-t3a" loading="lazy">
             </div>
-            <div class="sponsor-box box-w-142">
-              <img src="images/sponsors/sponsor_9.png" alt="Patrocinante" class="sponsor-logo" loading="lazy">
+            <div class="sponsor-box box-pat-induser">
+              <img src="images/sponsors/sponsor_9.png" alt="Patrocinante Induser" class="sponsor-logo logo-pat-induser" loading="lazy">
             </div>
-            <div class="sponsor-box box-w-142">
-              <img src="images/sponsors/sponsor_10.png" alt="Patrocinante" class="sponsor-logo" loading="lazy">
+            <div class="sponsor-box box-pat-silvarum">
+              <img src="images/sponsors/sponsor_10.png" alt="Patrocinante Silvarum" class="sponsor-logo logo-pat-silvarum" loading="lazy">
             </div>
           </div>
         </div>
@@ -329,16 +336,16 @@
             <span class="sponsors-badge">🤝 AUSPICIANTES</span>
             <div class="sponsors-line"></div>
           </div>
-          <!-- Fila Auspiciantes: Sponsor 11, 12 y 13 -->
-          <div class="sponsors-row sponsors-row-3">
-            <div class="sponsor-box box-w-131">
-              <img src="images/sponsors/sponsor_11.png" alt="Auspiciante" class="sponsor-logo" loading="lazy">
+          <!-- Fila Auspiciantes: Sponsor 11 (46.1mm), CEMAS (47.9mm), Sponsor 13 (37mm) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-ausp-1">
+              <img src="images/sponsors/sponsor_11.png" alt="Auspiciante" class="sponsor-logo logo-ausp-1" loading="lazy">
             </div>
-            <div class="sponsor-box box-w-136">
-              <img src="images/sponsors/sponsor_12.png" alt="Auspiciante" class="sponsor-logo" loading="lazy">
+            <div class="sponsor-box box-ausp-cemas">
+              <img src="images/sponsors/sponsor_12.png" alt="Auspiciante CEMAS" class="sponsor-logo logo-ausp-cemas" loading="lazy">
             </div>
-            <div class="sponsor-box box-w-105">
-              <img src="images/sponsors/sponsor_13.png" alt="Auspiciante" class="sponsor-logo" loading="lazy">
+            <div class="sponsor-box box-ausp-3">
+              <img src="images/sponsors/sponsor_13.png" alt="Auspiciante" class="sponsor-logo logo-ausp-3" loading="lazy">
             </div>
           </div>
         </div>
@@ -352,5 +359,29 @@
 
   <!-- Script interactivo -->
   <script src="js/app.js"></script>
+
+  <script>
+
+    // Conmutador interactivo de estilos de sponsors (para comparar en vivo en celular y PC)
+    document.querySelectorAll('.sponsors-switch-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const style = btn.getAttribute('data-style');
+        document.body.setAttribute('data-sponsors-style', style);
+        document.querySelectorAll('.sponsors-switch-btn').forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-style') === style);
+        });
+        localStorage.setItem('setac_sponsors_style_pref', style);
+      });
+    });
+    // Cargar preferencia previa si existe
+    const savedSponsorsStyle = localStorage.getItem('setac_sponsors_style_pref');
+    if (savedSponsorsStyle) {
+      document.body.setAttribute('data-sponsors-style', savedSponsorsStyle);
+      document.querySelectorAll('.sponsors-switch-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-style') === savedSponsorsStyle);
+      });
+    }
+
+  </script>
 </body>
 </html>
