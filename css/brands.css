@@ -1,0 +1,43 @@
+/* Base Button & Link Styling for LittleLink */
+.button,button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:48px;
+  padding:0 22px;
+  color:#1e293b;
+  text-align:center;
+  font-size:15px;
+  font-weight:600;
+  line-height:48px;
+  letter-spacing:.01em;
+  text-transform:none;
+  text-decoration:none;
+  white-space:nowrap;
+  background-color:#ffffff;
+  border-radius:12px;
+  border:1px solid #e2e8f0;
+  cursor:pointer;
+  box-sizing:border-box;
+  transition:all .2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:0 2px 4px rgba(0,0,0,0.04);
+}
+
+.button:hover,button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(15,76,129,0.12);
+  text-decoration:none;
+}
+
+.button:active,button:active{
+  transform:translateY(0);
+}
+
+.button .icon,button .icon{
+  width:20px;
+  height:20px;
+  margin-right:12px;
+  display:inline-block;
+  vertical-align:middle;
+  flex-shrink:0;
+}

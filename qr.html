@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Generador de Código QR | X Congreso SETAC 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/setac-theme.css">
+  <!-- QRCode.js de alta fidelidad vía CDN con fallback offline -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    .qr-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      margin-top: 20px;
+      text-align: center;
+    }
+    .qr-input-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .qr-input-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .qr-input-group input {
+      width: 100%;
+      height: 44px;
+      padding: 0 14px;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--text-main);
+      background-color: #ffffff;
+      box-sizing: border-box;
+    }
+    @media (prefers-color-scheme: dark) {
+      .qr-input-group input {
+        background-color: #0f172a;
+        color: #f8fafc;
+      }
+    }
+    #qrcode-box {
+      display: inline-block;
+      padding: 16px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 2px solid var(--card-border);
+      margin: 16px auto;
+      box-shadow: var(--shadow-sm);
+    }
+    #qrcode-box img, #qrcode-box canvas {
+      display: block;
+      margin: 0 auto;
+    }
+    .qr-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-action {
+      height: 44px;
+      line-height: 44px;
+      padding: 0 20px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      border: none;
+      transition: all .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-action-primary {
+      background-color: var(--color-primary);
+      color: #ffffff;
+    }
+    .btn-action-primary:hover {
+      background-color: var(--color-primary-hover);
+      transform: translateY(-2px);
+    }
+    .btn-action-secondary {
+      background-color: var(--card-border);
+      color: var(--text-main);
+    }
+    .banner-tips {
+      margin-top: 24px;
+      text-align: left;
+      font-size: 13px;
+      color: var(--text-muted);
+      background-color: rgba(2, 132, 199, 0.08);
+      border-left: 4px solid var(--color-accent);
+      padding: 12px 16px;
+      border-radius: 8px;
+    }
+    .banner-tips h5 {
+      font-size: 14px;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .banner-tips ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hub-container">
+    <header class="hub-header">
+      <div class="avatar-wrapper">
+        <img class="avatar" src="images/avatar.png" alt="Logotipo SETAC">
+      </div>
+      <span class="congress-badge">Utilidad de Impresión</span>
+      <h1 class="congress-title">Generador de QR para Banners</h1>
+      <p class="congress-subtitle">Generá el código QR estático oficial en alta resolución</p>
+    </header>
+
+    <div class="qr-card">
+      <div class="qr-input-group">
+        <label for="urlInput">URL del LittleLink en GitHub Pages:</label>
+        <input type="url" id="urlInput" value="https://setacargentina.github.io/congreso-2026/" placeholder="https://tu-usuario.github.io/tu-repo/">
+      </div>
+
+      <div id="qrcode-box"></div>
+
+      <div class="qr-actions">
+        <button id="downloadPngBtn" class="btn-action btn-action-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Descargar PNG (Alta Resolución)
+        </button>
+        <a href="index.html" class="btn-action btn-action-secondary" style="text-decoration:none;">
+          &larr; Volver al Hub
+        </a>
+      </div>
+
+      <div class="banner-tips">
+        <h5>💡 Recomendaciones para Banners y Cartelería:</h5>
+        <ul>
+          <li><strong>Tamaño mínimo recomendado:</strong> 12 x 12 cm en roll-ups y banners de pie para facilitar el escaneo a 1.5 - 2 metros de distancia.</li>
+          <li><strong>Zona de resguardo:</strong> Dejar un margen blanco de al menos 1 cm alrededor del QR para evitar problemas de contraste con el fondo del diseño.</li>
+          <li><strong>Permanencia:</strong> Como la URL de GitHub Pages es estática, puedes imprimir el banner hoy y cambiar el contenido de los botones en cualquier momento sin alterar el código impreso.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let qrInstance = null;
+
+    function renderQR() {
+      const url = document.getElementById('urlInput').value.trim() || window.location.href;
+      const box = document.getElementById('qrcode-box');
+      box.innerHTML = '';
+
+      if (typeof QRCode !== 'undefined') {
+        qrInstance = new QRCode(box, {
+          text: url,
+          width: 256,
+          height: 256,
+          colorDark: "#0f4c81",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      } else {
+        box.innerHTML = '<p style="color:#ef4444;font-size:13px;">Se requiere conexión a Internet para cargar la librería de QR, o copia un archivo local qrcode.min.js.</p>';
+      }
+    }
+
+    document.getElementById('urlInput').addEventListener('input', () => {
+      renderQR();
+    });
+
+    document.getElementById('downloadPngBtn').addEventListener('click', () => {
+      const img = document.querySelector('#qrcode-box img');
+      const canvas = document.querySelector('#qrcode-box canvas');
+      let dataUrl = null;
+
+      if (canvas) {
+        // Generar un canvas de alta resolución (1200x1200px)
+        const hiResCanvas = document.createElement('canvas');
+        hiResCanvas.width = 1200;
+        hiResCanvas.height = 1200;
+        const ctx = hiResCanvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, 1200, 1200);
+        ctx.drawImage(canvas, 100, 100, 1000, 1000);
+        dataUrl = hiResCanvas.toDataURL('image/png');
+      } else if (img) {
+        dataUrl = img.src;
+      }
+
+      if (dataUrl) {
+        const link = document.createElement('a');
+        link.download = 'QR_X_Congreso_SETAC_2026.png';
+        link.href = dataUrl;
+        link.click();
+      }
+    });
+
+    // Iniciar con la URL actual si está desplegado
+    window.addEventListener('load', () => {
+      if (window.location.protocol.startsWith('http')) {
+        document.getElementById('urlInput').value = window.location.href.replace('qr.html', '');
+      }
+      renderQR();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>X Congreso SETAC Argentina 2026 | Portal de Enlaces</title>
+  <meta name="description" content="Acceso directo al programa, libro de resúmenes, preguntas en vivo, votación y datos del X Congreso SETAC Argentina.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Open Graph / Meta Compartir -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="X Congreso SETAC Argentina 2026">
+  <meta property="og:description" content="Portal oficial de enlaces y servicios para los asistentes al congreso.">
+  <meta property="og:image" content="images/avatar.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/brands.css">
+  <link rel="stylesheet" href="css/setac-theme.css">
+</head>
+<body>
+
+  <div class="hub-container">
+
+    <!-- CABECERA PRINCIPAL -->
+    <header class="hub-header">
+      <div class="avatar-wrapper">
+        <img class="avatar" src="images/avatar.png" alt="Logotipo X Congreso SETAC Argentina 2026">
+      </div>
+      <span class="congress-badge">X Congreso SETAC Argentina</span>
+      <h1 class="congress-title">Ciencia y Tecnología Ambiental</h1>
+      <p class="congress-subtitle">27 al 30 de octubre de 2026</p>
+      <div class="congress-venue">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span>Centro de Convenciones Karakachoff (UNLP), La Plata</span>
+      </div>
+    </header>
+
+    <!-- BANNER DE ALERTA / AVISO EN VIVO (Configurable según el día) -->
+    <aside id="liveAlert" class="live-alert-card" role="alert">
+      <svg class="live-alert-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+      <div class="live-alert-content">
+        <h4>Aviso Importante</h4>
+        <p>Acreditaciones habilitadas a partir de las 08:30 hs en el Hall Central (2do Subsuelo).</p>
+      </div>
+    </aside>
+
+    <!-- TARJETA CONEXIÓN WIFI -->
+    <section class="wifi-card" aria-label="Información de Red WiFi">
+      <div class="wifi-info">
+        <div class="wifi-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+            <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+            <line x1="12" y1="20" x2="12.01" y2="20"></line>
+          </svg>
+        </div>
+        <div class="wifi-details">
+          <p class="wifi-label">Red WiFi del Evento</p>
+          <p class="wifi-ssid">UNLP_Congresos</p>
+        </div>
+      </div>
+      <button id="copyWifiBtn" class="wifi-copy-btn" data-wifi-password="SETAC2026" title="Copiar contraseña de WiFi">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        Copiar Clave
+      </button>
+    </section>
+
+    <!-- NAVEGACIÓN POR PESTAÑAS (TABS) -->
+    <nav class="tabs-nav" aria-label="Navegación por secciones">
+      <button class="tab-btn active" data-tab="general">General</button>
+      <button class="tab-btn" data-tab="dia1">Día 1 (27)</button>
+      <button class="tab-btn" data-tab="dia2">Día 2 (28)</button>
+      <button class="tab-btn" data-tab="dia3">Día 3 (29)</button>
+      <button class="tab-btn" data-tab="dia4">Día 4 (30)</button>
+      <button class="tab-btn" data-tab="formularios">Formularios</button>
+    </nav>
+
+    <!-- PANELES DE CONTENIDO -->
+    <main>
+
+      <!-- PESTAÑA 1: GENERAL (Todo el evento) -->
+      <section id="general" class="tab-pane active" aria-label="Contenido general">
+        
+        <!-- Programa Completo -->
+        <a class="btn-congress btn-primary-highlight" href="#programa-pdf" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Programa del Congreso</span>
+              <span class="btn-desc">Cronograma completo de sesiones, conferencias y horarios</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Libro de Resúmenes -->
+        <a class="btn-congress" href="#libro-resumenes-drive" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Libro de Resúmenes</span>
+              <span class="btn-desc">PDF con todos los trabajos y posters aceptados</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Sitio Oficial del Congreso -->
+        <a class="btn-congress" href="https://setacargentina.setac.org/congreso2026" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Sitio Web Oficial SETAC 2026</span>
+              <span class="btn-desc">Institucional, comités y novedades</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Cómo Llegar / Google Maps -->
+        <a class="btn-congress" href="https://maps.google.com/?q=Centro+de+Convenciones+Karakachoff+UNLP+La+Plata" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+              <line x1="8" y1="2" x2="8" y2="18"></line>
+              <line x1="16" y1="6" x2="16" y2="22"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Cómo Llegar a la Sede</span>
+              <span class="btn-desc">Ubicación en Google Maps del Centro Karakachoff</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Plano del Edificio y Aulas -->
+        <a class="btn-congress" href="#plano-aulas" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Plano de Salas y Stands</span>
+              <span class="btn-desc">Distribución del 2do Subsuelo y aulas</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Contacto Secretaría -->
+        <a class="btn-congress" href="mailto:setaclaplata2026@gmail.com">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Secretaría del Congreso</span>
+              <span class="btn-desc">setaclaplata2026@gmail.com</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+      </section>
+
+      <!-- PESTAÑA 2: DÍA 1 (Martes 27 Oct) -->
+      <section id="dia1" class="tab-pane" aria-label="Contenido Día 1">
+        
+        <a class="btn-congress btn-primary-highlight" href="#cronograma-dia-1" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Cronograma de Hoy: Día 1</span>
+              <span class="btn-desc">Acreditaciones, Acto de apertura y Sesiones de la tarde</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <a class="btn-congress btn-accent-highlight" href="#preguntas-disertantes-form" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Preguntas a Disertantes</span>
+              <span class="btn-desc">Enviar preguntas en vivo para las sesiones plenarias</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <a class="btn-congress" href="#posters-dia-1" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Sesión de Posters 1</span>
+              <span class="btn-desc">Listado de paneles y autores del Día 1</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+      </section>
+
+      <!-- PESTAÑA 3: DÍA 2 (Miércoles 28 Oct) -->
+      <section id="dia2" class="tab-pane" aria-label="Contenido Día 2">
+        
+        <a class="btn-congress btn-primary-highlight" href="#cronograma-dia-2" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Cronograma de Hoy: Día 2</span>
+              <span class="btn-desc">Mesas redondas, sesiones orales y plenarias</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <a class="btn-congress btn-accent-highlight" href="#preguntas-disertantes-form" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Preguntas a Disertantes</span>
+              <span class="btn-desc">Formulario en vivo para moderación</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <a class="btn-congress" href="#posters-dia-2" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Sesión de Posters 2</span>
+              <span class="btn-desc">Listado de paneles y stands del Día 2</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+      </section>
+
+      <!-- PESTAÑA 4: DÍA 3 (Jueves 29 Oct) -->
+      <section id="dia3" class="tab-pane" aria-label="Contenido Día 3">
+        
+        <a class="btn-congress btn-primary-highlight" href="#cronograma-dia-3" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Cronograma de Hoy: Día 3</span>
+              <span class="btn-desc">Sesiones temáticas, simposios y actividades</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Votación de Premios -->
+        <a class="btn-congress btn-accent-highlight" href="#votacion-premios-form" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"></path>
+              <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"></path>
+              <path d="M4 22h16"></path>
+              <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34c3.45-.69 6-3.7 6-7.32V3H4v6.34c0 3.62 2.55 6.63 6 7.32z"></path>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Votación de Premios a Trabajos</span>
+              <span class="btn-desc">Elegí tu poster y presentación favorita</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <a class="btn-congress" href="#preguntas-disertantes-form" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Preguntas a Disertantes</span>
+              <span class="btn-desc">Envío en vivo para moderadores</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+      </section>
+
+      <!-- PESTAÑA 5: DÍA 4 (Viernes 30 Oct) -->
+      <section id="dia4" class="tab-pane" aria-label="Contenido Día 4">
+        
+        <a class="btn-congress btn-primary-highlight" href="#cronograma-dia-4" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Cronograma de Hoy: Día 4</span>
+              <span class="btn-desc">Últimas sesiones, entrega de premios y acto de clausura</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Encuesta y Certificados -->
+        <a class="btn-congress btn-accent-highlight" href="#encuesta-certificados-form" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Encuesta y Certificado</span>
+              <span class="btn-desc">Evaluación del congreso y emisión de certificados</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+      </section>
+
+      <!-- PESTAÑA 6: TODOS LOS FORMULARIOS -->
+      <section id="formularios" class="tab-pane" aria-label="Todos los formularios">
+        
+        <a class="btn-congress" href="#preguntas-disertantes-form" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Preguntas a Disertantes</span>
+              <span class="btn-desc">Google Form activo durante las conferencias</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <a class="btn-congress" href="#votacion-premios-form" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"></path>
+              <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"></path>
+              <path d="M4 22h16"></path>
+              <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34c3.45-.69 6-3.7 6-7.32V3H4v6.34c0 3.62 2.55 6.63 6 7.32z"></path>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Votación de Premios del Congreso</span>
+              <span class="btn-desc">Votación del mejor poster y trabajo científico</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <a class="btn-congress" href="#encuesta-certificados-form" target="_blank" rel="noopener">
+          <div class="btn-content-left">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <div class="btn-text-group">
+              <span class="btn-title">Encuesta de Satisfacción y Certificados</span>
+              <span class="btn-desc">Completar para recibir el certificado por correo</span>
+            </div>
+          </div>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER / REDES SOCIALES -->
+    <footer class="hub-footer">
+      <div class="social-links">
+        <a class="social-link" href="https://instagram.com/setacarg" target="_blank" rel="noopener" aria-label="Instagram @setacarg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a class="social-link" href="https://setacargentina.setac.org" target="_blank" rel="noopener" aria-label="Sitio web SETAC Argentina">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </a>
+        <a class="social-link" href="mailto:setaclaplata2026@gmail.com" aria-label="Correo de contacto">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 SETAC Argentina &bull; Sede La Plata</p>
+      <div>
+        <a class="footer-qr-link" href="qr.html" title="Generar código QR para imprimir">
+          Descargar Código QR para Banners &rarr;
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Script interactivo -->
+  <script src="js/app.js"></script>
+</body>
+</html>
