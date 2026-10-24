@@ -32,17 +32,51 @@
 
 body {
   position: relative;
-  background: 
-    radial-gradient(circle at 50% 100px, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%),
-    url('../images/watermark_bg.png') no-repeat top 30px center / 340px auto,
-    linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-  background-attachment: fixed;
+  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 240px, #d8eaf7 480px, #edf5fa 100%) !important;
+  background-attachment: fixed !important;
   color: var(--text-main);
   min-height: 100vh;
   margin: 0;
-  padding: 18px 14px 60px;
+  padding: 14px 14px 60px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   MARCA DE AGUA FIJA DURANTE EL SCROLL (HEXÁGONO GIGANTE OFICIAL)
+   ========================================================================== */
+.fixed-watermark-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('../images/watermark_hex_clean.png');
+  background-repeat: no-repeat;
+  background-position: right -35px center;
+  background-size: min(80vw, 380px) auto;
+  opacity: 0.14;
+}
+
+/* ==========================================================================
+   CABECERA OFICIAL: BANNER REAL DIFUMINADO
+   ========================================================================== */
+.header-banner-faded {
+  margin-top: 4px;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.banner-faded-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 18px rgba(18, 77, 121, 0.14));
 }
 
 .hub-container {
