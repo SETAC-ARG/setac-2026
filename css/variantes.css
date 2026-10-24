@@ -1064,3 +1064,41 @@ body[data-theme="midnight"][data-watermark="circle"] .preview-watermark-layer {
     display: none;
   }
 }
+
+
+/* Chip para copiar correo dentro del botón de Secretaría */
+.btn-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-copy-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-copy-chip:hover {
+  background: rgba(255, 255, 255, 0.38);
+  border-color: #ffffff;
+  transform: scale(1.04);
+}
+
+.btn-copy-chip.copied {
+  background: #059669 !important;
+  border-color: #34d399 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
+}
