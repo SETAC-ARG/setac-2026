@@ -2,7 +2,7 @@
    SETAC ARGENTINA 2026 - LABORATORIO MODULAR DE VARIANTES ESTÉTICAS
    Sistema modular combinable:
    1. [data-theme="midnight" | "celeste" | "poster"]
-   2. [data-header="minimal" | "lateral" | "card"]
+   2. [data-header="poster-laplata" | "banner-graphic" | "minimal" | "lateral" | "card"]
    ========================================================================== */
 
 /* BARRA FLOTANTE DE CONTROL EN PREVIEW */
@@ -201,7 +201,184 @@ body[data-theme="poster"] {
    2. MODULADOR DE CABECERA (DISPOSICIÓN)
    ========================================================================== */
 
-/* 2.1 CABECERA: [data-header="minimal"] -> PURA TIPOGRAFÍA (SIN LOGOS CHICOS) */
+/* 2.1 CABECERA: [data-header="poster-laplata"] -> ESTILO AFICHE CON TRAMA URBANA */
+body[data-header="poster-laplata"] .header-card {
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: #d6e8f7 !important;
+  background-image: 
+    linear-gradient(135deg, rgba(27, 113, 168, 0.22) 0%, rgba(27, 113, 168, 0) 40%),
+    url('../images/laplata_grid_faded_sky.png') !important;
+  background-position: center left, right top !important;
+  background-repeat: no-repeat !important;
+  background-size: auto, auto 100% !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 25px rgba(18, 77, 121, 0.14) !important;
+  padding: 16px 18px 14px !important;
+  text-align: left !important;
+}
+
+/* Faceta angular decorativa inferior izquierda */
+body[data-header="poster-laplata"] .header-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 85px;
+  height: 60px;
+  background: linear-gradient(135deg, #3d7ca5 0%, #5697c1 100%);
+  clip-path: polygon(0 40%, 100% 100%, 0 100%);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-header="poster-laplata"] .header-main-row {
+  position: relative;
+  z-index: 1;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+}
+
+body[data-header="poster-laplata"] .header-logos-col {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border-right: none !important;
+  padding-right: 0 !important;
+  margin-bottom: 2px !important;
+}
+
+body[data-header="poster-laplata"] .asym-logo-hex {
+  height: 62px !important;
+  max-width: 68px !important;
+  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16)) !important;
+}
+
+body[data-header="poster-laplata"] .asym-logo-circle {
+  height: 38px !important;
+  max-width: 46px !important;
+  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16)) !important;
+}
+
+body[data-header="poster-laplata"] .header-titles-col {
+  text-align: left !important;
+}
+
+body[data-header="poster-laplata"] .header-dates-badge {
+  display: inline-block !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  background: #ffffff !important;
+  color: #124d79 !important;
+  border: 1px solid #b8daf2 !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  margin-bottom: 4px !important;
+}
+
+body[data-header="poster-laplata"] .asym-title-light {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #16537e !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.1 !important;
+  display: block !important;
+}
+
+body[data-header="poster-laplata"] .asym-title-bold {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #0c3b60 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  margin: 1px 0 4px !important;
+  display: block !important;
+}
+
+body[data-header="poster-laplata"] .asym-venue {
+  justify-content: flex-start !important;
+  color: #27557e !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+}
+
+body[data-header="poster-laplata"] .header-motto-row {
+  position: relative;
+  z-index: 1;
+  border-top: none !important;
+  margin-top: 8px !important;
+  padding: 6px 12px !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(4px) !important;
+  border-radius: 8px !important;
+  text-align: left !important;
+  border-left: 3px solid #16537e !important;
+}
+
+body[data-header="poster-laplata"] .header-motto-text {
+  color: #124d79 !important;
+  font-size: 12.5px !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+}
+
+body[data-header="poster-laplata"] .header-motto-text strong {
+  font-style: normal !important;
+  font-weight: 900 !important;
+  color: #0c3b60 !important;
+}
+
+/* En caso de que se use en Midnight (Midnight La Plata Grid) */
+body[data-theme="midnight"][data-header="poster-laplata"] .header-card {
+  background-color: #0b1f36 !important;
+  background-image: 
+    linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(14, 165, 233, 0) 35%),
+    url('../images/laplata_grid_faded_midnight.png') !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+body[data-theme="midnight"][data-header="poster-laplata"] .asym-title-light { color: #93c5fd !important; }
+body[data-theme="midnight"][data-header="poster-laplata"] .asym-title-bold { color: #ffffff !important; }
+body[data-theme="midnight"][data-header="poster-laplata"] .asym-venue { color: #94a3b8 !important; }
+body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-row {
+  background: rgba(15, 38, 64, 0.75) !important;
+  border-left-color: #38bdf8 !important;
+}
+body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-text { color: #bae6fd !important; }
+body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-text strong { color: #ffffff !important; }
+
+/* 2.2 CABECERA: [data-header="banner-graphic"] -> BANNER GRÁFICO REAL */
+.header-banner-graphic {
+  display: none;
+}
+
+body[data-header="banner-graphic"] .header-card {
+  display: none !important;
+}
+
+body[data-header="banner-graphic"] .header-banner-graphic {
+  display: block !important;
+  margin-bottom: 16px !important;
+}
+
+.banner-img-container {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(18, 77, 121, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  background: #d6e8f7;
+}
+
+.banner-img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 2.3 CABECERA: [data-header="minimal"] -> PURA TIPOGRAFÍA (SIN LOGOS CHICOS) */
 body[data-header="minimal"] .header-logos-col {
   display: none !important;
 }
@@ -257,14 +434,9 @@ body[data-header="minimal"] .asym-title-light {
   display: block !important;
 }
 
-body[data-theme="midnight"][data-header="minimal"] .asym-title-light {
-  color: #94a3b8 !important;
-}
-
+body[data-theme="midnight"][data-header="minimal"] .asym-title-light { color: #94a3b8 !important; }
 body[data-theme="celeste"][data-header="minimal"] .asym-title-light,
-body[data-theme="poster"][data-header="minimal"] .asym-title-light {
-  color: #1b689e !important;
-}
+body[data-theme="poster"][data-header="minimal"] .asym-title-light { color: #1b689e !important; }
 
 body[data-header="minimal"] .asym-title-bold {
   font-size: 28px !important;
@@ -281,9 +453,7 @@ body[data-theme="midnight"][data-header="minimal"] .asym-title-bold {
 }
 
 body[data-theme="celeste"][data-header="minimal"] .asym-title-bold,
-body[data-theme="poster"][data-header="minimal"] .asym-title-bold {
-  color: #0b3557 !important;
-}
+body[data-theme="poster"][data-header="minimal"] .asym-title-bold { color: #0b3557 !important; }
 
 body[data-header="minimal"] .asym-venue {
   justify-content: center !important;
@@ -322,7 +492,7 @@ body[data-theme="poster"][data-header="minimal"] .header-motto-text {
   box-shadow: 0 1px 4px rgba(18, 77, 121, 0.06) !important;
 }
 
-/* 2.2 CABECERA: [data-header="lateral"] -> LOGOS AL COSTADO FLUIDOS (SIN CAJA) */
+/* 2.4 CABECERA: [data-header="lateral"] -> LOGOS AL COSTADO FLUIDOS (SIN CAJA) */
 body[data-header="lateral"] .header-card {
   background: transparent !important;
   border: none !important;
@@ -374,11 +544,10 @@ body[data-header="lateral"] .header-motto-row {
 body[data-theme="midnight"][data-header="lateral"] .header-motto-row {
   border-top-color: rgba(148, 197, 240, 0.2) !important;
 }
-
 body[data-theme="midnight"][data-header="lateral"] .header-motto-text { color: #93c5fd; }
 body[data-theme="midnight"][data-header="lateral"] .header-motto-text strong { color: #ffffff; }
 
-/* 2.3 CABECERA: [data-header="card"] -> EN TARJETA VIDRIO / CAJA */
+/* 2.5 CABECERA: [data-header="card"] -> EN TARJETA VIDRIO / CAJA */
 body[data-header="card"] .header-card {
   border-radius: 20px;
   padding: 16px 18px 14px;

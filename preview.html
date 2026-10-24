@@ -44,6 +44,8 @@
           ✨ Cabecera:
         </span>
         <div class="control-button-group" role="group" aria-label="Selector de Cabecera">
+          <button class="ctrl-btn" data-set-header="poster-laplata">🏛️ Afiche La Plata (Trama Ciudad)</button>
+          <button class="ctrl-btn" data-set-header="banner-graphic">🖼️ Banner Gráfico Real</button>
           <button class="ctrl-btn active" data-set-header="minimal">✨ Pura Tipografía (Sin logos chicos)</button>
           <button class="ctrl-btn" data-set-header="lateral">↔️ Logos al Costado (Fluido)</button>
           <button class="ctrl-btn" data-set-header="card">🎴 Con Tarjeta (Caja)</button>
@@ -71,8 +73,16 @@
 
   <div class="hub-container">
 
-    <!-- CABECERA PRINCIPAL (Reactiva a data-header: minimal / lateral / card) -->
+    <!-- CABECERA PRINCIPAL (Reactiva a data-header: poster-laplata / banner-graphic / minimal / lateral / card) -->
     <header class="asym-header">
+      <!-- Variante B: Banner gráfico real recortado en alta definición del afiche oficial -->
+      <div class="header-banner-graphic">
+        <div class="banner-img-container">
+          <img src="images/banner_afiche_laplata.png" alt="X Congreso SETAC Argentina 2026 - La Plata" class="banner-afiche-img">
+        </div>
+      </div>
+
+      <!-- Variante A: Cabecera HTML con trama urbana de La Plata, logos calibrados y tipografía oficial -->
       <div class="header-card">
         <div class="header-main-row">
           <div class="header-logos-col">
