@@ -350,8 +350,9 @@ body {
   min-height: 56px;
   padding: 8px 16px 8px 10px;
   margin-bottom: 12px;
-  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
-  border: 1px solid rgba(160, 206, 240, 0.35);
+  background: linear-gradient(180deg, #5381a1 0%, #416e8d 100%);
+  border: 1px solid rgba(220, 240, 255, 0.55);
+  box-shadow: 0 4px 14px rgba(45, 80, 105, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   border-radius: 9999px; /* CÁPSULA COMPLETA */
   color: #ffffff !important;
   text-decoration: none;
@@ -364,8 +365,9 @@ body {
 
 .btn-congress:hover {
   transform: translateY(-2px);
-  background: linear-gradient(180deg, #1c5587 0%, #13426b 100%);
-  border-color: rgba(160, 206, 240, 0.6);
+  background: linear-gradient(180deg, #5e8db0 0%, #4a7797 100%);
+  border-color: rgba(220, 240, 255, 0.85);
+  box-shadow: 0 8px 22px rgba(45, 80, 105, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
   box-shadow: 0 8px 22px rgba(10, 42, 70, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
