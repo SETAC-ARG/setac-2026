@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Cronograma y Buscador de Trabajos | X Congreso SETAC 2026</title>
+  <meta name="description" content="Cronograma completo, sesiones orales, conferencias y buscador de pósters del X Congreso SETAC Argentina.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Estilos base y tema -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/setac-theme.css?v=3">
+
+  <style>
+    /* Estilos específicos para el buscador y listado del programa */
+    .program-header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .btn-back-hub {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #1b71a8;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 12px;
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #b8daf2;
+      box-shadow: 0 2px 6px rgba(27, 113, 168, 0.08);
+      transition: all .2s ease;
+    }
+    .btn-back-hub:hover {
+      background: #eaf4fb;
+      color: #0f4c81;
+    }
+
+    /* Buscador fijo y sticky */
+    .search-panel {
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid #b8daf2;
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 16px rgba(27, 113, 168, 0.12);
+    }
+    .search-input-wrapper {
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .search-input-wrapper svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      stroke: #3d6385;
+    }
+    .search-input {
+      width: 100%;
+      height: 42px;
+      padding: 0 14px 0 38px;
+      border-radius: 10px;
+      border: 1px solid #b8daf2;
+      font-size: 14px;
+      color: #0c2b48;
+      background: #f7fbff;
+      box-sizing: border-box;
+      outline: none;
+      transition: all .2s ease;
+    }
+    .search-input:focus {
+      border-color: #1b71a8;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(27, 113, 168, 0.15);
+    }
+
+    /* Filtros por Salas */
+    .filter-scroll {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .filter-scroll::-webkit-scrollbar { display: none; }
+    
+    .filter-chip {
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 14px;
+      border: 1px solid #b8daf2;
+      background: #ffffff;
+      color: #35628a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .15s ease;
+    }
+    .filter-chip.active {
+      background: #1b71a8;
+      color: #ffffff;
+      border-color: #1b71a8;
+    }
+
+    /* Contador */
+    .results-count {
+      font-size: 12px;
+      font-weight: 700;
+      color: #3d6385;
+      margin: 8px 4px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Tarjetas de Trabajos */
+    .cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .item-card {
+      background: #ffffff;
+      border: 1px solid #b8daf2;
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 2px 8px rgba(27, 113, 168, 0.08);
+      transition: all .2s ease;
+    }
+    .item-card:hover {
+      box-shadow: 0 5px 16px rgba(27, 113, 168, 0.14);
+      border-color: #1b71a8;
+    }
+    .item-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .item-badges {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-time {
+      font-size: 11px;
+      font-weight: 800;
+      background: #eaf4fb;
+      color: #12517a;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .badge-room {
+      font-size: 11px;
+      font-weight: 700;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .badge-modality {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .mod-oral { background: #dbeafe; color: #1e40af; }
+    .mod-poster { background: #ccfbf1; color: #0f766e; }
+    .mod-curso { background: #fef3c7; color: #92400e; }
+    .mod-mesa { background: #f3e8ff; color: #6b21a8; }
+    .mod-conf { background: #e0e7ff; color: #3730a3; }
+
+    .item-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0c2b48;
+      line-height: 1.35;
+      margin: 0 0 8px;
+    }
+    .item-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f0f7fd;
+      padding-top: 8px;
+      font-size: 12px;
+    }
+    .item-presenter {
+      font-weight: 700;
+      color: #1b71a8;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .item-session {
+      font-size: 11px;
+      color: #517a9e;
+      font-weight: 600;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #517a9e;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px dashed #b8daf2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hub-container">
+
+    <!-- Navegación y Volver -->
+    <div class="program-header-nav">
+      <a href="index.html" class="btn-back-hub">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Volver al Hub
+      </a>
+      <span class="congress-badge">Programa Oficial</span>
+    </div>
+
+    <header class="hub-header" style="margin-bottom: 14px;">
+      <h1 class="congress-title" style="font-size: 22px;">Buscador y Cronograma</h1>
+      <p class="congress-subtitle">Consultá presentaciones orales, pósters y cursos en vivo</p>
+    </header>
+
+    <!-- Selector de Días -->
+    <nav class="tabs-nav" id="dayTabs">
+      <button class="tab-btn active" data-dia="todos">Todos</button>
+      <button class="tab-btn" data-dia="Martes">Día 1 (27)</button>
+      <button class="tab-btn" data-dia="Miércoles">Día 2 (28)</button>
+      <button class="tab-btn" data-dia="Jueves">Día 3 (29)</button>
+      <button class="tab-btn" data-dia="Viernes">Día 4 (30)</button>
+    </nav>
+
+    <!-- Panel de Búsqueda y Filtros de Sala -->
+    <div class="search-panel">
+      <div class="search-input-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" class="search-input" placeholder="Buscar autor, título, sesión...">
+      </div>
+
+      <div class="filter-scroll" id="roomFilters">
+        <button class="filter-chip active" data-room="todas">Todas las Salas</button>
+        <button class="filter-chip" data-room="Auditorio 1">Auditorio 1</button>
+        <button class="filter-chip" data-room="Auditorio 2">Auditorio 2</button>
+        <button class="filter-chip" data-room="Auditorio 3">Auditorio 3</button>
+        <button class="filter-chip" data-room="Auditorio 4">Auditorio 4</button>
+        <button class="filter-chip" data-room="Foyer">Foyer (Pósters)</button>
+      </div>
+    </div>
+
+    <!-- Contador de Resultados -->
+    <div class="results-count">
+      <span id="counterText">Cargando presentaciones...</span>
+      <span id="activeFilterBadge" style="color:#1b71a8;"></span>
+    </div>
+
+    <!-- Listado de Presentaciones -->
+    <main id="cardsContainer" class="cards-list"></main>
+
+  </div>
+
+  <!-- Carga de datos integrada -->
+  <script src="js/programa_data.js"></script>
+  
+  <script>
+    // Lógica del buscador interactivo
+    let currentDia = 'todos';
+    let currentRoom = 'todas';
+    let searchQuery = '';
+
+    const cardsContainer = document.getElementById('cardsContainer');
+    const searchInput = document.getElementById('searchInput');
+    const counterText = document.getElementById('counterText');
+
+    function getModalityClass(mod) {
+      if (mod === 'ORAL') return 'mod-oral';
+      if (mod === 'POSTER') return 'mod-poster';
+      if (mod === 'CURSO') return 'mod-curso';
+      if (mod.includes('MESA')) return 'mod-mesa';
+      if (mod.includes('CONFERENCIA')) return 'mod-conf';
+      return 'mod-oral';
+    }
+
+    function renderItems() {
+      if (!window.CONGRESO_PROGRAMA) {
+        cardsContainer.innerHTML = '<div class="empty-state">No se cargaron datos del programa.</div>';
+        return;
+      }
+
+      const query = searchQuery.toLowerCase().trim();
+
+      const filtered = window.CONGRESO_PROGRAMA.filter(item => {
+        // Filtro por día
+        if (currentDia !== 'todos' && item.dia !== currentDia) {
+          return false;
+        }
+
+        // Filtro por sala
+        if (currentRoom !== 'todas') {
+          if (currentRoom === 'Foyer') {
+            if (item.auditorio !== 'Foyer' && item.modalidad !== 'POSTER') return false;
+          } else {
+            if (item.auditorio !== currentRoom) return false;
+          }
+        }
+
+        // Filtro de texto
+        if (query) {
+          const matchTitle = (item.titulo || '').toLowerCase().includes(query);
+          const matchPresenter = (item.presentador || '').toLowerCase().includes(query);
+          const matchSession = (item.id_sesion || '').toLowerCase().includes(query);
+          const matchMod = (item.modalidad || '').toLowerCase().includes(query);
+          const matchIdLibro = (item.codigo_libro || item.id_resumen_libro || '').toLowerCase().includes(query) || (item.id_postulacion || '').toLowerCase().includes(query);
+          if (!matchTitle && !matchPresenter && !matchSession && !matchMod && !matchIdLibro) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      counterText.textContent = `Mostrando ${filtered.length} presentaciones`;
+
+      if (filtered.length === 0) {
+        cardsContainer.innerHTML = `
+          <div class="empty-state">
+            <p style="font-weight:700;margin-bottom:4px;">No se encontraron resultados</p>
+            <p style="font-size:12px;margin:0;">Probá cambiando el término de búsqueda o seleccionando "Todos los días".</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Renderizar tarjetas
+      const html = filtered.map(item => {
+        const modClass = getModalityClass(item.modalidad);
+        const presenterHtml = item.presentador ? `
+          <span class="item-presenter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            ${item.presentador}
+          </span>
+        ` : '<span></span>';
+
+        return `
+          <article class="item-card">
+            <div class="item-top-row">
+              <div class="item-badges">
+                ${item.hora_inicio ? `<span class="badge-time">${item.hora_inicio} hs</span>` : ''}
+                <span class="badge-room">${item.auditorio || 'Foyer'}</span>
+                <span class="badge-modality ${modClass}">${item.modalidad}</span>
+              </div>
+              <span class="item-session">${item.dia} &bull; ${item.id_sesion || ''}</span>
+            </div>
+            <h3 class="item-title">${item.titulo}</h3>
+            <div class="item-footer">
+              ${presenterHtml}
+              <div style="display:flex;align-items:center;gap:6px;">
+                ${(item.codigo_libro || item.id_resumen_libro) && (item.codigo_libro || item.id_resumen_libro) !== 'S/ID' ? `<span style="font-weight:800;color:#0f4c81;background:#e0f0fc;padding:2px 7px;border-radius:6px;font-size:11px;border:1px solid #b8daf2;">Cód. Libro: ${item.codigo_libro || item.id_resumen_libro}</span>` : ''}
+                <span style="font-size:11px;color:#94a3b8;">${item.id_programa || item.id_registro}</span>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      cardsContainer.innerHTML = html;
+    }
+
+    // Inicialización y eventos
+    document.addEventListener('DOMContentLoaded', () => {
+      // Manejo de tabs de días
+      const dayButtons = document.querySelectorAll('#dayTabs .tab-btn');
+      dayButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          dayButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentDia = btn.getAttribute('data-dia');
+          renderItems();
+        });
+      });
+
+      // Manejo de filtros de salas
+      const roomChips = document.querySelectorAll('#roomFilters .filter-chip');
+      roomChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          roomChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          currentRoom = chip.getAttribute('data-room');
+          renderItems();
+        });
+      });
+
+      // Buscador
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderItems();
+      });
+
+      // Detectar hash en la URL (ej. programa.html#dia2)
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes('dia1') || hash.includes('martes')) {
+        currentDia = 'Martes';
+      } else if (hash.includes('dia2') || hash.includes('miercoles')) {
+        currentDia = 'Miércoles';
+      } else if (hash.includes('dia3') || hash.includes('jueves')) {
+        currentDia = 'Jueves';
+      } else if (hash.includes('dia4') || hash.includes('viernes')) {
+        currentDia = 'Viernes';
+      }
+
+      // Sincronizar tab activo si hubo hash
+      if (currentDia !== 'todos') {
+        dayButtons.forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-dia') === currentDia);
+        });
+      }
+
+      renderItems();
+    });
+  </script>
+</body>
+</html>
