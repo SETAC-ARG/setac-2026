@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Laboratorio de Variantes Estéticas | X Congreso SETAC 2026</title>
-  <meta name="description" content="Laboratorio interactivo para comparar variantes visuales y botones versátiles del X Congreso SETAC Argentina 2026.">
+  <meta name="description" content="Laboratorio interactivo modular para comparar variantes visuales y cabeceras del X Congreso SETAC Argentina 2026.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
@@ -14,45 +14,64 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/brands.css">
   <link rel="stylesheet" href="css/setac-theme.css?v=11">
-  <link rel="stylesheet" href="css/variantes.css?v=2">
+  <link rel="stylesheet" href="css/variantes.css?v=3">
 </head>
-<body data-theme="midnight-fluid">
+<body data-theme="midnight" data-header="minimal">
 
   <!-- ========================================================
-       BARRA FLOTANTE DE CONTROL INTERACTIVO (SWITCHER)
+       BARRA FLOTANTE DE CONTROL INTERACTIVO (SWITCHER MODULAR)
        ======================================================== -->
   <aside class="preview-control-bar" aria-label="Controles del Laboratorio de Variantes">
     <div class="preview-bar-inner">
-      <div class="preview-bar-top">
-        <span class="preview-badge-label">
+      
+      <!-- Fila 1: Paleta de Color -->
+      <div class="control-row">
+        <span class="control-label">
           <span class="dot"></span>
-          Estilo Visual:
+          🎨 Paleta:
         </span>
-        <div class="preview-theme-switcher" role="group" aria-label="Selector de Tema">
-          <button class="preview-theme-btn" data-set-theme="celeste">☀️ Celeste Tarjeta</button>
-          <button class="preview-theme-btn" data-set-theme="celeste-fluid">💧 Celeste Fluido</button>
-          <button class="preview-theme-btn" data-set-theme="midnight">🌙 Midnight Tarjeta</button>
-          <button class="preview-theme-btn active" data-set-theme="midnight-fluid">🌌 Midnight Fluido</button>
-          <button class="preview-theme-btn" data-set-theme="poster">📐 Facetado</button>
+        <div class="control-button-group" role="group" aria-label="Selector de Color">
+          <button class="ctrl-btn active" data-set-theme="midnight">🌙 Midnight (Oscuro)</button>
+          <button class="ctrl-btn" data-set-theme="celeste">☀️ Celeste (Oficial)</button>
+          <button class="ctrl-btn" data-set-theme="poster">📐 Facetado (Afiche)</button>
         </div>
       </div>
-      <div class="preview-bar-bottom">
-        <span>📅 Simular Actividad Destacada del Día:</span>
-        <div class="preview-day-selector" role="group" aria-label="Selector de Día">
-          <button class="preview-day-btn active" data-day="dia2">Mié 28 (Plenaria/Asamblea)</button>
-          <button class="preview-day-btn" data-day="dia1">Mar 27 (Cursos)</button>
-          <button class="preview-day-btn" data-day="dia3">Jue 29 (Votación)</button>
-          <button class="preview-day-btn" data-day="dia4">Vie 30 (Cierre)</button>
-          <button class="preview-day-btn" data-day="form">Formulario</button>
-          <button class="preview-day-btn" data-day="none">Ocultar</button>
+
+      <!-- Fila 2: Disposición de Cabecera -->
+      <div class="control-row">
+        <span class="control-label">
+          <span class="dot"></span>
+          ✨ Cabecera:
+        </span>
+        <div class="control-button-group" role="group" aria-label="Selector de Cabecera">
+          <button class="ctrl-btn active" data-set-header="minimal">✨ Pura Tipografía (Sin logos chicos)</button>
+          <button class="ctrl-btn" data-set-header="lateral">↔️ Logos al Costado (Fluido)</button>
+          <button class="ctrl-btn" data-set-header="card">🎴 Con Tarjeta (Caja)</button>
         </div>
       </div>
+
+      <!-- Fila 3: Simulador de Actividades Diarias -->
+      <div class="control-row">
+        <span class="control-label">
+          <span class="dot"></span>
+          📅 Destacado:
+        </span>
+        <div class="control-button-group" role="group" aria-label="Selector de Actividad">
+          <button class="ctrl-btn-day active" data-day="dia2">Mié 28 (Plenaria/Asamblea)</button>
+          <button class="ctrl-btn-day" data-day="dia1">Mar 27 (Cursos)</button>
+          <button class="ctrl-btn-day" data-day="dia3">Jue 29 (Votación)</button>
+          <button class="ctrl-btn-day" data-day="dia4">Vie 30 (Cierre)</button>
+          <button class="ctrl-btn-day" data-day="form">Formulario</button>
+          <button class="ctrl-btn-day" data-day="none">Ocultar</button>
+        </div>
+      </div>
+
     </div>
   </aside>
 
   <div class="hub-container">
 
-    <!-- CABECERA PRINCIPAL (Calibrada con escala 1.6x entre logos) -->
+    <!-- CABECERA PRINCIPAL (Reactiva a data-header: minimal / lateral / card) -->
     <header class="asym-header">
       <div class="header-card">
         <div class="header-main-row">
@@ -299,29 +318,48 @@
 
   </div>
 
-  <!-- SCRIPT DEL LABORATORIO DE VARIANTES -->
+  <!-- SCRIPT DEL LABORATORIO MODULAR -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Manejo del conmutador de temas (5 opciones)
+      // 1. Manejo modular de Paleta y Cabecera
       const themeButtons = document.querySelectorAll('[data-set-theme]');
-      const savedTheme = localStorage.getItem('setac_preview_theme') || 'midnight-fluid';
-      
-      function setTheme(themeName) {
-        document.body.setAttribute('data-theme', themeName);
-        localStorage.setItem('setac_preview_theme', themeName);
+      const headerButtons = document.querySelectorAll('[data-set-header]');
+
+      let currentTheme = localStorage.getItem('setac_preview_theme') || 'midnight';
+      let currentHeader = localStorage.getItem('setac_preview_header') || 'minimal';
+
+      function applyState() {
+        document.body.setAttribute('data-theme', currentTheme);
+        document.body.setAttribute('data-header', currentHeader);
+
+        localStorage.setItem('setac_preview_theme', currentTheme);
+        localStorage.setItem('setac_preview_header', currentHeader);
+
         themeButtons.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-set-theme') === themeName);
+          btn.classList.toggle('active', btn.getAttribute('data-set-theme') === currentTheme);
+        });
+
+        headerButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-set-header') === currentHeader);
         });
       }
 
       themeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-          setTheme(btn.getAttribute('data-set-theme'));
+          currentTheme = btn.getAttribute('data-set-theme');
+          applyState();
         });
       });
 
-      // Inicializar tema activo
-      setTheme(savedTheme);
+      headerButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentHeader = btn.getAttribute('data-set-header');
+          applyState();
+        });
+      });
+
+      // Inicializar
+      applyState();
 
       // 2. Base de datos para la simulación de actividades destacadas
       const agendaData = {
@@ -417,7 +455,7 @@
         });
       });
 
-      // Render inicial (Día 2 activo como ejemplo fuerte)
+      // Render inicial
       renderFeaturedDay('dia2');
 
       // 3. Copiado de WiFi

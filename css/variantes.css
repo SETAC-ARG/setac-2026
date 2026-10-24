@@ -1,11 +1,8 @@
 /* ==========================================================================
-   SETAC ARGENTINA 2026 - LABORATORIO DE VARIANTES ESTÉTICAS EXTENDIDO
-   5 Temas visuales completos:
-   1. [data-theme="celeste"]        -> Celeste Oficial con Tarjeta Asimétrica
-   2. [data-theme="celeste-fluid"]  -> Celeste Oficial Fluido (Sin Caja / Centrado)
-   3. [data-theme="midnight"]       -> Midnight Navy con Tarjeta Vidrio
-   4. [data-theme="midnight-fluid"] -> Midnight Navy Fluido (Sin Caja / Centrado)
-   5. [data-theme="poster"]         -> Póster Facetado La Plata
+   SETAC ARGENTINA 2026 - LABORATORIO MODULAR DE VARIANTES ESTÉTICAS
+   Sistema modular combinable:
+   1. [data-theme="midnight" | "celeste" | "poster"]
+   2. [data-header="minimal" | "lateral" | "card"]
    ========================================================================== */
 
 /* BARRA FLOTANTE DE CONTROL EN PREVIEW */
@@ -13,12 +10,12 @@
   position: sticky;
   top: 0;
   z-index: 9999;
-  background: rgba(10, 25, 45, 0.95);
+  background: rgba(8, 20, 36, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   padding: 10px 14px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.45);
   margin: -18px -14px 18px -14px;
 }
 
@@ -30,49 +27,50 @@
   gap: 8px;
 }
 
-.preview-bar-top {
+.control-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
-.preview-badge-label {
-  font-size: 11px;
+.control-label {
+  font-size: 10.5px;
   font-weight: 800;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
   text-transform: uppercase;
   color: #38bdf8;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  min-width: 75px;
 }
 
-.preview-badge-label span.dot {
-  width: 7px;
-  height: 7px;
+.control-label span.dot {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #38bdf8;
   animation: pulseBeacon 1.8s infinite;
 }
 
-.preview-theme-switcher {
+.control-button-group {
   display: flex;
   background: rgba(255, 255, 255, 0.08);
-  padding: 3px;
+  padding: 2.5px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  gap: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  gap: 2.5px;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
-.preview-theme-switcher::-webkit-scrollbar {
+.control-button-group::-webkit-scrollbar {
   display: none;
 }
 
-.preview-theme-btn {
+.ctrl-btn {
   background: transparent;
   border: none;
   color: #cbd5e1;
@@ -85,265 +83,63 @@
   white-space: nowrap;
 }
 
-.preview-theme-btn:hover {
+.ctrl-btn:hover {
   color: #ffffff;
 }
 
-.preview-theme-btn.active {
+.ctrl-btn.active {
   background: #0284c7;
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45);
 }
 
-.preview-bar-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px dashed rgba(255, 255, 255, 0.14);
-  padding-top: 6px;
-  font-size: 11px;
-  color: #94a3b8;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.preview-day-selector {
-  display: flex;
-  gap: 3px;
-  align-items: center;
-}
-
-.preview-day-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.ctrl-btn-day {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #f1f5f9;
   font-size: 10px;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 3.5px 8.5px;
   border-radius: 12px;
   cursor: pointer;
   transition: all .2s ease;
+  white-space: nowrap;
 }
 
-.preview-day-btn:hover {
+.ctrl-btn-day:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.preview-day-btn.active {
+.ctrl-btn-day.active {
   background: #f59e0b;
   border-color: #f59e0b;
   color: #78350f;
-  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
 }
 
 /* ==========================================================================
-   TEMA 1: CELESTE OFICIAL CON TARJETA ASIMÉTRICA
-   [data-theme="celeste"]
+   1. PALETAS BASE (TEMAS)
    ========================================================================== */
-body[data-theme="celeste"] {
-  background: 
-    radial-gradient(circle at 50% 100px, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%),
-    url('../images/watermark_bg.png') no-repeat top 30px center / 340px auto,
-    linear-gradient(180deg, #d3e7f6 0%, #eaf3fb 100%);
-  background-attachment: fixed;
-  color: #0c2b48;
-}
 
-body[data-theme="celeste"] .header-card {
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 22px rgba(18, 77, 121, 0.10);
-}
-
-/* ==========================================================================
-   TEMA 2: CELESTE FLUIDO (SIN CAJA / PURA TIPOGRAFÍA CENTRADA)
-   [data-theme="celeste-fluid"]
-   ========================================================================== */
-body[data-theme="celeste-fluid"] {
-  background: 
-    radial-gradient(circle at 50% 120px, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 65%),
-    url('../images/watermark_dual_16x.png') no-repeat top 35px center / 330px auto,
-    linear-gradient(180deg, #d3e7f6 0%, #eaf3fb 100%);
-  background-attachment: fixed;
-  color: #0c2b48;
-}
-
-body[data-theme="celeste-fluid"] .asym-header {
-  margin-bottom: 20px;
-}
-
-body[data-theme="celeste-fluid"] .header-card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  padding: 8px 0 0 !important;
-  text-align: center;
-}
-
-body[data-theme="celeste-fluid"] .header-main-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-body[data-theme="celeste-fluid"] .header-logos-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  border-right: none !important;
-  padding-right: 0 !important;
-  margin-bottom: 4px;
-}
-
-body[data-theme="celeste-fluid"] .asym-logo-hex {
-  height: 62px;
-  filter: drop-shadow(0 2px 6px rgba(18, 77, 121, 0.18));
-}
-
-body[data-theme="celeste-fluid"] .asym-logo-circle {
-  height: 38px;
-  filter: drop-shadow(0 2px 6px rgba(18, 77, 121, 0.18));
-}
-
-body[data-theme="celeste-fluid"] .header-titles-col {
-  text-align: center;
-}
-
-body[data-theme="celeste-fluid"] .header-dates-badge {
-  background: #ffffff;
-  color: #124d79;
-  border: 1px solid #b8daf2;
-  font-size: 11px;
-  padding: 3px 12px;
-  border-radius: 9999px;
-  margin-bottom: 6px;
-  box-shadow: 0 1px 4px rgba(18, 77, 121, 0.08);
-}
-
-body[data-theme="celeste-fluid"] .asym-title-light {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #1b689e;
-}
-
-body[data-theme="celeste-fluid"] .asym-title-bold {
-  font-size: 27px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  color: #0b3557;
-  line-height: 1.15;
-  margin: 2px 0 4px;
-}
-
-body[data-theme="celeste-fluid"] .asym-venue {
-  justify-content: center;
-  color: #3b668a;
-  font-size: 12px;
-}
-
-body[data-theme="celeste-fluid"] .asym-venue svg {
-  stroke: #124d79;
-}
-
-body[data-theme="celeste-fluid"] .header-motto-row {
-  border-top: none;
-  margin-top: 6px;
-  padding-top: 0;
-}
-
-body[data-theme="celeste-fluid"] .header-motto-text {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 4px 14px;
-  border-radius: 9999px;
-  border: 1px solid #b8daf2;
-  color: #17527f;
-  font-size: 12px;
-  box-shadow: 0 1px 4px rgba(18, 77, 121, 0.06);
-}
-
-/* ==========================================================================
-   TEMA 3: MIDNIGHT NAVY CON TARJETA VIDRIO
-   [data-theme="midnight"]
-   ========================================================================== */
+/* MIDNIGHT NAVY */
 body[data-theme="midnight"] {
   background: 
-    radial-gradient(circle at 50% 130px, rgba(28, 75, 120, 0.55) 0%, rgba(12, 38, 66, 0.25) 55%, transparent 80%),
-    url('../images/watermark_dual_16x.png') no-repeat top 40px center / 320px auto,
+    radial-gradient(circle at 50% 120px, rgba(28, 75, 120, 0.65) 0%, rgba(12, 38, 66, 0.35) 50%, transparent 80%),
+    url('../images/watermark_dual_16x.png') no-repeat top 30px center / 350px auto,
     linear-gradient(180deg, #0b1e33 0%, #071524 60%, #040c17 100%);
   background-attachment: fixed;
   color: #f8fafc;
 }
 
-body[data-theme="midnight"] .header-card {
-  background: rgba(15, 38, 64, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(148, 197, 240, 0.22);
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-body[data-theme="midnight"] .header-logos-col {
-  border-right-color: rgba(148, 197, 240, 0.25);
-}
-
-body[data-theme="midnight"] .header-dates-badge {
-  background: rgba(14, 165, 233, 0.2);
-  color: #38bdf8;
-  border-color: rgba(56, 189, 248, 0.4);
-}
-
-body[data-theme="midnight"] .asym-title-light {
-  color: #cbd5e1;
-}
-
-body[data-theme="midnight"] .asym-title-bold {
-  color: #ffffff;
-}
-
-body[data-theme="midnight"] .asym-venue {
-  color: #94a3b8;
-}
-
-body[data-theme="midnight"] .asym-venue svg {
-  stroke: #38bdf8;
-}
-
-body[data-theme="midnight"] .header-motto-row {
-  border-top-color: rgba(148, 197, 240, 0.2);
-}
-
-body[data-theme="midnight"] .header-motto-text {
-  color: #93c5fd;
-}
-
-body[data-theme="midnight"] .header-motto-text strong {
-  color: #ffffff;
-}
-
 body[data-theme="midnight"] .wifi-card {
-  background: rgba(15, 38, 64, 0.7);
+  background: rgba(15, 38, 64, 0.65);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(148, 197, 240, 0.2);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-body[data-theme="midnight"] .wifi-label {
-  color: #94a3b8;
-}
-
-body[data-theme="midnight"] .wifi-ssid {
-  color: #ffffff;
-}
-
+body[data-theme="midnight"] .wifi-label { color: #94a3b8; }
+body[data-theme="midnight"] .wifi-ssid { color: #ffffff; }
 body[data-theme="midnight"] .wifi-copy-btn {
   background: rgba(14, 165, 233, 0.15);
   border-color: rgba(56, 189, 248, 0.4);
@@ -353,14 +149,8 @@ body[data-theme="midnight"] .wifi-copy-btn {
 body[data-theme="midnight"] .divider-line {
   background: linear-gradient(90deg, rgba(56, 189, 248, 0) 0%, rgba(56, 189, 248, 0.4) 50%, rgba(56, 189, 248, 0) 100%);
 }
-
-body[data-theme="midnight"] .divider-badge {
-  color: #7dd3fc;
-}
-
-body[data-theme="midnight"] .divider-symbol {
-  color: #38bdf8;
-}
+body[data-theme="midnight"] .divider-badge { color: #7dd3fc; }
+body[data-theme="midnight"] .divider-symbol { color: #38bdf8; }
 
 body[data-theme="midnight"] .btn-congress {
   background: linear-gradient(180deg, #1b4972 0%, #0f3050 100%);
@@ -379,205 +169,27 @@ body[data-theme="midnight"] .btn-icon {
   border-color: rgba(255, 255, 255, 0.75) !important;
 }
 
-body[data-theme="midnight"] .btn-desc {
-  color: #94a3b8;
-}
-
+body[data-theme="midnight"] .btn-desc { color: #94a3b8; }
 body[data-theme="midnight"] .footer-logos {
   background: rgba(15, 38, 64, 0.6);
   border-color: rgba(148, 197, 240, 0.2);
 }
+body[data-theme="midnight"] .footer-copy { color: #94a3b8; }
 
-body[data-theme="midnight"] .footer-copy {
-  color: #94a3b8;
-}
-
-/* ==========================================================================
-   TEMA 4: MIDNIGHT FLUIDO (SIN CAJA / PURA TIPOGRAFÍA Y VIGNETTE)
-   [data-theme="midnight-fluid"]
-   ========================================================================== */
-body[data-theme="midnight-fluid"] {
+/* CELESTE OFICIAL */
+body[data-theme="celeste"] {
   background: 
-    radial-gradient(circle at 50% 120px, rgba(28, 75, 120, 0.65) 0%, rgba(12, 38, 66, 0.35) 50%, transparent 80%),
-    url('../images/watermark_dual_16x.png') no-repeat top 40px center / 340px auto,
-    linear-gradient(180deg, #0b1e33 0%, #071524 60%, #040c17 100%);
+    radial-gradient(circle at 50% 110px, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 70%),
+    url('../images/watermark_dual_16x.png') no-repeat top 30px center / 350px auto,
+    linear-gradient(180deg, #d3e7f6 0%, #eaf3fb 100%);
   background-attachment: fixed;
-  color: #f8fafc;
+  color: #0c2b48;
 }
 
-body[data-theme="midnight-fluid"] .asym-header {
-  margin-bottom: 22px;
-}
-
-body[data-theme="midnight-fluid"] .header-card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  padding: 8px 0 0 !important;
-  text-align: center;
-}
-
-body[data-theme="midnight-fluid"] .header-main-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-body[data-theme="midnight-fluid"] .header-logos-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  border-right: none !important;
-  padding-right: 0 !important;
-  margin-bottom: 4px;
-}
-
-body[data-theme="midnight-fluid"] .asym-logo-hex {
-  height: 62px;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(56, 189, 248, 0.25));
-}
-
-body[data-theme="midnight-fluid"] .asym-logo-circle {
-  height: 38px;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(56, 189, 248, 0.25));
-}
-
-body[data-theme="midnight-fluid"] .header-titles-col {
-  text-align: center;
-}
-
-body[data-theme="midnight-fluid"] .header-dates-badge {
-  background: rgba(14, 165, 233, 0.18);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  font-size: 11px;
-  padding: 3px 12px;
-  border-radius: 9999px;
-  margin-bottom: 6px;
-}
-
-body[data-theme="midnight-fluid"] .asym-title-light {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #94a3b8;
-}
-
-body[data-theme="midnight-fluid"] .asym-title-bold {
-  font-size: 27px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  color: #ffffff;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.15);
-  line-height: 1.15;
-  margin: 2px 0 4px;
-}
-
-body[data-theme="midnight-fluid"] .asym-venue {
-  justify-content: center;
-  color: #94a3b8;
-  font-size: 12px;
-}
-
-body[data-theme="midnight-fluid"] .asym-venue svg {
-  stroke: #38bdf8;
-}
-
-body[data-theme="midnight-fluid"] .header-motto-row {
-  border-top: none;
-  margin-top: 6px;
-  padding-top: 0;
-}
-
-body[data-theme="midnight-fluid"] .header-motto-text {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 4px 14px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #bae6fd;
-  font-size: 12px;
-}
-
-body[data-theme="midnight-fluid"] .header-motto-text strong {
-  color: #ffffff;
-}
-
-body[data-theme="midnight-fluid"] .wifi-card {
-  background: rgba(15, 38, 64, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(148, 197, 240, 0.2);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
-body[data-theme="midnight-fluid"] .wifi-label {
-  color: #94a3b8;
-}
-
-body[data-theme="midnight-fluid"] .wifi-ssid {
-  color: #ffffff;
-}
-
-body[data-theme="midnight-fluid"] .wifi-copy-btn {
-  background: rgba(14, 165, 233, 0.15);
-  border-color: rgba(56, 189, 248, 0.4);
-  color: #38bdf8;
-}
-
-body[data-theme="midnight-fluid"] .divider-line {
-  background: linear-gradient(90deg, rgba(56, 189, 248, 0) 0%, rgba(56, 189, 248, 0.4) 50%, rgba(56, 189, 248, 0) 100%);
-}
-
-body[data-theme="midnight-fluid"] .divider-badge {
-  color: #7dd3fc;
-}
-
-body[data-theme="midnight-fluid"] .divider-symbol {
-  color: #38bdf8;
-}
-
-body[data-theme="midnight-fluid"] .btn-congress {
-  background: linear-gradient(180deg, #1b4972 0%, #0f3050 100%);
-  border: 1px solid rgba(135, 195, 245, 0.22);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-}
-
-body[data-theme="midnight-fluid"] .btn-congress:hover {
-  background: linear-gradient(180deg, #22598b 0%, #133c63 100%);
-  border-color: rgba(135, 195, 245, 0.5);
-  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-body[data-theme="midnight-fluid"] .btn-icon {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-color: rgba(255, 255, 255, 0.75) !important;
-}
-
-body[data-theme="midnight-fluid"] .btn-desc {
-  color: #94a3b8;
-}
-
-body[data-theme="midnight-fluid"] .footer-logos {
-  background: rgba(15, 38, 64, 0.6);
-  border-color: rgba(148, 197, 240, 0.2);
-}
-
-body[data-theme="midnight-fluid"] .footer-copy {
-  color: #94a3b8;
-}
-
-/* ==========================================================================
-   TEMA 5: PÓSTER FACETADO (INSPIRADO EN EL AFICHE DE LA PLATA)
-   [data-theme="poster"]
-   ========================================================================== */
+/* PÓSTER FACETADO */
 body[data-theme="poster"] {
   background: 
-    linear-gradient(135deg, rgba(27, 113, 168, 0.14) 0%, rgba(27, 113, 168, 0) 40%),
+    linear-gradient(135deg, rgba(27, 113, 168, 0.15) 0%, rgba(27, 113, 168, 0) 40%),
     linear-gradient(225deg, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 45%),
     url('../images/watermark_dual_16x.png') no-repeat top 25px center / 350px auto,
     linear-gradient(180deg, #cde3f5 0%, #e8f3fb 100%);
@@ -585,28 +197,217 @@ body[data-theme="poster"] {
   color: #0c2b48;
 }
 
-body[data-theme="poster"] .header-card {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-left: 4px solid #1b71a8;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(27, 113, 168, 0.15);
+/* ==========================================================================
+   2. MODULADOR DE CABECERA (DISPOSICIÓN)
+   ========================================================================== */
+
+/* 2.1 CABECERA: [data-header="minimal"] -> PURA TIPOGRAFÍA (SIN LOGOS CHICOS) */
+body[data-header="minimal"] .header-logos-col {
+  display: none !important;
 }
 
-body[data-theme="poster"] .btn-congress {
-  background: linear-gradient(180deg, #174872 0%, #0e3455 100%);
-  border: 1.5px solid rgba(27, 113, 168, 0.4);
-  box-shadow: 0 4px 14px rgba(27, 113, 168, 0.16);
+body[data-header="minimal"] .header-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 10px 0 0 !important;
+  text-align: center !important;
 }
 
-body[data-theme="poster"] .btn-congress:hover {
-  background: linear-gradient(180deg, #1d5688 0%, #123f66 100%);
-  border-color: #0284c7;
+body[data-header="minimal"] .header-main-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+body[data-header="minimal"] .header-titles-col {
+  text-align: center !important;
+}
+
+body[data-header="minimal"] .header-dates-badge {
+  display: inline-block !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  padding: 4px 14px !important;
+  border-radius: 9999px !important;
+  margin-bottom: 6px !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .header-dates-badge {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+body[data-theme="celeste"][data-header="minimal"] .header-dates-badge,
+body[data-theme="poster"][data-header="minimal"] .header-dates-badge {
+  background: #ffffff;
+  color: #124d79;
+  border: 1px solid #b8daf2;
+  box-shadow: 0 1px 4px rgba(18, 77, 121, 0.08);
+}
+
+body[data-header="minimal"] .asym-title-light {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  display: block !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .asym-title-light {
+  color: #94a3b8 !important;
+}
+
+body[data-theme="celeste"][data-header="minimal"] .asym-title-light,
+body[data-theme="poster"][data-header="minimal"] .asym-title-light {
+  color: #1b689e !important;
+}
+
+body[data-header="minimal"] .asym-title-bold {
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.15 !important;
+  margin: 3px 0 6px !important;
+  display: block !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .asym-title-bold {
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2) !important;
+}
+
+body[data-theme="celeste"][data-header="minimal"] .asym-title-bold,
+body[data-theme="poster"][data-header="minimal"] .asym-title-bold {
+  color: #0b3557 !important;
+}
+
+body[data-header="minimal"] .asym-venue {
+  justify-content: center !important;
+  margin-bottom: 6px !important;
+  font-size: 12px !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .asym-venue { color: #94a3b8; }
+body[data-theme="celeste"][data-header="minimal"] .asym-venue,
+body[data-theme="poster"][data-header="minimal"] .asym-venue { color: #3b668a; }
+
+body[data-header="minimal"] .header-motto-row {
+  border-top: none !important;
+  margin-top: 4px !important;
+  padding-top: 0 !important;
+}
+
+body[data-header="minimal"] .header-motto-text {
+  display: inline-block !important;
+  padding: 4px 16px !important;
+  border-radius: 9999px !important;
+  font-size: 12.5px !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .header-motto-text {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #bae6fd !important;
+}
+
+body[data-theme="celeste"][data-header="minimal"] .header-motto-text,
+body[data-theme="poster"][data-header="minimal"] .header-motto-text {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid #b8daf2 !important;
+  color: #17527f !important;
+  box-shadow: 0 1px 4px rgba(18, 77, 121, 0.06) !important;
+}
+
+/* 2.2 CABECERA: [data-header="lateral"] -> LOGOS AL COSTADO FLUIDOS (SIN CAJA) */
+body[data-header="lateral"] .header-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 8px 4px 0 !important;
+}
+
+body[data-header="lateral"] .header-main-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+body[data-header="lateral"] .header-logos-col {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding-right: 14px !important;
+  border-right: 1px solid rgba(184, 218, 242, 0.5) !important;
+}
+
+body[data-theme="midnight"][data-header="lateral"] .header-logos-col {
+  border-right-color: rgba(148, 197, 240, 0.25) !important;
+}
+
+body[data-theme="midnight"][data-header="lateral"] .asym-logo-hex,
+body[data-theme="midnight"][data-header="lateral"] .asym-logo-circle {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(56, 189, 248, 0.2));
+}
+
+body[data-theme="midnight"][data-header="lateral"] .asym-title-light { color: #cbd5e1; }
+body[data-theme="midnight"][data-header="lateral"] .asym-title-bold { color: #ffffff; }
+body[data-theme="midnight"][data-header="lateral"] .asym-venue { color: #94a3b8; }
+body[data-theme="midnight"][data-header="lateral"] .asym-venue svg { stroke: #38bdf8; }
+body[data-theme="midnight"][data-header="lateral"] .header-dates-badge {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+body[data-header="lateral"] .header-motto-row {
+  border-top: 1px dashed rgba(184, 218, 242, 0.5) !important;
+  margin-top: 10px !important;
+  padding-top: 8px !important;
+  text-align: center !important;
+}
+
+body[data-theme="midnight"][data-header="lateral"] .header-motto-row {
+  border-top-color: rgba(148, 197, 240, 0.2) !important;
+}
+
+body[data-theme="midnight"][data-header="lateral"] .header-motto-text { color: #93c5fd; }
+body[data-theme="midnight"][data-header="lateral"] .header-motto-text strong { color: #ffffff; }
+
+/* 2.3 CABECERA: [data-header="card"] -> EN TARJETA VIDRIO / CAJA */
+body[data-header="card"] .header-card {
+  border-radius: 20px;
+  padding: 16px 18px 14px;
+}
+
+body[data-theme="midnight"][data-header="card"] .header-card {
+  background: rgba(15, 38, 64, 0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(148, 197, 240, 0.22) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+body[data-theme="celeste"][data-header="card"] .header-card {
+  background: rgba(255, 255, 255, 0.90) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 6px 22px rgba(18, 77, 121, 0.10) !important;
+}
+
+body[data-theme="poster"][data-header="card"] .header-card {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  border-left: 4px solid #1b71a8 !important;
+  box-shadow: 0 8px 25px rgba(27, 113, 168, 0.15) !important;
 }
 
 /* ==========================================================================
-   BOTÓN DESTACADO VERSÁTIL / AGENDA DINÁMICA POR DÍA
+   3. BOTÓN DESTACADO VERSÁTIL (AGENDA POR DÍA)
    ========================================================================== */
 .daily-featured-wrapper {
   margin-bottom: 14px;
