@@ -1102,3 +1102,180 @@ body[data-theme="midnight"][data-watermark="circle"] .preview-watermark-layer {
   color: #ffffff !important;
   box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
 }
+
+/* Banner de Patrocinios y Avales Faded (Pie de página oficial) */
+.footer-banner-wrapper {
+  margin: 18px -16px 14px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-banner-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 10px rgba(18, 77, 121, 0.08));
+  transition: transform 0.25s ease;
+}
+
+.footer-banner-img:hover {
+  transform: scale(1.01);
+}
+
+
+/* ==========================================================================
+   CONTENEDOR DE AVALES Y PATROCINIOS (ESTRUCTURA OFICIAL DOCUMENTO)
+   ========================================================================== */
+.sponsors-container {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(184, 218, 242, 0.85);
+  border-radius: 20px;
+  padding: 20px 16px 16px;
+  margin: 22px 0 16px;
+  box-shadow: 0 4px 18px rgba(18, 77, 121, 0.08);
+}
+
+.sponsors-group {
+  margin-bottom: 20px;
+}
+
+.sponsors-group:last-child {
+  margin-bottom: 4px;
+}
+
+.sponsors-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.sponsors-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(184, 218, 242, 0) 0%, rgba(184, 218, 242, 0.85) 50%, rgba(184, 218, 242, 0) 100%);
+}
+
+.sponsors-badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #17527f;
+  white-space: nowrap;
+}
+
+.sponsors-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.sponsors-row:last-child {
+  margin-bottom: 0;
+}
+
+.sponsor-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(200, 230, 250, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(18, 77, 121, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.sponsor-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(18, 77, 121, 0.12);
+  background: #ffffff;
+}
+
+.sponsor-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Proporciones relativas fieles al documento de Word */
+.box-w-283 {
+  width: min(100%, 320px);
+  height: 72px;
+}
+
+.box-w-212 {
+  width: min(46%, 220px);
+  height: 56px;
+}
+
+.box-w-181 {
+  width: min(56%, 240px);
+  height: 52px;
+}
+
+.box-w-162 {
+  width: min(56%, 220px);
+  height: 48px;
+}
+
+.box-w-142 {
+  width: min(30%, 140px);
+  height: 46px;
+}
+
+.box-w-136 {
+  width: min(30%, 140px);
+  height: 44px;
+}
+
+.box-w-131 {
+  width: min(30%, 135px);
+  height: 42px;
+}
+
+.box-w-105 {
+  width: min(28%, 120px);
+  height: 44px;
+}
+
+.box-w-87 {
+  width: min(36%, 130px);
+  height: 52px;
+}
+
+.box-w-74 {
+  width: min(36%, 120px);
+  height: 48px;
+}
+
+@media (max-width: 480px) {
+  .sponsors-container {
+    padding: 16px 10px 14px;
+    margin: 18px 0 14px;
+  }
+  .sponsors-row {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .sponsor-box {
+    padding: 4px 6px;
+  }
+  .box-w-283 { height: 60px; }
+  .box-w-212 { height: 48px; }
+  .box-w-181 { height: 44px; }
+  .box-w-162 { height: 42px; }
+  .box-w-142 { height: 40px; }
+}
