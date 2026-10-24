@@ -1,0 +1,400 @@
+/* ==========================================================================
+   SETAC ARGENTINA 2026 - LABORATORIO DE VARIANTES ESTÉTICAS
+   Soporte dinámico para 3 temas completos:
+   1. [data-theme="celeste"]  -> Variante 1: Celeste Oficial (Baseline actual)
+   2. [data-theme="midnight"] -> Variante 2: Midnight Navy / App Premium (Estilo Image 1)
+   3. [data-theme="poster"]   -> Variante 3: Póster Facetado Oficial (Estilo Image 2)
+   ========================================================================== */
+
+/* BARRA FLOTANTE DE CONTROL EN PREVIEW */
+.preview-control-bar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(10, 25, 45, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  margin: -18px -14px 18px -14px;
+}
+
+.preview-bar-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-bar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-badge-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-badge-label span.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  animation: pulseBeacon 1.8s infinite;
+}
+
+.preview-theme-switcher {
+  display: flex;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 4px;
+}
+
+.preview-theme-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+
+.preview-theme-btn:hover {
+  color: #ffffff;
+}
+
+.preview-theme-btn.active {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.preview-bar-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  padding-top: 6px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.preview-toggle-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all .2s ease;
+}
+
+.preview-toggle-btn.active {
+  background: #dc2626;
+  border-color: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.35);
+}
+
+/* ==========================================================================
+   TEMA 1: CELESTE OFICIAL (BASELINE ACTUAL)
+   [data-theme="celeste"]
+   ========================================================================== */
+body[data-theme="celeste"] {
+  background: 
+    radial-gradient(circle at 50% 100px, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%),
+    url('../images/watermark_bg.png') no-repeat top 30px center / 340px auto,
+    linear-gradient(180deg, #d3e7f6 0%, #eaf3fb 100%);
+  background-attachment: fixed;
+  color: #0c2b48;
+}
+
+body[data-theme="celeste"] .header-card {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 22px rgba(18, 77, 121, 0.10);
+}
+
+/* ==========================================================================
+   TEMA 2: MIDNIGHT NAVY / APP PREMIUM (ESTILO IMAGEN 1)
+   [data-theme="midnight"]
+   ========================================================================== */
+body[data-theme="midnight"] {
+  background: 
+    radial-gradient(circle at 50% 130px, rgba(28, 75, 120, 0.55) 0%, rgba(12, 38, 66, 0.25) 55%, transparent 80%),
+    url('../images/watermark_dual_16x.png') no-repeat top 40px center / 320px auto,
+    linear-gradient(180deg, #0b1e33 0%, #071524 60%, #040c17 100%);
+  background-attachment: fixed;
+  color: #f8fafc;
+}
+
+/* Marca de agua difuminada luminosa */
+body[data-theme="midnight"]::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 460px;
+  height: 90vh;
+  max-height: 460px;
+  background-image: url('../images/watermark_dual_16x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(1px);
+}
+
+/* Cabecera integrada sobre fondo oscuro sin recuadro blanco pesado */
+body[data-theme="midnight"] .header-card {
+  background: rgba(15, 38, 64, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 197, 240, 0.22);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+body[data-theme="midnight"] .header-logos-col {
+  border-right-color: rgba(148, 197, 240, 0.25);
+}
+
+body[data-theme="midnight"] .asym-logo-hex,
+body[data-theme="midnight"] .asym-logo-circle {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 12px rgba(56, 189, 248, 0.18));
+}
+
+body[data-theme="midnight"] .header-dates-badge {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+body[data-theme="midnight"] .asym-title-light {
+  color: #cbd5e1;
+}
+
+body[data-theme="midnight"] .asym-title-bold {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+body[data-theme="midnight"] .asym-venue {
+  color: #94a3b8;
+}
+
+body[data-theme="midnight"] .asym-venue svg {
+  stroke: #38bdf8;
+}
+
+body[data-theme="midnight"] .header-motto-row {
+  border-top-color: rgba(148, 197, 240, 0.2);
+}
+
+body[data-theme="midnight"] .header-motto-text {
+  color: #93c5fd;
+}
+
+body[data-theme="midnight"] .header-motto-text strong {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+/* Tarjeta WiFi en tema Midnight */
+body[data-theme="midnight"] .wifi-card {
+  background: rgba(15, 38, 64, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 197, 240, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="midnight"] .wifi-label {
+  color: #94a3b8;
+}
+
+body[data-theme="midnight"] .wifi-ssid {
+  color: #ffffff;
+}
+
+body[data-theme="midnight"] .wifi-copy-btn {
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+body[data-theme="midnight"] .wifi-copy-btn:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+}
+
+/* Separadores en Midnight */
+body[data-theme="midnight"] .divider-line {
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0) 0%, rgba(56, 189, 248, 0.4) 50%, rgba(56, 189, 248, 0) 100%);
+}
+
+body[data-theme="midnight"] .divider-badge {
+  color: #7dd3fc;
+}
+
+body[data-theme="midnight"] .divider-symbol {
+  color: #38bdf8;
+}
+
+/* Botones Cápsula en Midnight */
+body[data-theme="midnight"] .btn-congress {
+  background: linear-gradient(180deg, #1b4972 0%, #0f3050 100%);
+  border: 1px solid rgba(135, 195, 245, 0.22);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+body[data-theme="midnight"] .btn-congress:hover {
+  background: linear-gradient(180deg, #22598b 0%, #133c63 100%);
+  border-color: rgba(135, 195, 245, 0.5);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+body[data-theme="midnight"] .btn-icon {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+body[data-theme="midnight"] .btn-desc {
+  color: #94a3b8;
+}
+
+body[data-theme="midnight"] .footer-logos {
+  background: rgba(15, 38, 64, 0.6);
+  border-color: rgba(148, 197, 240, 0.2);
+}
+
+body[data-theme="midnight"] .footer-copy {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   TEMA 3: PÓSTER FACETADO (INSPIRADO EN EL AFICHE DE LA PLATA)
+   [data-theme="poster"]
+   ========================================================================== */
+body[data-theme="poster"] {
+  background: 
+    linear-gradient(135deg, rgba(27, 113, 168, 0.14) 0%, rgba(27, 113, 168, 0) 40%),
+    linear-gradient(225deg, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 45%),
+    url('../images/watermark_dual_16x.png') no-repeat top 25px center / 350px auto,
+    linear-gradient(180deg, #cde3f5 0%, #e8f3fb 100%);
+  background-attachment: fixed;
+  color: #0c2b48;
+}
+
+body[data-theme="poster"] .header-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-left: 4px solid #1b71a8;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(27, 113, 168, 0.15);
+}
+
+body[data-theme="poster"] .btn-congress {
+  background: linear-gradient(180deg, #174872 0%, #0e3455 100%);
+  border: 1.5px solid rgba(27, 113, 168, 0.4);
+  box-shadow: 0 4px 14px rgba(27, 113, 168, 0.16);
+}
+
+body[data-theme="poster"] .btn-congress:hover {
+  background: linear-gradient(180deg, #1d5688 0%, #123f66 100%);
+  border-color: #0284c7;
+}
+
+/* ==========================================================================
+   TRATAMIENTOS DE BOTÓN HÉROE / ACTIVIDAD DESTACADA DEL DÍA
+   ========================================================================== */
+.btn-hero-highlight {
+  position: relative;
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
+  border: 1.5px solid #38bdf8 !important;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(-1px);
+}
+
+.btn-hero-highlight:hover {
+  background: linear-gradient(180deg, #0396e2 0%, #0277b5 100%) !important;
+  box-shadow: 0 8px 26px rgba(2, 132, 199, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.btn-hero-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+
+.live-beacon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  background: #dc2626;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 5px rgba(220, 38, 38, 0.45);
+}
+
+.live-beacon-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: pulseBeacon 1.4s infinite;
+}
+
+.featured-beacon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  background: #f59e0b;
+  color: #78350f;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 5px rgba(245, 158, 11, 0.35);
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
