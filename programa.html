@@ -225,6 +225,9 @@
 </head>
 <body>
 
+  <!-- Capa de Marca de Agua Fija en el fondo durante el scroll (Hexágono Gigante) -->
+  <div class="fixed-watermark-layer" aria-hidden="true"></div>
+
   <div class="hub-container">
 
     <!-- Navegación y Volver -->
@@ -244,12 +247,13 @@
     </header>
 
     <!-- Selector de Días -->
-    <nav class="tabs-nav" id="dayTabs">
-      <button class="tab-btn active" data-dia="todos">Todos</button>
-      <button class="tab-btn" data-dia="Martes">Día 1 (27)</button>
-      <button class="tab-btn" data-dia="Miércoles">Día 2 (28)</button>
-      <button class="tab-btn" data-dia="Jueves">Día 3 (29)</button>
-      <button class="tab-btn" data-dia="Viernes">Día 4 (30)</button>
+        <!-- Selector de Días con Nombre de Semana y Fecha -->
+    <nav class="tabs-nav" id="dayTabs" aria-label="Selector de Días">
+      <button class="tab-btn active" data-dia="todos">Todos los Días</button>
+      <button class="tab-btn" data-dia="Martes">Martes 27/10 (Día 1)</button>
+      <button class="tab-btn" data-dia="Miércoles">Miércoles 28/10 (Día 2)</button>
+      <button class="tab-btn" data-dia="Jueves">Jueves 29/10 (Día 3)</button>
+      <button class="tab-btn" data-dia="Viernes">Viernes 30/10 (Día 4)</button>
     </nav>
 
     <!-- Panel de Búsqueda y Filtros de Sala -->

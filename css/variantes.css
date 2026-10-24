@@ -985,3 +985,82 @@ body[data-theme="midnight"][data-watermark="circle"] .preview-watermark-layer {
   opacity: 0.08;
   filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
 }
+
+
+/* ==========================================================================
+   FRANJA METADATA DEL EVENTO: FECHA Y SEDE KARAKACHOFF CON ENLACE MAPS
+   ========================================================================== */
+.event-meta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: -6px auto 18px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 218, 242, 0.95);
+  border-radius: 9999px;
+  max-width: 510px;
+  box-shadow: 0 4px 14px rgba(18, 77, 121, 0.08);
+  font-size: 12px;
+  color: #124d79;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #124d79;
+}
+
+.meta-icon {
+  width: 14px;
+  height: 14px;
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.meta-divider {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.meta-venue-link {
+  text-decoration: none;
+  color: #0f3e66;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.meta-venue-link:hover {
+  color: #0284c7;
+}
+
+.meta-venue-link:hover .icon-pin {
+  transform: translateY(-1px);
+}
+
+.meta-external {
+  vertical-align: middle;
+  color: #0284c7;
+}
+
+@media (max-width: 480px) {
+  .event-meta-strip {
+    border-radius: 12px;
+    padding: 8px 12px;
+    gap: 6px;
+    font-size: 11.5px;
+    text-align: center;
+  }
+  .meta-divider {
+    display: none;
+  }
+}
