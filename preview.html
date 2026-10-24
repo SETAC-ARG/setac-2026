@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/setac-theme.css?v=11">
   <link rel="stylesheet" href="css/variantes.css?v=3">
 </head>
-<body data-theme="midnight" data-header="minimal">
+<body data-theme="celeste" data-header="poster-fluid">
 
   <!-- ========================================================
        BARRA FLOTANTE DE CONTROL INTERACTIVO (SWITCHER MODULAR)
@@ -31,8 +31,8 @@
           🎨 Paleta:
         </span>
         <div class="control-button-group" role="group" aria-label="Selector de Color">
-          <button class="ctrl-btn active" data-set-theme="midnight">🌙 Midnight (Oscuro)</button>
-          <button class="ctrl-btn" data-set-theme="celeste">☀️ Celeste (Oficial)</button>
+          <button class="ctrl-btn active" data-set-theme="celeste">☀️ Celeste (Oficial)</button>
+          <button class="ctrl-btn" data-set-theme="midnight">🌙 Midnight (Oscuro)</button>
           <button class="ctrl-btn" data-set-theme="poster">📐 Facetado (Afiche)</button>
         </div>
       </div>
@@ -44,11 +44,12 @@
           ✨ Cabecera:
         </span>
         <div class="control-button-group" role="group" aria-label="Selector de Cabecera">
-          <button class="ctrl-btn" data-set-header="poster-laplata">🏛️ Afiche La Plata (Trama Ciudad)</button>
+          <button class="ctrl-btn active" data-set-header="poster-fluid">🌊 Afiche Fluido (Sin recuadro, integrado)</button>
           <button class="ctrl-btn" data-set-header="banner-graphic">🖼️ Banner Gráfico Real</button>
-          <button class="ctrl-btn active" data-set-header="minimal">✨ Pura Tipografía (Sin logos chicos)</button>
-          <button class="ctrl-btn" data-set-header="lateral">↔️ Logos al Costado (Fluido)</button>
-          <button class="ctrl-btn" data-set-header="card">🎴 Con Tarjeta (Caja)</button>
+          <button class="ctrl-btn" data-set-header="poster-laplata">🏛️ Afiche con Tarjeta</button>
+          <button class="ctrl-btn" data-set-header="minimal">✨ Pura Tipografía</button>
+          <button class="ctrl-btn" data-set-header="lateral">↔️ Logos al Costado</button>
+          <button class="ctrl-btn" data-set-header="card">🎴 Con Tarjeta Clásica</button>
         </div>
       </div>
 
@@ -335,8 +336,8 @@
       const themeButtons = document.querySelectorAll('[data-set-theme]');
       const headerButtons = document.querySelectorAll('[data-set-header]');
 
-      let currentTheme = localStorage.getItem('setac_preview_theme') || 'midnight';
-      let currentHeader = localStorage.getItem('setac_preview_header') || 'minimal';
+      let currentTheme = localStorage.getItem('setac_preview_theme') || 'celeste';
+      let currentHeader = localStorage.getItem('setac_preview_header') || 'poster-fluid';
 
       function applyState() {
         document.body.setAttribute('data-theme', currentTheme);
