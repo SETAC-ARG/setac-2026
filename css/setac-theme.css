@@ -1,42 +1,42 @@
 /* ==========================================================================
    SETAC ARGENTINA 2026 - LITTLELINK CUSTOM THEME
-   Colores extraídos del afiche oficial del congreso:
-   - Primario: #0f4c81 (Navy Institucional)
-   - Acento:   #0284c7 (Cyan / Celeste)
-   - Fondo:    Degradado suave #eaf4fc -> #f8fafc
+   Colores calibrados con el afiche oficial del congreso:
+   - Fondo: Tono intermedio celeste cielo (#cce3f5 -> #e2f0fb)
+   - Botones: Azul congreso con degradado satinado (estilo botón Programa)
+   - Tabs: Barra blanca nítida con pestaña activa azul y texto azul marino
+   - Logos: Centrados, grandes y destacados
    ========================================================================== */
 
 :root {
-  --color-primary: #0f4c81;
-  --color-primary-hover: #0a355c;
+  /* Azules de marca */
+  --color-primary: #1b71a8;
+  --color-primary-dark: #12517a;
   --color-accent: #0284c7;
   --color-accent-light: #e0f2fe;
-  --color-accent-hover: #0369a1;
   
-  --bg-gradient-start: #eaf4fc;
-  --bg-gradient-end: #f8fafc;
+  /* Fondo intermedio celeste cielo (perfecto equilibrio entre presencia y luminosidad) */
+  --bg-gradient-start: #cce3f5;
+  --bg-gradient-end: #e2f0fb;
+  
   --card-bg: #ffffff;
-  --card-border: #e2e8f0;
-  --text-main: #0f172a;
-  --text-muted: #475569;
+  --card-border: #b8daf2;
+  --text-main: #0c2b48;
+  --text-muted: #3d6385;
   
-  --shadow-sm: 0 1px 3px rgba(15, 76, 129, 0.06);
-  --shadow-md: 0 4px 12px rgba(15, 76, 129, 0.08);
-  --shadow-lg: 0 10px 25px rgba(15, 76, 129, 0.12);
+  --shadow-sm: 0 2px 5px rgba(27, 113, 168, 0.08);
+  --shadow-md: 0 5px 16px rgba(27, 113, 168, 0.12);
+  --shadow-lg: 0 10px 25px rgba(27, 113, 168, 0.16);
 }
 
+/* Forzar consistencia sin invertir a grises oscuros */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-gradient-start: #0a1120;
-    --bg-gradient-end: #0f172a;
-    --card-bg: #1e293b;
-    --card-border: #334155;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --color-accent-light: rgba(2, 132, 199, 0.2);
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --bg-gradient-start: #cce3f5;
+    --bg-gradient-end: #e2f0fb;
+    --card-bg: #ffffff;
+    --card-border: #b8daf2;
+    --text-main: #0c2b48;
+    --text-muted: #3d6385;
   }
 }
 
@@ -55,95 +55,91 @@ body {
   margin: 0 auto;
 }
 
-/* Header */
+/* ==========================================
+   HEADER Y LOGOTIPOS
+   ========================================== */
 .hub-header {
   text-align: center;
   margin-bottom: 24px;
 }
 
 .avatar-wrapper {
-  display: inline-block;
-  position: relative;
-  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 16px;
 }
 
 .avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 24px;
-  object-fit: cover;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 18px;
   background-color: #ffffff;
-  padding: 4px;
-  box-shadow: var(--shadow-md);
-  border: 2px solid #ffffff;
+  padding: 10px 16px;
+  box-shadow: 0 4px 18px rgba(18, 81, 122, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: block;
 }
 
 .congress-badge {
   display: inline-block;
-  padding: 4px 12px;
-  background-color: var(--color-accent-light);
-  color: var(--color-primary);
+  padding: 5px 14px;
+  background-color: #e0f0fc;
+  color: #12517a;
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .05em;
+  font-weight: 800;
+  letter-spacing: .06em;
   text-transform: uppercase;
   border-radius: 20px;
   margin-bottom: 8px;
+  border: 1px solid #b5daf5;
 }
 
 .congress-title {
   font-size: 24px;
   font-weight: 800;
-  color: var(--color-primary);
+  color: #0f4c81;
   margin: 4px 0 6px;
   line-height: 1.25;
 }
 
-@media (prefers-color-scheme: dark) {
-  .congress-title {
-    color: #38bdf8;
-  }
-}
-
 .congress-subtitle {
   font-size: 14px;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin: 0 0 4px;
+  font-weight: 700;
+  color: #27557e;
+  margin: 0 0 6px;
 }
 
 .congress-venue {
   font-size: 13px;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: #35628a;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .congress-venue svg {
-  width: 14px;
-  height: 14px;
-  stroke: var(--color-accent);
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-primary);
 }
 
-/* Tarjeta de Alerta en Vivo */
+/* ==========================================
+   TARJETA DE ALERTA EN VIVO
+   ========================================== */
 .live-alert-card {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
   border: 1px solid #f59e0b;
   border-radius: 14px;
   padding: 12px 16px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
-  animation: pulse-border 3s infinite;
-}
-
-@keyframes pulse-border {
-  0%, 100% { box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15); }
-  50% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35); }
+  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.18);
 }
 
 .live-alert-icon {
@@ -156,7 +152,7 @@ body {
 
 .live-alert-content h4 {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   color: #92400e;
   margin: 0 0 2px;
   text-transform: uppercase;
@@ -165,27 +161,26 @@ body {
 
 .live-alert-content p {
   font-size: 13px;
+  font-weight: 600;
   color: #78350f;
   margin: 0;
   line-height: 1.4;
 }
 
-/* Tarjeta WiFi */
+/* ==========================================
+   TARJETA WIFI
+   ========================================== */
 .wifi-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background-color: #ffffff;
+  border: 1px solid #b8daf2;
   border-radius: 14px;
   padding: 14px 18px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 3px 10px rgba(27, 113, 168, 0.08);
   transition: all .2s ease;
-}
-
-.wifi-card:hover {
-  box-shadow: var(--shadow-md);
 }
 
 .wifi-info {
@@ -198,7 +193,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background-color: var(--color-accent-light);
+  background-color: #e0f2fe;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,73 +202,67 @@ body {
 .wifi-icon-wrapper svg {
   width: 22px;
   height: 22px;
-  stroke: var(--color-accent);
+  stroke: var(--color-primary);
 }
 
 .wifi-details .wifi-label {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #517a9e;
   letter-spacing: .05em;
   margin: 0;
 }
 
 .wifi-details .wifi-ssid {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 800;
+  color: #0c2b48;
   margin: 0;
 }
 
 .wifi-copy-btn {
-  background-color: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  color: #334155;
+  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
+  border: none;
+  color: #ffffff;
   font-size: 12px;
-  font-weight: 600;
-  padding: 6px 12px;
+  font-weight: 700;
+  padding: 8px 14px;
   height: auto;
   line-height: normal;
-  border-radius: 8px;
+  border-radius: 10px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(27, 113, 168, 0.25);
   transition: all .15s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  .wifi-copy-btn {
-    background-color: #334155;
-    border-color: #475569;
-    color: #e2e8f0;
-  }
-}
-
 .wifi-copy-btn:hover {
-  background-color: var(--color-primary);
-  color: #ffffff;
-  border-color: var(--color-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(27, 113, 168, 0.35);
 }
 
 .wifi-copy-btn svg {
   width: 14px;
   height: 14px;
-  stroke: currentColor;
+  stroke: #ffffff;
 }
 
-/* Sistema de Pestañas (Tabs) */
+/* ==========================================
+   SISTEMA DE PESTAÑAS (TABS) - NÍTIDO Y LEGIBLE
+   ========================================== */
 .tabs-nav {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   overflow-x: auto;
-  padding: 4px;
+  padding: 5px;
   margin-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
+  background-color: #ffffff;
+  border: 1px solid #b8daf2;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(27, 113, 168, 0.08);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -282,21 +271,15 @@ body {
   display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .tabs-nav {
-    background-color: rgba(30, 41, 59, 0.6);
-  }
-}
-
 .tab-btn {
   flex: 1 0 auto;
   padding: 8px 14px;
   font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-weight: 700;
+  color: #27557e;
   background: transparent;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   white-space: nowrap;
   transition: all .2s ease;
@@ -305,26 +288,21 @@ body {
 }
 
 .tab-btn:hover {
-  color: var(--color-primary);
-  background-color: rgba(15, 76, 129, 0.05);
+  color: #0c2b48;
+  background-color: #eaf4fb;
   transform: none;
   box-shadow: none;
 }
 
 .tab-btn.active {
-  color: #ffffff;
-  background-color: var(--color-primary);
-  box-shadow: 0 2px 6px rgba(15, 76, 129, 0.25);
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%) !important;
+  box-shadow: 0 3px 8px rgba(27, 113, 168, 0.35) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .tab-btn.active {
-    background-color: #0284c7;
-    color: #ffffff;
-  }
-}
-
-/* Paneles de Contenido de Pestañas */
+/* ==========================================
+   PANELES DE CONTENIDO
+   ========================================== */
 .tab-pane {
   display: none;
   flex-direction: column;
@@ -341,37 +319,34 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Botones LittleLink Estilizados */
+/* ==========================================
+   BOTONES ESTILO AZUL CONGRESO (UNIFICADO)
+   ========================================== */
 .btn-congress {
   width: 100%;
-  height: 54px;
+  height: 56px;
   padding: 0 18px;
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 14px;
-  color: var(--text-main);
+  color: #ffffff;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 12px rgba(27, 113, 168, 0.22);
   transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
 }
 
 .btn-congress:hover {
   transform: translateY(-2px);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
-  color: var(--color-primary);
-}
-
-@media (prefers-color-scheme: dark) {
-  .btn-congress:hover {
-    color: #38bdf8;
-  }
+  background: linear-gradient(135deg, #145985 0%, #237bb3 100%);
+  box-shadow: 0 6px 18px rgba(27, 113, 168, 0.32);
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .btn-content-left {
@@ -385,14 +360,7 @@ body {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  stroke: var(--color-primary);
-  transition: stroke .2s ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  .btn-icon {
-    stroke: #38bdf8;
-  }
+  stroke: #ffffff;
 }
 
 .btn-text-group {
@@ -404,80 +372,47 @@ body {
   display: block;
   font-size: 14px;
   font-weight: 700;
+  color: #ffffff;
 }
 
 .btn-desc {
   display: block;
   font-size: 11px;
-  color: var(--text-muted);
+  color: #e0f2fe;
   margin-top: 2px;
 }
 
 .btn-arrow {
   width: 16px;
   height: 16px;
-  stroke: #94a3b8;
+  stroke: rgba(255, 255, 255, 0.85);
   flex-shrink: 0;
-  transition: transform .2s ease, stroke .2s ease;
+  transition: transform .2s ease;
 }
 
 .btn-congress:hover .btn-arrow {
-  transform: translateX(3px);
-  stroke: var(--color-accent);
-}
-
-/* Variantes Destacadas */
-.btn-primary-highlight {
-  background: linear-gradient(135deg, #0f4c81 0%, #1e5a8a 100%);
-  border-color: #0f4c81;
-  color: #ffffff;
-}
-
-.btn-primary-highlight .btn-icon {
+  transform: translateX(4px);
   stroke: #ffffff;
 }
 
-.btn-primary-highlight .btn-desc {
-  color: #e0f2fe;
-}
-
-.btn-primary-highlight .btn-arrow {
-  stroke: #ffffff;
-}
-
-.btn-primary-highlight:hover {
-  background: linear-gradient(135deg, #0a355c 0%, #174871 100%);
-  color: #ffffff;
-}
-
+/* Variante Cyan / Acento para Formularios y Votación */
 .btn-accent-highlight {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-  border-color: #0284c7;
-  color: #ffffff;
-}
-
-.btn-accent-highlight .btn-icon {
-  stroke: #ffffff;
-}
-
-.btn-accent-highlight .btn-desc {
-  color: #e0f2fe;
-}
-
-.btn-accent-highlight .btn-arrow {
-  stroke: #ffffff;
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
 }
 
 .btn-accent-highlight:hover {
-  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
 }
 
-/* Sección de Redes y Footer */
+/* ==========================================
+   FOOTER Y REDES SOCIALES
+   ========================================== */
 .hub-footer {
   margin-top: 36px;
   text-align: center;
-  border-top: 1px solid var(--card-border);
+  border-top: 1px solid #b8daf2;
   padding-top: 24px;
 }
 
@@ -489,16 +424,16 @@ body {
 }
 
 .social-link {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background-color: #ffffff;
+  border: 1px solid #b8daf2;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
-  box-shadow: var(--shadow-sm);
+  color: #1b71a8;
+  box-shadow: 0 2px 8px rgba(27, 113, 168, 0.10);
   transition: all .2s ease;
 }
 
@@ -509,27 +444,30 @@ body {
 }
 
 .social-link:hover {
-  color: var(--color-primary);
-  border-color: var(--color-accent);
+  color: #ffffff;
+  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
+  border-color: #1b71a8;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(27, 113, 168, 0.25);
 }
 
 .footer-copy {
   font-size: 12px;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: #35628a;
   margin: 0;
 }
 
 .footer-qr-link {
   display: inline-block;
   margin-top: 10px;
-  font-size: 12px;
-  color: var(--color-accent);
+  font-size: 13px;
+  color: #1b71a8;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .footer-qr-link:hover {
   text-decoration: underline;
+  color: #0f4c81;
 }
