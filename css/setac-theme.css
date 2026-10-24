@@ -1,352 +1,442 @@
 /* ==========================================================================
-   SETAC ARGENTINA 2026 - LITTLELINK CUSTOM THEME
-   Colores calibrados con el afiche oficial del congreso:
-   - Fondo: Tono intermedio celeste cielo (#cce3f5 -> #e2f0fb)
-   - Botones: Azul congreso con degradado satinado (estilo botón Programa)
-   - Tabs: Barra blanca nítida con pestaña activa azul y texto azul marino
-   - Logos: Centrados, grandes y destacados
+   SETAC ARGENTINA 2026 - AMALGAMATED MODERN THEME
+   Fusión de:
+   1. Afiche Oficial de La Plata (Cabecera asimétrica, colores oficiales, lema)
+   2. Link Hub Minimalista (Botones cápsula, iconos circulares, pulcritud visual)
    ========================================================================== */
 
 :root {
   /* Azules de marca */
-  --color-primary: #1b71a8;
-  --color-primary-dark: #12517a;
+  --color-primary: #124d79;
+  --color-primary-dark: #0a3250;
   --color-accent: #0284c7;
   --color-accent-light: #e0f2fe;
   
-  /* Fondo intermedio celeste cielo (perfecto equilibrio entre presencia y luminosidad) */
-  --bg-gradient-start: #cce3f5;
-  --bg-gradient-end: #e2f0fb;
+  /* Fondo intermedio celeste cielo con degradado luminoso */
+  --bg-gradient-start: #d3e7f6;
+  --bg-gradient-end: #eaf3fb;
   
   --card-bg: #ffffff;
   --card-border: #b8daf2;
   --text-main: #0c2b48;
   --text-muted: #3d6385;
   
-  --shadow-sm: 0 2px 5px rgba(27, 113, 168, 0.08);
-  --shadow-md: 0 5px 16px rgba(27, 113, 168, 0.12);
-  --shadow-lg: 0 10px 25px rgba(27, 113, 168, 0.16);
+  --shadow-sm: 0 2px 6px rgba(18, 77, 121, 0.08);
+  --shadow-md: 0 6px 18px rgba(18, 77, 121, 0.14);
+  --shadow-lg: 0 12px 30px rgba(18, 77, 121, 0.20);
 }
 
-/* Forzar consistencia sin invertir a grises oscuros */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-gradient-start: #cce3f5;
-    --bg-gradient-end: #e2f0fb;
-    --card-bg: #ffffff;
-    --card-border: #b8daf2;
-    --text-main: #0c2b48;
-    --text-muted: #3d6385;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
+  position: relative;
   background: 
-    radial-gradient(circle at 50% 120px, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 65%),
-    url('../images/watermark_bg.png') no-repeat top 25px center / 320px auto,
+    radial-gradient(circle at 50% 100px, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%),
+    url('../images/watermark_bg.png') no-repeat top 30px center / 340px auto,
     linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
   background-attachment: fixed;
   color: var(--text-main);
   min-height: 100vh;
   margin: 0;
-  padding: 18px 15px 50px;
+  padding: 18px 14px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .hub-container {
+  position: relative;
+  z-index: 1;
   max-width: 520px;
   margin: 0 auto;
 }
 
 /* ==========================================
-   HEADER Y JERARQUÍA VISUAL (CONGRESO DESTACADO Y LOGOS REALZADOS)
+   1. CABECERA ASIMÉTRICA (ESTILO AFICHE OFICIAL)
    ========================================== */
-.hub-header {
-  text-align: center;
+.asym-header {
   margin-bottom: 20px;
-  padding-top: 4px;
 }
 
-.header-top-bar {
+.header-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 22px rgba(18, 77, 121, 0.10);
+  padding: 16px 18px 14px;
+}
+
+.header-main-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 12px;
+  gap: 16px;
 }
 
-.header-logo-mini {
-  height: 48px;
-  width: auto;
-  max-width: 95px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 5px rgba(27, 113, 168, 0.16));
-  transition: transform 0.2s ease;
-}
-
-.header-logo-mini:hover {
-  transform: scale(1.04);
-}
-
-.avatar-wrapper {
-  display: none;
-}
-
-.header-edition-pill {
-  display: inline-flex;
+/* Columna de logos a la izquierda */
+.header-logos-col {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 14px;
-  background-color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(4px);
-  color: #12517a;
-  font-size: 11px;
+  gap: 10px;
+  flex-shrink: 0;
+  padding-right: 12px;
+  border-right: 1px solid rgba(184, 218, 242, 0.7);
+}
+
+.asym-logo-hex {
+  height: 54px;
+  width: auto;
+  max-width: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16));
+}
+
+.asym-logo-circle {
+  height: 52px;
+  width: auto;
+  max-width: 58px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16));
+}
+
+/* Columna de títulos a la derecha */
+.header-titles-col {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.header-dates-badge {
+  display: inline-block;
+  font-size: 10.5px;
   font-weight: 800;
-  letter-spacing: .06em;
+  letter-spacing: .05em;
   text-transform: uppercase;
-  border-radius: 20px;
-  border: 1px solid #b8daf2;
-  box-shadow: 0 2px 6px rgba(27, 113, 168, 0.08);
-  white-space: nowrap;
+  color: #1b689e;
+  background: #e2f1fc;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-bottom: 3px;
+  border: 1px solid #c0dff5;
 }
 
-.pill-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #0284c7;
+.asym-title {
+  margin: 0;
+  line-height: 1.15;
 }
 
-.congress-title {
-  font-size: 26px;
-  font-weight: 800;
-  color: #0f4c81;
-  margin: 6px 0 4px;
-  line-height: 1.22;
+.asym-title-light {
+  display: block;
+  font-size: 19px;
+  font-weight: 600;
+  color: #17527f;
   letter-spacing: -0.01em;
 }
 
-.congress-motto {
-  font-size: 14.5px;
+.asym-title-bold {
+  display: block;
+  font-size: 23px;
+  font-weight: 800;
+  color: #0b3557;
+  letter-spacing: -0.01em;
+}
+
+.asym-venue {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #3b668a;
+  margin: 3px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.asym-venue svg {
+  stroke: #17527f;
+  flex-shrink: 0;
+}
+
+/* Fila de lema inferior */
+.header-motto-row {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(184, 218, 242, 0.8);
+  text-align: center;
+}
+
+.header-motto-text {
+  font-size: 13px;
   font-style: italic;
   font-weight: 600;
-  color: #27557e;
-  margin: 0 0 6px;
-  line-height: 1.35;
+  color: #1b5179;
+  letter-spacing: .01em;
 }
 
-.congress-dates {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #12517a;
-  margin: 0 0 6px;
-}
-
-.congress-venue {
-  font-size: 12px;
-  font-weight: 600;
-  color: #3f698e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.congress-venue svg {
-  width: 14px;
-  height: 14px;
-  stroke: var(--color-primary);
-}
-
-@media (max-width: 420px) {
-  .header-logo-mini {
-    height: 40px;
-    max-width: 78px;
-  }
-  .congress-title {
-    font-size: 22px;
-  }
-  .congress-motto {
-    font-size: 13px;
-  }
-  .header-edition-pill {
-    font-size: 10px;
-    padding: 4px 10px;
-  }
-}
-
-/* Footer institucional con logos */
-.footer-logos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-  margin-bottom: 16px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 14px;
-  border: 1px solid rgba(184, 218, 242, 0.6);
-}
-
-.footer-logo {
-  height: 42px;
-  width: auto;
-  max-width: 80px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(27, 113, 168, 0.12));
-  opacity: 0.92;
-  transition: opacity .2s ease, transform .2s ease;
-}
-
-.footer-logo:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-.congress-venue svg {
-  width: 15px;
-  height: 15px;
-  stroke: var(--color-primary);
-}
-
-/* ==========================================
-   TARJETA DE ALERTA EN VIVO
-   ========================================== */
-.live-alert-card {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-  border: 1px solid #f59e0b;
-  border-radius: 14px;
-  padding: 12px 16px;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.18);
-}
-
-.live-alert-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  margin-top: 2px;
-  stroke: #b45309;
-}
-
-.live-alert-content h4 {
-  font-size: 13px;
+.header-motto-text strong {
+  font-style: normal;
   font-weight: 800;
-  color: #92400e;
-  margin: 0 0 2px;
-  text-transform: uppercase;
-  letter-spacing: .03em;
-}
-
-.live-alert-content p {
-  font-size: 13px;
-  font-weight: 600;
-  color: #78350f;
-  margin: 0;
-  line-height: 1.4;
+  color: #0c3b60;
+  letter-spacing: .02em;
 }
 
 /* ==========================================
-   TARJETA WIFI
+   2. TARJETA WIFI CÁPSULA
    ========================================== */
 .wifi-card {
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
   border: 1px solid #b8daf2;
-  border-radius: 14px;
-  padding: 14px 18px;
-  margin-bottom: 18px;
+  border-radius: 16px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 3px 10px rgba(27, 113, 168, 0.08);
-  transition: all .2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .wifi-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .wifi-icon-wrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #e0f2fe;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(27, 113, 168, 0.25);
 }
 
 .wifi-icon-wrapper svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--color-primary);
+  width: 18px;
+  height: 18px;
+  stroke: #ffffff;
 }
 
-.wifi-details .wifi-label {
+.wifi-details {
+  text-align: left;
+}
+
+.wifi-label {
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  color: #517a9e;
-  letter-spacing: .05em;
+  color: #3b668a;
   margin: 0;
 }
 
-.wifi-details .wifi-ssid {
-  font-size: 15px;
+.wifi-ssid {
+  font-size: 14px;
   font-weight: 800;
-  color: #0c2b48;
+  color: #0b3557;
   margin: 0;
 }
 
 .wifi-copy-btn {
-  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
-  border: none;
-  color: #ffffff;
+  background: #ffffff;
+  border: 1px solid #b8daf2;
+  color: #124d79;
   font-size: 12px;
   font-weight: 700;
-  padding: 8px 14px;
-  height: auto;
-  line-height: normal;
-  border-radius: 10px;
+  padding: 7px 14px;
+  border-radius: 9999px; /* Cápsula */
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(27, 113, 168, 0.25);
-  transition: all .15s ease;
+  transition: all .2s ease;
+  box-shadow: 0 2px 5px rgba(18, 77, 121, 0.08);
 }
 
 .wifi-copy-btn:hover {
+  background: #eaf4fb;
+  border-color: #124d79;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(27, 113, 168, 0.35);
 }
 
 .wifi-copy-btn svg {
   width: 14px;
   height: 14px;
-  stroke: #ffffff;
+  stroke: currentColor;
 }
 
 /* ==========================================
-   SISTEMA DE PESTAÑAS (TABS) - NÍTIDO Y LEGIBLE
+   3. SEPARADORES DE SECCIÓN (ESTILO IMAGEN 1)
+   ========================================== */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0 14px;
+}
+
+.divider-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(184, 218, 242, 0) 0%, rgba(184, 218, 242, 0.9) 50%, rgba(184, 218, 242, 0) 100%);
+}
+
+.divider-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #17527f;
+}
+
+.divider-symbol {
+  color: #0284c7;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ==========================================
+   4. BOTONES CÁPSULA MINIMALISTAS (IMAGEN 1)
+   ========================================== */
+.btn-congress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 56px;
+  padding: 8px 16px 8px 10px;
+  margin-bottom: 12px;
+  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
+  border: 1px solid rgba(160, 206, 240, 0.35);
+  border-radius: 9999px; /* CÁPSULA COMPLETA */
+  color: #ffffff !important;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(10, 42, 70, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: all .22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-congress:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #1c5587 0%, #13426b 100%);
+  border-color: rgba(160, 206, 240, 0.6);
+  box-shadow: 0 8px 22px rgba(10, 42, 70, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-congress:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(10, 42, 70, 0.2);
+}
+
+.btn-content-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* Círculo blanco para el icono a la izquierda (Idéntico a Imagen 1) */
+.btn-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: all .2s ease;
+}
+
+.btn-congress:hover .btn-icon-circle {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.04);
+}
+
+.btn-icon-circle svg {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Textos dentro del botón cápsula */
+.btn-text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  min-width: 0;
+}
+
+.btn-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: #ffffff;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.btn-desc {
+  font-size: 11.5px;
+  color: #b9dcf7;
+  font-weight: 500;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-arrow {
+  width: 18px;
+  height: 18px;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 2.2;
+  flex-shrink: 0;
+  transition: transform .2s ease, stroke .2s ease;
+  margin-right: 4px;
+}
+
+.btn-congress:hover .btn-arrow {
+  stroke: #ffffff;
+  transform: translateX(3px);
+}
+
+/* Botón destacado / primario (buscador de programa) */
+.btn-primary-highlight {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary-highlight:hover {
+  background: linear-gradient(180deg, #0396e2 0%, #0277b5 100%);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================
+   5. NAVEGACIÓN POR PESTAÑAS (TABS CÁPSULA)
    ========================================== */
 .tabs-nav {
   display: flex;
-  gap: 4px;
+  gap: 6px;
   overflow-x: auto;
-  padding: 5px;
-  margin-bottom: 20px;
-  background-color: #ffffff;
-  border: 1px solid #b8daf2;
-  border-radius: 14px;
-  box-shadow: 0 3px 12px rgba(27, 113, 168, 0.08);
-  -webkit-overflow-scrolling: touch;
+  padding: 4px 2px 10px;
+  margin-bottom: 14px;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tabs-nav::-webkit-scrollbar {
@@ -354,46 +444,40 @@ body {
 }
 
 .tab-btn {
-  flex: 1 0 auto;
-  padding: 8px 14px;
-  font-size: 13px;
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border-radius: 9999px; /* Cápsula */
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #b8daf2;
+  color: #124d79;
+  font-size: 12.5px;
   font-weight: 700;
-  color: #27557e;
-  background: transparent;
-  border: none;
-  border-radius: 10px;
   cursor: pointer;
   white-space: nowrap;
   transition: all .2s ease;
-  height: auto;
-  line-height: normal;
-}
-
-.tab-btn:hover {
-  color: #0c2b48;
-  background-color: #eaf4fb;
-  transform: none;
-  box-shadow: none;
+  box-shadow: 0 2px 5px rgba(18, 77, 121, 0.06);
 }
 
 .tab-btn.active {
-  color: #ffffff !important;
-  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%) !important;
-  box-shadow: 0 3px 8px rgba(27, 113, 168, 0.35) !important;
+  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
+  color: #ffffff;
+  border-color: #10385b;
+  box-shadow: 0 3px 10px rgba(16, 56, 91, 0.25);
 }
 
-/* ==========================================
-   PANELES DE CONTENIDO
-   ========================================== */
+.tab-btn:hover:not(.active) {
+  background: #ffffff;
+  border-color: #1b71a8;
+  color: #0b3557;
+}
+
 .tab-pane {
   display: none;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .tab-pane.active {
-  display: flex;
-  animation: fadeIn .25s ease;
+  display: block;
+  animation: fadeIn .25s ease-out;
 }
 
 @keyframes fadeIn {
@@ -402,94 +486,94 @@ body {
 }
 
 /* ==========================================
-   BOTONES ESTILO AZUL CONGRESO (UNIFICADO)
+   6. TARJETAS DE HITOS / CRONOGRAMA POR DÍA
    ========================================== */
-.btn-congress {
-  width: 100%;
-  height: 56px;
-  padding: 0 18px;
-  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 14px;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 700;
+.hitos-day-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid #b8daf2;
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hitos-day-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(27, 113, 168, 0.22);
-  transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-sizing: border-box;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0effa;
 }
 
-.btn-congress:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #145985 0%, #237bb3 100%);
-  box-shadow: 0 6px 18px rgba(27, 113, 168, 0.32);
-  color: #ffffff;
-  text-decoration: none;
+.hitos-day-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0b3557;
+  margin: 0;
 }
 
-.btn-content-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  overflow: hidden;
-}
-
-.btn-icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  stroke: #ffffff;
-}
-
-.btn-text-group {
-  text-align: left;
-  line-height: 1.25;
-}
-
-.btn-title {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.btn-desc {
-  display: block;
+.hitos-day-badge {
   font-size: 11px;
-  color: #e0f2fe;
-  margin-top: 2px;
+  font-weight: 700;
+  color: #17527f;
+  background: #e2f1fc;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  border: 1px solid #c0dff5;
 }
 
-.btn-arrow {
-  width: 16px;
-  height: 16px;
-  stroke: rgba(255, 255, 255, 0.85);
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px dashed #e8f2fa;
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timeline-time {
+  font-size: 12px;
+  font-weight: 800;
+  color: #1b689e;
+  min-width: 82px;
   flex-shrink: 0;
-  transition: transform .2s ease;
 }
 
-.btn-congress:hover .btn-arrow {
-  transform: translateX(4px);
-  stroke: #ffffff;
+.timeline-content {
+  font-size: 12.5px;
+  color: #1c3c58;
+  line-height: 1.35;
 }
 
-/* Variante Cyan / Acento para Formularios y Votación */
-.btn-accent-highlight {
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+.timeline-content strong {
+  color: #0b3557;
 }
 
-.btn-accent-highlight:hover {
-  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
-  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+.timeline-room {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: #f0f7fd;
+  color: #2b5d84;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+  border: 1px solid #d5e9f8;
 }
 
 /* ==========================================
-   FOOTER Y REDES SOCIALES
+   7. FOOTER MODERNO Y REDES SOCIALES
    ========================================== */
 .hub-footer {
   margin-top: 36px;
@@ -498,11 +582,38 @@ body {
   padding-top: 24px;
 }
 
+.footer-logos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 9999px;
+  border: 1px solid rgba(184, 218, 242, 0.6);
+  box-shadow: 0 2px 8px rgba(18, 77, 121, 0.05);
+}
+
+.footer-logo {
+  height: 42px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  opacity: 0.92;
+  transition: transform .2s ease;
+}
+
+.footer-logo:hover {
+  transform: translateY(-2px);
+}
+
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
 .social-link {
@@ -514,8 +625,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1b71a8;
-  box-shadow: 0 2px 8px rgba(27, 113, 168, 0.10);
+  color: #124d79;
+  box-shadow: 0 2px 8px rgba(18, 77, 121, 0.08);
   transition: all .2s ease;
 }
 
@@ -527,29 +638,168 @@ body {
 
 .social-link:hover {
   color: #ffffff;
-  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
-  border-color: #1b71a8;
+  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
+  border-color: #10385b;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(27, 113, 168, 0.25);
+  box-shadow: 0 4px 12px rgba(16, 56, 91, 0.22);
 }
 
 .footer-copy {
   font-size: 12px;
   font-weight: 600;
-  color: #35628a;
+  color: #3b668a;
   margin: 0;
 }
 
 .footer-qr-link {
   display: inline-block;
   margin-top: 10px;
-  font-size: 13px;
-  color: #1b71a8;
+  font-size: 12.5px;
+  color: #124d79;
   text-decoration: none;
   font-weight: 700;
 }
 
 .footer-qr-link:hover {
   text-decoration: underline;
-  color: #0f4c81;
+  color: #0b3557;
+}
+
+/* ==========================================
+   8. RESPONSIVE (MÓVIL VS ESCRITORIO)
+   ========================================== */
+@media (max-width: 420px) {
+  body {
+    padding: 14px 10px 50px;
+  }
+  
+  .header-card {
+    padding: 14px 14px 12px;
+  }
+  
+  .header-main-row {
+    gap: 12px;
+  }
+  
+  .header-logos-col {
+    padding-right: 10px;
+    gap: 8px;
+  }
+  
+  .asym-logo-hex {
+    height: 46px;
+    max-width: 52px;
+  }
+  
+  .asym-logo-circle {
+    height: 44px;
+    max-width: 50px;
+  }
+  
+  .asym-title-light {
+    font-size: 17px;
+  }
+  
+  .asym-title-bold {
+    font-size: 20px;
+  }
+  
+  .header-motto-text {
+    font-size: 12px;
+  }
+  
+  .btn-congress {
+    min-height: 52px;
+    padding: 6px 14px 6px 8px;
+  }
+  
+  .btn-icon-circle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .btn-icon-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .btn-title {
+    font-size: 12.5px;
+  }
+  
+  .btn-desc {
+    font-size: 11px;
+  }
+}
+
+/* Soporte directo para .btn-icon como círculo blanco (Idéntico a Imagen 1) */
+.btn-icon {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 8px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  stroke: #ffffff !important;
+  flex-shrink: 0 !important;
+  transition: all .2s ease !important;
+}
+
+.btn-congress:hover .btn-icon {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  transform: scale(1.05) !important;
+}
+
+/* ==========================================
+   TARJETA DE ALERTA EN VIVO (AVISO IMPORTANTE)
+   ========================================== */
+.live-alert-card {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.15);
+}
+
+.live-alert-icon {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  flex-shrink: 0 !important;
+  margin-top: 2px;
+  stroke: #b45309;
+}
+
+.live-alert-content {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.live-alert-content h4 {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #92400e;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+.live-alert-content p {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #78350f;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.btn-accent-highlight {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
