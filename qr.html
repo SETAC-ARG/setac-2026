@@ -2,225 +2,326 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Generador de Código QR | X Congreso SETAC 2026</title>
+  <title>Código QR Oficial - Centro de Descargas | X Congreso SETAC 2026</title>
+  <meta name="description" content="Descarga de códigos QR en alta resolución (300 DPI, SVG y PDF) para banners, afiches y roll-ups del Congreso SETAC 2026.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/setac-theme.css">
-  <!-- QRCode.js de alta fidelidad vía CDN con fallback offline -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v6">
+
   <style>
-    .qr-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: var(--shadow-md);
-      margin-top: 20px;
-      text-align: center;
+    body {
+      background-color: #f4f8fb;
+      color: #1e293b;
+      font-family: Calibri, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
-    .qr-input-group {
-      text-align: left;
-      margin-bottom: 20px;
-    }
-    .qr-input-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 6px;
-    }
-    .qr-input-group input {
-      width: 100%;
-      height: 44px;
-      padding: 0 14px;
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      font-size: 14px;
-      color: var(--text-main);
-      background-color: #ffffff;
-      box-sizing: border-box;
-    }
-    @media (prefers-color-scheme: dark) {
-      .qr-input-group input {
-        background-color: #0f172a;
-        color: #f8fafc;
-      }
-    }
-    #qrcode-box {
-      display: inline-block;
-      padding: 16px;
-      background: #ffffff;
-      border-radius: 16px;
-      border: 2px solid var(--card-border);
-      margin: 16px auto;
-      box-shadow: var(--shadow-sm);
-    }
-    #qrcode-box img, #qrcode-box canvas {
-      display: block;
+    .qr-page-container {
+      max-width: 980px;
       margin: 0 auto;
+      padding: 20px 16px 60px 16px;
     }
-    .qr-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-    .btn-action {
-      height: 44px;
-      line-height: 44px;
-      padding: 0 20px;
-      font-size: 13px;
-      font-weight: 700;
-      border-radius: 10px;
-      cursor: pointer;
-      border: none;
-      transition: all .2s ease;
+
+    .btn-nav-back {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      color: #1b71a8;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 7px 14px;
+      background: #ffffff;
+      border-radius: 9px;
+      border: 1px solid #b8daf2;
+      box-shadow: 0 2px 6px rgba(27, 113, 168, 0.08);
+      margin-bottom: 14px;
+      transition: all .2s;
     }
-    .btn-action-primary {
-      background-color: var(--color-primary);
+    .btn-nav-back:hover {
+      background: #eaf4fb;
+      color: #0f4c81;
+      transform: translateY(-1px);
+    }
+
+    .qr-banner-title {
+      background: linear-gradient(135deg, #0f4c81 0%, #1b71a8 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 18px 24px;
+      box-shadow: 0 4px 14px rgba(15, 76, 129, 0.16);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .qr-banner-title h1 {
+      font-size: 21px;
+      font-weight: 800;
+      margin: 0 0 6px 0;
+    }
+    .qr-banner-title p {
+      font-size: 13.5px;
+      margin: 0;
+      opacity: 0.95;
+    }
+
+    .url-pill-box {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .url-pill {
+      display: inline-block;
+      background: #ffffff;
+      color: #0f4c81;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 13.5px;
+      border: 1.5px solid #b8daf2;
+      box-shadow: 0 2px 8px rgba(15, 76, 129, 0.08);
+      word-break: break-all;
+    }
+
+    .qr-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .qr-variant-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1.5px solid #b8daf2;
+      padding: 22px;
+      box-shadow: 0 4px 16px rgba(15, 76, 129, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .2s ease, box-shadow .2s ease;
+      position: relative;
+    }
+    .qr-variant-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(15, 76, 129, 0.12);
+    }
+    .variant-badge-tag {
+      position: absolute;
+      top: -10px;
+      right: 18px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 12px;
+      border-radius: 12px;
+      letter-spacing: 0.4px;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.35);
+    }
+    .variant-badge-tag.highlight {
+      background: #0284c7;
+    }
+
+    .variant-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0f4c81;
+      margin: 0 0 6px 0;
+      text-align: center;
+    }
+    .variant-desc {
+      font-size: 12.5px;
+      color: #64748b;
+      margin: 0 0 16px 0;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .qr-img-frame {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1.5px solid #e2e8f0;
+      margin-bottom: 18px;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.03);
+    }
+    .qr-img-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .download-btns-col {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .btn-dl {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .15s ease;
+    }
+    .btn-dl-primary {
+      background: #0f172a;
       color: #ffffff;
     }
-    .btn-action-primary:hover {
-      background-color: var(--color-primary-hover);
-      transform: translateY(-2px);
+    .btn-dl-primary:hover {
+      background: #1e293b;
+      color: #ffffff;
     }
-    .btn-action-secondary {
-      background-color: var(--card-border);
-      color: var(--text-main);
+    .btn-dl-secondary {
+      background: #eaf4fb;
+      color: #0f4c81;
+      border: 1px solid #b8daf2;
     }
-    .banner-tips {
-      margin-top: 24px;
-      text-align: left;
-      font-size: 13px;
-      color: var(--text-muted);
-      background-color: rgba(2, 132, 199, 0.08);
-      border-left: 4px solid var(--color-accent);
-      padding: 12px 16px;
-      border-radius: 8px;
+    .btn-dl-secondary:hover {
+      background: #d4eaf8;
     }
-    .banner-tips h5 {
-      font-size: 14px;
-      color: var(--color-primary);
-      margin-bottom: 6px;
-      font-weight: 700;
+    .btn-dl-alt {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
     }
-    .banner-tips ul {
+    .btn-dl-alt:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .info-tips-box {
+      background: #ffffff;
+      border: 1px solid #b8daf2;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-top: 10px;
+      box-shadow: 0 3px 12px rgba(15, 76, 129, 0.05);
+    }
+    .info-tips-box h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0f4c81;
+      margin: 0 0 10px 0;
+    }
+    .info-tips-box ul {
       margin: 0;
-      padding-left: 18px;
+      padding-left: 20px;
+      color: #334155;
+      font-size: 13px;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
-  <div class="hub-container">
-    <header class="hub-header">
-      <div class="avatar-wrapper">
-        <img class="avatar" src="images/avatar.png" alt="Logotipo SETAC">
-      </div>
-      <span class="congress-badge">Utilidad de Impresión</span>
-      <h1 class="congress-title">Generador de QR para Banners</h1>
-      <p class="congress-subtitle">Generá el código QR estático oficial en alta resolución</p>
+  <div class="qr-page-container">
+    <a href="index.html" class="btn-nav-back">
+      &larr; Volver al Menú Principal
+    </a>
+
+    <header class="qr-banner-title">
+      <h1>📱 Códigos QR Oficiales para Banners y Afiches</h1>
+      <p>Archivos listos en ultra-alta resolución (300 DPI, SVG y PDF) &bull; X Congreso SETAC 2026</p>
     </header>
 
-    <div class="qr-card">
-      <div class="qr-input-group">
-        <label for="urlInput">URL del LittleLink en GitHub Pages:</label>
-        <input type="url" id="urlInput" value="https://setac-arg.github.io/setac-2026/" placeholder="https://tu-usuario.github.io/tu-repo/">
+    <div class="url-pill-box">
+      <div class="url-pill">
+        🔗 URL Codificada: https://setac-arg.github.io/setac-2026/
+      </div>
+      <p style="font-size:12px;color:#16a34a;font-weight:700;margin:6px 0 0 0;">
+        ✅ Nivel H (30% redundancia) &bull; Verificado 100% con visión artificial para escaneo instantáneo
+      </p>
+    </div>
+
+    <!-- Galería de las opciones elegidas -->
+    <div class="qr-gallery-grid">
+
+      <!-- OPCIÓN 1: MODERNO PUNTOS (DOTS) CON RECUADRO NEGRO -->
+      <div class="qr-variant-card">
+        <span class="variant-badge-tag highlight">NUEVO &bull; ESTILO PUNTOS CIRCULARES</span>
+        <div>
+          <h2 class="variant-title">1. QR Moderno (Estilo Puntos)</h2>
+          <p class="variant-desc">Trama de puntos circulares redondeados con cápsula blanca central y <strong>recuadro negro</strong> (sin línea divisoria).</p>
+          <div class="qr-img-frame">
+            <img src="images/qr_oficial_dots_negro.png" alt="QR Moderno Dots SETAC">
+          </div>
+        </div>
+        <div class="download-btns-col">
+          <a href="docs/qr/QR_SETAC_2026_moderno_dots_recuadro_negro_300dpi.png" download="QR_SETAC_2026_moderno_dots_recuadro_negro_300dpi.png" class="btn-dl btn-dl-primary">
+            📥 Descargar PNG (300 DPI - 2700×2700 px)
+          </a>
+          <a href="docs/qr/QR_SETAC_2026_moderno_dots_recuadro_negro_print.pdf" download="QR_SETAC_2026_moderno_dots_recuadro_negro_print.pdf" class="btn-dl btn-dl-secondary">
+            📄 Descargar PDF para Imprenta (300 DPI)
+          </a>
+        </div>
       </div>
 
-      <div id="qrcode-box"></div>
+      <!-- OPCIÓN 2: CLÁSICO CUADRADO CON RECUADRO NEGRO -->
+      <div class="qr-variant-card">
+        <span class="variant-badge-tag">CLÁSICO &bull; MÓDULOS CUADRADOS</span>
+        <div>
+          <h2 class="variant-title">2. QR Clásico (Módulos Cuadrados)</h2>
+          <p class="variant-desc">Trama tradicional cuadrada con cápsula blanca central y <strong>recuadro negro</strong> (sin línea divisoria).</p>
+          <div class="qr-img-frame">
+            <img src="images/qr_oficial_clasico_negro.png" alt="QR Clásico SETAC">
+          </div>
+        </div>
+        <div class="download-btns-col">
+          <a href="docs/qr/QR_SETAC_2026_clasico_recuadro_negro_300dpi.png" download="QR_SETAC_2026_clasico_recuadro_negro_300dpi.png" class="btn-dl btn-dl-primary">
+            📥 Descargar PNG (300 DPI - 2700×2700 px)
+          </a>
+          <a href="docs/qr/QR_SETAC_2026_clasico_vector_recuadro_negro.svg" download="QR_SETAC_2026_clasico_vector_recuadro_negro.svg" class="btn-dl btn-dl-secondary">
+            📐 Descargar Vector SVG (Curvas Illustrator)
+          </a>
+          <a href="docs/qr/QR_SETAC_2026_clasico_recuadro_negro_print.pdf" download="QR_SETAC_2026_clasico_recuadro_negro_print.pdf" class="btn-dl btn-dl-alt">
+            📄 Descargar PDF para Imprenta (300 DPI)
+          </a>
+        </div>
+      </div>
 
-      <div class="qr-actions">
-        <button id="downloadPngBtn" class="btn-action btn-action-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Descargar PNG (Alta Resolución)
-        </button>
-        <a href="index.html" class="btn-action btn-action-secondary" style="text-decoration:none;">
-          &larr; Volver al Hub
+    </div>
+
+    <!-- Opciones Puras Sin Logos -->
+    <div style="background:#ffffff; border-radius:14px; border:1.5px dashed #cbd5e1; padding:18px 22px; text-align:center; margin-bottom:24px;">
+      <h4 style="font-size:14px; font-weight:800; color:#0f4c81; margin:0 0 6px 0;">
+        Alternativas Puras (Sin logos centrales):
+      </h4>
+      <p style="font-size:12px; color:#64748b; margin:0 0 12px 0;">
+        Para casos en que la diseñadora prefiera diagramar los logos fuera del código QR:
+      </p>
+      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <a href="docs/qr/QR_SETAC_2026_clasico_vector_puro.svg" download class="btn-dl btn-dl-secondary" style="font-size:12px; padding:7px 14px;">
+          📐 Clásico SVG Puro
+        </a>
+        <a href="docs/qr/QR_SETAC_2026_clasico_puro_300dpi.png" download class="btn-dl btn-dl-primary" style="font-size:12px; padding:7px 14px;">
+          📥 Clásico PNG (300 DPI)
+        </a>
+        <a href="docs/qr/QR_SETAC_2026_moderno_dots_puro_300dpi.png" download class="btn-dl btn-dl-alt" style="font-size:12px; padding:7px 14px;">
+          🔵 Moderno Dots Puro PNG (300 DPI)
+        </a>
+        <a href="docs/qr/QR_SETAC_2026_clasico_puro_print.pdf" download class="btn-dl btn-dl-alt" style="font-size:12px; padding:7px 14px;">
+          📄 Clásico PDF Imprenta
         </a>
       </div>
-
-      <div class="banner-tips">
-        <h5>💡 Recomendaciones para Banners y Cartelería:</h5>
-        <ul>
-          <li><strong>Tamaño mínimo recomendado:</strong> 12 x 12 cm en roll-ups y banners de pie para facilitar el escaneo a 1.5 - 2 metros de distancia.</li>
-          <li><strong>Zona de resguardo:</strong> Dejar un margen blanco de al menos 1 cm alrededor del QR para evitar problemas de contraste con el fondo del diseño.</li>
-          <li><strong>Permanencia:</strong> Como la URL de GitHub Pages es estática, puedes imprimir el banner hoy y cambiar el contenido de los botones en cualquier momento sin alterar el código impreso.</li>
-        </ul>
-      </div>
     </div>
+
+    <!-- Consejos técnicos para la diseñadora -->
+    <div class="info-tips-box">
+      <h3>💡 Pautas técnicas para la Diseñadora Gráfica e Imprenta:</h3>
+      <ul>
+        <li><strong>Tamaño en Roll-ups y Banners de Pie:</strong> Se sugiere colocar el QR a una escala de entre <strong>12 × 12 cm y 15 × 15 cm</strong>. De esta forma, cualquier persona parada a 1.5 - 2 metros de distancia podrá enfocar y abrir la app al instante.</li>
+        <li><strong>Zona de Silencio (Margen Blanco):</strong> El archivo ya incluye el margen blanco reglamentario alrededor del código. No recortarlo al ras contra fondos oscuros para garantizar la velocidad de lectura del sensor de las cámaras.</li>
+        <li><strong>Formato Vectorial:</strong> Para diagramación en InDesign o Illustrator se aconseja el archivo <strong>.SVG</strong> (o <strong>.PDF</strong>), ya que permite ampliarlo a cualquier tamaño sin pérdida de nitidez.</li>
+        <li><strong>Recuadro Negro y sin divisor:</strong> Siguiendo la nueva indicación, la cápsula central ahora cuenta con un borde negro nítido y se eliminó la línea divisoria interna, conservando los logos en su escala oficial.</li>
+      </ul>
+    </div>
+
   </div>
 
-  <script>
-    let qrInstance = null;
-
-    function renderQR() {
-      const url = document.getElementById('urlInput').value.trim() || window.location.href;
-      const box = document.getElementById('qrcode-box');
-      box.innerHTML = '';
-
-      if (typeof QRCode !== 'undefined') {
-        qrInstance = new QRCode(box, {
-          text: url,
-          width: 256,
-          height: 256,
-          colorDark: "#0f4c81",
-          colorLight: "#ffffff",
-          correctLevel: QRCode.CorrectLevel.H
-        });
-      } else {
-        box.innerHTML = '<p style="color:#ef4444;font-size:13px;">Se requiere conexión a Internet para cargar la librería de QR, o copia un archivo local qrcode.min.js.</p>';
-      }
-    }
-
-    document.getElementById('urlInput').addEventListener('input', () => {
-      renderQR();
-    });
-
-    document.getElementById('downloadPngBtn').addEventListener('click', () => {
-      const img = document.querySelector('#qrcode-box img');
-      const canvas = document.querySelector('#qrcode-box canvas');
-      let dataUrl = null;
-
-      if (canvas) {
-        // Generar un canvas de alta resolución (1200x1200px)
-        const hiResCanvas = document.createElement('canvas');
-        hiResCanvas.width = 1200;
-        hiResCanvas.height = 1200;
-        const ctx = hiResCanvas.getContext('2d');
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, 1200, 1200);
-        ctx.drawImage(canvas, 100, 100, 1000, 1000);
-        dataUrl = hiResCanvas.toDataURL('image/png');
-      } else if (img) {
-        dataUrl = img.src;
-      }
-
-      if (dataUrl) {
-        const link = document.createElement('a');
-        link.download = 'QR_X_Congreso_SETAC_2026.png';
-        link.href = dataUrl;
-        link.click();
-      }
-    });
-
-    // Iniciar con la URL actual si está desplegado
-    window.addEventListener('load', () => {
-      if (window.location.protocol.startsWith('http')) {
-        document.getElementById('urlInput').value = window.location.href.replace('qr.html', '');
-      }
-      renderQR();
-    });
-  </script>
 </body>
 </html>
