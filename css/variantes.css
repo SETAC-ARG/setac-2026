@@ -1,1401 +1,1384 @@
-/* ==========================================================================
-   SETAC ARGENTINA 2026 - LABORATORIO MODULAR DE VARIANTES ESTÉTICAS
-   Sistema modular combinable:
-   1. [data-theme="midnight" | "celeste" | "poster"]
-   2. [data-header="poster-laplata" | "banner-graphic" | "minimal" | "lateral" | "card"]
-   ========================================================================== */
-
-/* BARRA FLOTANTE DE CONTROL EN PREVIEW */
-.preview-control-bar {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  background: rgba(8, 20, 36, 0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 10px 14px;
-  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.45);
-  margin: -18px -14px 18px -14px;
-}
-
-.preview-bar-inner {
-  max-width: 520px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.control-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.control-label {
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: #38bdf8;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  min-width: 75px;
-}
-
-.control-label span.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #38bdf8;
-  animation: pulseBeacon 1.8s infinite;
-}
-
-.control-button-group {
-  display: flex;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 2.5px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  gap: 2.5px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.control-button-group::-webkit-scrollbar {
-  display: none;
-}
-
-.ctrl-btn {
-  background: transparent;
-  border: none;
-  color: #cbd5e1;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all .2s ease;
-  white-space: nowrap;
-}
-
-.ctrl-btn:hover {
-  color: #ffffff;
-}
-
-.ctrl-btn.active {
-  background: #0284c7;
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45);
-}
-
-.ctrl-btn-day {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #f1f5f9;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3.5px 8.5px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all .2s ease;
-  white-space: nowrap;
-}
-
-.ctrl-btn-day:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.ctrl-btn-day.active {
-  background: #f59e0b;
-  border-color: #f59e0b;
-  color: #78350f;
-  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
-}
-
-/* ==========================================================================
-   1. PALETAS BASE (TEMAS)
-   ========================================================================== */
-
-/* MIDNIGHT NAVY */
-body[data-theme="midnight"] {
-  background: 
-    radial-gradient(circle at 50% 120px, rgba(28, 75, 120, 0.65) 0%, rgba(12, 38, 66, 0.35) 50%, transparent 80%),
-    url('../images/watermark_dual_16x.png') no-repeat top 30px center / 350px auto,
-    linear-gradient(180deg, #0b1e33 0%, #071524 60%, #040c17 100%);
-  background-attachment: fixed;
-  color: #f8fafc;
-}
-
-body[data-theme="midnight"] .wifi-card {
-  background: rgba(15, 38, 64, 0.65);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(148, 197, 240, 0.2);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
-body[data-theme="midnight"] .wifi-label { color: #94a3b8; }
-body[data-theme="midnight"] .wifi-ssid { color: #ffffff; }
-body[data-theme="midnight"] .wifi-copy-btn {
-  background: rgba(14, 165, 233, 0.15);
-  border-color: rgba(56, 189, 248, 0.4);
-  color: #38bdf8;
-}
-
-body[data-theme="midnight"] .divider-line {
-  background: linear-gradient(90deg, rgba(56, 189, 248, 0) 0%, rgba(56, 189, 248, 0.4) 50%, rgba(56, 189, 248, 0) 100%);
-}
-body[data-theme="midnight"] .divider-badge { color: #7dd3fc; }
-body[data-theme="midnight"] .divider-symbol { color: #38bdf8; }
-
-body[data-theme="midnight"] .btn-congress {
-  background: linear-gradient(180deg, #1b4972 0%, #0f3050 100%);
-  border: 1px solid rgba(135, 195, 245, 0.22);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-}
-
-body[data-theme="midnight"] .btn-congress:hover {
-  background: linear-gradient(180deg, #22598b 0%, #133c63 100%);
-  border-color: rgba(135, 195, 245, 0.5);
-  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-body[data-theme="midnight"] .btn-icon {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-color: rgba(255, 255, 255, 0.75) !important;
-}
-
-body[data-theme="midnight"] .btn-desc { color: #94a3b8; }
-body[data-theme="midnight"] .footer-logos {
-  background: rgba(15, 38, 64, 0.6);
-  border-color: rgba(148, 197, 240, 0.2);
-}
-body[data-theme="midnight"] .footer-copy { color: #94a3b8; }
-
-/* CELESTE OFICIAL */
-body[data-theme="celeste"] {
-  background: 
-    radial-gradient(circle at 50% 110px, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 70%),
-    url('../images/watermark_dual_16x.png') no-repeat top 30px center / 350px auto,
-    linear-gradient(180deg, #d3e7f6 0%, #eaf3fb 100%);
-  background-attachment: fixed;
-  color: #0c2b48;
-}
-
-/* PÓSTER FACETADO */
-body[data-theme="poster"] {
-  background: 
-    linear-gradient(135deg, rgba(27, 113, 168, 0.15) 0%, rgba(27, 113, 168, 0) 40%),
-    linear-gradient(225deg, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 45%),
-    url('../images/watermark_dual_16x.png') no-repeat top 25px center / 350px auto,
-    linear-gradient(180deg, #cde3f5 0%, #e8f3fb 100%);
-  background-attachment: fixed;
-  color: #0c2b48;
-}
-
-/* ==========================================================================
-   2. MODULADOR DE CABECERA (DISPOSICIÓN)
-   ========================================================================== */
-
-/* ==========================================================================
-   2.0 CABECERA: [data-header="poster-fluid"] -> AFICHE FLUIDO CON FOTO NATURAL Y CORTE
-   ========================================================================== */
-
-/* Fondo general fluido continuo para celeste oficial */
-body[data-theme="celeste"][data-header="poster-fluid"],
-body:not([data-theme])[data-header="poster-fluid"] {
-  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 200px, #d8eaf7 480px, #eef6fc 100%) !important;
-  background-attachment: fixed !important;
-}
-
-body[data-header="poster-fluid"] .asym-header {
-  position: relative !important;
-  overflow: hidden !important;
-  border-radius: 18px !important;
-  border: none !important;
-  box-shadow: none !important;
-  margin-top: 4px !important;
-  margin-bottom: 22px !important;
-  padding: 10px 10px 16px !important;
-  background-color: transparent !important;
-}
-
-/* 1. Foto de La Plata con color natural, facetas triangulares en esquinas superior e inferior derecha y corte */
-body[data-header="poster-fluid"] .asym-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 58%;
-  max-width: 310px;
-  height: 205px; /* Corte preciso por debajo antes del lema */
-  background-image: url('../images/laplata_natural_faded_sky.png?v=facets');
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: contain;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* 2. Faceta angular decorativa inferior izquierda (corte geométrico idéntico al afiche) */
-body[data-header="poster-fluid"] .asym-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 80px;
-  height: 50px;
-  background: linear-gradient(135deg, #2b709e 0%, #4a8eb9 100%);
-  clip-path: polygon(0 42%, 100% 100%, 0 100%);
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Eliminamos la caja y bordes de la tarjeta */
-body[data-header="poster-fluid"] .header-card {
-  position: relative !important;
-  z-index: 2 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  text-align: left !important;
-}
-
-body[data-header="poster-fluid"] .header-main-row {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 8px !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-/* Logos calibrados a escala exacta 1.63x */
-body[data-header="poster-fluid"] .header-logos-col {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  border-right: none !important;
-  padding-right: 0 !important;
-  margin-bottom: 2px !important;
-}
-
-body[data-header="poster-fluid"] .asym-logo-hex {
-  height: 65px !important;
-  width: auto !important;
-  max-width: 55px !important;
-  filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.2)) !important;
-}
-
-body[data-header="poster-fluid"] .asym-logo-circle {
-  height: 40px !important;
-  width: auto !important;
-  max-width: 35px !important;
-  filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.2)) !important;
-}
-
-/* Tipografía oficial afín al afiche */
-body[data-header="poster-fluid"] .header-titles-col {
-  text-align: left !important;
-}
-
-body[data-header="poster-fluid"] .asym-title {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  line-height: 1.06 !important;
-  margin: 0 0 6px 0 !important;
-}
-
-body[data-header="poster-fluid"] .asym-title-light {
-  font-size: 15px !important;
-  font-weight: 800 !important;
-  letter-spacing: .15em !important;
-  text-transform: uppercase !important;
-  color: #124d77 !important;
-  display: block !important;
-  margin-bottom: 2px !important;
-}
-
-body[data-header="poster-fluid"] .asym-title-bold {
-  font-size: 29px !important;
-  font-weight: 900 !important;
-  letter-spacing: -.02em !important;
-  color: #0b325c !important;
-  display: block !important;
-}
-
-/* Fecha y Sede ubicadas en la zona celeste limpia tras el corte */
-body[data-header="poster-fluid"] .header-dates-badge {
-  display: inline-flex !important;
-  align-items: center !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  letter-spacing: .06em !important;
-  text-transform: uppercase !important;
-  color: #104a75 !important;
-  background: rgba(255, 255, 255, 0.82) !important;
-  backdrop-filter: blur(6px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.95) !important;
-  border-radius: 9999px !important;
-  padding: 3px 10px !important;
-  margin-bottom: 4px !important;
-  box-shadow: 0 2px 6px rgba(18, 77, 121, 0.08) !important;
-}
-
-body[data-header="poster-fluid"] .asym-venue {
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  color: #185c88 !important;
-  margin: 4px 0 2px 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 5px !important;
-}
-
-body[data-header="poster-fluid"] .asym-venue svg {
-  color: #124d77 !important;
-}
-
-/* 3. Lema oficial sobre la zona celeste limpia (estética de afiche con tarjeta pero fluida) */
-body[data-header="poster-fluid"] .header-motto-row {
-  position: relative !important;
-  z-index: 2 !important;
-  margin-top: 10px !important;
-  padding: 7px 14px !important;
-  background: rgba(255, 255, 255, 0.78) !important;
-  backdrop-filter: blur(6px) !important;
-  border-left: 3.5px solid #16537e !important;
-  border-radius: 8px !important;
-  box-shadow: 0 3px 12px rgba(18, 77, 121, 0.08) !important;
-  display: block !important;
-  text-align: left !important;
-  width: auto !important;
-  max-width: 100% !important;
-}
-
-body[data-header="poster-fluid"] .header-motto-text {
-  font-size: 12.5px !important;
-  font-style: italic !important;
-  font-weight: 700 !important;
-  color: #124d79 !important;
-  letter-spacing: .02em !important;
-}
-
-body[data-header="poster-fluid"] .header-motto-text strong {
-  font-style: normal !important;
-  font-weight: 900 !important;
-  color: #0c3b60 !important;
-  letter-spacing: .03em !important;
-}
-
-/* Compatibilidad con Midnight si el usuario alterna paleta */
-body[data-theme="midnight"][data-header="poster-fluid"] {
-  background: linear-gradient(180deg, #071526 0%, #0c2038 300px, #071322 100%) !important;
-}
-
-body[data-theme="midnight"][data-header="poster-fluid"] .asym-header::before {
-  background-image: url('../images/laplata_fluid_midnight.png') !important;
-  opacity: 0.85 !important;
-}
-
-body[data-theme="midnight"][data-header="poster-fluid"] .header-dates-badge {
-  background: rgba(14, 38, 64, 0.8) !important;
-  border-color: rgba(56, 189, 248, 0.3) !important;
-  color: #7dd3fc !important;
-}
-
-body[data-theme="midnight"][data-header="poster-fluid"] .asym-title-light {
-  color: #93c5fd !important;
-}
-
-body[data-theme="midnight"][data-header="poster-fluid"] .asym-title-bold {
-  color: #ffffff !important;
-}
-
-body[data-theme="midnight"][data-header="poster-fluid"] .asym-venue {
-  color: #94a3b8 !important;
-}
-
-body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-row {
-  background: rgba(15, 38, 64, 0.85) !important;
-  border-left-color: #38bdf8 !important;
-}
-
-body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-text {
-  color: #bae6fd !important;
-}
-
-body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-text strong {
-  color: #ffffff !important;
-}
-
-/* 2.1 CABECERA: [data-header="poster-laplata"] -> ESTILO AFICHE CON TRAMA URBANA */
-body[data-header="poster-laplata"] .header-card {
-  position: relative !important;
-  overflow: hidden !important;
-  background-color: #d6e8f7 !important;
-  background-image: 
-    linear-gradient(135deg, rgba(27, 113, 168, 0.22) 0%, rgba(27, 113, 168, 0) 40%),
-    url('../images/laplata_grid_faded_sky.png') !important;
-  background-position: center left, right top !important;
-  background-repeat: no-repeat !important;
-  background-size: auto, auto 100% !important;
-  border: 1px solid rgba(255, 255, 255, 0.95) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 25px rgba(18, 77, 121, 0.14) !important;
-  padding: 16px 18px 14px !important;
-  text-align: left !important;
-}
-
-/* Faceta angular decorativa inferior izquierda */
-body[data-header="poster-laplata"] .header-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 85px;
-  height: 60px;
-  background: linear-gradient(135deg, #3d7ca5 0%, #5697c1 100%);
-  clip-path: polygon(0 40%, 100% 100%, 0 100%);
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 0;
-}
-
-body[data-header="poster-laplata"] .header-main-row {
-  position: relative;
-  z-index: 1;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 8px !important;
-}
-
-body[data-header="poster-laplata"] .header-logos-col {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  border-right: none !important;
-  padding-right: 0 !important;
-  margin-bottom: 2px !important;
-}
-
-body[data-header="poster-laplata"] .asym-logo-hex {
-  height: 62px !important;
-  max-width: 68px !important;
-  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16)) !important;
-}
-
-body[data-header="poster-laplata"] .asym-logo-circle {
-  height: 38px !important;
-  max-width: 46px !important;
-  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16)) !important;
-}
-
-body[data-header="poster-laplata"] .header-titles-col {
-  text-align: left !important;
-}
-
-body[data-header="poster-laplata"] .header-dates-badge {
-  display: inline-block !important;
-  font-size: 10.5px !important;
-  font-weight: 800 !important;
-  background: #ffffff !important;
-  color: #124d79 !important;
-  border: 1px solid #b8daf2 !important;
-  padding: 3px 10px !important;
-  border-radius: 9999px !important;
-  margin-bottom: 4px !important;
-}
-
-body[data-header="poster-laplata"] .asym-title-light {
-  font-size: 20px !important;
-  font-weight: 600 !important;
-  color: #16537e !important;
-  letter-spacing: -0.01em !important;
-  line-height: 1.1 !important;
-  display: block !important;
-}
-
-body[data-header="poster-laplata"] .asym-title-bold {
-  font-size: 26px !important;
-  font-weight: 900 !important;
-  color: #0c3b60 !important;
-  letter-spacing: -0.02em !important;
-  line-height: 1.1 !important;
-  margin: 1px 0 4px !important;
-  display: block !important;
-}
-
-body[data-header="poster-laplata"] .asym-venue {
-  justify-content: flex-start !important;
-  color: #27557e !important;
-  font-size: 11.5px !important;
-  font-weight: 700 !important;
-}
-
-body[data-header="poster-laplata"] .header-motto-row {
-  position: relative;
-  z-index: 1;
-  border-top: none !important;
-  margin-top: 8px !important;
-  padding: 6px 12px !important;
-  background: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(4px) !important;
-  border-radius: 8px !important;
-  text-align: left !important;
-  border-left: 3px solid #16537e !important;
-}
-
-body[data-header="poster-laplata"] .header-motto-text {
-  color: #124d79 !important;
-  font-size: 12.5px !important;
-  font-style: italic !important;
-  font-weight: 700 !important;
-}
-
-body[data-header="poster-laplata"] .header-motto-text strong {
-  font-style: normal !important;
-  font-weight: 900 !important;
-  color: #0c3b60 !important;
-}
-
-/* En caso de que se use en Midnight (Midnight La Plata Grid) */
-body[data-theme="midnight"][data-header="poster-laplata"] .header-card {
-  background-color: #0b1f36 !important;
-  background-image: 
-    linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(14, 165, 233, 0) 35%),
-    url('../images/laplata_grid_faded_midnight.png') !important;
-  border-color: rgba(56, 189, 248, 0.25) !important;
-}
-body[data-theme="midnight"][data-header="poster-laplata"] .asym-title-light { color: #93c5fd !important; }
-body[data-theme="midnight"][data-header="poster-laplata"] .asym-title-bold { color: #ffffff !important; }
-body[data-theme="midnight"][data-header="poster-laplata"] .asym-venue { color: #94a3b8 !important; }
-body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-row {
-  background: rgba(15, 38, 64, 0.75) !important;
-  border-left-color: #38bdf8 !important;
-}
-body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-text { color: #bae6fd !important; }
-body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-text strong { color: #ffffff !important; }
-
-/* ==========================================================================
-   2.1.B CABECERA: [data-header="banner-faded"] -> BANNER REAL DIFUMINADO CON EL FONDO
-   ========================================================================== */
-.header-banner-faded {
-  display: none;
-}
-
-body[data-header="banner-faded"] .header-card,
-body[data-header="banner-faded"] .header-banner-graphic {
-  display: none !important;
-}
-
-body[data-header="banner-faded"] .header-banner-faded {
-  display: block !important;
-  margin-top: 4px !important;
-  margin-bottom: 20px !important;
-  position: relative !important;
-  text-align: center !important;
-}
-
-body[data-header="banner-faded"] .banner-faded-img {
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 4px 18px rgba(18, 77, 121, 0.14));
-}
-
-body[data-theme="celeste"][data-header="banner-faded"],
-body:not([data-theme])[data-header="banner-faded"] {
-  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 240px, #d8eaf7 480px, #edf5fa 100%) !important;
-  background-attachment: fixed !important;
-}
-
-/* 2.2 CABECERA: [data-header="banner-graphic"] -> BANNER GRÁFICO REAL */
-.header-banner-graphic {
-  display: none;
-}
-
-body[data-header="banner-graphic"] .header-card {
-  display: none !important;
-}
-
-body[data-header="banner-graphic"] .header-banner-graphic {
-  display: block !important;
-  margin-bottom: 16px !important;
-}
-
-.banner-img-container {
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(18, 77, 121, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  background: #d6e8f7;
-}
-
-.banner-img-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* 2.3 CABECERA: [data-header="minimal"] -> PURA TIPOGRAFÍA (SIN LOGOS CHICOS) */
-body[data-header="minimal"] .header-logos-col {
-  display: none !important;
-}
-
-body[data-header="minimal"] .header-card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  padding: 10px 0 0 !important;
-  text-align: center !important;
-}
-
-body[data-header="minimal"] .header-main-row {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-body[data-header="minimal"] .header-titles-col {
-  text-align: center !important;
-}
-
-body[data-header="minimal"] .header-dates-badge {
-  display: inline-block !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  padding: 4px 14px !important;
-  border-radius: 9999px !important;
-  margin-bottom: 6px !important;
-}
-
-body[data-theme="midnight"][data-header="minimal"] .header-dates-badge {
-  background: rgba(14, 165, 233, 0.2);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.4);
-}
-
-body[data-theme="celeste"][data-header="minimal"] .header-dates-badge,
-body[data-theme="poster"][data-header="minimal"] .header-dates-badge {
-  background: #ffffff;
-  color: #124d79;
-  border: 1px solid #b8daf2;
-  box-shadow: 0 1px 4px rgba(18, 77, 121, 0.08);
-}
-
-body[data-header="minimal"] .asym-title-light {
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  letter-spacing: .08em !important;
-  text-transform: uppercase !important;
-  display: block !important;
-}
-
-body[data-theme="midnight"][data-header="minimal"] .asym-title-light { color: #94a3b8 !important; }
-body[data-theme="celeste"][data-header="minimal"] .asym-title-light,
-body[data-theme="poster"][data-header="minimal"] .asym-title-light { color: #1b689e !important; }
-
-body[data-header="minimal"] .asym-title-bold {
-  font-size: 28px !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.01em !important;
-  line-height: 1.15 !important;
-  margin: 3px 0 6px !important;
-  display: block !important;
-}
-
-body[data-theme="midnight"][data-header="minimal"] .asym-title-bold {
-  color: #ffffff !important;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2) !important;
-}
-
-body[data-theme="celeste"][data-header="minimal"] .asym-title-bold,
-body[data-theme="poster"][data-header="minimal"] .asym-title-bold { color: #0b3557 !important; }
-
-body[data-header="minimal"] .asym-venue {
-  justify-content: center !important;
-  margin-bottom: 6px !important;
-  font-size: 12px !important;
-}
-
-body[data-theme="midnight"][data-header="minimal"] .asym-venue { color: #94a3b8; }
-body[data-theme="celeste"][data-header="minimal"] .asym-venue,
-body[data-theme="poster"][data-header="minimal"] .asym-venue { color: #3b668a; }
-
-body[data-header="minimal"] .header-motto-row {
-  border-top: none !important;
-  margin-top: 4px !important;
-  padding-top: 0 !important;
-}
-
-body[data-header="minimal"] .header-motto-text {
-  display: inline-block !important;
-  padding: 4px 16px !important;
-  border-radius: 9999px !important;
-  font-size: 12.5px !important;
-}
-
-body[data-theme="midnight"][data-header="minimal"] .header-motto-text {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  color: #bae6fd !important;
-}
-
-body[data-theme="celeste"][data-header="minimal"] .header-motto-text,
-body[data-theme="poster"][data-header="minimal"] .header-motto-text {
-  background: rgba(255, 255, 255, 0.8) !important;
-  border: 1px solid #b8daf2 !important;
-  color: #17527f !important;
-  box-shadow: 0 1px 4px rgba(18, 77, 121, 0.06) !important;
-}
-
-/* 2.4 CABECERA: [data-header="lateral"] -> LOGOS AL COSTADO FLUIDOS (SIN CAJA) */
-body[data-header="lateral"] .header-card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  padding: 8px 4px 0 !important;
-}
-
-body[data-header="lateral"] .header-main-row {
-  display: flex !important;
-  align-items: center !important;
-  gap: 16px !important;
-}
-
-body[data-header="lateral"] .header-logos-col {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  padding-right: 14px !important;
-  border-right: 1px solid rgba(184, 218, 242, 0.5) !important;
-}
-
-body[data-theme="midnight"][data-header="lateral"] .header-logos-col {
-  border-right-color: rgba(148, 197, 240, 0.25) !important;
-}
-
-body[data-theme="midnight"][data-header="lateral"] .asym-logo-hex,
-body[data-theme="midnight"][data-header="lateral"] .asym-logo-circle {
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(56, 189, 248, 0.2));
-}
-
-body[data-theme="midnight"][data-header="lateral"] .asym-title-light { color: #cbd5e1; }
-body[data-theme="midnight"][data-header="lateral"] .asym-title-bold { color: #ffffff; }
-body[data-theme="midnight"][data-header="lateral"] .asym-venue { color: #94a3b8; }
-body[data-theme="midnight"][data-header="lateral"] .asym-venue svg { stroke: #38bdf8; }
-body[data-theme="midnight"][data-header="lateral"] .header-dates-badge {
-  background: rgba(14, 165, 233, 0.2);
-  color: #38bdf8;
-  border-color: rgba(56, 189, 248, 0.4);
-}
-
-body[data-header="lateral"] .header-motto-row {
-  border-top: 1px dashed rgba(184, 218, 242, 0.5) !important;
-  margin-top: 10px !important;
-  padding-top: 8px !important;
-  text-align: center !important;
-}
-
-body[data-theme="midnight"][data-header="lateral"] .header-motto-row {
-  border-top-color: rgba(148, 197, 240, 0.2) !important;
-}
-body[data-theme="midnight"][data-header="lateral"] .header-motto-text { color: #93c5fd; }
-body[data-theme="midnight"][data-header="lateral"] .header-motto-text strong { color: #ffffff; }
-
-/* 2.5 CABECERA: [data-header="card"] -> EN TARJETA VIDRIO / CAJA */
-body[data-header="card"] .header-card {
-  border-radius: 20px;
-  padding: 16px 18px 14px;
-}
-
-body[data-theme="midnight"][data-header="card"] .header-card {
-  background: rgba(15, 38, 64, 0.65) !important;
-  backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(148, 197, 240, 0.22) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
-}
-
-body[data-theme="celeste"][data-header="card"] .header-card {
-  background: rgba(255, 255, 255, 0.90) !important;
-  backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 6px 22px rgba(18, 77, 121, 0.10) !important;
-}
-
-body[data-theme="poster"][data-header="card"] .header-card {
-  background: rgba(255, 255, 255, 0.92) !important;
-  backdrop-filter: blur(14px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  border-left: 4px solid #1b71a8 !important;
-  box-shadow: 0 8px 25px rgba(27, 113, 168, 0.15) !important;
-}
-
-/* ==========================================================================
-   3. BOTÓN DESTACADO VERSÁTIL (AGENDA POR DÍA)
-   ========================================================================== */
-.daily-featured-wrapper {
-  margin-bottom: 14px;
-}
-
-.btn-daily-featured {
-  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
-  border: 1.5px solid #38bdf8 !important;
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
-  transform: translateY(-1px);
-}
-
-.btn-daily-featured:hover {
-  background: linear-gradient(180deg, #0396e2 0%, #0277b5 100%) !important;
-  box-shadow: 0 8px 26px rgba(2, 132, 199, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
-}
-
-.featured-tag-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 3px;
-  flex-wrap: wrap;
-}
-
-.featured-pill-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  background: #f59e0b;
-  color: #78350f;
-  padding: 2px 8px;
-  border-radius: 9999px;
-  box-shadow: 0 1px 5px rgba(245, 158, 11, 0.35);
-}
-
-.featured-pill-tag.accent-red {
-  background: #dc2626;
-  color: #ffffff;
-  box-shadow: 0 1px 5px rgba(220, 38, 38, 0.45);
-}
-
-.featured-room-tag {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  color: #e0f2fe;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 2px 7px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.live-beacon-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ffffff;
-  animation: pulseBeacon 1.4s infinite;
-}
-
-@keyframes pulseBeacon {
-  0% { transform: scale(0.9); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.5; }
-  100% { transform: scale(0.9); opacity: 1; }
-}
-
-
-/* ==========================================================================
-   4. CAPA DE MARCA DE AGUA FIJA AL HACER SCROLL (data-watermark)
-   ========================================================================== */
-.preview-watermark-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-  display: none;
-  transition: opacity 0.3s ease;
-}
-
-/* 4.1 Dual Centrada Fija (Logos a escala 1.63x) */
-body[data-watermark="dual"] .preview-watermark-layer {
-  display: block;
-  background-image: url('../images/watermark_dual_16x.png');
-  background-repeat: no-repeat;
-  background-position: center 58%;
-  background-size: min(85vw, 420px) auto;
-  opacity: 0.16;
-}
-
-/* 4.2 Hexágono Gigante Asimétrico */
-body[data-watermark="hex"] .preview-watermark-layer {
-  display: block;
-  background-image: url('../images/watermark_hex_clean.png');
-  background-repeat: no-repeat;
-  background-position: right -35px center;
-  background-size: min(80vw, 380px) auto;
-  opacity: 0.14;
-}
-
-/* 4.3 Círculo Argentina Fijo */
-body[data-watermark="circle"] .preview-watermark-layer {
-  display: block;
-  background-image: url('../images/watermark_arg_clean.png');
-  background-repeat: no-repeat;
-  background-position: center 62%;
-  background-size: min(70vw, 320px) auto;
-  opacity: 0.15;
-}
-
-/* 4.4 Sin Marca de Agua */
-body[data-watermark="none"] .preview-watermark-layer {
-  display: none;
-}
-
-/* Soporte para Midnight si se cambia de paleta */
-body[data-theme="midnight"][data-watermark="dual"] .preview-watermark-layer {
-  opacity: 0.08;
-  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
-}
-body[data-theme="midnight"][data-watermark="hex"] .preview-watermark-layer {
-  opacity: 0.07;
-  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
-}
-body[data-theme="midnight"][data-watermark="circle"] .preview-watermark-layer {
-  opacity: 0.08;
-  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
-}
-
-
-/* ==========================================================================
-   FRANJA METADATA DEL EVENTO: FECHA Y SEDE KARAKACHOFF CON ENLACE MAPS
-   ========================================================================== */
-.event-meta-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: -6px auto 18px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(184, 218, 242, 0.95);
-  border-radius: 9999px;
-  max-width: 510px;
-  box-shadow: 0 4px 14px rgba(18, 77, 121, 0.08);
-  font-size: 12px;
-  color: #124d79;
-}
-
-.meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #124d79;
-}
-
-.meta-icon {
-  width: 14px;
-  height: 14px;
-  color: #0284c7;
-  flex-shrink: 0;
-}
-
-.meta-divider {
-  color: #94a3b8;
-  font-size: 11px;
-}
-
-.meta-venue-link {
-  text-decoration: none;
-  color: #0f3e66;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.meta-venue-link:hover {
-  color: #0284c7;
-}
-
-.meta-venue-link:hover .icon-pin {
-  transform: translateY(-1px);
-}
-
-.meta-external {
-  vertical-align: middle;
-  color: #0284c7;
-}
-
-@media (max-width: 480px) {
-  .event-meta-strip {
-    border-radius: 12px;
-    padding: 8px 12px;
-    gap: 6px;
-    font-size: 11.5px;
-    text-align: center;
-  }
-  .meta-divider {
-    display: none;
-  }
-}
-
-
-/* Chip para copiar correo dentro del botón de Secretaría */
-.btn-actions-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.btn-copy-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 9999px;
-  padding: 3px 8px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-.btn-copy-chip:hover {
-  background: rgba(255, 255, 255, 0.38);
-  border-color: #ffffff;
-  transform: scale(1.04);
-}
-
-.btn-copy-chip.copied {
-  background: #059669 !important;
-  border-color: #34d399 !important;
-  color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
-}
-
-/* Banner de Patrocinios y Avales Faded (Pie de página oficial) */
-.footer-banner-wrapper {
-  margin: 18px -16px 14px;
-  text-align: center;
-  overflow: hidden;
-}
-
-.footer-banner-img {
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 2px 10px rgba(18, 77, 121, 0.08));
-  transition: transform 0.25s ease;
-}
-
-.footer-banner-img:hover {
-  transform: scale(1.01);
-}
-
-
-/* ==========================================================================
-   AVALES, PATROCINANTES Y AUSPICIANTES (MEDIDAS EXACTAS DEL DOCUMENTO WORD)
-   ========================================================================== */
-.sponsors-container {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(184, 218, 242, 0.85);
-  border-radius: 20px;
-  padding: 18px 14px 16px;
-  margin: 22px 0 16px;
-  box-shadow: 0 4px 18px rgba(18, 77, 121, 0.08);
-  transition: all 0.3s ease;
-}
-
-/* Switcher interactivo de alternativas en el pie */
-.sponsors-style-switcher {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed rgba(184, 218, 242, 0.7);
-}
-
-.sponsors-switch-btn {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #b8daf2;
-  color: #124d79;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.sponsors-switch-btn:hover {
-  background: #ffffff;
-  border-color: #1b71a8;
-  transform: translateY(-1px);
-}
-
-.sponsors-switch-btn.active {
-  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
-  color: #ffffff;
-  border-color: #10385b;
-  box-shadow: 0 2px 6px rgba(16, 56, 91, 0.25);
-}
-
-.sponsors-group {
-  margin-bottom: 20px;
-}
-
-.sponsors-group:last-child {
-  margin-bottom: 4px;
-}
-
-.sponsors-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.sponsors-line {
-  flex-grow: 1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(184, 218, 242, 0) 0%, rgba(184, 218, 242, 0.85) 50%, rgba(184, 218, 242, 0) 100%);
-}
-
-.sponsors-badge {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #0f4761; /* Color exacto del Word: 0F4761 */
-  white-space: nowrap;
-}
-
-.sponsors-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-}
-
-.sponsors-row:last-child {
-  margin-bottom: 0;
-}
-
-/* Base de cada celda de logo */
-.sponsor-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sponsor-logo {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  transition: all 0.22s ease;
-}
-
-/* ==========================================================================
-   MODO 1: CON CAJITAS (Tarjetas individuales suaves)
-   ========================================================================== */
-body[data-sponsors-style="con-cajitas"] .sponsor-box {
-  background: rgba(255, 255, 255, 0.90);
-  border: 1px solid rgba(200, 230, 250, 0.85);
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(18, 77, 121, 0.04);
-  padding: 6px 10px;
-}
-
-body[data-sponsors-style="con-cajitas"] .sponsor-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(18, 77, 121, 0.14);
-  background: #ffffff;
-  border-color: #89bfe5;
-}
-
-/* ==========================================================================
-   MODO 2: SIN CAJITAS (Orgánica, flotante y minimalista)
-   ========================================================================== */
-body[data-sponsors-style="sin-cajitas"] .sponsors-container {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  padding: 8px 0 14px !important;
-}
-
-body[data-sponsors-style="sin-cajitas"] .sponsor-box {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 2px 4px !important;
-}
-
-body[data-sponsors-style="sin-cajitas"] .sponsor-logo {
-  filter: drop-shadow(0 2px 5px rgba(15, 60, 95, 0.12));
-}
-
-body[data-sponsors-style="sin-cajitas"] .sponsor-box:hover {
-  transform: scale(1.05);
-}
-
-body[data-sponsors-style="sin-cajitas"] .sponsor-box:hover .sponsor-logo {
-  filter: drop-shadow(0 4px 12px rgba(15, 60, 95, 0.22));
-}
-
-/* ==========================================================================
-   MODO 3: PANEL VIDRIO ESMERILADO (Vidrio continuo sin cajitas adentro)
-   ========================================================================== */
-body[data-sponsors-style="panel-glass"] .sponsors-container {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 24px rgba(18, 77, 121, 0.10);
-}
-
-body[data-sponsors-style="panel-glass"] .sponsor-box {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 2px 4px !important;
-}
-
-body[data-sponsors-style="panel-glass"] .sponsor-logo {
-  filter: drop-shadow(0 2px 4px rgba(18, 77, 121, 0.08));
-}
-
-body[data-sponsors-style="panel-glass"] .sponsor-box:hover {
-  transform: scale(1.04);
-}
-
-/* ==========================================================================
-   MEDIDAS Y RELACIONES ESTRICTAS DEL DOCUMENTO WORD (1 mm = 2.4 CSS px)
-   ========================================================================== */
-
-/* AVALES INSTITUCIONALES */
-/* Fila 1: Aval 1 (30.8 x 26.0 mm) + Aval 2 (64.0 x 15.0 mm) */
-.box-aval-1 { width: min(34%, 90px); height: 72px; }
-.logo-aval-1 { max-width: 74px; max-height: 62px; }
-
-.box-aval-2 { width: min(58%, 175px); height: 50px; }
-.logo-aval-2 { max-width: 154px; max-height: 36px; }
-
-/* Fila 2: Aval 3 (57.1 x 13.0 mm) + Aval 4 (26.2 x 15.0 mm) */
-.box-aval-3 { width: min(58%, 160px); height: 46px; }
-.logo-aval-3 { max-width: 137px; max-height: 31px; }
-
-.box-aval-4 { width: min(34%, 80px); height: 50px; }
-.logo-aval-4 { max-width: 63px; max-height: 36px; }
-
-/* PATROCINANTES */
-/* Hero Tier 1: Bayer (100.0 x 41.4 mm) */
-.box-pat-hero { width: min(100%, 260px); height: 110px; }
-.logo-pat-hero { max-width: 240px; max-height: 99px; }
-
-/* Tier 2: Patrocinante 6 y 7 (75.0 x 30.0 mm y 75.0 x 24.8 mm) */
-.box-pat-t2a { width: min(48%, 195px); height: 84px; }
-.logo-pat-t2a { max-width: 180px; max-height: 72px; }
-
-.box-pat-t2b { width: min(48%, 195px); height: 74px; }
-.logo-pat-t2b { max-width: 180px; max-height: 60px; }
-
-/* Tier 3: Patrocinante 8 (50 x 31.7 mm), Induser (50 x 17 mm), Silvarum (50 x 13.7 mm) */
-.box-pat-t3a { width: min(31%, 130px); height: 86px; }
-.logo-pat-t3a { max-width: 120px; max-height: 76px; }
-
-.box-pat-induser { width: min(31%, 130px); height: 54px; }
-.logo-pat-induser { max-width: 120px; max-height: 41px; }
-
-/* Silvarum: 50.0 mm x 13.7 mm exactos (relación fiel al Word) */
-.box-pat-silvarum { width: min(31%, 130px); height: 46px; }
-.logo-pat-silvarum { max-width: 120px; max-height: 33px !important; }
-
-/* AUSPICIANTES */
-/* Fila 3 logos: Ausp 11 (46.1 x 10 mm), CEMAS (47.9 x 15 mm), Ausp 13 (37 x 19.2 mm) */
-.box-ausp-1 { width: min(31%, 124px); height: 38px; }
-.logo-ausp-1 { max-width: 111px; max-height: 24px; }
-
-/* CEMAS: 47.9 mm x 15.0 mm exactos (relación fiel al Word) */
-.box-ausp-cemas { width: min(31%, 128px); height: 48px; }
-.logo-ausp-cemas { max-width: 115px; max-height: 36px !important; }
-
-.box-ausp-3 { width: min(31%, 104px); height: 58px; }
-.logo-ausp-3 { max-width: 89px; max-height: 46px; }
-
-/* Optimización para teléfonos móviles pequeños */
-@media (max-width: 480px) {
-  .sponsors-container {
-    padding: 14px 10px 14px;
-    margin: 18px 0 14px;
-  }
-  .sponsors-row {
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-  .box-pat-hero { width: min(100%, 220px); height: 90px; }
-  .logo-pat-hero { max-width: 200px; max-height: 82px; }
-
-  .box-pat-t2a { height: 70px; }
-  .logo-pat-t2a { max-width: 150px; max-height: 60px; }
-
-  .box-pat-t2b { height: 62px; }
-  .logo-pat-t2b { max-width: 150px; max-height: 50px; }
-
-  .box-pat-t3a { height: 72px; }
-  .logo-pat-t3a { max-width: 100px; max-height: 64px; }
-
-  .box-pat-induser { height: 46px; }
-  .logo-pat-induser { max-width: 100px; max-height: 34px; }
-
-  .box-pat-silvarum { height: 40px; }
-  .logo-pat-silvarum { max-width: 100px; max-height: 27px !important; }
-
-  .box-ausp-cemas { height: 42px; }
-  .logo-ausp-cemas { max-width: 98px; max-height: 30px !important; }
-}
+/* ==========================================================================
+   SETAC ARGENTINA 2026 - LABORATORIO MODULAR DE VARIANTES ESTÉTICAS
+   Sistema modular combinable:
+   1. [data-theme="midnight" | "celeste" | "poster"]
+   2. [data-header="poster-laplata" | "banner-graphic" | "minimal" | "lateral" | "card"]
+   ========================================================================== */
+
+/* BARRA FLOTANTE DE CONTROL EN PREVIEW */
+.preview-control-bar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(8, 20, 36, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 10px 14px;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.45);
+  margin: -18px -14px 18px -14px;
+}
+
+.preview-bar-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.control-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 75px;
+}
+
+.control-label span.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  animation: pulseBeacon 1.8s infinite;
+}
+
+.control-button-group {
+  display: flex;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2.5px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  gap: 2.5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.control-button-group::-webkit-scrollbar {
+  display: none;
+}
+
+.ctrl-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+
+.ctrl-btn:hover {
+  color: #ffffff;
+}
+
+.ctrl-btn.active {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45);
+}
+
+.ctrl-btn-day {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f1f5f9;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3.5px 8.5px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+
+.ctrl-btn-day:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.ctrl-btn-day.active {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #78350f;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
+}
+
+/* ==========================================================================
+   1. PALETAS BASE (TEMAS)
+   ========================================================================== */
+
+/* MIDNIGHT NAVY */
+body[data-theme="midnight"] {
+  background: 
+    radial-gradient(circle at 50% 120px, rgba(28, 75, 120, 0.65) 0%, rgba(12, 38, 66, 0.35) 50%, transparent 80%),
+    url('../images/watermark_dual_16x.png') no-repeat top 30px center / 350px auto,
+    linear-gradient(180deg, #0b1e33 0%, #071524 60%, #040c17 100%);
+  background-attachment: fixed;
+  color: #f8fafc;
+}
+
+body[data-theme="midnight"] .wifi-card {
+  background: rgba(15, 38, 64, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 197, 240, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="midnight"] .wifi-label { color: #94a3b8; }
+body[data-theme="midnight"] .wifi-ssid { color: #ffffff; }
+body[data-theme="midnight"] .wifi-copy-btn {
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+body[data-theme="midnight"] .divider-line {
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0) 0%, rgba(56, 189, 248, 0.4) 50%, rgba(56, 189, 248, 0) 100%);
+}
+body[data-theme="midnight"] .divider-badge { color: #7dd3fc; }
+body[data-theme="midnight"] .divider-symbol { color: #38bdf8; }
+
+body[data-theme="midnight"] .btn-congress {
+  background: linear-gradient(180deg, #1b4972 0%, #0f3050 100%);
+  border: 1px solid rgba(135, 195, 245, 0.22);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+body[data-theme="midnight"] .btn-congress:hover {
+  background: linear-gradient(180deg, #22598b 0%, #133c63 100%);
+  border-color: rgba(135, 195, 245, 0.5);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+body[data-theme="midnight"] .btn-icon {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+body[data-theme="midnight"] .btn-desc { color: #94a3b8; }
+body[data-theme="midnight"] .footer-logos {
+  background: rgba(15, 38, 64, 0.6);
+  border-color: rgba(148, 197, 240, 0.2);
+}
+body[data-theme="midnight"] .footer-copy { color: #94a3b8; }
+
+/* CELESTE OFICIAL */
+body[data-theme="celeste"] {
+  background: 
+    radial-gradient(circle at 50% 110px, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 70%),
+    url('../images/watermark_dual_16x.png') no-repeat top 30px center / 350px auto,
+    linear-gradient(180deg, #d3e7f6 0%, #eaf3fb 100%);
+  background-attachment: fixed;
+  color: #0c2b48;
+}
+
+/* PÓSTER FACETADO */
+body[data-theme="poster"] {
+  background: 
+    linear-gradient(135deg, rgba(27, 113, 168, 0.15) 0%, rgba(27, 113, 168, 0) 40%),
+    linear-gradient(225deg, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 45%),
+    url('../images/watermark_dual_16x.png') no-repeat top 25px center / 350px auto,
+    linear-gradient(180deg, #cde3f5 0%, #e8f3fb 100%);
+  background-attachment: fixed;
+  color: #0c2b48;
+}
+
+/* ==========================================================================
+   2. MODULADOR DE CABECERA (DISPOSICIÓN)
+   ========================================================================== */
+
+/* ==========================================================================
+   2.0 CABECERA: [data-header="poster-fluid"] -> AFICHE FLUIDO CON FOTO NATURAL Y CORTE
+   ========================================================================== */
+
+/* Fondo general fluido continuo para celeste oficial */
+body[data-theme="celeste"][data-header="poster-fluid"],
+body:not([data-theme])[data-header="poster-fluid"] {
+  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 200px, #d8eaf7 480px, #eef6fc 100%) !important;
+  background-attachment: fixed !important;
+}
+
+body[data-header="poster-fluid"] .asym-header {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: 4px !important;
+  margin-bottom: 22px !important;
+  padding: 10px 10px 16px !important;
+  background-color: transparent !important;
+}
+
+/* 1. Foto de La Plata con color natural, facetas triangulares en esquinas superior e inferior derecha y corte */
+body[data-header="poster-fluid"] .asym-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58%;
+  max-width: 310px;
+  height: 205px; /* Corte preciso por debajo antes del lema */
+  background-image: url('../images/laplata_natural_faded_sky.png?v=facets');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 2. Faceta angular decorativa inferior izquierda (corte geométrico idéntico al afiche) */
+body[data-header="poster-fluid"] .asym-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 50px;
+  background: linear-gradient(135deg, #2b709e 0%, #4a8eb9 100%);
+  clip-path: polygon(0 42%, 100% 100%, 0 100%);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Eliminamos la caja y bordes de la tarjeta */
+body[data-header="poster-fluid"] .header-card {
+  position: relative !important;
+  z-index: 2 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+body[data-header="poster-fluid"] .header-main-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Logos calibrados a escala exacta 1.63x */
+body[data-header="poster-fluid"] .header-logos-col {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border-right: none !important;
+  padding-right: 0 !important;
+  margin-bottom: 2px !important;
+}
+
+body[data-header="poster-fluid"] .asym-logo-hex {
+  height: 65px !important;
+  width: auto !important;
+  max-width: 55px !important;
+  filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.2)) !important;
+}
+
+body[data-header="poster-fluid"] .asym-logo-circle {
+  height: 40px !important;
+  width: auto !important;
+  max-width: 35px !important;
+  filter: drop-shadow(0 3px 8px rgba(16, 68, 107, 0.2)) !important;
+}
+
+/* Tipografía oficial afín al afiche */
+body[data-header="poster-fluid"] .header-titles-col {
+  text-align: left !important;
+}
+
+body[data-header="poster-fluid"] .asym-title {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  line-height: 1.06 !important;
+  margin: 0 0 6px 0 !important;
+}
+
+body[data-header="poster-fluid"] .asym-title-light {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: .15em !important;
+  text-transform: uppercase !important;
+  color: #124d77 !important;
+  display: block !important;
+  margin-bottom: 2px !important;
+}
+
+body[data-header="poster-fluid"] .asym-title-bold {
+  font-size: 29px !important;
+  font-weight: 900 !important;
+  letter-spacing: -.02em !important;
+  color: #0b325c !important;
+  display: block !important;
+}
+
+/* Fecha y Sede ubicadas en la zona celeste limpia tras el corte */
+body[data-header="poster-fluid"] .header-dates-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  color: #104a75 !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(6px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 9999px !important;
+  padding: 3px 10px !important;
+  margin-bottom: 4px !important;
+  box-shadow: 0 2px 6px rgba(18, 77, 121, 0.08) !important;
+}
+
+body[data-header="poster-fluid"] .asym-venue {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #185c88 !important;
+  margin: 4px 0 2px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+body[data-header="poster-fluid"] .asym-venue svg {
+  color: #124d77 !important;
+}
+
+/* 3. Lema oficial sobre la zona celeste limpia (estética de afiche con tarjeta pero fluida) */
+body[data-header="poster-fluid"] .header-motto-row {
+  position: relative !important;
+  z-index: 2 !important;
+  margin-top: 10px !important;
+  padding: 7px 14px !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(6px) !important;
+  border-left: 3.5px solid #16537e !important;
+  border-radius: 8px !important;
+  box-shadow: 0 3px 12px rgba(18, 77, 121, 0.08) !important;
+  display: block !important;
+  text-align: left !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+body[data-header="poster-fluid"] .header-motto-text {
+  font-size: 12.5px !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+  color: #124d79 !important;
+  letter-spacing: .02em !important;
+}
+
+body[data-header="poster-fluid"] .header-motto-text strong {
+  font-style: normal !important;
+  font-weight: 900 !important;
+  color: #0c3b60 !important;
+  letter-spacing: .03em !important;
+}
+
+/* Compatibilidad con Midnight si el usuario alterna paleta */
+body[data-theme="midnight"][data-header="poster-fluid"] {
+  background: linear-gradient(180deg, #071526 0%, #0c2038 300px, #071322 100%) !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .asym-header::before {
+  background-image: url('../images/laplata_fluid_midnight.png') !important;
+  opacity: 0.85 !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .header-dates-badge {
+  background: rgba(14, 38, 64, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  color: #7dd3fc !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .asym-title-light {
+  color: #93c5fd !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .asym-title-bold {
+  color: #ffffff !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .asym-venue {
+  color: #94a3b8 !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-row {
+  background: rgba(15, 38, 64, 0.85) !important;
+  border-left-color: #38bdf8 !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-text {
+  color: #bae6fd !important;
+}
+
+body[data-theme="midnight"][data-header="poster-fluid"] .header-motto-text strong {
+  color: #ffffff !important;
+}
+
+/* 2.1 CABECERA: [data-header="poster-laplata"] -> ESTILO AFICHE CON TRAMA URBANA */
+body[data-header="poster-laplata"] .header-card {
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: #d6e8f7 !important;
+  background-image: 
+    linear-gradient(135deg, rgba(27, 113, 168, 0.22) 0%, rgba(27, 113, 168, 0) 40%),
+    url('../images/laplata_grid_faded_sky.png') !important;
+  background-position: center left, right top !important;
+  background-repeat: no-repeat !important;
+  background-size: auto, auto 100% !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 25px rgba(18, 77, 121, 0.14) !important;
+  padding: 16px 18px 14px !important;
+  text-align: left !important;
+}
+
+/* Faceta angular decorativa inferior izquierda */
+body[data-header="poster-laplata"] .header-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 85px;
+  height: 60px;
+  background: linear-gradient(135deg, #3d7ca5 0%, #5697c1 100%);
+  clip-path: polygon(0 40%, 100% 100%, 0 100%);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-header="poster-laplata"] .header-main-row {
+  position: relative;
+  z-index: 1;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+}
+
+body[data-header="poster-laplata"] .header-logos-col {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border-right: none !important;
+  padding-right: 0 !important;
+  margin-bottom: 2px !important;
+}
+
+body[data-header="poster-laplata"] .asym-logo-hex {
+  height: 62px !important;
+  max-width: 68px !important;
+  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16)) !important;
+}
+
+body[data-header="poster-laplata"] .asym-logo-circle {
+  height: 38px !important;
+  max-width: 46px !important;
+  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16)) !important;
+}
+
+body[data-header="poster-laplata"] .header-titles-col {
+  text-align: left !important;
+}
+
+body[data-header="poster-laplata"] .header-dates-badge {
+  display: inline-block !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  background: #ffffff !important;
+  color: #124d79 !important;
+  border: 1px solid #b8daf2 !important;
+  padding: 3px 10px !important;
+  border-radius: 9999px !important;
+  margin-bottom: 4px !important;
+}
+
+body[data-header="poster-laplata"] .asym-title-light {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #16537e !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.1 !important;
+  display: block !important;
+}
+
+body[data-header="poster-laplata"] .asym-title-bold {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #0c3b60 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  margin: 1px 0 4px !important;
+  display: block !important;
+}
+
+body[data-header="poster-laplata"] .asym-venue {
+  justify-content: flex-start !important;
+  color: #27557e !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+}
+
+body[data-header="poster-laplata"] .header-motto-row {
+  position: relative;
+  z-index: 1;
+  border-top: none !important;
+  margin-top: 8px !important;
+  padding: 6px 12px !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(4px) !important;
+  border-radius: 8px !important;
+  text-align: left !important;
+  border-left: 3px solid #16537e !important;
+}
+
+body[data-header="poster-laplata"] .header-motto-text {
+  color: #124d79 !important;
+  font-size: 12.5px !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+}
+
+body[data-header="poster-laplata"] .header-motto-text strong {
+  font-style: normal !important;
+  font-weight: 900 !important;
+  color: #0c3b60 !important;
+}
+
+/* En caso de que se use en Midnight (Midnight La Plata Grid) */
+body[data-theme="midnight"][data-header="poster-laplata"] .header-card {
+  background-color: #0b1f36 !important;
+  background-image: 
+    linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(14, 165, 233, 0) 35%),
+    url('../images/laplata_grid_faded_midnight.png') !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+body[data-theme="midnight"][data-header="poster-laplata"] .asym-title-light { color: #93c5fd !important; }
+body[data-theme="midnight"][data-header="poster-laplata"] .asym-title-bold { color: #ffffff !important; }
+body[data-theme="midnight"][data-header="poster-laplata"] .asym-venue { color: #94a3b8 !important; }
+body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-row {
+  background: rgba(15, 38, 64, 0.75) !important;
+  border-left-color: #38bdf8 !important;
+}
+body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-text { color: #bae6fd !important; }
+body[data-theme="midnight"][data-header="poster-laplata"] .header-motto-text strong { color: #ffffff !important; }
+
+/* ==========================================================================
+   2.1.B CABECERA: [data-header="banner-faded"] -> BANNER REAL DIFUMINADO CON EL FONDO
+   ========================================================================== */
+.header-banner-faded {
+  display: none;
+}
+
+body[data-header="banner-faded"] .header-card,
+body[data-header="banner-faded"] .header-banner-graphic {
+  display: none !important;
+}
+
+body[data-header="banner-faded"] .header-banner-faded {
+  display: block !important;
+  margin-top: 4px !important;
+  margin-bottom: 20px !important;
+  position: relative !important;
+  text-align: center !important;
+}
+
+body[data-header="banner-faded"] .banner-faded-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 18px rgba(18, 77, 121, 0.14));
+}
+
+body[data-theme="celeste"][data-header="banner-faded"],
+body:not([data-theme])[data-header="banner-faded"] {
+  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 240px, #d8eaf7 480px, #edf5fa 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* 2.2 CABECERA: [data-header="banner-graphic"] -> BANNER GRÁFICO REAL */
+.header-banner-graphic {
+  display: none;
+}
+
+body[data-header="banner-graphic"] .header-card {
+  display: none !important;
+}
+
+body[data-header="banner-graphic"] .header-banner-graphic {
+  display: block !important;
+  margin-bottom: 16px !important;
+}
+
+.banner-img-container {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(18, 77, 121, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  background: #d6e8f7;
+}
+
+.banner-img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 2.3 CABECERA: [data-header="minimal"] -> PURA TIPOGRAFÍA (SIN LOGOS CHICOS) */
+body[data-header="minimal"] .header-logos-col {
+  display: none !important;
+}
+
+body[data-header="minimal"] .header-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 10px 0 0 !important;
+  text-align: center !important;
+}
+
+body[data-header="minimal"] .header-main-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+body[data-header="minimal"] .header-titles-col {
+  text-align: center !important;
+}
+
+body[data-header="minimal"] .header-dates-badge {
+  display: inline-block !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  padding: 4px 14px !important;
+  border-radius: 9999px !important;
+  margin-bottom: 6px !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .header-dates-badge {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+body[data-theme="celeste"][data-header="minimal"] .header-dates-badge,
+body[data-theme="poster"][data-header="minimal"] .header-dates-badge {
+  background: #ffffff;
+  color: #124d79;
+  border: 1px solid #b8daf2;
+  box-shadow: 0 1px 4px rgba(18, 77, 121, 0.08);
+}
+
+body[data-header="minimal"] .asym-title-light {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  display: block !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .asym-title-light { color: #94a3b8 !important; }
+body[data-theme="celeste"][data-header="minimal"] .asym-title-light,
+body[data-theme="poster"][data-header="minimal"] .asym-title-light { color: #1b689e !important; }
+
+body[data-header="minimal"] .asym-title-bold {
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.15 !important;
+  margin: 3px 0 6px !important;
+  display: block !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .asym-title-bold {
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2) !important;
+}
+
+body[data-theme="celeste"][data-header="minimal"] .asym-title-bold,
+body[data-theme="poster"][data-header="minimal"] .asym-title-bold { color: #0b3557 !important; }
+
+body[data-header="minimal"] .asym-venue {
+  justify-content: center !important;
+  margin-bottom: 6px !important;
+  font-size: 12px !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .asym-venue { color: #94a3b8; }
+body[data-theme="celeste"][data-header="minimal"] .asym-venue,
+body[data-theme="poster"][data-header="minimal"] .asym-venue { color: #3b668a; }
+
+body[data-header="minimal"] .header-motto-row {
+  border-top: none !important;
+  margin-top: 4px !important;
+  padding-top: 0 !important;
+}
+
+body[data-header="minimal"] .header-motto-text {
+  display: inline-block !important;
+  padding: 4px 16px !important;
+  border-radius: 9999px !important;
+  font-size: 12.5px !important;
+}
+
+body[data-theme="midnight"][data-header="minimal"] .header-motto-text {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #bae6fd !important;
+}
+
+body[data-theme="celeste"][data-header="minimal"] .header-motto-text,
+body[data-theme="poster"][data-header="minimal"] .header-motto-text {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid #b8daf2 !important;
+  color: #17527f !important;
+  box-shadow: 0 1px 4px rgba(18, 77, 121, 0.06) !important;
+}
+
+/* 2.4 CABECERA: [data-header="lateral"] -> LOGOS AL COSTADO FLUIDOS (SIN CAJA) */
+body[data-header="lateral"] .header-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 8px 4px 0 !important;
+}
+
+body[data-header="lateral"] .header-main-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+body[data-header="lateral"] .header-logos-col {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding-right: 14px !important;
+  border-right: 1px solid rgba(184, 218, 242, 0.5) !important;
+}
+
+body[data-theme="midnight"][data-header="lateral"] .header-logos-col {
+  border-right-color: rgba(148, 197, 240, 0.25) !important;
+}
+
+body[data-theme="midnight"][data-header="lateral"] .asym-logo-hex,
+body[data-theme="midnight"][data-header="lateral"] .asym-logo-circle {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(56, 189, 248, 0.2));
+}
+
+body[data-theme="midnight"][data-header="lateral"] .asym-title-light { color: #cbd5e1; }
+body[data-theme="midnight"][data-header="lateral"] .asym-title-bold { color: #ffffff; }
+body[data-theme="midnight"][data-header="lateral"] .asym-venue { color: #94a3b8; }
+body[data-theme="midnight"][data-header="lateral"] .asym-venue svg { stroke: #38bdf8; }
+body[data-theme="midnight"][data-header="lateral"] .header-dates-badge {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+body[data-header="lateral"] .header-motto-row {
+  border-top: 1px dashed rgba(184, 218, 242, 0.5) !important;
+  margin-top: 10px !important;
+  padding-top: 8px !important;
+  text-align: center !important;
+}
+
+body[data-theme="midnight"][data-header="lateral"] .header-motto-row {
+  border-top-color: rgba(148, 197, 240, 0.2) !important;
+}
+body[data-theme="midnight"][data-header="lateral"] .header-motto-text { color: #93c5fd; }
+body[data-theme="midnight"][data-header="lateral"] .header-motto-text strong { color: #ffffff; }
+
+/* 2.5 CABECERA: [data-header="card"] -> EN TARJETA VIDRIO / CAJA */
+body[data-header="card"] .header-card {
+  border-radius: 20px;
+  padding: 16px 18px 14px;
+}
+
+body[data-theme="midnight"][data-header="card"] .header-card {
+  background: rgba(15, 38, 64, 0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(148, 197, 240, 0.22) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+body[data-theme="celeste"][data-header="card"] .header-card {
+  background: rgba(255, 255, 255, 0.90) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 6px 22px rgba(18, 77, 121, 0.10) !important;
+}
+
+body[data-theme="poster"][data-header="card"] .header-card {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  border-left: 4px solid #1b71a8 !important;
+  box-shadow: 0 8px 25px rgba(27, 113, 168, 0.15) !important;
+}
+
+/* ==========================================================================
+   3. BOTÓN DESTACADO VERSÁTIL (AGENDA POR DÍA)
+   ========================================================================== */
+.daily-featured-wrapper {
+  margin-bottom: 14px;
+}
+
+.btn-daily-featured {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
+  border: 1.5px solid #38bdf8 !important;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(-1px);
+}
+
+.btn-daily-featured:hover {
+  background: linear-gradient(180deg, #0396e2 0%, #0277b5 100%) !important;
+  box-shadow: 0 8px 26px rgba(2, 132, 199, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.featured-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+  flex-wrap: wrap;
+}
+
+.featured-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  background: #f59e0b;
+  color: #78350f;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 5px rgba(245, 158, 11, 0.35);
+}
+
+.featured-pill-tag.accent-red {
+  background: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 1px 5px rgba(220, 38, 38, 0.45);
+}
+
+.featured-room-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #e0f2fe;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 7px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.live-beacon-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: pulseBeacon 1.4s infinite;
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+
+
+/* ==========================================================================
+   4. CAPA DE MARCA DE AGUA FIJA AL HACER SCROLL (data-watermark)
+   ========================================================================== */
+.preview-watermark-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+/* 4.1 Dual Centrada Fija (Logos a escala 1.63x) */
+body[data-watermark="dual"] .preview-watermark-layer {
+  display: block;
+  background-image: url('../images/watermark_dual_16x.png');
+  background-repeat: no-repeat;
+  background-position: center 58%;
+  background-size: min(85vw, 420px) auto;
+  opacity: 0.16;
+}
+
+/* 4.2 Hexágono Gigante Asimétrico */
+body[data-watermark="hex"] .preview-watermark-layer {
+  display: block;
+  background-image: url('../images/watermark_hex_clean.png');
+  background-repeat: no-repeat;
+  background-position: right -35px center;
+  background-size: min(80vw, 380px) auto;
+  opacity: 0.14;
+}
+
+/* 4.3 Círculo Argentina Fijo */
+body[data-watermark="circle"] .preview-watermark-layer {
+  display: block;
+  background-image: url('../images/watermark_arg_clean.png');
+  background-repeat: no-repeat;
+  background-position: center 62%;
+  background-size: min(70vw, 320px) auto;
+  opacity: 0.15;
+}
+
+/* 4.4 Sin Marca de Agua */
+body[data-watermark="none"] .preview-watermark-layer {
+  display: none;
+}
+
+/* Soporte para Midnight si se cambia de paleta */
+body[data-theme="midnight"][data-watermark="dual"] .preview-watermark-layer {
+  opacity: 0.08;
+  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
+}
+body[data-theme="midnight"][data-watermark="hex"] .preview-watermark-layer {
+  opacity: 0.07;
+  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
+}
+body[data-theme="midnight"][data-watermark="circle"] .preview-watermark-layer {
+  opacity: 0.08;
+  filter: brightness(1.8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
+}
+
+
+/* ==========================================================================
+   FRANJA METADATA DEL EVENTO: FECHA Y SEDE KARAKACHOFF CON ENLACE MAPS
+   ========================================================================== */
+.event-meta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: -6px auto 18px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 218, 242, 0.95);
+  border-radius: 9999px;
+  max-width: 510px;
+  box-shadow: 0 4px 14px rgba(18, 77, 121, 0.08);
+  font-size: 12px;
+  color: #124d79;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #124d79;
+}
+
+.meta-icon {
+  width: 14px;
+  height: 14px;
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.meta-divider {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.meta-venue-link {
+  text-decoration: none;
+  color: #0f3e66;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.meta-venue-link:hover {
+  color: #0284c7;
+}
+
+.meta-venue-link:hover .icon-pin {
+  transform: translateY(-1px);
+}
+
+.meta-external {
+  vertical-align: middle;
+  color: #0284c7;
+}
+
+@media (max-width: 480px) {
+  .event-meta-strip {
+    border-radius: 12px;
+    padding: 8px 12px;
+    gap: 6px;
+    font-size: 11.5px;
+    text-align: center;
+  }
+  .meta-divider {
+    display: none;
+  }
+}
+
+
+/* Chip para copiar correo dentro del botón de Secretaría */
+.btn-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-copy-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-copy-chip:hover {
+  background: rgba(255, 255, 255, 0.38);
+  border-color: #ffffff;
+  transform: scale(1.04);
+}
+
+.btn-copy-chip.copied {
+  background: #059669 !important;
+  border-color: #34d399 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
+}
+
+/* Banner de Patrocinios y Avales Faded (Pie de página oficial) */
+.footer-banner-wrapper {
+  margin: 18px -16px 14px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-banner-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 10px rgba(18, 77, 121, 0.08));
+  transition: transform 0.25s ease;
+}
+
+.footer-banner-img:hover {
+  transform: scale(1.01);
+}
+
+
+/* ==========================================================================
+   AVALES, PATROCINANTES Y AUSPICIANTES (MEDIDAS EXACTAS DEL DOCUMENTO WORD)
+   ========================================================================== */
+.sponsors-container {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(184, 218, 242, 0.85);
+  border-radius: 20px;
+  padding: 12px 10px 10px;
+  margin: 16px 0 12px;
+  box-shadow: 0 4px 18px rgba(18, 77, 121, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* Switcher interactivo de alternativas en el pie */
+.sponsors-style-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(184, 218, 242, 0.7);
+}
+
+.sponsors-switch-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #b8daf2;
+  color: #124d79;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sponsors-switch-btn:hover {
+  background: #ffffff;
+  border-color: #1b71a8;
+  transform: translateY(-1px);
+}
+
+.sponsors-switch-btn.active {
+  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
+  color: #ffffff;
+  border-color: #10385b;
+  box-shadow: 0 2px 6px rgba(16, 56, 91, 0.25);
+}
+
+.sponsors-group {
+  margin-bottom: 12px;
+}
+
+.sponsors-group:last-child {
+  margin-bottom: 4px;
+}
+
+.sponsors-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.sponsors-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(184, 218, 242, 0) 0%, rgba(184, 218, 242, 0.85) 50%, rgba(184, 218, 242, 0) 100%);
+}
+
+.sponsors-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #0f4761; /* Color exacto del Word: 0F4761 */
+  white-space: nowrap;
+}
+
+.sponsors-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.sponsors-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Base de cada celda de logo */
+.sponsor-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sponsor-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: all 0.22s ease;
+}
+
+/* ==========================================================================
+   MODO 1: CON CAJITAS (Tarjetas individuales suaves)
+   ========================================================================== */
+body[data-sponsors-style="con-cajitas"] .sponsor-box {
+  background: rgba(255, 255, 255, 0.90);
+  border: 1px solid rgba(200, 230, 250, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(18, 77, 121, 0.04);
+  padding: 6px 10px;
+}
+
+body[data-sponsors-style="con-cajitas"] .sponsor-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(18, 77, 121, 0.14);
+  background: #ffffff;
+  border-color: #89bfe5;
+}
+
+/* ==========================================================================
+   MODO 2: SIN CAJITAS (Orgánica, flotante y minimalista)
+   ========================================================================== */
+body[data-sponsors-style="sin-cajitas"] .sponsors-container {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 8px 0 14px !important;
+}
+
+body[data-sponsors-style="sin-cajitas"] .sponsor-box {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 2px 4px !important;
+}
+
+body[data-sponsors-style="sin-cajitas"] .sponsor-logo {
+  filter: drop-shadow(0 2px 5px rgba(15, 60, 95, 0.12));
+}
+
+body[data-sponsors-style="sin-cajitas"] .sponsor-box:hover {
+  transform: scale(1.05);
+}
+
+body[data-sponsors-style="sin-cajitas"] .sponsor-box:hover .sponsor-logo {
+  filter: drop-shadow(0 4px 12px rgba(15, 60, 95, 0.22));
+}
+
+/* ==========================================================================
+   MODO 3: PANEL VIDRIO ESMERILADO (Vidrio continuo sin cajitas adentro)
+   ========================================================================== */
+body[data-sponsors-style="panel-glass"] .sponsors-container {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 24px rgba(18, 77, 121, 0.10);
+}
+
+body[data-sponsors-style="panel-glass"] .sponsor-box {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 2px 4px !important;
+}
+
+body[data-sponsors-style="panel-glass"] .sponsor-logo {
+  filter: drop-shadow(0 2px 4px rgba(18, 77, 121, 0.08));
+}
+
+body[data-sponsors-style="panel-glass"] .sponsor-box:hover {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   MEDIDAS Y RELACIONES ESTRICTAS DEL DOCUMENTO WORD (1 mm = 1.68 CSS px)
+   Factor escalado al 70% del original para reducir el espacio ocupado abajo,
+   manteniendo al 100% la relación de aspecto interna y proporcional entre sí
+   según lo establecido por contrato.
+   ========================================================================== */
+
+/* AVALES INSTITUCIONALES */
+/* Fila 1: Aval 1 (30.8 x 26.0 mm) + Aval 2 (64.0 x 15.0 mm) */
+.box-aval-1 { width: min(34%, 64px); height: 50px; }
+.logo-aval-1 { max-width: 52px; max-height: 44px; }
+
+.box-aval-2 { width: min(58%, 124px); height: 36px; }
+.logo-aval-2 { max-width: 108px; max-height: 25px; }
+
+/* Fila 2: Aval 3 (57.1 x 13.0 mm) + Aval 4 (26.2 x 15.0 mm) */
+.box-aval-3 { width: min(58%, 112px); height: 32px; }
+.logo-aval-3 { max-width: 96px; max-height: 22px; }
+
+.box-aval-4 { width: min(34%, 56px); height: 36px; }
+.logo-aval-4 { max-width: 44px; max-height: 25px; }
+
+/* PATROCINANTES */
+/* Hero Tier 1: Bayer (100.0 x 41.4 mm) */
+.box-pat-hero { width: min(100%, 182px); height: 78px; }
+.logo-pat-hero { max-width: 168px; max-height: 70px; }
+
+/* Tier 2: Patrocinante 6 y 7 (75.0 x 30.0 mm y 75.0 x 24.8 mm) */
+.box-pat-t2a { width: min(48%, 136px); height: 58px; }
+.logo-pat-t2a { max-width: 126px; max-height: 50px; }
+
+.box-pat-t2b { width: min(48%, 136px); height: 50px; }
+.logo-pat-t2b { max-width: 126px; max-height: 42px; }
+
+/* Tier 3: Patrocinante 8 (50 x 31.7 mm), Induser (50 x 17 mm), Silvarum (50 x 13.7 mm) */
+.box-pat-t3a { width: min(31%, 92px); height: 60px; }
+.logo-pat-t3a { max-width: 84px; max-height: 53px; }
+
+.box-pat-induser { width: min(31%, 92px); height: 38px; }
+.logo-pat-induser { max-width: 84px; max-height: 29px; }
+
+/* Silvarum: 50.0 mm x 13.7 mm exactos (relación fiel al Word) */
+.box-pat-silvarum { width: min(31%, 92px); height: 32px; }
+.logo-pat-silvarum { max-width: 84px; max-height: 23px !important; }
+
+/* AUSPICIANTES */
+/* Fila 3 logos: Ausp 11 (46.1 x 10 mm), CEMAS (47.9 x 15 mm), Ausp 13 (37 x 19.2 mm) */
+.box-ausp-1 { width: min(31%, 86px); height: 26px; }
+.logo-ausp-1 { max-width: 77px; max-height: 17px; }
+
+/* CEMAS: 47.9 mm x 15.0 mm exactos (relación fiel al Word) */
+.box-ausp-cemas { width: min(31%, 90px); height: 34px; }
+.logo-ausp-cemas { max-width: 80px; max-height: 25px !important; }
+
+.box-ausp-3 { width: min(31%, 74px); height: 40px; }
+.logo-ausp-3 { max-width: 62px; max-height: 32px; }
+
+/* Optimización para teléfonos móviles pequeños */
+@media (max-width: 480px) {
+  .sponsors-container {
+    padding: 10px 6px 10px;
+    margin: 14px 0 10px;
+  }
+  .sponsors-row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+}

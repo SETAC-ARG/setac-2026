@@ -1,1468 +1,1451 @@
-/* ==========================================================================
-   SETAC ARGENTINA 2026 - AMALGAMATED MODERN THEME
-   Fusión de:
-   1. Afiche Oficial de La Plata (Cabecera asimétrica, colores oficiales, lema)
-   2. Link Hub Minimalista (Botones cápsula, iconos circulares, pulcritud visual)
-   ========================================================================== */
-
-:root {
-  /* Azules de marca */
-  --color-primary: #124d79;
-  --color-primary-dark: #0a3250;
-  --color-accent: #0284c7;
-  --color-accent-light: #e0f2fe;
-  
-  /* Fondo intermedio celeste cielo con degradado luminoso */
-  --bg-gradient-start: #d3e7f6;
-  --bg-gradient-end: #eaf3fb;
-  
-  --card-bg: #ffffff;
-  --card-border: #b8daf2;
-  --text-main: #0c2b48;
-  --text-muted: #3d6385;
-  
-  --shadow-sm: 0 2px 6px rgba(18, 77, 121, 0.08);
-  --shadow-md: 0 6px 18px rgba(18, 77, 121, 0.14);
-  --shadow-lg: 0 12px 30px rgba(18, 77, 121, 0.20);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  position: relative;
-  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 240px, #d8eaf7 480px, #edf5fa 100%) !important;
-  background-attachment: fixed !important;
-  color: var(--text-main);
-  min-height: 100vh;
-  margin: 0;
-  padding: 14px 14px 60px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ==========================================================================
-   MARCA DE AGUA FIJA DURANTE EL SCROLL (HEXÁGONO GIGANTE OFICIAL)
-   ========================================================================== */
-.fixed-watermark-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-  background-image: url('../images/watermark_hex_clean.png');
-  background-repeat: no-repeat;
-  background-position: right -35px center;
-  background-size: min(80vw, 380px) auto;
-  opacity: 0.14;
-}
-
-/* ==========================================================================
-   CABECERA OFICIAL: BANNER REAL DIFUMINADO
-   ========================================================================== */
-.header-banner-faded {
-  margin-top: 4px;
-  margin-bottom: 20px;
-  position: relative;
-  text-align: center;
-}
-
-.banner-faded-img {
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 4px 18px rgba(18, 77, 121, 0.14));
-}
-
-.hub-container {
-  position: relative;
-  z-index: 1;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-/* ==========================================
-   1. CABECERA ASIMÉTRICA (ESTILO AFICHE OFICIAL)
-   ========================================== */
-.asym-header {
-  margin-bottom: 20px;
-}
-
-.header-card {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 22px rgba(18, 77, 121, 0.10);
-  padding: 16px 18px 14px;
-}
-
-.header-main-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-/* Columna de logos a la izquierda */
-.header-logos-col {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  padding-right: 12px;
-  border-right: 1px solid rgba(184, 218, 242, 0.7);
-}
-
-/* Proporción fiel al afiche oficial (Hexágono SETAC ~1.62x respecto al Círculo ARG) */
-.asym-logo-hex {
-  height: 68px;
-  width: auto;
-  max-width: 75px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16));
-  flex-shrink: 0;
-}
-
-.asym-logo-circle {
-  height: 42px;
-  width: auto;
-  max-width: 48px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(18, 77, 121, 0.14));
-  flex-shrink: 0;
-  margin-top: 4px; /* Acompaña el eje del afiche */
-}
-
-/* Columna de títulos a la derecha */
-.header-titles-col {
-  flex-grow: 1;
-  text-align: left;
-}
-
-.header-dates-badge {
-  display: inline-block;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  color: #1b689e;
-  background: #e2f1fc;
-  padding: 2px 8px;
-  border-radius: 12px;
-  margin-bottom: 3px;
-  border: 1px solid #c0dff5;
-}
-
-.asym-title {
-  margin: 0;
-  line-height: 1.15;
-}
-
-.asym-title-light {
-  display: block;
-  font-size: 19px;
-  font-weight: 600;
-  color: #17527f;
-  letter-spacing: -0.01em;
-}
-
-.asym-title-bold {
-  display: block;
-  font-size: 23px;
-  font-weight: 800;
-  color: #0b3557;
-  letter-spacing: -0.01em;
-}
-
-.asym-venue {
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #3b668a;
-  margin: 3px 0 0;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.asym-venue svg {
-  stroke: #17527f;
-  flex-shrink: 0;
-}
-
-/* Fila de lema inferior */
-.header-motto-row {
-  margin-top: 10px;
-  padding-top: 8px;
-  border-top: 1px dashed rgba(184, 218, 242, 0.8);
-  text-align: center;
-}
-
-.header-motto-text {
-  font-size: 13px;
-  font-style: italic;
-  font-weight: 600;
-  color: #1b5179;
-  letter-spacing: .01em;
-}
-
-.header-motto-text strong {
-  font-style: normal;
-  font-weight: 800;
-  color: #0c3b60;
-  letter-spacing: .02em;
-}
-
-/* ==========================================
-   2. TARJETA WIFI CÁPSULA
-   ========================================== */
-.wifi-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px);
-  border: 1px solid #b8daf2;
-  border-radius: 16px;
-  padding: 10px 16px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: var(--shadow-sm);
-}
-
-.wifi-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.wifi-icon-wrapper {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(27, 113, 168, 0.25);
-}
-
-.wifi-icon-wrapper svg {
-  width: 18px;
-  height: 18px;
-  stroke: #ffffff;
-}
-
-.wifi-details {
-  text-align: left;
-}
-
-.wifi-label {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #3b668a;
-  margin: 0;
-}
-
-.wifi-ssid {
-  font-size: 14px;
-  font-weight: 800;
-  color: #0b3557;
-  margin: 0;
-}
-
-.wifi-copy-btn {
-  background: #ffffff;
-  border: 1px solid #b8daf2;
-  color: #124d79;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 7px 14px;
-  border-radius: 9999px; /* Cápsula */
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all .2s ease;
-  box-shadow: 0 2px 5px rgba(18, 77, 121, 0.08);
-}
-
-.wifi-copy-btn:hover {
-  background: #eaf4fb;
-  border-color: #124d79;
-  transform: translateY(-1px);
-}
-
-.wifi-copy-btn svg {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-}
-
-/* ==========================================
-   3. SEPARADORES DE SECCIÓN (ESTILO IMAGEN 1)
-   ========================================== */
-.section-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 18px 0 14px;
-}
-
-.divider-line {
-  flex-grow: 1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(184, 218, 242, 0) 0%, rgba(184, 218, 242, 0.9) 50%, rgba(184, 218, 242, 0) 100%);
-}
-
-.divider-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #17527f;
-}
-
-.divider-symbol {
-  color: #0284c7;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-/* ==========================================
-   4. BOTONES CÁPSULA MINIMALISTAS (IMAGEN 1)
-   ========================================== */
-.btn-congress {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  min-height: 56px;
-  padding: 8px 16px 8px 10px;
-  margin-bottom: 12px;
-  background: linear-gradient(180deg, #5381a1 0%, #416e8d 100%);
-  border: 1px solid rgba(220, 240, 255, 0.55);
-  box-shadow: 0 4px 14px rgba(45, 80, 105, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  border-radius: 9999px; /* CÁPSULA COMPLETA */
-  color: #ffffff !important;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(10, 42, 70, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  transition: all .22s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.btn-congress:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(180deg, #5e8db0 0%, #4a7797 100%);
-  border-color: rgba(220, 240, 255, 0.85);
-  box-shadow: 0 8px 22px rgba(45, 80, 105, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
-  box-shadow: 0 8px 22px rgba(10, 42, 70, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-}
-
-.btn-congress:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 8px rgba(10, 42, 70, 0.2);
-}
-
-.btn-content-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-
-/* Círculo blanco para el icono a la izquierda (Idéntico a Imagen 1) */
-.btn-icon-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
-  transition: all .2s ease;
-}
-
-.btn-congress:hover .btn-icon-circle {
-  border-color: #ffffff;
-  background: rgba(255, 255, 255, 0.18);
-  transform: scale(1.04);
-}
-
-.btn-icon-circle svg {
-  width: 20px;
-  height: 20px;
-  stroke: #ffffff;
-  stroke-width: 2;
-  fill: none;
-}
-
-/* Textos dentro del botón cápsula */
-.btn-text-group {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  min-width: 0;
-}
-
-.btn-title {
-  font-size: 13.5px;
-  font-weight: 800;
-  letter-spacing: .02em;
-  color: #ffffff;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.btn-desc {
-  font-size: 11.5px;
-  color: #b9dcf7;
-  font-weight: 500;
-  margin-top: 1px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.btn-arrow {
-  width: 18px;
-  height: 18px;
-  stroke: rgba(255, 255, 255, 0.75);
-  stroke-width: 2.2;
-  flex-shrink: 0;
-  transition: transform .2s ease, stroke .2s ease;
-  margin-right: 4px;
-}
-
-.btn-congress:hover .btn-arrow {
-  stroke: #ffffff;
-  transform: translateX(3px);
-}
-
-/* Botón destacado / primario (buscador de programa) */
-.btn-primary-highlight {
-  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.btn-primary-highlight:hover {
-  background: linear-gradient(180deg, #0396e2 0%, #0277b5 100%);
-  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-
-/* ==========================================
-   5. NAVEGACIÓN POR PESTAÑAS (TABS CÁPSULA)
-   ========================================== */
-.tabs-nav {
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 4px 2px 10px;
-  margin-bottom: 14px;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-}
-
-.tabs-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.tab-btn {
-  flex: 0 0 auto;
-  padding: 8px 16px;
-  border-radius: 9999px; /* Cápsula */
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #b8daf2;
-  color: #124d79;
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all .2s ease;
-  box-shadow: 0 2px 5px rgba(18, 77, 121, 0.06);
-}
-
-.tab-btn.active {
-  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
-  color: #ffffff;
-  border-color: #10385b;
-  box-shadow: 0 3px 10px rgba(16, 56, 91, 0.25);
-}
-
-.tab-btn:hover:not(.active) {
-  background: #ffffff;
-  border-color: #1b71a8;
-  color: #0b3557;
-}
-
-.tab-pane {
-  display: none;
-}
-
-.tab-pane.active {
-  display: block;
-  animation: fadeIn .25s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==========================================
-   6. TARJETAS DE HITOS / CRONOGRAMA POR DÍA
-   ========================================== */
-.hitos-day-card {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  border: 1px solid #b8daf2;
-  border-radius: 18px;
-  padding: 16px 18px;
-  margin-bottom: 16px;
-  box-shadow: var(--shadow-sm);
-}
-
-.hitos-day-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e0effa;
-}
-
-.hitos-day-title {
-  font-size: 15px;
-  font-weight: 800;
-  color: #0b3557;
-  margin: 0;
-}
-
-.hitos-day-badge {
-  font-size: 11px;
-  font-weight: 700;
-  color: #17527f;
-  background: #e2f1fc;
-  padding: 3px 10px;
-  border-radius: 9999px;
-  border: 1px solid #c0dff5;
-}
-
-.timeline-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.timeline-item {
-  display: flex;
-  gap: 12px;
-  padding: 9px 0;
-  border-bottom: 1px dashed #e8f2fa;
-}
-
-.timeline-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.timeline-time {
-  font-size: 12px;
-  font-weight: 800;
-  color: #1b689e;
-  min-width: 82px;
-  flex-shrink: 0;
-}
-
-.timeline-content {
-  font-size: 12.5px;
-  color: #1c3c58;
-  line-height: 1.35;
-}
-
-.timeline-content strong {
-  color: #0b3557;
-}
-
-.timeline-room {
-  display: inline-block;
-  font-size: 10.5px;
-  font-weight: 700;
-  background: #f0f7fd;
-  color: #2b5d84;
-  padding: 1px 6px;
-  border-radius: 4px;
-  margin-left: 4px;
-  border: 1px solid #d5e9f8;
-}
-
-/* ==========================================
-   7. FOOTER MODERNO Y REDES SOCIALES
-   ========================================== */
-.hub-footer {
-  margin-top: 36px;
-  text-align: center;
-  border-top: none;
-  padding-top: 24px;
-}
-
-.footer-logos {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 12px;
-  padding: 8px 24px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(6px);
-  border-radius: 9999px;
-  border: 1px solid rgba(184, 218, 242, 0.6);
-  box-shadow: 0 2px 8px rgba(18, 77, 121, 0.05);
-}
-
-.footer-logo {
-  width: auto;
-  object-fit: contain;
-  opacity: 0.92;
-  transition: transform .2s ease;
-}
-
-.footer-logo-hex {
-  height: 46px;
-  max-width: 55px;
-}
-
-.footer-logo-circle {
-  height: 29px;
-  max-width: 36px;
-  margin-top: 3px;
-}
-
-.footer-logo:hover {
-  transform: translateY(-2px);
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.social-link {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  border: 1px solid #b8daf2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #124d79;
-  box-shadow: 0 2px 8px rgba(18, 77, 121, 0.08);
-  transition: all .2s ease;
-}
-
-.social-link svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-}
-
-.social-link:hover {
-  color: #ffffff;
-  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
-  border-color: #10385b;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(16, 56, 91, 0.22);
-}
-
-.footer-copy {
-  font-size: 12px;
-  font-weight: 600;
-  color: #3b668a;
-  margin: 0;
-}
-
-.footer-qr-link {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 12.5px;
-  color: #124d79;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.footer-qr-link:hover {
-  text-decoration: underline;
-  color: #0b3557;
-}
-
-/* ==========================================
-   8. RESPONSIVE (MÓVIL VS ESCRITORIO)
-   ========================================== */
-@media (max-width: 420px) {
-  body {
-    padding: 14px 10px 50px;
-  }
-  
-  .header-card {
-    padding: 14px 14px 12px;
-  }
-  
-  .header-main-row {
-    gap: 12px;
-  }
-  
-  .header-logos-col {
-    padding-right: 10px;
-    gap: 8px;
-  }
-  
-  .asym-logo-hex {
-    height: 58px;
-    max-width: 65px;
-  }
-  
-  .asym-logo-circle {
-    height: 36px;
-    max-width: 42px;
-  }
-  
-  .asym-title-light {
-    font-size: 17px;
-  }
-  
-  .asym-title-bold {
-    font-size: 20px;
-  }
-  
-  .header-motto-text {
-    font-size: 12px;
-  }
-  
-  .btn-congress {
-    min-height: 52px;
-    padding: 6px 14px 6px 8px;
-  }
-  
-  .btn-icon-circle {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .btn-icon-circle svg {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .btn-title {
-    font-size: 12.5px;
-  }
-  
-  .btn-desc {
-    font-size: 11px;
-  }
-}
-
-/* Soporte directo para .btn-icon como círculo blanco (Idéntico a Imagen 1) */
-.btn-icon {
-  width: 40px !important;
-  height: 40px !important;
-  padding: 8px !important;
-  border-radius: 50% !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
-  background: rgba(255, 255, 255, 0.10) !important;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15) !important;
-  stroke: #ffffff !important;
-  flex-shrink: 0 !important;
-  transition: all .2s ease !important;
-}
-
-.btn-congress:hover .btn-icon {
-  border-color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.22) !important;
-  transform: scale(1.05) !important;
-}
-
-/* ==========================================
-   TARJETA DE ALERTA EN VIVO (AVISO IMPORTANTE)
-   ========================================== */
-.live-alert-card {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-  border: 1px solid #f59e0b;
-  border-radius: 16px;
-  padding: 12px 16px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.15);
-}
-
-.live-alert-icon {
-  width: 22px !important;
-  height: 22px !important;
-  min-width: 22px !important;
-  max-width: 22px !important;
-  flex-shrink: 0 !important;
-  margin-top: 2px;
-  stroke: #b45309;
-}
-
-.live-alert-content {
-  flex-grow: 1;
-  text-align: left;
-}
-
-.live-alert-content h4 {
-  font-size: 12.5px;
-  font-weight: 800;
-  color: #92400e;
-  margin: 0 0 2px;
-  text-transform: uppercase;
-  letter-spacing: .03em;
-}
-
-.live-alert-content p {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #78350f;
-  margin: 0;
-  line-height: 1.35;
-}
-
-.btn-accent-highlight {
-  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
-  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-
-/* ==========================================================================
-   FRANJA METADATA DEL EVENTO: FECHA Y SEDE KARAKACHOFF CON ENLACE MAPS
-   ========================================================================== */
-.event-meta-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: -6px auto 18px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(184, 218, 242, 0.95);
-  border-radius: 9999px;
-  max-width: 510px;
-  box-shadow: 0 4px 14px rgba(18, 77, 121, 0.08);
-  font-size: 12px;
-  color: #124d79;
-}
-
-.meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #124d79;
-}
-
-.meta-icon {
-  width: 14px;
-  height: 14px;
-  color: #0284c7;
-  flex-shrink: 0;
-}
-
-.meta-divider {
-  color: #94a3b8;
-  font-size: 11px;
-}
-
-.meta-venue-link {
-  text-decoration: none;
-  color: #0f3e66;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.meta-venue-link:hover {
-  color: #0284c7;
-}
-
-.meta-venue-link:hover .icon-pin {
-  transform: translateY(-1px);
-}
-
-.meta-external {
-  vertical-align: middle;
-  color: #0284c7;
-}
-
-@media (max-width: 480px) {
-  .event-meta-strip {
-    border-radius: 12px;
-    padding: 8px 12px;
-    gap: 6px;
-    font-size: 11.5px;
-    text-align: center;
-  }
-  .meta-divider {
-    display: none;
-  }
-}
-
-
-/* Chip para copiar correo dentro del botón de Secretaría */
-.btn-actions-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.btn-copy-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 9999px;
-  padding: 3px 8px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-.btn-copy-chip:hover {
-  background: rgba(255, 255, 255, 0.38);
-  border-color: #ffffff;
-  transform: scale(1.04);
-}
-
-.btn-copy-chip.copied {
-  background: #059669 !important;
-  border-color: #34d399 !important;
-  color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
-}
-
-/* Banner de Patrocinios y Avales Faded (Pie de página oficial) */
-.footer-banner-wrapper {
-  margin: 18px -16px 14px;
-  text-align: center;
-  overflow: hidden;
-}
-
-.footer-banner-img {
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 2px 10px rgba(18, 77, 121, 0.08));
-  transition: transform 0.25s ease;
-}
-
-.footer-banner-img:hover {
-  transform: scale(1.01);
-}
-
-
-/* ==========================================================================
-   AVALES, PATROCINANTES Y AUSPICIANTES (MEDIDAS EXACTAS DEL DOCUMENTO WORD)
-   ========================================================================== */
-.sponsors-container {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(184, 218, 242, 0.85);
-  border-radius: 20px;
-  padding: 18px 14px 16px;
-  margin: 22px 0 16px;
-  box-shadow: 0 4px 18px rgba(18, 77, 121, 0.08);
-  transition: all 0.3s ease;
-}
-
-/* Switcher interactivo de alternativas en el pie */
-.sponsors-style-switcher {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed rgba(184, 218, 242, 0.7);
-}
-
-.sponsors-switch-btn {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #b8daf2;
-  color: #124d79;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.sponsors-switch-btn:hover {
-  background: #ffffff;
-  border-color: #1b71a8;
-  transform: translateY(-1px);
-}
-
-.sponsors-switch-btn.active {
-  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
-  color: #ffffff;
-  border-color: #10385b;
-  box-shadow: 0 2px 6px rgba(16, 56, 91, 0.25);
-}
-
-.sponsors-group {
-  margin-bottom: 20px;
-}
-
-.sponsors-group:last-child {
-  margin-bottom: 4px;
-}
-
-.sponsors-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.sponsors-line {
-  flex-grow: 1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(184, 218, 242, 0) 0%, rgba(184, 218, 242, 0.85) 50%, rgba(184, 218, 242, 0) 100%);
-}
-
-.sponsors-badge {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #0f4761; /* Color exacto del Word: 0F4761 */
-  white-space: nowrap;
-}
-
-.sponsors-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-}
-
-.sponsors-row:last-child {
-  margin-bottom: 0;
-}
-
-/* Base de cada celda de logo */
-.sponsor-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sponsor-logo {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  transition: all 0.22s ease;
-}
-
-/* ==========================================================================
-   MODO 1: CON CAJITAS (Tarjetas individuales suaves)
-   ========================================================================== */
-body[data-sponsors-style="con-cajitas"] .sponsor-box {
-  background: rgba(255, 255, 255, 0.90);
-  border: 1px solid rgba(200, 230, 250, 0.85);
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(18, 77, 121, 0.04);
-  padding: 6px 10px;
-}
-
-body[data-sponsors-style="con-cajitas"] .sponsor-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(18, 77, 121, 0.14);
-  background: #ffffff;
-  border-color: #89bfe5;
-}
-
-/* ==========================================================================
-   MODO 2: SIN CAJITAS (Orgánica, flotante y minimalista)
-   ========================================================================== */
-body[data-sponsors-style="sin-cajitas"] .sponsors-container {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  padding: 8px 0 14px !important;
-}
-
-body[data-sponsors-style="sin-cajitas"] .sponsor-box {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 2px 4px !important;
-}
-
-body[data-sponsors-style="sin-cajitas"] .sponsor-logo {
-  filter: drop-shadow(0 2px 5px rgba(15, 60, 95, 0.12));
-}
-
-body[data-sponsors-style="sin-cajitas"] .sponsor-box:hover {
-  transform: scale(1.05);
-}
-
-body[data-sponsors-style="sin-cajitas"] .sponsor-box:hover .sponsor-logo {
-  filter: drop-shadow(0 4px 12px rgba(15, 60, 95, 0.22));
-}
-
-/* ==========================================================================
-   MODO 3: PANEL VIDRIO ESMERILADO (Vidrio continuo sin cajitas adentro)
-   ========================================================================== */
-body[data-sponsors-style="panel-glass"] .sponsors-container {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 24px rgba(18, 77, 121, 0.10);
-}
-
-body[data-sponsors-style="panel-glass"] .sponsor-box {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 2px 4px !important;
-}
-
-body[data-sponsors-style="panel-glass"] .sponsor-logo {
-  filter: drop-shadow(0 2px 4px rgba(18, 77, 121, 0.08));
-}
-
-body[data-sponsors-style="panel-glass"] .sponsor-box:hover {
-  transform: scale(1.04);
-}
-
-/* ==========================================================================
-   MEDIDAS Y RELACIONES ESTRICTAS DEL DOCUMENTO WORD (1 mm = 2.4 CSS px)
-   ========================================================================== */
-
-/* AVALES INSTITUCIONALES */
-/* Fila 1: Aval 1 (30.8 x 26.0 mm) + Aval 2 (64.0 x 15.0 mm) */
-.box-aval-1 { width: min(34%, 90px); height: 72px; }
-.logo-aval-1 { max-width: 74px; max-height: 62px; }
-
-.box-aval-2 { width: min(58%, 175px); height: 50px; }
-.logo-aval-2 { max-width: 154px; max-height: 36px; }
-
-/* Fila 2: Aval 3 (57.1 x 13.0 mm) + Aval 4 (26.2 x 15.0 mm) */
-.box-aval-3 { width: min(58%, 160px); height: 46px; }
-.logo-aval-3 { max-width: 137px; max-height: 31px; }
-
-.box-aval-4 { width: min(34%, 80px); height: 50px; }
-.logo-aval-4 { max-width: 63px; max-height: 36px; }
-
-/* PATROCINANTES */
-/* Hero Tier 1: Bayer (100.0 x 41.4 mm) */
-.box-pat-hero { width: min(100%, 260px); height: 110px; }
-.logo-pat-hero { max-width: 240px; max-height: 99px; }
-
-/* Tier 2: Patrocinante 6 y 7 (75.0 x 30.0 mm y 75.0 x 24.8 mm) */
-.box-pat-t2a { width: min(48%, 195px); height: 84px; }
-.logo-pat-t2a { max-width: 180px; max-height: 72px; }
-
-.box-pat-t2b { width: min(48%, 195px); height: 74px; }
-.logo-pat-t2b { max-width: 180px; max-height: 60px; }
-
-/* Tier 3: Patrocinante 8 (50 x 31.7 mm), Induser (50 x 17 mm), Silvarum (50 x 13.7 mm) */
-.box-pat-t3a { width: min(31%, 130px); height: 86px; }
-.logo-pat-t3a { max-width: 120px; max-height: 76px; }
-
-.box-pat-induser { width: min(31%, 130px); height: 54px; }
-.logo-pat-induser { max-width: 120px; max-height: 41px; }
-
-/* Silvarum: 50.0 mm x 13.7 mm exactos (relación fiel al Word) */
-.box-pat-silvarum { width: min(31%, 130px); height: 46px; }
-.logo-pat-silvarum { max-width: 120px; max-height: 33px !important; }
-
-/* AUSPICIANTES */
-/* Fila 3 logos: Ausp 11 (46.1 x 10 mm), CEMAS (47.9 x 15 mm), Ausp 13 (37 x 19.2 mm) */
-.box-ausp-1 { width: min(31%, 124px); height: 38px; }
-.logo-ausp-1 { max-width: 111px; max-height: 24px; }
-
-/* CEMAS: 47.9 mm x 15.0 mm exactos (relación fiel al Word) */
-.box-ausp-cemas { width: min(31%, 128px); height: 48px; }
-.logo-ausp-cemas { max-width: 115px; max-height: 36px !important; }
-
-.box-ausp-3 { width: min(31%, 104px); height: 58px; }
-.logo-ausp-3 { max-width: 89px; max-height: 46px; }
-
-/* Optimización para teléfonos móviles pequeños */
-@media (max-width: 480px) {
-  .sponsors-container {
-    padding: 14px 10px 14px;
-    margin: 18px 0 14px;
-  }
-  .sponsors-row {
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-  .box-pat-hero { width: min(100%, 220px); height: 90px; }
-  .logo-pat-hero { max-width: 200px; max-height: 82px; }
-
-  .box-pat-t2a { height: 70px; }
-  .logo-pat-t2a { max-width: 150px; max-height: 60px; }
-
-  .box-pat-t2b { height: 62px; }
-  .logo-pat-t2b { max-width: 150px; max-height: 50px; }
-
-  .box-pat-t3a { height: 72px; }
-  .logo-pat-t3a { max-width: 100px; max-height: 64px; }
-
-  .box-pat-induser { height: 46px; }
-  .logo-pat-induser { max-width: 100px; max-height: 34px; }
-
-  .box-pat-silvarum { height: 40px; }
-  .logo-pat-silvarum { max-width: 100px; max-height: 27px !important; }
-
-  .box-ausp-cemas { height: 42px; }
-  .logo-ausp-cemas { max-width: 98px; max-height: 30px !important; }
-}
-
-
-/* --- ESTILOS DE DESTACADOS Y BADGES PARA BOTONES --- */
-.btn-congress {
-  position: relative;
-}
-.btn-badge-live {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: #0284c7;
-  color: #ffffff;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-.btn-badge-live.badge-gold {
-  background: #d97706;
-  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.35);
-}
-.btn-badge-live.badge-green {
-  background: #16a34a;
-  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.35);
-}
-.btn-badge-live .pulse-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ffffff;
-  display: inline-block;
-  animation: pulseLiveDot 1.8s infinite;
-}
-@keyframes pulseLiveDot {
-  0% { transform: scale(0.8); opacity: 0.7; }
-  50% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(0.8); opacity: 0.7; }
-}
-
-/* Variante Festiva / Social Especial (ej: Cena de Camaradería) */
-.btn-accent-festivo {
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.95) 0%, rgba(253, 230, 138, 0.85) 100%) !important;
-  border: 1.5px solid rgba(245, 158, 11, 0.55) !important;
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
-}
-.btn-accent-festivo:hover {
-  background: linear-gradient(135deg, rgba(254, 243, 199, 1) 0%, rgba(252, 211, 77, 0.95) 100%) !important;
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
-}
-.btn-accent-festivo .btn-title {
-  color: #92400e !important;
-}
-.btn-accent-festivo .btn-desc {
-  color: #b45309 !important;
-}
-.btn-accent-festivo .btn-icon {
-  stroke: #d97706 !important;
-}
-.btn-accent-festivo .btn-arrow {
-  stroke: #d97706 !important;
-}
-
-
-/* ==========================================================================
-   ADAPTACIÓN PARA COMPUTADORAS DE ESCRITORIO Y NOTEBOOKS (DESKTOP PORTAL)
-   ========================================================================== */
-
-/* Fondo ambiental institucional para pantallas medianas y grandes */
-@media (min-width: 769px) {
-  body {
-    padding: 30px 20px 80px !important;
-    background: linear-gradient(180deg, #b2d2eb 0%, #c4ddf2 260px, #d5e8f6 500px, #e8f3fa 100%) !important;
-    background-attachment: fixed !important;
-  }
-
-  /* Capa decorativa difuminada del afiche oficial en los laterales */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("../images/laplata_fluid_sky_official.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-    opacity: 0.28;
-    filter: blur(6px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Tarjeta Portal Central Flotante */
-  .hub-container {
-    position: relative;
-    z-index: 10;
-    max-width: 580px !important;
-    margin: 20px auto 40px !important;
-    background: rgba(255, 255, 255, 0.82) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
-    border-radius: 32px !important;
-    box-shadow: 
-      0 28px 70px rgba(18, 77, 121, 0.18),
-      0 6px 20px rgba(18, 77, 121, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
-    padding: 24px 28px 36px !important;
-    box-sizing: border-box !important;
-  }
-}
-
-/* Widget QR Móvil Flotante para Pantallas Anchas */
-.desktop-qr-card {
-  display: none;
-}
-
-@media (min-width: 1140px) {
-  .desktop-qr-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    top: 40px;
-    right: calc(50% - 290px - 240px - 28px);
-    width: 220px;
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1.5px solid rgba(255, 255, 255, 0.95);
-    border-radius: 24px;
-    padding: 18px 16px;
-    box-shadow: 
-      0 18px 40px rgba(18, 77, 121, 0.14),
-      0 2px 8px rgba(18, 77, 121, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95);
-    text-align: center;
-    z-index: 100;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    animation: fadeInQr 0.6s ease-out;
-  }
-  .desktop-qr-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 
-      0 24px 50px rgba(18, 77, 121, 0.20),
-      0 4px 12px rgba(18, 77, 121, 0.08);
-  }
-  .desktop-qr-badge {
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-    color: #ffffff;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 3px 10px;
-    border-radius: 999px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
-  }
-  .desktop-qr-frame {
-    background: #ffffff;
-    padding: 8px;
-    border-radius: 14px;
-    box-shadow: 0 2px 10px rgba(18, 77, 121, 0.08);
-    margin-bottom: 12px;
-    width: 140px;
-    height: 140px;
-    box-sizing: border-box;
-  }
-  .desktop-qr-img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 6px;
-  }
-  .desktop-qr-title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin: 0 0 5px;
-    line-height: 1.25;
-  }
-  .desktop-qr-desc {
-    font-size: 0.72rem;
-    color: #475569;
-    line-height: 1.35;
-    margin: 0;
-  }
-  @keyframes fadeInQr {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-}
+/* ==========================================================================
+   SETAC ARGENTINA 2026 - AMALGAMATED MODERN THEME
+   Fusión de:
+   1. Afiche Oficial de La Plata (Cabecera asimétrica, colores oficiales, lema)
+   2. Link Hub Minimalista (Botones cápsula, iconos circulares, pulcritud visual)
+   ========================================================================== */
+
+:root {
+  /* Azules de marca */
+  --color-primary: #124d79;
+  --color-primary-dark: #0a3250;
+  --color-accent: #0284c7;
+  --color-accent-light: #e0f2fe;
+  
+  /* Fondo intermedio celeste cielo con degradado luminoso */
+  --bg-gradient-start: #d3e7f6;
+  --bg-gradient-end: #eaf3fb;
+  
+  --card-bg: #ffffff;
+  --card-border: #b8daf2;
+  --text-main: #0c2b48;
+  --text-muted: #3d6385;
+  
+  --shadow-sm: 0 2px 6px rgba(18, 77, 121, 0.08);
+  --shadow-md: 0 6px 18px rgba(18, 77, 121, 0.14);
+  --shadow-lg: 0 12px 30px rgba(18, 77, 121, 0.20);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 240px, #d8eaf7 480px, #edf5fa 100%) !important;
+  background-attachment: fixed !important;
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+  padding: 14px 14px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   MARCA DE AGUA FIJA DURANTE EL SCROLL (HEXÁGONO GIGANTE OFICIAL)
+   ========================================================================== */
+.fixed-watermark-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('../images/watermark_hex_clean.png');
+  background-repeat: no-repeat;
+  background-position: right -35px center;
+  background-size: min(80vw, 380px) auto;
+  opacity: 0.14;
+}
+
+/* ==========================================================================
+   CABECERA OFICIAL: BANNER REAL DIFUMINADO
+   ========================================================================== */
+.header-banner-faded {
+  margin-top: 4px;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.banner-faded-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 18px rgba(18, 77, 121, 0.14));
+}
+
+.hub-container {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   1. CABECERA ASIMÉTRICA (ESTILO AFICHE OFICIAL)
+   ========================================== */
+.asym-header {
+  margin-bottom: 20px;
+}
+
+.header-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 22px rgba(18, 77, 121, 0.10);
+  padding: 16px 18px 14px;
+}
+
+.header-main-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Columna de logos a la izquierda */
+.header-logos-col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding-right: 12px;
+  border-right: 1px solid rgba(184, 218, 242, 0.7);
+}
+
+/* Proporción fiel al afiche oficial (Hexágono SETAC ~1.62x respecto al Círculo ARG) */
+.asym-logo-hex {
+  height: 68px;
+  width: auto;
+  max-width: 75px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(18, 77, 121, 0.16));
+  flex-shrink: 0;
+}
+
+.asym-logo-circle {
+  height: 42px;
+  width: auto;
+  max-width: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(18, 77, 121, 0.14));
+  flex-shrink: 0;
+  margin-top: 4px; /* Acompaña el eje del afiche */
+}
+
+/* Columna de títulos a la derecha */
+.header-titles-col {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.header-dates-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #1b689e;
+  background: #e2f1fc;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-bottom: 3px;
+  border: 1px solid #c0dff5;
+}
+
+.asym-title {
+  margin: 0;
+  line-height: 1.15;
+}
+
+.asym-title-light {
+  display: block;
+  font-size: 19px;
+  font-weight: 600;
+  color: #17527f;
+  letter-spacing: -0.01em;
+}
+
+.asym-title-bold {
+  display: block;
+  font-size: 23px;
+  font-weight: 800;
+  color: #0b3557;
+  letter-spacing: -0.01em;
+}
+
+.asym-venue {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #3b668a;
+  margin: 3px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.asym-venue svg {
+  stroke: #17527f;
+  flex-shrink: 0;
+}
+
+/* Fila de lema inferior */
+.header-motto-row {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(184, 218, 242, 0.8);
+  text-align: center;
+}
+
+.header-motto-text {
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 600;
+  color: #1b5179;
+  letter-spacing: .01em;
+}
+
+.header-motto-text strong {
+  font-style: normal;
+  font-weight: 800;
+  color: #0c3b60;
+  letter-spacing: .02em;
+}
+
+/* ==========================================
+   2. TARJETA WIFI CÁPSULA
+   ========================================== */
+.wifi-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid #b8daf2;
+  border-radius: 16px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+
+.wifi-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wifi-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b71a8 0%, #2f8ec8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(27, 113, 168, 0.25);
+}
+
+.wifi-icon-wrapper svg {
+  width: 18px;
+  height: 18px;
+  stroke: #ffffff;
+}
+
+.wifi-details {
+  text-align: left;
+}
+
+.wifi-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #3b668a;
+  margin: 0;
+}
+
+.wifi-ssid {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0b3557;
+  margin: 0;
+}
+
+.wifi-copy-btn {
+  background: #ffffff;
+  border: 1px solid #b8daf2;
+  color: #124d79;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 9999px; /* Cápsula */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .2s ease;
+  box-shadow: 0 2px 5px rgba(18, 77, 121, 0.08);
+}
+
+.wifi-copy-btn:hover {
+  background: #eaf4fb;
+  border-color: #124d79;
+  transform: translateY(-1px);
+}
+
+.wifi-copy-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+}
+
+/* ==========================================
+   3. SEPARADORES DE SECCIÓN (ESTILO IMAGEN 1)
+   ========================================== */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0 14px;
+}
+
+.divider-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(184, 218, 242, 0) 0%, rgba(184, 218, 242, 0.9) 50%, rgba(184, 218, 242, 0) 100%);
+}
+
+.divider-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #17527f;
+}
+
+.divider-symbol {
+  color: #0284c7;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ==========================================
+   4. BOTONES CÁPSULA MINIMALISTAS (IMAGEN 1)
+   ========================================== */
+.btn-congress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 56px;
+  padding: 8px 16px 8px 10px;
+  margin-bottom: 12px;
+  background: linear-gradient(180deg, #5381a1 0%, #416e8d 100%);
+  border: 1px solid rgba(220, 240, 255, 0.55);
+  box-shadow: 0 4px 14px rgba(45, 80, 105, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  border-radius: 9999px; /* CÁPSULA COMPLETA */
+  color: #ffffff !important;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(10, 42, 70, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: all .22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-congress:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #5e8db0 0%, #4a7797 100%);
+  border-color: rgba(220, 240, 255, 0.85);
+  box-shadow: 0 8px 22px rgba(45, 80, 105, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 22px rgba(10, 42, 70, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-congress:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(10, 42, 70, 0.2);
+}
+
+.btn-content-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* Círculo blanco para el icono a la izquierda (Idéntico a Imagen 1) */
+.btn-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: all .2s ease;
+}
+
+.btn-congress:hover .btn-icon-circle {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.04);
+}
+
+.btn-icon-circle svg {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Textos dentro del botón cápsula */
+.btn-text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  min-width: 0;
+}
+
+.btn-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: #ffffff;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.btn-desc {
+  font-size: 11.5px;
+  color: #b9dcf7;
+  font-weight: 500;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-arrow {
+  width: 18px;
+  height: 18px;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 2.2;
+  flex-shrink: 0;
+  transition: transform .2s ease, stroke .2s ease;
+  margin-right: 4px;
+}
+
+.btn-congress:hover .btn-arrow {
+  stroke: #ffffff;
+  transform: translateX(3px);
+}
+
+/* Botón destacado / primario (buscador de programa) */
+.btn-primary-highlight {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary-highlight:hover {
+  background: linear-gradient(180deg, #0396e2 0%, #0277b5 100%);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================
+   5. NAVEGACIÓN POR PESTAÑAS (TABS CÁPSULA)
+   ========================================== */
+.tabs-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px 2px 10px;
+  margin-bottom: 14px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border-radius: 9999px; /* Cápsula */
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #b8daf2;
+  color: #124d79;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .2s ease;
+  box-shadow: 0 2px 5px rgba(18, 77, 121, 0.06);
+}
+
+.tab-btn.active {
+  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
+  color: #ffffff;
+  border-color: #10385b;
+  box-shadow: 0 3px 10px rgba(16, 56, 91, 0.25);
+}
+
+.tab-btn:hover:not(.active) {
+  background: #ffffff;
+  border-color: #1b71a8;
+  color: #0b3557;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+  animation: fadeIn .25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   6. TARJETAS DE HITOS / CRONOGRAMA POR DÍA
+   ========================================== */
+.hitos-day-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid #b8daf2;
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hitos-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0effa;
+}
+
+.hitos-day-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0b3557;
+  margin: 0;
+}
+
+.hitos-day-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #17527f;
+  background: #e2f1fc;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  border: 1px solid #c0dff5;
+}
+
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px dashed #e8f2fa;
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timeline-time {
+  font-size: 12px;
+  font-weight: 800;
+  color: #1b689e;
+  min-width: 82px;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  font-size: 12.5px;
+  color: #1c3c58;
+  line-height: 1.35;
+}
+
+.timeline-content strong {
+  color: #0b3557;
+}
+
+.timeline-room {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: #f0f7fd;
+  color: #2b5d84;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+  border: 1px solid #d5e9f8;
+}
+
+/* ==========================================
+   7. FOOTER MODERNO Y REDES SOCIALES
+   ========================================== */
+.hub-footer {
+  margin-top: 36px;
+  text-align: center;
+  border-top: none;
+  padding-top: 24px;
+}
+
+.footer-logos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 9999px;
+  border: 1px solid rgba(184, 218, 242, 0.6);
+  box-shadow: 0 2px 8px rgba(18, 77, 121, 0.05);
+}
+
+.footer-logo {
+  width: auto;
+  object-fit: contain;
+  opacity: 0.92;
+  transition: transform .2s ease;
+}
+
+.footer-logo-hex {
+  height: 46px;
+  max-width: 55px;
+}
+
+.footer-logo-circle {
+  height: 29px;
+  max-width: 36px;
+  margin-top: 3px;
+}
+
+.footer-logo:hover {
+  transform: translateY(-2px);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #b8daf2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #124d79;
+  box-shadow: 0 2px 8px rgba(18, 77, 121, 0.08);
+  transition: all .2s ease;
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.social-link:hover {
+  color: #ffffff;
+  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
+  border-color: #10385b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 56, 91, 0.22);
+}
+
+.footer-copy {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3b668a;
+  margin: 0;
+}
+
+.footer-qr-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: #124d79;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-qr-link:hover {
+  text-decoration: underline;
+  color: #0b3557;
+}
+
+/* ==========================================
+   8. RESPONSIVE (MÓVIL VS ESCRITORIO)
+   ========================================== */
+@media (max-width: 420px) {
+  body {
+    padding: 14px 10px 50px;
+  }
+  
+  .header-card {
+    padding: 14px 14px 12px;
+  }
+  
+  .header-main-row {
+    gap: 12px;
+  }
+  
+  .header-logos-col {
+    padding-right: 10px;
+    gap: 8px;
+  }
+  
+  .asym-logo-hex {
+    height: 58px;
+    max-width: 65px;
+  }
+  
+  .asym-logo-circle {
+    height: 36px;
+    max-width: 42px;
+  }
+  
+  .asym-title-light {
+    font-size: 17px;
+  }
+  
+  .asym-title-bold {
+    font-size: 20px;
+  }
+  
+  .header-motto-text {
+    font-size: 12px;
+  }
+  
+  .btn-congress {
+    min-height: 52px;
+    padding: 6px 14px 6px 8px;
+  }
+  
+  .btn-icon-circle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .btn-icon-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .btn-title {
+    font-size: 12.5px;
+  }
+  
+  .btn-desc {
+    font-size: 11px;
+  }
+}
+
+/* Soporte directo para .btn-icon como círculo blanco (Idéntico a Imagen 1) */
+.btn-icon {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 8px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  stroke: #ffffff !important;
+  flex-shrink: 0 !important;
+  transition: all .2s ease !important;
+}
+
+.btn-congress:hover .btn-icon {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.22) !important;
+  transform: scale(1.05) !important;
+}
+
+/* ==========================================
+   TARJETA DE ALERTA EN VIVO (AVISO IMPORTANTE)
+   ========================================== */
+.live-alert-card {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.15);
+}
+
+.live-alert-icon {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  flex-shrink: 0 !important;
+  margin-top: 2px;
+  stroke: #b45309;
+}
+
+.live-alert-content {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.live-alert-content h4 {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #92400e;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+.live-alert-content p {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #78350f;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.btn-accent-highlight {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+
+/* ==========================================================================
+   FRANJA METADATA DEL EVENTO: FECHA Y SEDE KARAKACHOFF CON ENLACE MAPS
+   ========================================================================== */
+.event-meta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: -6px auto 18px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 218, 242, 0.95);
+  border-radius: 9999px;
+  max-width: 510px;
+  box-shadow: 0 4px 14px rgba(18, 77, 121, 0.08);
+  font-size: 12px;
+  color: #124d79;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #124d79;
+}
+
+.meta-icon {
+  width: 14px;
+  height: 14px;
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.meta-divider {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.meta-venue-link {
+  text-decoration: none;
+  color: #0f3e66;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.meta-venue-link:hover {
+  color: #0284c7;
+}
+
+.meta-venue-link:hover .icon-pin {
+  transform: translateY(-1px);
+}
+
+.meta-external {
+  vertical-align: middle;
+  color: #0284c7;
+}
+
+@media (max-width: 480px) {
+  .event-meta-strip {
+    border-radius: 12px;
+    padding: 8px 12px;
+    gap: 6px;
+    font-size: 11.5px;
+    text-align: center;
+  }
+  .meta-divider {
+    display: none;
+  }
+}
+
+
+/* Chip para copiar correo dentro del botón de Secretaría */
+.btn-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-copy-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-copy-chip:hover {
+  background: rgba(255, 255, 255, 0.38);
+  border-color: #ffffff;
+  transform: scale(1.04);
+}
+
+.btn-copy-chip.copied {
+  background: #059669 !important;
+  border-color: #34d399 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
+}
+
+/* Banner de Patrocinios y Avales Faded (Pie de página oficial) */
+.footer-banner-wrapper {
+  margin: 18px -16px 14px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-banner-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 10px rgba(18, 77, 121, 0.08));
+  transition: transform 0.25s ease;
+}
+
+.footer-banner-img:hover {
+  transform: scale(1.01);
+}
+
+
+/* ==========================================================================
+   AVALES, PATROCINANTES Y AUSPICIANTES (MEDIDAS EXACTAS DEL DOCUMENTO WORD)
+   ========================================================================== */
+.sponsors-container {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(184, 218, 242, 0.85);
+  border-radius: 20px;
+  padding: 12px 10px 10px;
+  margin: 16px 0 12px;
+  box-shadow: 0 4px 18px rgba(18, 77, 121, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* Switcher interactivo de alternativas en el pie */
+.sponsors-style-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(184, 218, 242, 0.7);
+}
+
+.sponsors-switch-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #b8daf2;
+  color: #124d79;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sponsors-switch-btn:hover {
+  background: #ffffff;
+  border-color: #1b71a8;
+  transform: translateY(-1px);
+}
+
+.sponsors-switch-btn.active {
+  background: linear-gradient(180deg, #184a75 0%, #10385b 100%);
+  color: #ffffff;
+  border-color: #10385b;
+  box-shadow: 0 2px 6px rgba(16, 56, 91, 0.25);
+}
+
+.sponsors-group {
+  margin-bottom: 12px;
+}
+
+.sponsors-group:last-child {
+  margin-bottom: 4px;
+}
+
+.sponsors-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.sponsors-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(184, 218, 242, 0) 0%, rgba(184, 218, 242, 0.85) 50%, rgba(184, 218, 242, 0) 100%);
+}
+
+.sponsors-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #0f4761; /* Color exacto del Word: 0F4761 */
+  white-space: nowrap;
+}
+
+.sponsors-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.sponsors-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Base de cada celda de logo */
+.sponsor-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sponsor-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: all 0.22s ease;
+}
+
+/* ==========================================================================
+   MODO 1: CON CAJITAS (Tarjetas individuales suaves)
+   ========================================================================== */
+body[data-sponsors-style="con-cajitas"] .sponsor-box {
+  background: rgba(255, 255, 255, 0.90);
+  border: 1px solid rgba(200, 230, 250, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(18, 77, 121, 0.04);
+  padding: 6px 10px;
+}
+
+body[data-sponsors-style="con-cajitas"] .sponsor-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(18, 77, 121, 0.14);
+  background: #ffffff;
+  border-color: #89bfe5;
+}
+
+/* ==========================================================================
+   MODO 2: SIN CAJITAS (Orgánica, flotante y minimalista)
+   ========================================================================== */
+body[data-sponsors-style="sin-cajitas"] .sponsors-container {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 8px 0 14px !important;
+}
+
+body[data-sponsors-style="sin-cajitas"] .sponsor-box {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 2px 4px !important;
+}
+
+body[data-sponsors-style="sin-cajitas"] .sponsor-logo {
+  filter: drop-shadow(0 2px 5px rgba(15, 60, 95, 0.12));
+}
+
+body[data-sponsors-style="sin-cajitas"] .sponsor-box:hover {
+  transform: scale(1.05);
+}
+
+body[data-sponsors-style="sin-cajitas"] .sponsor-box:hover .sponsor-logo {
+  filter: drop-shadow(0 4px 12px rgba(15, 60, 95, 0.22));
+}
+
+/* ==========================================================================
+   MODO 3: PANEL VIDRIO ESMERILADO (Vidrio continuo sin cajitas adentro)
+   ========================================================================== */
+body[data-sponsors-style="panel-glass"] .sponsors-container {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 24px rgba(18, 77, 121, 0.10);
+}
+
+body[data-sponsors-style="panel-glass"] .sponsor-box {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 2px 4px !important;
+}
+
+body[data-sponsors-style="panel-glass"] .sponsor-logo {
+  filter: drop-shadow(0 2px 4px rgba(18, 77, 121, 0.08));
+}
+
+body[data-sponsors-style="panel-glass"] .sponsor-box:hover {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   MEDIDAS Y RELACIONES ESTRICTAS DEL DOCUMENTO WORD (1 mm = 1.68 CSS px)
+   Factor escalado al 70% del original para reducir el espacio ocupado abajo,
+   manteniendo al 100% la relación de aspecto interna y proporcional entre sí
+   según lo establecido por contrato.
+   ========================================================================== */
+
+/* AVALES INSTITUCIONALES */
+/* Fila 1: Aval 1 (30.8 x 26.0 mm) + Aval 2 (64.0 x 15.0 mm) */
+.box-aval-1 { width: min(34%, 64px); height: 50px; }
+.logo-aval-1 { max-width: 52px; max-height: 44px; }
+
+.box-aval-2 { width: min(58%, 124px); height: 36px; }
+.logo-aval-2 { max-width: 108px; max-height: 25px; }
+
+/* Fila 2: Aval 3 (57.1 x 13.0 mm) + Aval 4 (26.2 x 15.0 mm) */
+.box-aval-3 { width: min(58%, 112px); height: 32px; }
+.logo-aval-3 { max-width: 96px; max-height: 22px; }
+
+.box-aval-4 { width: min(34%, 56px); height: 36px; }
+.logo-aval-4 { max-width: 44px; max-height: 25px; }
+
+/* PATROCINANTES */
+/* Hero Tier 1: Bayer (100.0 x 41.4 mm) */
+.box-pat-hero { width: min(100%, 182px); height: 78px; }
+.logo-pat-hero { max-width: 168px; max-height: 70px; }
+
+/* Tier 2: Patrocinante 6 y 7 (75.0 x 30.0 mm y 75.0 x 24.8 mm) */
+.box-pat-t2a { width: min(48%, 136px); height: 58px; }
+.logo-pat-t2a { max-width: 126px; max-height: 50px; }
+
+.box-pat-t2b { width: min(48%, 136px); height: 50px; }
+.logo-pat-t2b { max-width: 126px; max-height: 42px; }
+
+/* Tier 3: Patrocinante 8 (50 x 31.7 mm), Induser (50 x 17 mm), Silvarum (50 x 13.7 mm) */
+.box-pat-t3a { width: min(31%, 92px); height: 60px; }
+.logo-pat-t3a { max-width: 84px; max-height: 53px; }
+
+.box-pat-induser { width: min(31%, 92px); height: 38px; }
+.logo-pat-induser { max-width: 84px; max-height: 29px; }
+
+/* Silvarum: 50.0 mm x 13.7 mm exactos (relación fiel al Word) */
+.box-pat-silvarum { width: min(31%, 92px); height: 32px; }
+.logo-pat-silvarum { max-width: 84px; max-height: 23px !important; }
+
+/* AUSPICIANTES */
+/* Fila 3 logos: Ausp 11 (46.1 x 10 mm), CEMAS (47.9 x 15 mm), Ausp 13 (37 x 19.2 mm) */
+.box-ausp-1 { width: min(31%, 86px); height: 26px; }
+.logo-ausp-1 { max-width: 77px; max-height: 17px; }
+
+/* CEMAS: 47.9 mm x 15.0 mm exactos (relación fiel al Word) */
+.box-ausp-cemas { width: min(31%, 90px); height: 34px; }
+.logo-ausp-cemas { max-width: 80px; max-height: 25px !important; }
+
+.box-ausp-3 { width: min(31%, 74px); height: 40px; }
+.logo-ausp-3 { max-width: 62px; max-height: 32px; }
+
+/* Optimización para teléfonos móviles pequeños */
+@media (max-width: 480px) {
+  .sponsors-container {
+    padding: 10px 6px 10px;
+    margin: 14px 0 10px;
+  }
+  .sponsors-row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+
+/* --- ESTILOS DE DESTACADOS Y BADGES PARA BOTONES --- */
+.btn-congress {
+  position: relative;
+}
+.btn-badge-live {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.btn-badge-live.badge-gold {
+  background: #d97706;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.35);
+}
+.btn-badge-live.badge-green {
+  background: #16a34a;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.35);
+}
+.btn-badge-live .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-block;
+  animation: pulseLiveDot 1.8s infinite;
+}
+@keyframes pulseLiveDot {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.7; }
+}
+
+/* Variante Festiva / Social Especial (ej: Cena de Camaradería) */
+.btn-accent-festivo {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.95) 0%, rgba(253, 230, 138, 0.85) 100%) !important;
+  border: 1.5px solid rgba(245, 158, 11, 0.55) !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+.btn-accent-festivo:hover {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 1) 0%, rgba(252, 211, 77, 0.95) 100%) !important;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+.btn-accent-festivo .btn-title {
+  color: #92400e !important;
+}
+.btn-accent-festivo .btn-desc {
+  color: #b45309 !important;
+}
+.btn-accent-festivo .btn-icon {
+  stroke: #d97706 !important;
+}
+.btn-accent-festivo .btn-arrow {
+  stroke: #d97706 !important;
+}
+
+
+/* ==========================================================================
+   ADAPTACIÓN PARA COMPUTADORAS DE ESCRITORIO Y NOTEBOOKS (DESKTOP PORTAL)
+   ========================================================================== */
+
+/* Fondo ambiental institucional para pantallas medianas y grandes */
+@media (min-width: 769px) {
+  body {
+    padding: 30px 20px 80px !important;
+    background: linear-gradient(180deg, #b2d2eb 0%, #c4ddf2 260px, #d5e8f6 500px, #e8f3fa 100%) !important;
+    background-attachment: fixed !important;
+  }
+
+  /* Capa decorativa difuminada del afiche oficial en los laterales */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../images/laplata_fluid_sky_official.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.28;
+    filter: blur(6px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Tarjeta Portal Central Flotante */
+  .hub-container {
+    position: relative;
+    z-index: 10;
+    max-width: 580px !important;
+    margin: 20px auto 40px !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+    border-radius: 32px !important;
+    box-shadow: 
+      0 28px 70px rgba(18, 77, 121, 0.18),
+      0 6px 20px rgba(18, 77, 121, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+    padding: 24px 28px 36px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Widget QR Móvil Flotante para Pantallas Anchas */
+.desktop-qr-card {
+  display: none;
+}
+
+@media (min-width: 1140px) {
+  .desktop-qr-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 40px;
+    right: calc(50% - 290px - 240px - 28px);
+    width: 220px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 18px 16px;
+    box-shadow: 
+      0 18px 40px rgba(18, 77, 121, 0.14),
+      0 2px 8px rgba(18, 77, 121, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    text-align: center;
+    z-index: 100;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: fadeInQr 0.6s ease-out;
+  }
+  .desktop-qr-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 24px 50px rgba(18, 77, 121, 0.20),
+      0 4px 12px rgba(18, 77, 121, 0.08);
+  }
+  .desktop-qr-badge {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+  }
+  .desktop-qr-frame {
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(18, 77, 121, 0.08);
+    margin-bottom: 12px;
+    width: 140px;
+    height: 140px;
+    box-sizing: border-box;
+  }
+  .desktop-qr-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 6px;
+  }
+  .desktop-qr-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 5px;
+    line-height: 1.25;
+  }
+  .desktop-qr-desc {
+    font-size: 0.72rem;
+    color: #475569;
+    line-height: 1.35;
+    margin: 0;
+  }
+  @keyframes fadeInQr {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}
