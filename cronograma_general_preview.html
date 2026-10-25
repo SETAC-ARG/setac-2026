@@ -16,7 +16,7 @@
     body {
       background-color: #f4f8fb;
       color: #1e293b;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: Calibri, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
     .schedule-container {
       max-width: 1040px;
@@ -31,7 +31,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .btn-nav-action {
       display: inline-flex;
@@ -63,26 +63,82 @@
       color: #ffffff;
     }
 
-    /* Banner del Título */
+    /* Banner del Título con Logo SETAC */
     .schedule-title-banner {
       background: linear-gradient(135deg, #0f4c81 0%, #1b71a8 100%);
       color: #ffffff;
       border-radius: 16px;
-      padding: 18px 20px;
-      margin-bottom: 16px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
       box-shadow: 0 4px 14px rgba(15, 76, 129, 0.16);
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .banner-logo {
+      height: 48px;
+      width: auto;
+      background: #ffffff;
+      padding: 4px 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+    .banner-text-wrap {
+      flex: 1;
     }
     .schedule-title-banner h1 {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 800;
-      margin: 0 0 6px 0;
+      margin: 0 0 4px 0;
       letter-spacing: 0.3px;
     }
     .schedule-title-banner p {
-      font-size: 13px;
-      opacity: 0.92;
+      font-size: 12.5px;
+      opacity: 0.95;
       margin: 0;
+    }
+
+    /* Clave de Colores / Ejes Temáticos */
+    .legend-panel {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #b8daf2;
+      padding: 9px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      box-shadow: 0 2px 6px rgba(27, 113, 168, 0.04);
+      font-size: 12px;
+    }
+    .legend-title {
+      font-weight: 800;
+      color: #0f4c81;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legend-items-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .legend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #334155;
+    }
+    .legend-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 3px;
+      border: 1px solid #94a3b8;
+      display: inline-block;
     }
 
     /* Barra de Controles: Tabs de Días y Selector de Vista */
@@ -205,14 +261,14 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      background: #0f4c81;
+      background: #3b608d;
       color: #ffffff;
       font-weight: 800;
       font-size: 13px;
       padding: 4px 12px;
       border-radius: 20px;
       letter-spacing: 0.3px;
-      box-shadow: 0 2px 6px rgba(15, 76, 129, 0.2);
+      box-shadow: 0 2px 6px rgba(59, 96, 141, 0.25);
     }
     .slot-divider-line {
       flex: 1;
@@ -233,7 +289,7 @@
     .schedule-card {
       background: #ffffff;
       border-radius: 12px;
-      border: 1px solid #d4e6f4;
+      border: 1px solid #cbd5e1;
       padding: 12px 14px;
       box-shadow: 0 2px 8px rgba(15, 76, 129, 0.05);
       transition: transform .15s ease, box-shadow .15s ease;
@@ -244,34 +300,6 @@
     .schedule-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 14px rgba(15, 76, 129, 0.1);
-    }
-
-    /* Variantes de tarjetas por tipo */
-    .card-plenary {
-      background: linear-gradient(135deg, #f0f7fe 0%, #e0f0fc 100%);
-      border: 1.5px solid #7bc1f1;
-      grid-column: 1 / -1;
-    }
-    .card-break {
-      background: #fdfbf7;
-      border: 1px solid #f1e2c9;
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 10px 14px;
-    }
-    .card-social {
-      background: #fbf8fe;
-      border: 1.5px solid #dcc4f5;
-      grid-column: 1 / -1;
-    }
-    .card-curso {
-      border-top: 3px solid #10b981;
-    }
-    .card-mesa {
-      border-top: 3px solid #0f4c81;
-    }
-    .card-oral {
-      border-top: 3px solid #0284c7;
     }
 
     .card-top-info {
@@ -286,29 +314,30 @@
       font-size: 11px;
       font-weight: 800;
       color: #0f4c81;
-      background: #e2f0fb;
+      background: #ffffff;
       padding: 2px 7px;
       border-radius: 6px;
-      border: 1px solid #b8daf2;
+      border: 1px solid #94a3b8;
     }
     .badge-track-room {
       font-size: 10px;
       font-weight: 700;
-      color: #64748b;
-      background: #f1f5f9;
+      color: #334155;
+      background: rgba(255, 255, 255, 0.8);
       padding: 2px 6px;
       border-radius: 4px;
+      border: 1px solid #cbd5e1;
     }
     .card-event-title {
       font-size: 13px;
       font-weight: 700;
-      color: #1e293b;
+      color: #0f172a;
       line-height: 1.35;
       margin-bottom: 6px;
     }
     .card-coordinators {
       font-size: 11.5px;
-      color: #475569;
+      color: #334155;
       margin-top: 4px;
       line-height: 1.3;
     }
@@ -331,17 +360,17 @@
     }
     .matrix-table-inner {
       width: 100%;
-      min-width: 860px;
+      min-width: 880px;
       border-collapse: collapse;
       font-size: 11px;
     }
     .matrix-table-inner th, .matrix-table-inner td {
-      border: 1px solid #cbd5e1;
+      border: 1px solid #7a92a5;
       padding: 7px 9px;
       vertical-align: top;
     }
     .matrix-table-inner th {
-      background: #0f4c81;
+      background: #3b608d;
       color: #ffffff;
       font-weight: 800;
       text-align: center;
@@ -349,9 +378,9 @@
       top: 0;
     }
     .matrix-table-inner td.m-time-col {
-      background: #f1f5f9;
+      background: #3b608d;
       font-weight: 800;
-      color: #0f4c81;
+      color: #ffffff;
       text-align: center;
       white-space: nowrap;
       position: sticky;
@@ -372,6 +401,10 @@
     @media (max-width: 600px) {
       .events-grid {
         grid-template-columns: 1fr;
+      }
+      .schedule-title-banner {
+        flex-direction: column;
+        text-align: center;
       }
       .schedule-title-banner h1 {
         font-size: 17px;
@@ -401,11 +434,26 @@
       </a>
     </div>
 
-    <!-- Título Principal -->
+    <!-- Título Principal con Logo SETAC -->
     <header class="schedule-title-banner">
-      <h1>🗓️ Programa a Primera Vista</h1>
-      <p>Cronograma general por día y horario &bull; X Congreso SETAC Argentina 2026</p>
+      <img src="images/logo_setac_clean.png" class="banner-logo" alt="Logo SETAC">
+      <div class="banner-text-wrap">
+        <h1>🗓️ Programa a Primera Vista</h1>
+        <p>Cronograma general por día y horario &bull; X Congreso SETAC Argentina 2026</p>
+      </div>
     </header>
+
+    <!-- Referencias de Ejes Temáticos (Clave de Colores Oficial) -->
+    <div class="legend-panel">
+      <span class="legend-title">🎨 Clave de Colores Oficial:</span>
+      <div class="legend-items-wrap">
+        <span class="legend-pill"><span class="legend-dot" style="background:#eaf1dd;"></span> Toxicología (TOA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#dbe5f1;"></span> Tecnol. Limpias (TEA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#fde9d9;"></span> Gestión / CASAFE (GEA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#ffffcc;"></span> Química (QUA) / Cursos</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#e5dfec;"></span> Educ. Ambiental (EDA)</span>
+      </div>
+    </div>
 
     <!-- Controles: Pestañas de Días y Selector de Vista -->
     <div class="controls-panel">
@@ -443,7 +491,7 @@
     <!-- VISTA MATRIZ / CUADRÍCULA (HORIZONTAL) -->
     <div class="matrix-table-container" id="matrixViewContainer">
       <div style="padding: 10px 14px; background: #eaf3fa; border-bottom: 1px solid #b8daf2; font-size: 12px; color: #0f4c81;">
-        💡 <strong>Deslizá horizontalmente</strong> para ver las 4 salas simultáneas de cada franja horaria.
+        💡 <strong>Deslizá horizontalmente</strong> para ver las 4 salas simultáneas con sus colores originales correspondientes.
       </div>
       <table class="matrix-table-inner" id="matrixTable">
         <!-- Renderizado dinámicamente -->
@@ -494,7 +542,6 @@
 
       const q = normalizeText(currentSearchQuery);
 
-      // Filtrar días
       const daysToRender = window.CRONOGRAMA_GENERAL.filter(d => {
         if (currentDayFilter !== 'todos' && d.day_id !== currentDayFilter) return false;
         return true;
@@ -504,11 +551,9 @@
       let html = '';
 
       daysToRender.forEach(day => {
-        // Agrupar eventos por franja horaria (start_time - end_time)
         const slotsMap = new Map();
         
         day.events.forEach(ev => {
-          // Filtro por búsqueda
           if (q) {
             const rawNorm = normalizeText(ev.raw_text + ' ' + ev.session_code + ' ' + ev.coordinators);
             if (!rawNorm.includes(q)) return;
@@ -546,37 +591,29 @@
 
           eventsInSlot.forEach(ev => {
             const evType = ev.type || 'OTRO';
-            let cardClass = 'schedule-card';
+            const cellBg = ev.bg_color && ev.bg_color !== '#ffffff' ? ev.bg_color : '#ffffff';
 
+            let cardStyle = `background-color: ${cellBg};`;
             if (ev.is_plenary) {
-              if (evType === 'CAFE' || evType === 'ALMUERZO') {
-                cardClass += ' card-break';
-              } else if (evType === 'SOCIAL') {
-                cardClass += ' card-social';
-              } else {
-                cardClass += ' card-plenary';
-              }
+              cardStyle += ' border: 2px solid #3b608d;';
             } else {
-              if (evType === 'CURSO') cardClass += ' card-curso';
-              else if (evType === 'MESA') cardClass += ' card-mesa';
-              else if (evType === 'ORAL') cardClass += ' card-oral';
+              cardStyle += ' border-left: 4.5px solid #3b608d;';
             }
 
-            // Formatear texto limpio
             const lines = ev.raw_text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
             const mainTitle = lines.length > 0 ? lines[0] : '';
             const subTitle = lines.length > 1 ? lines.slice(1, -1).join(' &bull; ') : '';
             const lastLine = lines.length > 1 ? lines[lines.length - 1] : '';
 
             html += `
-              <div class="${cardClass}">
+              <div class="schedule-card" style="${cardStyle}">
                 <div>
                   <div class="card-top-info">
                     ${ev.session_code ? `<span class="badge-session-code">${ev.session_code}</span>` : '<span></span>'}
-                    ${!ev.is_plenary ? `<span class="badge-track-room">Sala ${ev.track_col}</span>` : '<span class="badge-track-room" style="background:#dbeafe;color:#0f4c81;">Plenario / General</span>'}
+                    ${!ev.is_plenary ? `<span class="badge-track-room">Sala ${ev.track_col}</span>` : '<span class="badge-track-room" style="background:#3b608d;color:#ffffff;">Plenario / General</span>'}
                   </div>
                   <div class="card-event-title">${mainTitle}</div>
-                  ${subTitle ? `<div style="font-size:12px;color:#334155;margin-bottom:4px;">${subTitle}</div>` : ''}
+                  ${subTitle ? `<div style="font-size:12px;color:#1e293b;margin-bottom:4px;font-weight:600;">${subTitle}</div>` : ''}
                 </div>
                 ${lastLine && lastLine !== mainTitle ? `
                   <div class="card-coordinators">
@@ -624,15 +661,14 @@
             <th style="width:75px;" rowspan="2">Horario</th>
       `;
       daysToRender.forEach(d => {
-        theadHtml += `<th colspan="4" style="background:#1b71a8;font-size:13px;padding:8px;">${d.day_name}</th>`;
+        theadHtml += `<th colspan="4" style="background:#3b608d;font-size:13px;padding:8px;">${d.day_name}</th>`;
       });
       theadHtml += `</tr><tr>`;
       daysToRender.forEach(d => {
-        theadHtml += `<th>Sala 1</th><th>Sala 2</th><th>Sala 3</th><th>Sala 4</th>`;
+        theadHtml += `<th style="background:#dbe5f1;color:#1f497d;">Sala 1</th><th style="background:#dbe5f1;color:#1f497d;">Sala 2</th><th style="background:#dbe5f1;color:#1f497d;">Sala 3</th><th style="background:#dbe5f1;color:#1f497d;">Sala 4</th>`;
       });
       theadHtml += `</tr></thead>`;
 
-      // Recopilar horarios únicos ordenados
       const timeSlotsSet = new Set();
       daysToRender.forEach(d => {
         d.events.forEach(e => timeSlotsSet.add(e.start_time));
@@ -648,21 +684,22 @@
             tbodyHtml += `<td colspan="4" style="background:#fafafa;"></td>`;
           } else if (eventsAtTime[0].is_plenary) {
             const ev = eventsAtTime[0];
+            const cellBg = ev.bg_color || '#e0f2fe';
             tbodyHtml += `
-              <td colspan="4" style="background:#e0f2fe;font-weight:700;color:#0369a1;text-align:center;padding:8px;">
+              <td colspan="4" style="background-color:${cellBg};font-weight:700;color:#0f172a;text-align:center;padding:8px;vertical-align:middle;">
                 ${ev.raw_text.replace(/\n/g, '<br>')}
               </td>
             `;
           } else {
-            // 4 tracks
             for (let track = 1; track <= 4; track++) {
               const ev = eventsAtTime.find(e => e.track_col === track);
               if (ev) {
+                const cellBg = ev.bg_color || '#ffffff';
                 tbodyHtml += `
-                  <td style="background:#ffffff;vertical-align:top;font-size:10.5px;">
+                  <td style="background-color:${cellBg};vertical-align:top;font-size:10.5px;">
                     ${ev.session_code ? `<span class="badge-session-code" style="margin-bottom:3px;">${ev.session_code}</span><br>` : ''}
                     <strong>${ev.title}</strong><br>
-                    ${ev.coordinators ? `<span style="font-size:9.5px;color:#64748b;">(${ev.coordinators})</span>` : ''}
+                    ${ev.coordinators ? `<span style="font-size:9.5px;color:#334155;">(${ev.coordinators})</span>` : ''}
                   </td>
                 `;
               } else {
@@ -678,9 +715,7 @@
       table.innerHTML = theadHtml + tbodyHtml;
     }
 
-    // Inicialización y eventos
     document.addEventListener('DOMContentLoaded', () => {
-      // Pestañas de días
       const tabs = document.querySelectorAll('#daysTabs .day-tab-btn');
       tabs.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -692,7 +727,6 @@
         });
       });
 
-      // Buscador
       const searchInput = document.getElementById('scheduleSearch');
       searchInput.addEventListener('input', (e) => {
         currentSearchQuery = e.target.value;
