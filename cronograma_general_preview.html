@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Programa a Primera Vista (Preview) | X Congreso SETAC 2026</title>
+  <meta name="description" content="Cronograma general y matriz horaria del X Congreso SETAC Argentina 2026.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Estilos base y tema -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v6">
+
+  <style>
+    body {
+      background-color: #f4f8fb;
+      color: #1e293b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .schedule-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 16px 12px 60px 12px;
+    }
+
+    /* Navegación y cabecera */
+    .schedule-header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .btn-nav-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #1b71a8;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #b8daf2;
+      box-shadow: 0 2px 6px rgba(27, 113, 168, 0.08);
+      transition: all .2s ease;
+    }
+    .btn-nav-action:hover {
+      background: #eaf4fb;
+      color: #0f4c81;
+      transform: translateY(-1px);
+    }
+    .btn-nav-action.primary {
+      background: #0f4c81;
+      color: #ffffff;
+      border-color: #0f4c81;
+    }
+    .btn-nav-action.primary:hover {
+      background: #1b71a8;
+      color: #ffffff;
+    }
+
+    /* Banner del Título */
+    .schedule-title-banner {
+      background: linear-gradient(135deg, #0f4c81 0%, #1b71a8 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(15, 76, 129, 0.16);
+      text-align: center;
+    }
+    .schedule-title-banner h1 {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0 0 6px 0;
+      letter-spacing: 0.3px;
+    }
+    .schedule-title-banner p {
+      font-size: 13px;
+      opacity: 0.92;
+      margin: 0;
+    }
+
+    /* Barra de Controles: Tabs de Días y Selector de Vista */
+    .controls-panel {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #b8daf2;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px rgba(27, 113, 168, 0.06);
+    }
+    .tabs-days-wrapper {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      scrollbar-width: thin;
+    }
+    .day-tab-btn {
+      flex: 1;
+      min-width: 105px;
+      padding: 9px 8px;
+      text-align: center;
+      background: #f1f7fc;
+      border: 1px solid #d0e5f5;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #2c4a6f;
+      cursor: pointer;
+      transition: all .2s ease;
+      white-space: nowrap;
+    }
+    .day-tab-btn:hover {
+      background: #e2f0fb;
+      color: #0f4c81;
+    }
+    .day-tab-btn.active {
+      background: #0f4c81;
+      color: #ffffff;
+      border-color: #0f4c81;
+      box-shadow: 0 2px 8px rgba(15, 76, 129, 0.25);
+    }
+
+    /* Subcontroles: Buscador y selector de vista */
+    .subcontrols-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 6px;
+      border-top: 1px solid #edf4fa;
+    }
+    .search-box-wrap {
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+    }
+    .search-box-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 12px 8px 32px;
+      border: 1px solid #b8daf2;
+      border-radius: 8px;
+      font-size: 13px;
+      background: #fafcfe;
+      margin: 0;
+    }
+    .search-box-input:focus {
+      border-color: #0f4c81;
+      background: #ffffff;
+      outline: none;
+    }
+    .search-icon-svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      stroke: #8aa4ba;
+    }
+
+    .view-toggle-wrap {
+      display: inline-flex;
+      background: #eaf3fa;
+      border-radius: 8px;
+      padding: 3px;
+    }
+    .view-toggle-btn {
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #4a688a;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .view-toggle-btn.active {
+      background: #ffffff;
+      color: #0f4c81;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    /* TIMELINE VIEW (Por bloques horarios) */
+    .time-slot-block {
+      margin-bottom: 22px;
+    }
+    .slot-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .slot-time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #0f4c81;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 6px rgba(15, 76, 129, 0.2);
+    }
+    .slot-divider-line {
+      flex: 1;
+      height: 1px;
+      background: #d4e5f3;
+    }
+
+    /* Tarjetas de eventos */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .events-grid.single-col {
+      grid-template-columns: 1fr;
+    }
+
+    .schedule-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #d4e6f4;
+      padding: 12px 14px;
+      box-shadow: 0 2px 8px rgba(15, 76, 129, 0.05);
+      transition: transform .15s ease, box-shadow .15s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .schedule-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(15, 76, 129, 0.1);
+    }
+
+    /* Variantes de tarjetas por tipo */
+    .card-plenary {
+      background: linear-gradient(135deg, #f0f7fe 0%, #e0f0fc 100%);
+      border: 1.5px solid #7bc1f1;
+      grid-column: 1 / -1;
+    }
+    .card-break {
+      background: #fdfbf7;
+      border: 1px solid #f1e2c9;
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 10px 14px;
+    }
+    .card-social {
+      background: #fbf8fe;
+      border: 1.5px solid #dcc4f5;
+      grid-column: 1 / -1;
+    }
+    .card-curso {
+      border-top: 3px solid #10b981;
+    }
+    .card-mesa {
+      border-top: 3px solid #0f4c81;
+    }
+    .card-oral {
+      border-top: 3px solid #0284c7;
+    }
+
+    .card-top-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .badge-session-code {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      color: #0f4c81;
+      background: #e2f0fb;
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid #b8daf2;
+    }
+    .badge-track-room {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .card-event-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .card-coordinators {
+      font-size: 11.5px;
+      color: #475569;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .card-coordinators strong {
+      color: #0f4c81;
+    }
+
+    /* VISTA MATRIZ / TABLA (Para escritorio o tablet) */
+    .matrix-table-container {
+      display: none;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #b8daf2;
+      overflow-x: auto;
+      box-shadow: 0 4px 14px rgba(27, 113, 168, 0.08);
+      margin-bottom: 24px;
+    }
+    .matrix-table-container.active {
+      display: block;
+    }
+    .matrix-table-inner {
+      width: 100%;
+      min-width: 860px;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    .matrix-table-inner th, .matrix-table-inner td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 9px;
+      vertical-align: top;
+    }
+    .matrix-table-inner th {
+      background: #0f4c81;
+      color: #ffffff;
+      font-weight: 800;
+      text-align: center;
+      position: sticky;
+      top: 0;
+    }
+    .matrix-table-inner td.m-time-col {
+      background: #f1f5f9;
+      font-weight: 800;
+      color: #0f4c81;
+      text-align: center;
+      white-space: nowrap;
+      position: sticky;
+      left: 0;
+      z-index: 2;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 40px 16px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px dashed #b8daf2;
+      color: #64748b;
+    }
+
+    @media (max-width: 600px) {
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+      .schedule-title-banner h1 {
+        font-size: 17px;
+      }
+      .schedule-title-banner p {
+        font-size: 11.5px;
+      }
+      .day-tab-btn {
+        font-size: 12px;
+        padding: 7px 6px;
+        min-width: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="schedule-container">
+    
+    <!-- Barra superior de Navegación -->
+    <div class="schedule-header-nav">
+      <a href="preview.html" class="btn-nav-action">
+        &larr; Volver al Menú Principal
+      </a>
+      <a href="docs/Programa_a_primera_vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary">
+        📥 Descargar PDF A primera vista
+      </a>
+    </div>
+
+    <!-- Título Principal -->
+    <header class="schedule-title-banner">
+      <h1>🗓️ Programa a Primera Vista</h1>
+      <p>Cronograma general por día y horario &bull; X Congreso SETAC Argentina 2026</p>
+    </header>
+
+    <!-- Controles: Pestañas de Días y Selector de Vista -->
+    <div class="controls-panel">
+      <!-- Tabs de Días -->
+      <div class="tabs-days-wrapper" id="daysTabs">
+        <button class="day-tab-btn active" data-day="todos">Todos los días</button>
+        <button class="day-tab-btn" data-day="martes">Martes 27</button>
+        <button class="day-tab-btn" data-day="miercoles">Miércoles 28</button>
+        <button class="day-tab-btn" data-day="jueves">Jueves 29</button>
+        <button class="day-tab-btn" data-day="viernes">Viernes 30</button>
+      </div>
+
+      <!-- Buscador y Alternador de Vistas -->
+      <div class="subcontrols-row">
+        <div class="search-box-wrap">
+          <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="scheduleSearch" class="search-box-input" placeholder="Buscar sesión, coordinador o tema...">
+        </div>
+
+        <div class="view-toggle-wrap">
+          <button class="view-toggle-btn active" id="btnViewTimeline" onclick="switchView('timeline')">Vista Timeline</button>
+          <button class="view-toggle-btn" id="btnViewMatrix" onclick="switchView('matrix')">Vista Matriz (Tabla)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISTA TIMELINE (POR BLOQUES HORARIOS - PRINCIPAL) -->
+    <main id="timelineViewContainer">
+      <!-- Insertado dinámicamente -->
+    </main>
+
+    <!-- VISTA MATRIZ / CUADRÍCULA (HORIZONTAL) -->
+    <div class="matrix-table-container" id="matrixViewContainer">
+      <div style="padding: 10px 14px; background: #eaf3fa; border-bottom: 1px solid #b8daf2; font-size: 12px; color: #0f4c81;">
+        💡 <strong>Deslizá horizontalmente</strong> para ver las 4 salas simultáneas de cada franja horaria.
+      </div>
+      <table class="matrix-table-inner" id="matrixTable">
+        <!-- Renderizado dinámicamente -->
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Carga de datos del cronograma -->
+  <script src="js/cronograma_general_data.js"></script>
+
+  <script>
+    let currentDayFilter = 'todos';
+    let currentSearchQuery = '';
+    let currentViewMode = 'timeline';
+
+    function normalizeText(str) {
+      if (!str) return '';
+      return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+    }
+
+    function switchView(mode) {
+      currentViewMode = mode;
+      const btnTimeline = document.getElementById('btnViewTimeline');
+      const btnMatrix = document.getElementById('btnViewMatrix');
+      const timelineContainer = document.getElementById('timelineViewContainer');
+      const matrixContainer = document.getElementById('matrixViewContainer');
+
+      if (mode === 'timeline') {
+        btnTimeline.classList.add('active');
+        btnMatrix.classList.remove('active');
+        timelineContainer.style.display = 'block';
+        matrixContainer.classList.remove('active');
+      } else {
+        btnMatrix.classList.add('active');
+        btnTimeline.classList.remove('active');
+        timelineContainer.style.display = 'none';
+        matrixContainer.classList.add('active');
+      }
+    }
+
+    function renderTimeline() {
+      const container = document.getElementById('timelineViewContainer');
+      if (!window.CRONOGRAMA_GENERAL) {
+        container.innerHTML = '<div class="empty-state">No se pudieron cargar los datos del cronograma general.</div>';
+        return;
+      }
+
+      const q = normalizeText(currentSearchQuery);
+
+      // Filtrar días
+      const daysToRender = window.CRONOGRAMA_GENERAL.filter(d => {
+        if (currentDayFilter !== 'todos' && d.day_id !== currentDayFilter) return false;
+        return true;
+      });
+
+      let totalEventsMatched = 0;
+      let html = '';
+
+      daysToRender.forEach(day => {
+        // Agrupar eventos por franja horaria (start_time - end_time)
+        const slotsMap = new Map();
+        
+        day.events.forEach(ev => {
+          // Filtro por búsqueda
+          if (q) {
+            const rawNorm = normalizeText(ev.raw_text + ' ' + ev.session_code + ' ' + ev.coordinators);
+            if (!rawNorm.includes(q)) return;
+          }
+
+          const slotKey = `${ev.start_time} - ${ev.end_time}`;
+          if (!slotsMap.has(slotKey)) {
+            slotsMap.set(slotKey, []);
+          }
+          slotsMap.get(slotKey).push(ev);
+        });
+
+        if (slotsMap.size === 0) return;
+
+        html += `
+          <div style="margin-top: 14px; margin-bottom: 24px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+              <h2 style="font-size:18px;font-weight:800;color:#0f4c81;margin:0;">📅 ${day.day_name}</h2>
+              <div style="flex:1;height:2px;background:#b8daf2;"></div>
+            </div>
+        `;
+
+        slotsMap.forEach((eventsInSlot, slotTime) => {
+          totalEventsMatched += eventsInSlot.length;
+          const isSinglePlenary = (eventsInSlot.length === 1 && eventsInSlot[0].is_plenary);
+
+          html += `
+            <div class="time-slot-block">
+              <div class="slot-header">
+                <span class="slot-time-badge">⏰ ${slotTime} hs</span>
+                <div class="slot-divider-line"></div>
+              </div>
+              <div class="events-grid ${isSinglePlenary ? 'single-col' : ''}">
+          `;
+
+          eventsInSlot.forEach(ev => {
+            const evType = ev.type || 'OTRO';
+            let cardClass = 'schedule-card';
+
+            if (ev.is_plenary) {
+              if (evType === 'CAFE' || evType === 'ALMUERZO') {
+                cardClass += ' card-break';
+              } else if (evType === 'SOCIAL') {
+                cardClass += ' card-social';
+              } else {
+                cardClass += ' card-plenary';
+              }
+            } else {
+              if (evType === 'CURSO') cardClass += ' card-curso';
+              else if (evType === 'MESA') cardClass += ' card-mesa';
+              else if (evType === 'ORAL') cardClass += ' card-oral';
+            }
+
+            // Formatear texto limpio
+            const lines = ev.raw_text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const mainTitle = lines.length > 0 ? lines[0] : '';
+            const subTitle = lines.length > 1 ? lines.slice(1, -1).join(' &bull; ') : '';
+            const lastLine = lines.length > 1 ? lines[lines.length - 1] : '';
+
+            html += `
+              <div class="${cardClass}">
+                <div>
+                  <div class="card-top-info">
+                    ${ev.session_code ? `<span class="badge-session-code">${ev.session_code}</span>` : '<span></span>'}
+                    ${!ev.is_plenary ? `<span class="badge-track-room">Sala ${ev.track_col}</span>` : '<span class="badge-track-room" style="background:#dbeafe;color:#0f4c81;">Plenario / General</span>'}
+                  </div>
+                  <div class="card-event-title">${mainTitle}</div>
+                  ${subTitle ? `<div style="font-size:12px;color:#334155;margin-bottom:4px;">${subTitle}</div>` : ''}
+                </div>
+                ${lastLine && lastLine !== mainTitle ? `
+                  <div class="card-coordinators">
+                    ${lastLine.startsWith('(') ? `<strong>Responsables:</strong> ${lastLine}` : lastLine}
+                  </div>
+                ` : ''}
+              </div>
+            `;
+          });
+
+          html += `
+              </div>
+            </div>
+          `;
+        });
+
+        html += `</div>`;
+      });
+
+      if (totalEventsMatched === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <p style="font-weight:700;margin-bottom:4px;">No se encontraron actividades para "${currentSearchQuery}"</p>
+            <p style="font-size:12px;margin:0;">Probá buscando por nombre de sesión, curso, tema o apellido de coordinador.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = html;
+    }
+
+    function renderMatrix() {
+      const table = document.getElementById('matrixTable');
+      if (!window.CRONOGRAMA_GENERAL) return;
+
+      const daysToRender = window.CRONOGRAMA_GENERAL.filter(d => {
+        if (currentDayFilter !== 'todos' && d.day_id !== currentDayFilter) return false;
+        return true;
+      });
+
+      let theadHtml = `
+        <thead>
+          <tr>
+            <th style="width:75px;" rowspan="2">Horario</th>
+      `;
+      daysToRender.forEach(d => {
+        theadHtml += `<th colspan="4" style="background:#1b71a8;font-size:13px;padding:8px;">${d.day_name}</th>`;
+      });
+      theadHtml += `</tr><tr>`;
+      daysToRender.forEach(d => {
+        theadHtml += `<th>Sala 1</th><th>Sala 2</th><th>Sala 3</th><th>Sala 4</th>`;
+      });
+      theadHtml += `</tr></thead>`;
+
+      // Recopilar horarios únicos ordenados
+      const timeSlotsSet = new Set();
+      daysToRender.forEach(d => {
+        d.events.forEach(e => timeSlotsSet.add(e.start_time));
+      });
+      const sortedTimes = Array.from(timeSlotsSet).sort();
+
+      let tbodyHtml = '<tbody>';
+      sortedTimes.forEach(t => {
+        tbodyHtml += `<tr><td class="m-time-col">${t} hs</td>`;
+        daysToRender.forEach(d => {
+          const eventsAtTime = d.events.filter(e => e.start_time === t);
+          if (eventsAtTime.length === 0) {
+            tbodyHtml += `<td colspan="4" style="background:#fafafa;"></td>`;
+          } else if (eventsAtTime[0].is_plenary) {
+            const ev = eventsAtTime[0];
+            tbodyHtml += `
+              <td colspan="4" style="background:#e0f2fe;font-weight:700;color:#0369a1;text-align:center;padding:8px;">
+                ${ev.raw_text.replace(/\n/g, '<br>')}
+              </td>
+            `;
+          } else {
+            // 4 tracks
+            for (let track = 1; track <= 4; track++) {
+              const ev = eventsAtTime.find(e => e.track_col === track);
+              if (ev) {
+                tbodyHtml += `
+                  <td style="background:#ffffff;vertical-align:top;font-size:10.5px;">
+                    ${ev.session_code ? `<span class="badge-session-code" style="margin-bottom:3px;">${ev.session_code}</span><br>` : ''}
+                    <strong>${ev.title}</strong><br>
+                    ${ev.coordinators ? `<span style="font-size:9.5px;color:#64748b;">(${ev.coordinators})</span>` : ''}
+                  </td>
+                `;
+              } else {
+                tbodyHtml += `<td style="background:#fafafa;"></td>`;
+              }
+            }
+          }
+        });
+        tbodyHtml += `</tr>`;
+      });
+      tbodyHtml += '</tbody>';
+
+      table.innerHTML = theadHtml + tbodyHtml;
+    }
+
+    // Inicialización y eventos
+    document.addEventListener('DOMContentLoaded', () => {
+      // Pestañas de días
+      const tabs = document.querySelectorAll('#daysTabs .day-tab-btn');
+      tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabs.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentDayFilter = btn.getAttribute('data-day');
+          renderTimeline();
+          renderMatrix();
+        });
+      });
+
+      // Buscador
+      const searchInput = document.getElementById('scheduleSearch');
+      searchInput.addEventListener('input', (e) => {
+        currentSearchQuery = e.target.value;
+        renderTimeline();
+      });
+
+      renderTimeline();
+      renderMatrix();
+    });
+  </script>
+</body>
+</html>
