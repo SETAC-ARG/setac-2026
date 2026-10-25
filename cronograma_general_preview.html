@@ -375,7 +375,7 @@
     }
     .matrix-table-inner th, .matrix-table-inner td {
       border: 1px solid #7a92a5;
-      padding: 7px 9px;
+      padding: 6px 8px;
       vertical-align: top;
     }
     .matrix-table-inner th {
@@ -385,12 +385,14 @@
       text-align: center;
       position: sticky;
       top: 0;
+      z-index: 3;
     }
     .matrix-table-inner td.m-time-col {
       background: #3b608d;
       font-weight: 800;
       color: #ffffff;
       text-align: center;
+      vertical-align: middle;
       white-space: nowrap;
       position: sticky;
       left: 0;
@@ -505,7 +507,7 @@
     <!-- VISTA MATRIZ / CUADRÍCULA (HORIZONTAL) -->
     <div class="matrix-table-container" id="matrixViewContainer">
       <div style="padding: 10px 14px; background: #eaf3fa; border-bottom: 1px solid #b8daf2; font-size: 12px; color: #0f4c81;">
-        💡 <strong>Deslizá horizontalmente</strong> para ver las 4 salas simultáneas con sus colores originales correspondientes.
+        💡 <strong>Deslizá horizontalmente</strong> para ver la cuadrícula continua de las 4 salas sin interrupciones.
       </div>
       <table class="matrix-table-inner" id="matrixTable">
         <!-- Renderizado dinámicamente -->
@@ -544,6 +546,7 @@
         btnTimeline.classList.remove('active');
         timelineContainer.style.display = 'none';
         matrixContainer.classList.add('active');
+        renderMatrix();
       }
     }
 
@@ -604,6 +607,7 @@
           `;
 
           eventsInSlot.forEach(ev => {
+            const evType = ev.type || 'OTRO';
             const cellBg = ev.bg_color && ev.bg_color !== '#ffffff' ? ev.bg_color : '#ffffff';
 
             let cardStyle = `background-color: ${cellBg};`;
@@ -613,7 +617,6 @@
               cardStyle += ' border-left: 4.5px solid #3b608d;';
             }
 
-            // Título limpio sin duplicar el badge
             const displayTitle = ev.clean_title || ev.raw_text;
 
             html += `
@@ -623,6 +626,13 @@
                     ${ev.session_code ? `<span class="badge-session-code">${ev.session_code}</span>` : '<span></span>'}
                     ${!ev.is_plenary ? `<span class="badge-track-room">Sala ${ev.track_col}</span>` : '<span class="badge-track-room" style="background:#3b608d;color:#ffffff;">Plenario / General</span>'}
                   </div>
+                  ${ev.duration_label ? `
+                    <div style="margin-bottom: 6px;">
+                      <span style="display:inline-block;background:#e0f2fe;color:#0369a1;border:1px solid #bae6fd;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;">
+                        ⏱️ ${ev.duration_label}
+                      </span>
+                    </div>
+                  ` : ''}
                   <div class="card-event-title">${displayTitle}</div>
                 </div>
                 ${ev.coordinators ? `
@@ -656,72 +666,104 @@
       container.innerHTML = html;
     }
 
+    /**
+     * VISTA MATRIZ / CUADRÍCULA:
+     * Utiliza la estructura EXACTA de celdas con rowspan y colspan de las 30 franjas horarias
+     * para que ningún curso o sesión quede cortado o con huecos vacíos.
+     */
     function renderMatrix() {
       const table = document.getElementById('matrixTable');
-      if (!window.CRONOGRAMA_GENERAL) return;
+      if (!window.EXACT_MATRIX_ROWS) return;
 
-      const daysToRender = window.CRONOGRAMA_GENERAL.filter(d => {
-        if (currentDayFilter !== 'todos' && d.day_id !== currentDayFilter) return false;
-        return true;
-      });
+      const dayFilter = currentDayFilter;
+      const isAllDays = (dayFilter === 'todos');
 
+      // Definir qué días y columnas mostrar
+      const daysConfig = [
+        { id: 'martes', name: 'Martes 27/10/2026', cols: [2, 3, 4, 5] },
+        { id: 'miercoles', name: 'Miércoles 28/10/2026', cols: [6, 7, 8, 9] },
+        { id: 'jueves', name: 'Jueves 29/10/2026', cols: [10, 11, 12, 13] },
+        { id: 'viernes', name: 'Viernes 30/10/2026', cols: [14, 15, 16, 17] }
+      ];
+
+      const visibleDays = isAllDays ? daysConfig : daysConfig.filter(d => d.id === dayFilter);
+      const visibleCols = new Set();
+      visibleDays.forEach(d => d.cols.forEach(c => visibleCols.add(c)));
+
+      // Cabecera de la tabla
       let theadHtml = `
         <thead>
           <tr>
-            <th style="width:75px;" rowspan="2">Horario</th>
+            <th style="width:68px;" rowspan="2">Horario</th>
       `;
-      daysToRender.forEach(d => {
-        theadHtml += `<th colspan="4" style="background:#3b608d;font-size:13px;padding:8px;">${d.day_name}</th>`;
+      visibleDays.forEach(d => {
+        theadHtml += `<th colspan="4" style="background:#3b608d;font-size:12px;padding:7px;border:1px solid #7a92a5;">${d.name}</th>`;
       });
       theadHtml += `</tr><tr>`;
-      daysToRender.forEach(d => {
-        theadHtml += `<th style="background:#dbe5f1;color:#1f497d;">Sala 1</th><th style="background:#dbe5f1;color:#1f497d;">Sala 2</th><th style="background:#dbe5f1;color:#1f497d;">Sala 3</th><th style="background:#dbe5f1;color:#1f497d;">Sala 4</th>`;
+      visibleDays.forEach(d => {
+        theadHtml += `
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:4px;border:1px solid #7a92a5;">Sala 1</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:4px;border:1px solid #7a92a5;">Sala 2</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:4px;border:1px solid #7a92a5;">Sala 3</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:4px;border:1px solid #7a92a5;">Sala 4</th>
+        `;
       });
       theadHtml += `</tr></thead>`;
 
-      const timeSlotsSet = new Set();
-      daysToRender.forEach(d => {
-        d.events.forEach(e => timeSlotsSet.add(e.start_time));
-      });
-      const sortedTimes = Array.from(timeSlotsSet).sort();
-
+      // Cuerpo de la tabla: procesar cada fila con sus rowspans y colspans exactos
       let tbodyHtml = '<tbody>';
-      sortedTimes.forEach(t => {
-        tbodyHtml += `<tr><td class="m-time-col">${t} hs</td>`;
-        daysToRender.forEach(d => {
-          const eventsAtTime = d.events.filter(e => e.start_time === t);
-          if (eventsAtTime.length === 0) {
-            tbodyHtml += `<td colspan="4" style="background:#fafafa;"></td>`;
-          } else if (eventsAtTime[0].is_plenary) {
-            const ev = eventsAtTime[0];
-            const cellBg = ev.bg_color || '#e0f2fe';
+
+      window.EXACT_MATRIX_ROWS.forEach(r => {
+        // Filtrar celdas de las columnas visibles
+        const cellsInRow = r.cells.filter(c => visibleCols.has(c.col));
+        
+        // Si estamos viendo un día específico, chequear si en este horario hay algo que empiece
+        // o si todo el día está cubierto por un rowspan
+        const hasStartingCellInDay = cellsInRow.some(c => !c.is_covered);
+        
+        // Si filtramos por día y esta fila no tiene ninguna celda que inicie,
+        // no necesitamos mostrar una fila vacía repetitiva en el día específico
+        if (!isAllDays && !hasStartingCellInDay) {
+          return;
+        }
+
+        tbodyHtml += `<tr><td class="m-time-col">${r.time} hs</td>`;
+
+        cellsInRow.forEach(c => {
+          if (c.is_covered) {
+            // Celda cubierta por el rowspan de un horario anterior: NO renderizar <td>
+            return;
+          }
+
+          const rowspanAttr = c.rowspan > 1 ? `rowspan="${c.rowspan}"` : '';
+          const colspanAttr = c.colspan > 1 ? `colspan="${Math.min(c.colspan, isAllDays ? c.colspan : 4)}"` : '';
+          const bgAttr = c.color ? `background-color:${c.color};` : '';
+          const isPlenaryOrBreak = (c.colspan >= 4) || (c.val.includes('Café') || c.val.includes('Almuerzo') || c.val.includes('Acreditación'));
+          const alignAttr = isPlenaryOrBreak ? 'text-align:center;vertical-align:middle;font-weight:bold;' : 'vertical-align:top;';
+
+          if (!c.val) {
+            tbodyHtml += `<td ${rowspanAttr} ${colspanAttr} style="${bgAttr}${alignAttr}"></td>`;
+          } else {
+            const durationBadge = c.duration_label ? `<div style="margin-bottom:3px;"><span style="background:#ffffff;border:1px solid #94a3b8;font-size:8.5px;padding:1px 4px;border-radius:3px;font-weight:700;color:#0369a1;">⏱️ ${c.duration_label}</span></div>` : '';
+            const sessionBadge = c.badge ? `<span class="badge-session-code" style="margin-bottom:2px;font-size:9.5px;">${c.badge}</span><br>` : '';
+            const titleHtml = `<strong>${c.clean_title || c.val}</strong>`;
+            const coordsHtml = c.coords ? `<br><span style="font-size:8.5px;color:#334155;">(${c.coords})</span>` : '';
+
             tbodyHtml += `
-              <td colspan="4" style="background-color:${cellBg};font-weight:700;color:#0f172a;text-align:center;padding:8px;vertical-align:middle;">
-                ${ev.clean_title || ev.raw_text.replace(/\n/g, '<br>')}
+              <td ${rowspanAttr} ${colspanAttr} style="${bgAttr}${alignAttr}font-size:10px;line-height:1.25;">
+                ${durationBadge}
+                ${sessionBadge}
+                ${titleHtml}
+                ${coordsHtml}
               </td>
             `;
-          } else {
-            for (let track = 1; track <= 4; track++) {
-              const ev = eventsAtTime.find(e => e.track_col === track);
-              if (ev) {
-                const cellBg = ev.bg_color || '#ffffff';
-                tbodyHtml += `
-                  <td style="background-color:${cellBg};vertical-align:top;font-size:10px;line-height:1.2;">
-                    ${ev.session_code ? `<span class="badge-session-code" style="margin-bottom:2px;">${ev.session_code}</span><br>` : ''}
-                    <strong>${ev.clean_title || ev.title}</strong>
-                    ${ev.coordinators ? `<br><span style="font-size:9px;color:#334155;">(${ev.coordinators})</span>` : ''}
-                  </td>
-                `;
-              } else {
-                tbodyHtml += `<td style="background:#fafafa;"></td>`;
-              }
-            }
           }
         });
+
         tbodyHtml += `</tr>`;
       });
-      tbodyHtml += '</tbody>';
 
+      tbodyHtml += '</tbody>';
       table.innerHTML = theadHtml + tbodyHtml;
     }
 
