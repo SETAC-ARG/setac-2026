@@ -84,14 +84,35 @@
       align-items: center;
       gap: 16px;
     }
-    .banner-logo {
+    .banner-logos-dual {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 6px 14px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+      flex-shrink: 0;
+    }
+    .banner-logo-hex {
       height: 48px;
       width: auto;
-      background: #ffffff;
-      padding: 4px 8px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      flex-shrink: 0;
+      max-width: 55px;
+      object-fit: contain;
+      display: block;
+    }
+    .banner-logo-circle {
+      height: 30px;
+      width: auto;
+      max-width: 38px;
+      object-fit: contain;
+      display: block;
+      margin-top: 2px;
+    }
+    .banner-dual-divider {
+      width: 1px;
+      height: 32px;
+      background: #cbd5e1;
     }
     .banner-text-wrap {
       flex: 1;
@@ -452,7 +473,11 @@
 
     <!-- Título Principal con Logo SETAC -->
     <header class="schedule-title-banner">
-      <img src="images/logo_setac_clean.png" class="banner-logo" alt="Logo SETAC">
+      <div class="banner-logos-dual">
+        <img src="images/logo_setac_clean.png" class="banner-logo-hex" alt="SETAC">
+        <div class="banner-dual-divider"></div>
+        <img src="images/logo_setac_arg_clean.png" class="banner-logo-circle" alt="SETAC Argentina">
+      </div>
       <div class="banner-text-wrap">
         <h1>🗓️ Programa a Primera Vista</h1>
         <p>Cronograma general por día y horario &bull; X Congreso SETAC Argentina 2026</p>
@@ -728,10 +753,10 @@
       theadHtml += `</tr><tr>`;
       visibleDays.forEach(d => {
         theadHtml += `
-          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:4px;border:1px solid #7a92a5;">Sala 1</th>
-          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:4px;border:1px solid #7a92a5;">Sala 2</th>
-          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:4px;border:1px solid #7a92a5;">Sala 3</th>
-          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:4px;border:1px solid #7a92a5;">Sala 4</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:5px;border:1px solid #7a92a5;min-width:130px;">Sala 1</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:5px;border:1px solid #7a92a5;min-width:130px;">Sala 2</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:5px;border:1px solid #7a92a5;min-width:130px;">Sala 3</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:5px;border:1px solid #7a92a5;min-width:130px;">Sala 4</th>
         `;
       });
       theadHtml += `</tr></thead>`;
@@ -739,20 +764,10 @@
       // Cuerpo de la tabla: procesar cada fila con sus rowspans y colspans exactos
       let tbodyHtml = '<tbody>';
 
-      window.EXACT_MATRIX_ROWS.forEach(r => {
-        // Filtrar celdas de las columnas visibles
-        const cellsInRow = r.cells.filter(c => visibleCols.has(c.col));
-        
-        // Si estamos viendo un día específico, chequear si en este horario hay algo que empiece
-        // o si todo el día está cubierto por un rowspan
-        const hasStartingCellInDay = cellsInRow.some(c => !c.is_covered);
-        
-        // Si filtramos por día y esta fila no tiene ninguna celda que inicie,
-        // no necesitamos mostrar una fila vacía repetitiva en el día específico
-        if (!isAllDays && !hasStartingCellInDay) {
-          return;
-        }
+      table.style.minWidth = isAllDays ? '1350px' : '680px';
 
+      window.EXACT_MATRIX_ROWS.forEach(r => {
+        const cellsInRow = r.cells.filter(c => visibleCols.has(c.col));
         tbodyHtml += `<tr><td class="m-time-col">${r.time} hs</td>`;
 
         cellsInRow.forEach(c => {

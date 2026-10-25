@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Programa a Primera Vista | X Congreso SETAC 2026</title>
+  <meta name="description" content="Cronograma general y matriz horaria del X Congreso SETAC Argentina 2026.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Estilos base y tema -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v6">
+
+  <style>
+    body {
+      background-color: #f4f8fb;
+      color: #1e293b;
+      font-family: Calibri, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .schedule-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 16px 12px 60px 12px;
+    }
+
+    /* Navegación y cabecera */
+    .schedule-header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .btn-nav-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #1b71a8;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 7px 12px;
+      background: #ffffff;
+      border-radius: 9px;
+      border: 1px solid #b8daf2;
+      box-shadow: 0 2px 6px rgba(27, 113, 168, 0.08);
+      transition: all .2s ease;
+    }
+    .btn-nav-action:hover {
+      background: #eaf4fb;
+      color: #0f4c81;
+      transform: translateY(-1px);
+    }
+    .btn-nav-action.primary {
+      background: #0f4c81;
+      color: #ffffff;
+      border-color: #0f4c81;
+    }
+    .btn-nav-action.primary:hover {
+      background: #1b71a8;
+      color: #ffffff;
+    }
+    .btn-nav-action.secondary-alt {
+      background: #f1f5f9;
+      color: #334155;
+      border-color: #cbd5e1;
+    }
+    .btn-nav-action.secondary-alt:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    /* Banner del Título con Logo SETAC */
+    .schedule-title-banner {
+      background: linear-gradient(135deg, #0f4c81 0%, #1b71a8 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(15, 76, 129, 0.16);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .banner-logos-dual {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 6px 14px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+      flex-shrink: 0;
+    }
+    .banner-logo-hex {
+      height: 48px;
+      width: auto;
+      max-width: 55px;
+      object-fit: contain;
+      display: block;
+    }
+    .banner-logo-circle {
+      height: 30px;
+      width: auto;
+      max-width: 38px;
+      object-fit: contain;
+      display: block;
+      margin-top: 2px;
+    }
+    .banner-dual-divider {
+      width: 1px;
+      height: 32px;
+      background: #cbd5e1;
+    }
+    .banner-text-wrap {
+      flex: 1;
+    }
+    .schedule-title-banner h1 {
+      font-size: 19px;
+      font-weight: 800;
+      margin: 0 0 4px 0;
+      letter-spacing: 0.3px;
+    }
+    .schedule-title-banner p {
+      font-size: 12.5px;
+      opacity: 0.95;
+      margin: 0;
+    }
+
+    /* Clave de Colores / Ejes Temáticos Oficiales */
+    .legend-panel {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #b8daf2;
+      padding: 9px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      box-shadow: 0 2px 6px rgba(27, 113, 168, 0.04);
+      font-size: 12px;
+    }
+    .legend-title {
+      font-weight: 800;
+      color: #0f4c81;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legend-items-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .legend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #334155;
+    }
+    .legend-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 3px;
+      border: 1px solid #94a3b8;
+      display: inline-block;
+    }
+
+    /* Barra de Controles: Tabs de Días y Buscador */
+    .controls-panel {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #b8daf2;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px rgba(27, 113, 168, 0.06);
+    }
+    .tabs-days-wrapper {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      scrollbar-width: thin;
+    }
+    .day-tab-btn {
+      flex: 1;
+      min-width: 105px;
+      padding: 9px 8px;
+      text-align: center;
+      background: #f1f7fc;
+      border: 1px solid #d0e5f5;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #2c4a6f;
+      cursor: pointer;
+      transition: all .2s ease;
+      white-space: nowrap;
+    }
+    .day-tab-btn:hover {
+      background: #e2f0fb;
+      color: #0f4c81;
+    }
+    .day-tab-btn.active {
+      background: #0f4c81;
+      color: #ffffff;
+      border-color: #0f4c81;
+      box-shadow: 0 2px 8px rgba(15, 76, 129, 0.25);
+    }
+
+    .search-box-wrap {
+      width: 100%;
+      position: relative;
+      margin-top: 4px;
+    }
+    .search-box-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 9px 12px 9px 34px;
+      border: 1px solid #b8daf2;
+      border-radius: 8px;
+      font-size: 13px;
+      background: #fafcfe;
+      margin: 0;
+    }
+    .search-box-input:focus {
+      border-color: #0f4c81;
+      background: #ffffff;
+      outline: none;
+    }
+    .search-icon-svg {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      stroke: #8aa4ba;
+    }
+    .search-status-bar {
+      font-size: 11.5px;
+      color: #0369a1;
+      margin-top: 6px;
+      display: none;
+    }
+
+    /* VISTA MATRIZ / TABLA (Horizontal con scroll) */
+    .matrix-table-container {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #b8daf2;
+      overflow-x: auto;
+      box-shadow: 0 4px 14px rgba(27, 113, 168, 0.08);
+      margin-bottom: 24px;
+    }
+    .matrix-hint {
+      padding: 10px 14px;
+      background: #eaf3fa;
+      border-bottom: 1px solid #b8daf2;
+      font-size: 12px;
+      color: #0f4c81;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .matrix-table-inner {
+      width: 100%;
+      min-width: 880px;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    .matrix-table-inner th, .matrix-table-inner td {
+      border: 1px solid #7a92a5;
+      padding: 6px 8px;
+      vertical-align: top;
+      transition: opacity .15s ease, box-shadow .15s ease;
+    }
+    .matrix-table-inner th {
+      background: #3b608d;
+      color: #ffffff;
+      font-weight: 800;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+    }
+    .matrix-table-inner td.m-time-col {
+      background: #3b608d;
+      font-weight: 800;
+      color: #ffffff;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      position: sticky;
+      left: 0;
+      z-index: 2;
+    }
+
+    .badge-session-code {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #0f4c81;
+      background: #ffffff;
+      padding: 1px 5px;
+      border-radius: 4px;
+      border: 1px solid #94a3b8;
+    }
+
+    .match-highlight {
+      box-shadow: inset 0 0 0 2.5px #0284c7 !important;
+      background-color: #fef08a !important;
+      color: #0f172a !important;
+    }
+    .cell-dimmed {
+      opacity: 0.22 !important;
+    }
+
+    @media (max-width: 600px) {
+      .schedule-title-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .schedule-title-banner h1 {
+        font-size: 17px;
+      }
+      .schedule-title-banner p {
+        font-size: 11.5px;
+      }
+      .day-tab-btn {
+        font-size: 12px;
+        padding: 7px 6px;
+        min-width: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="schedule-container">
+    
+    <!-- Barra superior de Navegación con descarga de AMBOS PDFs -->
+    <div class="schedule-header-nav">
+      <a href="index.html" class="btn-nav-action">
+        &larr; Volver al Menú Principal
+      </a>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <a href="programa.html" class="btn-nav-action" title="Buscador interactivo detallado con resúmenes y autores">
+          🔍 Buscador Completo
+        </a>
+        <a href="docs/Programa_a_primera_vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary" title="Descargar cuadrícula horaria en PDF apaisado">
+          📥 PDF Apaisado
+        </a>
+      </div>
+    </div>
+
+    <!-- Título Principal con Logos SETAC y SETAC Argentina -->
+    <header class="schedule-title-banner">
+      <div class="banner-logos-dual">
+        <img src="images/logo_setac_clean.png" class="banner-logo-hex" alt="SETAC">
+        <div class="banner-dual-divider"></div>
+        <img src="images/logo_setac_arg_clean.png" class="banner-logo-circle" alt="SETAC Argentina">
+      </div>
+      <div class="banner-text-wrap">
+        <h1>🗓️ Programa a Primera Vista</h1>
+        <p>Cronograma general por día y horario &bull; X Congreso SETAC Argentina 2026</p>
+      </div>
+    </header>
+
+    <!-- Referencias de Ejes Temáticos Oficiales -->
+    <div class="legend-panel">
+      <span class="legend-title">🎨 Ejes Temáticos Oficiales:</span>
+      <div class="legend-items-wrap">
+        <span class="legend-pill"><span class="legend-dot" style="background:#eaf1dd;"></span> Toxicología Ambiental (TOA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#dbe5f1;"></span> Tecnología Ambiental (TEA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#fde9d9;"></span> Gestión Ambiental (GEA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#ffffcc;"></span> Química Ambiental (QUA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#e5dfec;"></span> Educación Ambiental (EDA)</span>
+      </div>
+    </div>
+
+    <!-- Controles: Pestañas de Días y Buscador -->
+    <div class="controls-panel">
+      <!-- Tabs de Días -->
+      <div class="tabs-days-wrapper" id="daysTabs">
+        <button class="day-tab-btn active" data-day="todos">Todos los días</button>
+        <button class="day-tab-btn" data-day="martes">Martes 27</button>
+        <button class="day-tab-btn" data-day="miercoles">Miércoles 28</button>
+        <button class="day-tab-btn" data-day="jueves">Jueves 29</button>
+        <button class="day-tab-btn" data-day="viernes">Viernes 30</button>
+      </div>
+
+      <!-- Buscador en tiempo real sobre la tabla -->
+      <div class="search-box-wrap">
+        <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="scheduleSearch" class="search-box-input" placeholder="Buscar sesión, coordinador, código o tema en la tabla...">
+        <div id="searchStatus" class="search-status-bar"></div>
+      </div>
+    </div>
+
+    <!-- VISTA MATRIZ / CUADRÍCULA (Única vista, optimizada y fluida) -->
+    <div class="matrix-table-container">
+      <div class="matrix-hint">
+        <span>💡 <strong>Deslizá horizontalmente</strong> para ver las 4 salas simultáneas de cada franja horaria.</span>
+        <span style="font-size:11px;color:#475569;">Toque o desplace para navegar</span>
+      </div>
+      <table class="matrix-table-inner" id="matrixTable">
+        <!-- Renderizado dinámicamente -->
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Carga de datos del cronograma -->
+  <script src="js/cronograma_general_data.js"></script>
+
+  <script>
+    let currentDayFilter = 'todos';
+    let currentSearchQuery = '';
+
+    function normalizeText(str) {
+      if (!str) return '';
+      return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    }
+
+    function shouldHideBadge(badge, title) {
+      if (!badge) return true;
+      const bNorm = normalizeText(badge);
+      const tNorm = normalizeText(title);
+      if (bNorm === tNorm) return true;
+      const genericWords = ['acreditacion', 'cafe', 'almuerzo', 'cocktail', 'asamblea', 'clausura', 'apertura', 'posters', 'paneles'];
+      return genericWords.some(w => bNorm.includes(w) || tNorm.startsWith(w));
+    }
+
+    function getEventIcon(title, badge) {
+      const t = normalizeText(title);
+      const b = normalizeText(badge);
+      if (t.includes('acreditacion') || b.includes('acreditacion')) return '📋 ';
+      if (t.includes('cafe') || t.includes('coffee') || b.includes('cafe')) return '☕ ';
+      if (t.includes('almuerzo') || b.includes('almuerzo')) return '🍽️ ';
+      if (t.includes('apertura') || b.includes('apertura')) return '🎉 ';
+      if (t.includes('clausura') || b.includes('clausura')) return '🏆 ';
+      if (t.includes('asamblea') || b.includes('asamblea')) return '👥 ';
+      if (t.includes('cocktail') || b.includes('cocktail')) return '🥂 ';
+      if (t.includes('conferencia') || t.includes('plenaria')) return '🎙️ ';
+      if (t.includes('mesa redonda') || b.includes('mesa redonda')) return '🗣️ ';
+      if (t.includes('curso') || b.includes('curso')) return '📚 ';
+      if (t.includes('poster') || b.includes('poster')) return '🖼️ ';
+      return '';
+    }
+
+    /**
+     * VISTA MATRIZ / CUADRÍCULA:
+     * Renderiza la estructura EXACTA con soporte para filtrado de día y resaltado de búsqueda.
+     */
+    function renderMatrix() {
+      const table = document.getElementById('matrixTable');
+      const searchStatus = document.getElementById('searchStatus');
+      if (!table || !window.EXACT_MATRIX_ROWS) return;
+
+      const dayFilter = currentDayFilter;
+      const isAllDays = (dayFilter === 'todos');
+      const query = normalizeText(currentSearchQuery);
+
+      let matchCount = 0;
+
+      // Definir qué días y columnas mostrar
+      const daysConfig = [
+        { id: 'martes', name: 'Martes 27/10/2026', cols: [2, 3, 4, 5] },
+        { id: 'miercoles', name: 'Miércoles 28/10/2026', cols: [6, 7, 8, 9] },
+        { id: 'jueves', name: 'Jueves 29/10/2026', cols: [10, 11, 12, 13] },
+        { id: 'viernes', name: 'Viernes 30/10/2026', cols: [14, 15, 16, 17] }
+      ];
+
+      const visibleDays = isAllDays ? daysConfig : daysConfig.filter(d => d.id === dayFilter);
+      const visibleCols = new Set();
+      visibleDays.forEach(d => d.cols.forEach(c => visibleCols.add(c)));
+
+      // Cabecera de la tabla
+      let theadHtml = `
+        <thead>
+          <tr>
+            <th style="width:68px;" rowspan="2">Horario</th>
+      `;
+      visibleDays.forEach(d => {
+        theadHtml += `<th colspan="4" style="background:#3b608d;font-size:12px;padding:7px;border:1px solid #7a92a5;">${d.name}</th>`;
+      });
+      theadHtml += `</tr><tr>`;
+      visibleDays.forEach(d => {
+        theadHtml += `
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:5px;border:1px solid #7a92a5;min-width:130px;">Sala 1</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:5px;border:1px solid #7a92a5;min-width:130px;">Sala 2</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:5px;border:1px solid #7a92a5;min-width:130px;">Sala 3</th>
+          <th style="background:#dbe5f1;color:#1f497d;font-size:11px;padding:5px;border:1px solid #7a92a5;min-width:130px;">Sala 4</th>
+        `;
+      });
+      theadHtml += `</tr></thead>`;
+
+      // Cuerpo de la tabla: procesar cada fila con sus rowspans y colspans exactos
+      let tbodyHtml = '<tbody>';
+
+      table.style.minWidth = isAllDays ? '1350px' : '680px';
+
+      window.EXACT_MATRIX_ROWS.forEach(r => {
+        const cellsInRow = r.cells.filter(c => visibleCols.has(c.col));
+
+        tbodyHtml += `<tr><td class="m-time-col">${r.time} hs</td>`;
+
+        cellsInRow.forEach(c => {
+          if (c.is_covered) {
+            return;
+          }
+
+          const rowspanAttr = c.rowspan > 1 ? `rowspan="${c.rowspan}"` : '';
+          const colspanAttr = c.colspan > 1 ? `colspan="${Math.min(c.colspan, isAllDays ? c.colspan : 4)}"` : '';
+          const bgAttr = c.color ? `background-color:${c.color};` : '';
+          const isPlenaryOrBreak = (c.colspan >= 4) || (c.val && (c.val.includes('Café') || c.val.includes('Almuerzo') || c.val.includes('Acreditación')));
+          const alignAttr = isPlenaryOrBreak ? 'text-align:center;vertical-align:middle;font-weight:bold;' : 'vertical-align:top;';
+
+          if (!c.val) {
+            const dimClass = query ? 'cell-dimmed' : '';
+            tbodyHtml += `<td ${rowspanAttr} ${colspanAttr} class="${dimClass}" style="${bgAttr}${alignAttr}"></td>`;
+          } else {
+            const displayTitle = c.clean_title || c.val;
+            const hideBadge = shouldHideBadge(c.badge, displayTitle);
+            const icon = getEventIcon(displayTitle, c.badge);
+            const sessionBadge = (!hideBadge && c.badge) ? `<span class="badge-session-code" style="margin-bottom:2px;">${c.badge}</span><br>` : '';
+            const titleHtml = `<strong>${icon}${displayTitle}</strong>`;
+            const coordsHtml = c.coords ? `<br><span style="font-size:8.5px;color:#334155;">(${c.coords})</span>` : '';
+
+            // Búsqueda en tiempo real
+            let cellClass = '';
+            if (query) {
+              const fullSearchable = normalizeText(displayTitle + ' ' + (c.badge || '') + ' ' + (c.coords || ''));
+              if (fullSearchable.includes(query)) {
+                cellClass = 'match-highlight';
+                matchCount++;
+              } else {
+                cellClass = 'cell-dimmed';
+              }
+            }
+
+            tbodyHtml += `
+              <td ${rowspanAttr} ${colspanAttr} class="${cellClass}" style="${bgAttr}${alignAttr}font-size:10px;line-height:1.25;">
+                ${sessionBadge}
+                ${titleHtml}
+                ${coordsHtml}
+              </td>
+            `;
+          }
+        });
+
+        tbodyHtml += `</tr>`;
+      });
+
+      tbodyHtml += '</tbody>';
+      table.innerHTML = theadHtml + tbodyHtml;
+
+      // Actualizar estado de búsqueda
+      if (searchStatus) {
+        if (query) {
+          searchStatus.style.display = 'block';
+          searchStatus.innerHTML = `🔍 Se encontraron <strong>${matchCount}</strong> actividades coincidentes con <em>"${currentSearchQuery}"</em>`;
+        } else {
+          searchStatus.style.display = 'none';
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('#daysTabs .day-tab-btn');
+      tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabs.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentDayFilter = btn.getAttribute('data-day');
+          renderMatrix();
+        });
+      });
+
+      const searchInput = document.getElementById('scheduleSearch');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearchQuery = e.target.value;
+          renderMatrix();
+        });
+      }
+
+      renderMatrix();
+    });
+  </script>
+</body>
+</html>
