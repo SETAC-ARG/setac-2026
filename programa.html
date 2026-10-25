@@ -10,7 +10,7 @@
   <!-- Estilos base y tema -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v1">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v2">
 
   <style>
     /* Estilos específicos para el buscador y listado del programa */
@@ -199,13 +199,21 @@
       border-top: 1px solid #f0f7fd;
       padding-top: 8px;
       font-size: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
     .item-presenter {
       font-weight: 700;
       color: #1b71a8;
       display: flex;
-      align-items: center;
-      gap: 5px;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.35;
+      flex: 1 1 200px;
+    }
+    .item-presenter svg {
+      flex-shrink: 0;
+      margin-top: 2px;
     }
     .item-session {
       font-size: 11px;
@@ -288,7 +296,7 @@
   </div>
 
   <!-- Carga de datos integrada -->
-  <script src="js/programa_data.js?v=20261025_v1"></script>
+  <script src="js/programa_data.js?v=20261025_v2"></script>
   
   <script>
     // Lógica del buscador interactivo
