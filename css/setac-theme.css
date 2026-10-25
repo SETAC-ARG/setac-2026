@@ -1266,3 +1266,71 @@ body[data-sponsors-style="panel-glass"] .sponsor-box:hover {
   .box-ausp-cemas { height: 42px; }
   .logo-ausp-cemas { max-width: 98px; max-height: 30px !important; }
 }
+
+
+/* --- ESTILOS DE DESTACADOS Y BADGES PARA BOTONES --- */
+.btn-congress {
+  position: relative;
+}
+.btn-badge-live {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.btn-badge-live.badge-gold {
+  background: #d97706;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.35);
+}
+.btn-badge-live.badge-green {
+  background: #16a34a;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.35);
+}
+.btn-badge-live .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-block;
+  animation: pulseLiveDot 1.8s infinite;
+}
+@keyframes pulseLiveDot {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.7; }
+}
+
+/* Variante Festiva / Social Especial (ej: Cena de Camaradería) */
+.btn-accent-festivo {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.95) 0%, rgba(253, 230, 138, 0.85) 100%) !important;
+  border: 1.5px solid rgba(245, 158, 11, 0.55) !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+.btn-accent-festivo:hover {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 1) 0%, rgba(252, 211, 77, 0.95) 100%) !important;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+.btn-accent-festivo .btn-title {
+  color: #92400e !important;
+}
+.btn-accent-festivo .btn-desc {
+  color: #b45309 !important;
+}
+.btn-accent-festivo .btn-icon {
+  stroke: #d97706 !important;
+}
+.btn-accent-festivo .btn-arrow {
+  stroke: #d97706 !important;
+}
