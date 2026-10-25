@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/setac-theme.css?v=20261024_watermark">
   <link rel="stylesheet" href="css/variantes.css?v=20261024_leadblue">
 </head>
-<body data-sponsors-style="con-cajitas" data-theme="celeste" data-header="banner-faded" data-watermark="dual">
+<body data-sponsors-style="sin-cajitas" data-theme="celeste" data-header="banner-faded" data-watermark="dual">
 
   <!-- Capa de Marca de Agua Fija en el fondo durante el scroll -->
   <div class="preview-watermark-layer" aria-hidden="true"></div>
@@ -77,8 +77,8 @@
           🏛️ Sponsors:
         </span>
         <div class="control-button-group" role="group" aria-label="Selector de Estilo de Sponsors">
-          <button class="ctrl-btn active" data-set-sponsors="con-cajitas">📦 Con Cajitas (Tarjetas)</button>
-          <button class="ctrl-btn" data-set-sponsors="sin-cajitas">✨ Sin Cajitas (Orgánico)</button>
+          <button class="ctrl-btn" data-set-sponsors="con-cajitas">📦 Con Cajitas (Tarjetas)</button>
+          <button class="ctrl-btn active" data-set-sponsors="sin-cajitas">✨ Sin Cajitas (Orgánico)</button>
           <button class="ctrl-btn" data-set-sponsors="panel-glass">🪟 Panel Vidrio</button>
         </div>
       </div>
@@ -483,7 +483,7 @@
       let currentTheme = localStorage.getItem('setac_preview_theme_v4') || 'celeste';
       let currentHeader = localStorage.getItem('setac_preview_header_v4') || 'banner-faded';
       let currentWatermark = localStorage.getItem('setac_preview_watermark_v4') || 'dual';
-      let currentSponsors = localStorage.getItem('setac_preview_sponsors_v4') || 'con-cajitas';
+      let currentSponsors = localStorage.getItem('setac_preview_sponsors_v4') || 'sin-cajitas';
 
       function applyState() {
         document.body.setAttribute('data-theme', currentTheme);

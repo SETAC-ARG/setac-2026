@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/brands.css">
   <link rel="stylesheet" href="css/setac-theme.css?v=20261024_leadblue">
 </head>
-<body data-sponsors-style="con-cajitas">
+<body data-sponsors-style="sin-cajitas">
 
   <!-- Capa de Marca de Agua Fija en el fondo durante el scroll (Hexágono Gigante) -->
   <div class="fixed-watermark-layer" aria-hidden="true"></div>
@@ -259,13 +259,6 @@
       <!-- BLOQUE DE AVALES Y PATROCINIOS (Estructura oficial del documento Word) -->
       <section class="sponsors-container" aria-label="Avales Institucionales y Patrocinadores">
 
-        <!-- Conmutador rápido de alternativas visuales (para probar en vivo) -->
-        <div class="sponsors-style-switcher" role="toolbar" aria-label="Alternativas de diseño">
-          <button class="sponsors-switch-btn active" data-style="con-cajitas" title="Tarjetas con borde y fondo">📦 Con Cajitas</button>
-          <button class="sponsors-switch-btn" data-style="sin-cajitas" title="Logos flotantes limpios sin marco">✨ Sin Cajitas</button>
-          <button class="sponsors-switch-btn" data-style="panel-glass" title="Panel de vidrio esmerilado">🪟 Panel Vidrio</button>
-        </div>
-
         <!-- 1. AVALES INSTITUCIONALES -->
         <div class="sponsors-group">
           <div class="sponsors-header">
@@ -359,29 +352,5 @@
 
   <!-- Script interactivo -->
   <script src="js/app.js"></script>
-
-  <script>
-
-    // Conmutador interactivo de estilos de sponsors (para comparar en vivo en celular y PC)
-    document.querySelectorAll('.sponsors-switch-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const style = btn.getAttribute('data-style');
-        document.body.setAttribute('data-sponsors-style', style);
-        document.querySelectorAll('.sponsors-switch-btn').forEach(b => {
-          b.classList.toggle('active', b.getAttribute('data-style') === style);
-        });
-        localStorage.setItem('setac_sponsors_style_pref', style);
-      });
-    });
-    // Cargar preferencia previa si existe
-    const savedSponsorsStyle = localStorage.getItem('setac_sponsors_style_pref');
-    if (savedSponsorsStyle) {
-      document.body.setAttribute('data-sponsors-style', savedSponsorsStyle);
-      document.querySelectorAll('.sponsors-switch-btn').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-style') === savedSponsorsStyle);
-      });
-    }
-
-  </script>
 </body>
 </html>
