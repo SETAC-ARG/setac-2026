@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Laboratorio de Autores y Presentadores | X Congreso SETAC 2026</title>
-  <meta name="description" content="Vista previa interactiva para evaluar visualización de todos los autores y presentador en el buscador.">
+  <title>Buscador Completo: Autores y Resúmenes | X Congreso SETAC 2026</title>
+  <meta name="description" content="Cronograma y buscador interactivo con autores completos, resúmenes y palabras clave del X Congreso SETAC Argentina.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="images/favicon.png">
 
@@ -13,66 +13,7 @@
   <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v5">
 
   <style>
-    /* Barra de control de la vista previa */
-    .preview-mode-bar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #0f2744;
-      color: #ffffff;
-      padding: 10px 14px;
-      margin: -14px -14px 16px -14px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-      border-bottom: 2px solid #0284c7;
-    }
-    .preview-mode-inner {
-      max-width: 540px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .preview-mode-title {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: #38bdf8;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .preview-mode-buttons {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .preview-mode-buttons::-webkit-scrollbar { display: none; }
-    .btn-mode-toggle {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #e2e8f0;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 9999px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all .2s ease;
-    }
-    .btn-mode-toggle:hover {
-      background: rgba(255,255,255,0.2);
-      color: #ffffff;
-    }
-    .btn-mode-toggle.active {
-      background: #0284c7;
-      border-color: #38bdf8;
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(2,132,199,0.45);
-    }
-
-    /* Navegación */
+    /* Navegación y cabecera */
     .program-header-nav {
       display: flex;
       align-items: center;
@@ -99,13 +40,14 @@
       color: #0f4c81;
     }
 
-    /* Buscador fijo */
+    /* Buscador fijo y sticky */
     .search-panel {
       position: sticky;
-      top: 60px;
-      z-index: 90;
+      top: 10px;
+      z-index: 100;
       background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid #b8daf2;
       border-radius: 16px;
       padding: 12px 16px;
@@ -255,87 +197,109 @@
       font-weight: 700;
       color: #0c2b48;
       line-height: 1.35;
-      margin: 0 0 8px;
+      margin: 0 0 7px;
     }
 
-    /* ESTILOS DE AUTORES Y PRESENTADOR */
-    .authors-section {
-      background: #f8fbfe;
-      border-radius: 8px;
-      padding: 7px 10px;
-      margin-bottom: 8px;
-      border: 1px solid #e0effa;
+    /* FILA DE AUTORES / PRESENTADOR */
+    .item-people-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 7px;
       font-size: 12px;
-      line-height: 1.4;
     }
-    
-    .presenter-highlight {
+    .person-label {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 600;
+      margin-right: 3px;
+    }
+    .person-highlight {
+      font-weight: 800;
+      color: #0f4c81;
+    }
+    .btn-action-pill {
+      background: #eef6fc;
+      border: 1px solid #b8daf2;
+      color: #0284c7;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all .15s ease;
+      outline: none;
+    }
+    .btn-action-pill:hover {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+
+    /* CAJONES DESPLEGABLES (AUTORES Y RESUMEN) */
+    .expandable-drawer {
+      display: none;
+      background: #f8fbfe;
+      border: 1px solid #d9ebf8;
+      border-radius: 8px;
+      padding: 9px 12px;
+      margin: 7px 0;
+      font-size: 12px;
+      line-height: 1.45;
+      animation: fadeIn .2s ease;
+    }
+    .expandable-drawer.open {
+      display: block;
+    }
+
+    .author-highlight-inline {
       font-weight: 800;
       color: #0f4c81;
       text-decoration: underline;
       text-decoration-thickness: 1.5px;
       text-underline-offset: 2px;
     }
-    .presenter-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      background: #dbeafe;
-      color: #1e40af;
-      font-size: 9.5px;
-      font-weight: 800;
-      padding: 1px 5px;
-      border-radius: 4px;
-      margin-left: 3px;
-      vertical-align: middle;
-      text-decoration: none;
-    }
 
-    /* Botón desplegable para autores */
-    .btn-toggle-authors {
-      background: transparent;
-      border: none;
-      color: #0284c7;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      padding: 2px 0 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      outline: none;
-      transition: color .15s ease;
-    }
-    .btn-toggle-authors:hover {
-      color: #0369a1;
-      text-decoration: underline;
-    }
-
-    .authors-drawer {
-      display: none;
+    .keywords-row {
       margin-top: 6px;
       padding-top: 6px;
-      border-top: 1px dashed #d0e7f7;
+      border-top: 1px dashed #cde2f2;
+      font-size: 11px;
+      color: #475569;
+    }
+    .keyword-badge {
+      display: inline-block;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 1px 6px;
+      margin: 2px 2px 2px 0;
+      font-size: 10.5px;
+      color: #0369a1;
+      font-weight: 600;
+    }
+
+    .abstract-text {
       color: #334155;
       font-size: 11.5px;
-    }
-    .authors-drawer.open {
-      display: block;
-      animation: fadeIn .2s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-3px); }
-      to { opacity: 1; transform: translateY(0); }
+      line-height: 1.5;
+      margin: 6px 0 0;
+      text-align: justify;
     }
 
-    /* Footer de tarjeta y códigos */
+    /* Footer de tarjeta (solo Cód. Libro, sin número correlativo confuso) */
     .item-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-top: 1px solid #f0f7fd;
       padding-top: 6px;
+      margin-top: 4px;
       font-size: 11.5px;
       flex-wrap: wrap;
       gap: 6px;
@@ -344,18 +308,13 @@
       font-weight: 800;
       color: #0f4c81;
       background: #e0f0fc;
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 6px;
       font-size: 11px;
       border: 1px solid #b8daf2;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-    }
-    .badge-orden-prog {
-      font-size: 10.5px;
-      color: #94a3b8;
-      font-weight: 600;
     }
 
     .empty-state {
@@ -370,22 +329,8 @@
 </head>
 <body>
 
-  <!-- Capa de Marca de Agua Fija en el fondo durante el scroll (Hexágono Gigante) -->
+  <!-- Capa de Marca de Agua Fija en el fondo durante el scroll -->
   <div class="fixed-watermark-layer" aria-hidden="true"></div>
-
-  <!-- BARRA DE CONTROL DE LA VISTA PREVIA -->
-  <aside class="preview-mode-bar" aria-label="Controles del Laboratorio de Autores">
-    <div class="preview-mode-inner">
-      <div class="preview-mode-title">
-        <span>🧪 MODO DE VISUALIZACIÓN DE AUTORES Y PRESENTADOR:</span>
-      </div>
-      <div class="preview-mode-buttons" role="radiogroup">
-        <button class="btn-mode-toggle active" data-mode="desplegable">1️⃣ Botón "Ver autores" (Compacto)</button>
-        <button class="btn-mode-toggle" data-mode="completo">2️⃣ Todos Directos (Subrayado + Badge)</button>
-        <button class="btn-mode-toggle" data-mode="original">3️⃣ Original (Solo Presentador)</button>
-      </div>
-    </div>
-  </aside>
 
   <div class="hub-container">
 
@@ -397,15 +342,15 @@
         </svg>
         Volver al Hub
       </a>
-      <span class="congress-badge">Preview con Autores Completos</span>
+      <span class="congress-badge">Buscador Integral</span>
     </div>
 
     <header class="hub-header" style="margin-bottom: 14px;">
-      <h1 class="congress-title" style="font-size: 22px;">Buscador con Autores</h1>
-      <p class="congress-subtitle">Búsqueda habilitada por <strong>título, autor o coautor</strong></p>
+      <h1 class="congress-title" style="font-size: 22px;">Buscador y Cronograma</h1>
+      <p class="congress-subtitle">Búsqueda habilitada por <strong>título, autor, coautor o palabras clave</strong></p>
     </header>
 
-    <!-- Selector de Días -->
+    <!-- Selector de Días con Nombre de Semana y Fecha -->
     <nav class="tabs-nav" id="dayTabs" aria-label="Selector de Días">
       <button class="tab-btn active" data-dia="todos">Todos los Días</button>
       <button class="tab-btn" data-dia="Martes">Martes 27/10 (Día 1)</button>
@@ -421,7 +366,7 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" id="searchInput" class="search-input" placeholder="Buscar por título, autor o coautor, código...">
+        <input type="text" id="searchInput" class="search-input" placeholder="Buscar por título, autor, coautor o tema...">
       </div>
 
       <div class="filter-scroll" id="roomFilters">
@@ -445,15 +390,14 @@
 
   </div>
 
-  <!-- Carga de datos integrada enriquecida con autores -->
-  <script src="js/programa_autores_data.js?v=20261025_preview1"></script>
+  <!-- Base de datos integral enriquecida con Autores, Resúmenes y Palabras Clave -->
+  <script src="js/programa_autores_data.js?v=20261025_v6"></script>
   
   <script>
     // Variables de estado
     let currentDia = 'todos';
     let currentRoom = 'todas';
     let searchQuery = '';
-    let authorDisplayMode = 'desplegable'; // 'desplegable' | 'completo' | 'original'
 
     const cardsContainer = document.getElementById('cardsContainer');
     const searchInput = document.getElementById('searchInput');
@@ -469,21 +413,20 @@
     }
 
     /**
-     * Función que formatea la lista de autores resaltando al presentador
+     * Resalta al presentador con subrayado y micrófono
      */
-    function formatAuthorsWithPresenter(allAuthorsStr, presenterStr) {
+    function formatAuthorsWithPresenter(allAuthorsStr, presenterStr, isDocente = false) {
       if (!allAuthorsStr) return presenterStr || '';
-      
+      if (isDocente) return allAuthorsStr; // En cursos o mesas no hay un único presentador
+
       const presClean = (presenterStr || '').trim().toLowerCase();
-      // Separar autores por coma
       const authorsList = allAuthorsStr.split(',').map(a => a.trim());
       
       const formatted = authorsList.map(author => {
         const autLower = author.toLowerCase();
-        // Verificar si este autor corresponde al presentador
         const isPres = presClean && (autLower.startsWith(presClean) || autLower.includes(presClean));
         if (isPres) {
-          return `<span class="presenter-highlight">${author}</span><span class="presenter-tag">🎤 Presentador</span>`;
+          return `<span class="author-highlight-inline">${author}</span> 🎤`;
         }
         return author;
       });
@@ -514,15 +457,18 @@
           }
         }
 
-        // Filtro de texto (busca en título, presentador, autores completos, sesión, modalidad y códigos)
+        // Filtro de texto (busca en título, presentador, autores completos, palabras clave, resumen y códigos)
         if (query) {
           const matchTitle = (item.titulo || '').toLowerCase().includes(query);
           const matchPresenter = (item.presentador || '').toLowerCase().includes(query);
           const matchAuthors = (item.autores || '').toLowerCase().includes(query);
+          const matchKeywords = (item.palabras_clave || '').toLowerCase().includes(query);
+          const matchAbstract = (item.resumen || '').toLowerCase().includes(query);
           const matchSession = (item.id_sesion || '').toLowerCase().includes(query);
           const matchMod = (item.modalidad || '').toLowerCase().includes(query);
           const matchIdLibro = (item.codigo_libro || item.id_resumen_libro || '').toLowerCase().includes(query) || (item.id_postulacion || '').toLowerCase().includes(query);
-          if (!matchTitle && !matchPresenter && !matchAuthors && !matchSession && !matchMod && !matchIdLibro) {
+
+          if (!matchTitle && !matchPresenter && !matchAuthors && !matchKeywords && !matchAbstract && !matchSession && !matchMod && !matchIdLibro) {
             return false;
           }
         }
@@ -542,60 +488,37 @@
         return;
       }
 
-      // Renderizar tarjetas según authorDisplayMode
+      // Renderizar tarjetas
       const html = filtered.map((item, idx) => {
         const modClass = getModalityClass(item.modalidad);
-        const cardId = `card-auth-${idx}`;
-        const totalAuthorsCount = (item.autores ? item.autores.split(',').length : 1);
+        const authorsDrawerId = `auth-${idx}`;
+        const abstractDrawerId = `abs-${idx}`;
+        const isCurso = item.modalidad === 'CURSO';
+        const isMesa = item.modalidad.includes('MESA');
+        const isConf = item.modalidad.includes('CONFERENCIA');
         
-        // Bloque central de autores según el modo elegido
-        let authorsSectionHtml = '';
+        const totalAuthorsCount = (item.autores ? item.autores.split(',').length : 1);
 
-        if (authorDisplayMode === 'desplegable') {
-          // MODO 1: Presentador visible y botón para desplegar todos
-          authorsSectionHtml = `
-            <div class="authors-section">
-              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px;">
-                <div>
-                  <span style="color:#64748b;font-size:11px;">Presentador:</span>
-                  <span class="presenter-highlight">${item.presentador || 'A confirmar'}</span>
-                </div>
-                ${item.autores && totalAuthorsCount > 1 ? `
-                  <button class="btn-toggle-authors" onclick="toggleAuthors('${cardId}')" id="btn-${cardId}">
-                    👥 Ver todos (${totalAuthorsCount} autores) ▾
-                  </button>
-                ` : ''}
-              </div>
-              ${item.autores && totalAuthorsCount > 1 ? `
-                <div class="authors-drawer" id="${cardId}">
-                  <strong>Autores:</strong> ${formatAuthorsWithPresenter(item.autores, item.presentador)}
-                </div>
-              ` : ''}
-            </div>
-          `;
-        } else if (authorDisplayMode === 'completo') {
-          // MODO 2: Todos los autores visibles directamente con el presentador destacado
-          authorsSectionHtml = `
-            <div class="authors-section">
-              <div style="color:#64748b;font-size:10.5px;font-weight:700;text-transform:uppercase;margin-bottom:2px;">Autores:</div>
-              <div>${formatAuthorsWithPresenter(item.autores, item.presentador)}</div>
-            </div>
-          `;
-        } else {
-          // MODO 3: Original (Solo presentador en el pie)
-          authorsSectionHtml = '';
+        // Etiqueta del rol según la modalidad
+        let roleLabel = '🎤 Presentador:';
+        let roleName = item.presentador || 'A confirmar';
+
+        if (isCurso) {
+          roleLabel = '👨‍🏫 Docente(s):';
+          roleName = item.autores || item.presentador;
+        } else if (isMesa) {
+          roleLabel = '👥 Panelistas:';
+          roleName = item.autores || item.presentador;
+        } else if (isConf) {
+          roleLabel = '🎙️ Disertante:';
+          roleName = item.presentador || item.autores;
         }
 
-        // Pie de tarjeta
-        const presenterFooterOriginal = authorDisplayMode === 'original' ? `
-          <span class="item-presenter" style="font-weight:700;color:#1b71a8;display:flex;align-items:center;gap:5px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            ${item.presentador || ''}
-          </span>
-        ` : '<span></span>';
+        // Botón para ver coautores (solo en Oral y Poster si hay más de 1 autor)
+        const showCoauthorsBtn = (!isCurso && !isMesa && item.autores && totalAuthorsCount > 1);
+
+        // Palabras clave en badges
+        const keywordsHtml = item.palabras_clave ? item.palabras_clave.split('•').map(k => `<span class="keyword-badge">${k.trim()}</span>`).join(' ') : '';
 
         return `
           <article class="item-card">
@@ -609,17 +532,53 @@
             </div>
             
             <h3 class="item-title">${item.titulo}</h3>
-            
-            ${authorsSectionHtml}
 
-            <div class="item-footer">
-              ${presenterFooterOriginal}
-              <div style="display:flex;align-items:center;gap:8px;margin-left:auto;">
-                ${(item.codigo_libro || item.id_resumen_libro) && (item.codigo_libro || item.id_resumen_libro) !== 'S/ID' ? `
-                  <span class="badge-cod-libro">📖 Cód. Libro: ${item.codigo_libro || item.id_resumen_libro}</span>
-                ` : ''}
-                <span class="badge-orden-prog" title="Número de orden en el cronograma">${item.id_programa}</span>
+            <!-- Fila de personas principales -->
+            <div class="item-people-row">
+              <div>
+                <span class="person-label">${roleLabel}</span>
+                <span class="person-highlight">${roleName}</span>
               </div>
+              <div style="display:flex;gap:5px;align-items:center;">
+                ${showCoauthorsBtn ? `
+                  <button class="btn-action-pill" onclick="toggleDrawer('${authorsDrawerId}', this, '👥 Ver autores', '👥 Ocultar autores')">
+                    👥 Autores (${totalAuthorsCount}) ▾
+                  </button>
+                ` : ''}
+                ${item.resumen ? `
+                  <button class="btn-action-pill" onclick="toggleDrawer('${abstractDrawerId}', this, '📄 Ver resumen', '📄 Ocultar resumen')">
+                    📄 Resumen ▾
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+
+            <!-- Cajón Desplegable: Todos los Autores -->
+            ${showCoauthorsBtn ? `
+              <div class="expandable-drawer" id="${authorsDrawerId}">
+                <strong>Nómina de Autores:</strong><br>
+                ${formatAuthorsWithPresenter(item.autores, item.presentador, isCurso || isMesa)}
+              </div>
+            ` : ''}
+
+            <!-- Cajón Desplegable: Resumen y Palabras Clave -->
+            ${item.resumen ? `
+              <div class="expandable-drawer" id="${abstractDrawerId}">
+                ${keywordsHtml ? `
+                  <div class="keywords-row" style="margin-top:0;padding-top:0;border-top:none;margin-bottom:6px;">
+                    <strong>Palabras clave:</strong> ${keywordsHtml}
+                  </div>
+                ` : ''}
+                <strong>Resumen:</strong>
+                <p class="abstract-text">${item.resumen}</p>
+              </div>
+            ` : ''}
+
+            <!-- Footer: Solo Código del Libro (sin el PROG-XXXX interno) -->
+            <div class="item-footer">
+              ${(item.codigo_libro || item.id_resumen_libro) && (item.codigo_libro || item.id_resumen_libro) !== 'S/ID' ? `
+                <span class="badge-cod-libro">📖 Cód. Libro: ${item.codigo_libro || item.id_resumen_libro}</span>
+              ` : '<span></span>'}
             </div>
           </article>
         `;
@@ -628,36 +587,23 @@
       cardsContainer.innerHTML = html;
     }
 
-    // Función para abrir/cerrar cajón de autores
-    window.toggleAuthors = function(drawerId) {
+    // Función universal para desplegar cajones (autores o resumen)
+    window.toggleDrawer = function(drawerId, btn, textOpen, textClose) {
       const drawer = document.getElementById(drawerId);
-      const btn = document.getElementById(`btn-${drawerId}`);
       if (!drawer) return;
-      
       const isOpen = drawer.classList.contains('open');
       if (isOpen) {
         drawer.classList.remove('open');
-        if (btn) btn.innerHTML = btn.innerHTML.replace('▴', '▾').replace('Ocultar', 'Ver todos');
+        if (btn) btn.innerHTML = btn.innerHTML.replace('▴', '▾');
       } else {
         drawer.classList.add('open');
-        if (btn) btn.innerHTML = btn.innerHTML.replace('▾', '▴').replace('Ver todos', 'Ocultar');
+        if (btn) btn.innerHTML = btn.innerHTML.replace('▾', '▴');
       }
     };
 
     // Inicialización y eventos
     document.addEventListener('DOMContentLoaded', () => {
-      // Manejo de botones de modo (Laboratorio)
-      const modeButtons = document.querySelectorAll('.btn-mode-toggle');
-      modeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          modeButtons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          authorDisplayMode = btn.getAttribute('data-mode');
-          renderItems();
-        });
-      });
-
-      // Manejo de tabs de días
+      // Tabs de días
       const dayButtons = document.querySelectorAll('#dayTabs .tab-btn');
       dayButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -668,7 +614,7 @@
         });
       });
 
-      // Manejo de filtros de salas
+      // Filtros de salas
       const roomChips = document.querySelectorAll('#roomFilters .filter-chip');
       roomChips.forEach(chip => {
         chip.addEventListener('click', () => {
