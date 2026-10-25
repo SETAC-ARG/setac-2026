@@ -526,7 +526,29 @@
 
     function normalizeText(str) {
       if (!str) return '';
-      return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+      return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    }
+
+    function shouldHideBadge(badge, title) {
+      if (!badge) return true;
+      const bNorm = normalizeText(badge);
+      const tNorm = normalizeText(title);
+      if (bNorm === tNorm) return true;
+      const genericWords = ['acreditacion', 'cafe', 'almuerzo', 'cocktail', 'asamblea', 'clausura', 'apertura', 'posters', 'paneles'];
+      return genericWords.some(w => bNorm.includes(w) || tNorm.startsWith(w));
+    }
+
+    function getEventIcon(title, badge) {
+      const s = normalizeText((title || '') + ' ' + (badge || ''));
+      if (s.includes('cafe')) return '☕ ';
+      if (s.includes('almuerzo')) return '🍽️ ';
+      if (s.includes('acreditacion')) return '📋 ';
+      if (s.includes('cocktail')) return '🍸 ';
+      if (s.includes('asamblea')) return '👥 ';
+      if (s.includes('apertura')) return '🏛️ ';
+      if (s.includes('clausura')) return '🎉 ';
+      if (s.includes('paneles') || s.includes('poster')) return '🖼️ ';
+      return '';
     }
 
     function switchView(mode) {
@@ -618,12 +640,14 @@
             }
 
             const displayTitle = ev.clean_title || ev.raw_text;
+            const hideBadge = shouldHideBadge(ev.session_code, displayTitle);
+            const icon = getEventIcon(displayTitle, ev.session_code);
 
             html += `
               <div class="schedule-card" style="${cardStyle}">
                 <div>
                   <div class="card-top-info">
-                    ${ev.session_code ? `<span class="badge-session-code">${ev.session_code}</span>` : '<span></span>'}
+                    ${(!hideBadge && ev.session_code) ? `<span class="badge-session-code">${ev.session_code}</span>` : '<span></span>'}
                     ${!ev.is_plenary ? `<span class="badge-track-room">Sala ${ev.track_col}</span>` : '<span class="badge-track-room" style="background:#3b608d;color:#ffffff;">Plenario / General</span>'}
                   </div>
                   ${ev.duration_label ? `
@@ -633,7 +657,9 @@
                       </span>
                     </div>
                   ` : ''}
-                  <div class="card-event-title">${displayTitle}</div>
+                  <div class="card-event-title" style="${(ev.is_plenary && hideBadge) ? 'text-align:center;font-size:14px;padding:3px 0;' : ''}">
+                    ${icon}${displayTitle}
+                  </div>
                 </div>
                 ${ev.coordinators ? `
                   <div class="card-coordinators">
@@ -744,9 +770,12 @@
           if (!c.val) {
             tbodyHtml += `<td ${rowspanAttr} ${colspanAttr} style="${bgAttr}${alignAttr}"></td>`;
           } else {
+            const displayTitle = c.clean_title || c.val;
+            const hideBadge = shouldHideBadge(c.badge, displayTitle);
+            const icon = getEventIcon(displayTitle, c.badge);
             const durationBadge = c.duration_label ? `<div style="margin-bottom:3px;"><span style="background:#ffffff;border:1px solid #94a3b8;font-size:8.5px;padding:1px 4px;border-radius:3px;font-weight:700;color:#0369a1;">⏱️ ${c.duration_label}</span></div>` : '';
-            const sessionBadge = c.badge ? `<span class="badge-session-code" style="margin-bottom:2px;font-size:9.5px;">${c.badge}</span><br>` : '';
-            const titleHtml = `<strong>${c.clean_title || c.val}</strong>`;
+            const sessionBadge = (!hideBadge && c.badge) ? `<span class="badge-session-code" style="margin-bottom:2px;font-size:9.5px;">${c.badge}</span><br>` : '';
+            const titleHtml = `<strong>${icon}${displayTitle}</strong>`;
             const coordsHtml = c.coords ? `<br><span style="font-size:8.5px;color:#334155;">(${c.coords})</span>` : '';
 
             tbodyHtml += `
