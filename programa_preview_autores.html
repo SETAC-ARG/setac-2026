@@ -10,7 +10,7 @@
   <!-- Estilos base y tema -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v5">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v6">
 
   <style>
     /* Navegación y cabecera */
@@ -123,6 +123,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
     /* Tarjetas de Trabajos */
@@ -200,7 +202,7 @@
       margin: 0 0 7px;
     }
 
-    /* FILA DE AUTORES / PRESENTADOR */
+    /* FILA DE PERSONAS / ROLES */
     .item-people-row {
       display: flex;
       align-items: center;
@@ -292,7 +294,7 @@
       text-align: justify;
     }
 
-    /* Footer de tarjeta (solo Cód. Libro, sin número correlativo confuso) */
+    /* Footer de tarjeta */
     .item-footer {
       display: flex;
       align-items: center;
@@ -347,7 +349,7 @@
 
     <header class="hub-header" style="margin-bottom: 14px;">
       <h1 class="congress-title" style="font-size: 22px;">Buscador y Cronograma</h1>
-      <p class="congress-subtitle">Búsqueda habilitada por <strong>título, autor, coautor o palabras clave</strong></p>
+      <p class="congress-subtitle">Búsqueda habilitada por <strong>título, autor, coautor o código</strong></p>
     </header>
 
     <!-- Selector de Días con Nombre de Semana y Fecha -->
@@ -366,7 +368,7 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" id="searchInput" class="search-input" placeholder="Buscar por título, autor, coautor o tema...">
+        <input type="text" id="searchInput" class="search-input" placeholder="Buscar por apellido, título o código de libro...">
       </div>
 
       <div class="filter-scroll" id="roomFilters">
@@ -382,7 +384,7 @@
     <!-- Contador de Resultados -->
     <div class="results-count">
       <span id="counterText">Cargando presentaciones...</span>
-      <span id="activeFilterBadge" style="color:#1b71a8;"></span>
+      <span id="searchScopeBadge" style="color:#0284c7;font-weight:700;"></span>
     </div>
 
     <!-- Listado de Presentaciones -->
@@ -391,7 +393,7 @@
   </div>
 
   <!-- Base de datos integral enriquecida con Autores, Resúmenes y Palabras Clave -->
-  <script src="js/programa_autores_data.js?v=20261025_v6"></script>
+  <script src="js/programa_autores_data.js?v=20261025_v7"></script>
   
   <script>
     // Variables de estado
@@ -402,12 +404,26 @@
     const cardsContainer = document.getElementById('cardsContainer');
     const searchInput = document.getElementById('searchInput');
     const counterText = document.getElementById('counterText');
+    const searchScopeBadge = document.getElementById('searchScopeBadge');
+
+    /**
+     * Normalizador universal de texto: quita tildes, diacríticos y pasa a minúsculas
+     */
+    function normalizeStr(str) {
+      if (!str) return '';
+      return String(str)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    }
 
     function getModalityClass(mod) {
+      if (!mod) return 'mod-oral';
       if (mod === 'ORAL') return 'mod-oral';
       if (mod === 'POSTER') return 'mod-poster';
       if (mod === 'CURSO') return 'mod-curso';
-      if (mod.includes('MESA')) return 'mod-mesa';
+      if (mod.includes('MESA') || mod.includes('CONVERSATORIO')) return 'mod-mesa';
       if (mod.includes('CONFERENCIA')) return 'mod-conf';
       return 'mod-oral';
     }
@@ -415,16 +431,28 @@
     /**
      * Resalta al presentador con subrayado y micrófono
      */
-    function formatAuthorsWithPresenter(allAuthorsStr, presenterStr, isDocente = false) {
+    function formatAuthorsWithPresenter(allAuthorsStr, presenterStr, isCollective = false) {
       if (!allAuthorsStr) return presenterStr || '';
-      if (isDocente) return allAuthorsStr; // En cursos o mesas no hay un único presentador
+      if (isCollective) return allAuthorsStr; // En cursos o conversatorios colectivos
 
-      const presClean = (presenterStr || '').trim().toLowerCase();
+      if (!presenterStr) return allAuthorsStr;
+
+      const presNorm = normalizeStr(presenterStr).replace(/-/g, ' ');
+      const stopwords = new Set(['de', 'del', 'da', 'do', 'los', 'las', 'san', 'van', 'der']);
+      const presTokens = presNorm.split(/\s+/)
+        .map(w => w.replace(/[^a-z0-9]/g, ''))
+        .filter(w => w.length >= 3 && !stopwords.has(w));
+
       const authorsList = allAuthorsStr.split(',').map(a => a.trim());
       
       const formatted = authorsList.map(author => {
-        const autLower = author.toLowerCase();
-        const isPres = presClean && (autLower.startsWith(presClean) || autLower.includes(presClean));
+        const autNorm = normalizeStr(author).replace(/-/g, ' ');
+        const autWords = autNorm.split(/\s+/).map(w => w.replace(/[^a-z0-9]/g, ''));
+        
+        const isPres = presTokens.some(pt => 
+          autWords.some(aw => aw === pt || (aw.startsWith(pt) && pt.length >= 4) || (pt.startsWith(aw) && aw.length >= 4))
+        );
+
         if (isPres) {
           return `<span class="author-highlight-inline">${author}</span> 🎤`;
         }
@@ -440,11 +468,23 @@
         return;
       }
 
-      const query = searchQuery.toLowerCase().trim();
+      const queryRaw = searchQuery.trim();
+      const queryNorm = normalizeStr(queryRaw);
+      const queryWords = queryNorm ? queryNorm.split(/\s+/).filter(w => w.length > 0) : [];
+
+      // Cuando el usuario escribe una búsqueda, busca globalmente en todos los días
+      // para evitar que se pierdan resultados por estar en la pestaña de un día puntual
+      const isSearching = queryWords.length > 0;
+      
+      if (isSearching) {
+        searchScopeBadge.textContent = currentDia === 'todos' ? '🔍 Búsqueda en todos los días' : `🔍 Buscando: "${queryRaw}" (en todos los días)`;
+      } else {
+        searchScopeBadge.textContent = '';
+      }
 
       const filtered = window.CONGRESO_PROGRAMA.filter(item => {
-        // Filtro por día
-        if (currentDia !== 'todos' && item.dia !== currentDia) {
+        // Filtro por día (solo si NO se está buscando texto activamente)
+        if (!isSearching && currentDia !== 'todos' && item.dia !== currentDia) {
           return false;
         }
 
@@ -457,20 +497,22 @@
           }
         }
 
-        // Filtro de texto (busca en título, presentador, autores completos, palabras clave, resumen y códigos)
-        if (query) {
-          const matchTitle = (item.titulo || '').toLowerCase().includes(query);
-          const matchPresenter = (item.presentador || '').toLowerCase().includes(query);
-          const matchAuthors = (item.autores || '').toLowerCase().includes(query);
-          const matchKeywords = (item.palabras_clave || '').toLowerCase().includes(query);
-          const matchAbstract = (item.resumen || '').toLowerCase().includes(query);
-          const matchSession = (item.id_sesion || '').toLowerCase().includes(query);
-          const matchMod = (item.modalidad || '').toLowerCase().includes(query);
-          const matchIdLibro = (item.codigo_libro || item.id_resumen_libro || '').toLowerCase().includes(query) || (item.id_postulacion || '').toLowerCase().includes(query);
+        // MOTOR DE BÚSQUEDA INTELIGENTE
+        if (isSearching) {
+          // Campos clave normalizados
+          const normTitle = normalizeStr(item.titulo);
+          const normAuthors = normalizeStr(item.autores + ' ' + (item.autores_con_afiliacion || ''));
+          const normPresenter = normalizeStr(item.presentador);
+          const normCodLibro = normalizeStr(item.codigo_libro + ' ' + (item.id_resumen_libro || '') + ' ' + (item.id_postulacion || ''));
+          const normKeywords = normalizeStr(item.palabras_clave);
+          const normSession = normalizeStr(item.id_sesion + ' ' + item.modalidad);
 
-          if (!matchTitle && !matchPresenter && !matchAuthors && !matchKeywords && !matchAbstract && !matchSession && !matchMod && !matchIdLibro) {
-            return false;
-          }
+          // Todo el texto consolidado del trabajo
+          const fullSearchBlob = `${normAuthors} ${normPresenter} ${normTitle} ${normCodLibro} ${normKeywords} ${normSession}`;
+
+          // Cada palabra buscada debe coincidir
+          const allWordsMatch = queryWords.every(word => fullSearchBlob.includes(word));
+          if (!allWordsMatch) return false;
         }
 
         return true;
@@ -481,8 +523,8 @@
       if (filtered.length === 0) {
         cardsContainer.innerHTML = `
           <div class="empty-state">
-            <p style="font-weight:700;margin-bottom:4px;">No se encontraron resultados</p>
-            <p style="font-size:12px;margin:0;">Probá cambiando el término de búsqueda o seleccionando "Todos los días".</p>
+            <p style="font-weight:700;margin-bottom:4px;">No se encontraron resultados para "${queryRaw}"</p>
+            <p style="font-size:12px;margin:0;">Verificá la ortografía del apellido o probá buscando por una palabra del título o código del libro.</p>
           </div>
         `;
         return;
@@ -491,34 +533,72 @@
       // Renderizar tarjetas
       const html = filtered.map((item, idx) => {
         const modClass = getModalityClass(item.modalidad);
-        const authorsDrawerId = `auth-${idx}`;
-        const abstractDrawerId = `abs-${idx}`;
-        const isCurso = item.modalidad === 'CURSO';
-        const isMesa = item.modalidad.includes('MESA');
-        const isConf = item.modalidad.includes('CONFERENCIA');
+        const detailsDrawerId = `details-${idx}`;
+        
+        const mod = (item.modalidad || '').toUpperCase();
+        const isCurso = mod === 'CURSO';
+        const isConversatorio = mod.includes('CONVERSATORIO');
+        const isMesa = mod.includes('MESA');
+        const isConf = mod.includes('CONFERENCIA');
         
         const totalAuthorsCount = (item.autores ? item.autores.split(',').length : 1);
 
-        // Etiqueta del rol según la modalidad
+        // ROL Y ETIQUETA SEGÚN MODALIDAD
         let roleLabel = '🎤 Presentador:';
         let roleName = item.presentador || 'A confirmar';
+        let isCollective = false;
 
         if (isCurso) {
-          roleLabel = '👨‍🏫 Docente(s):';
+          // Solicitud usuario: Responsable(s)
+          roleLabel = '👨‍🏫 Responsable(s):';
           roleName = item.autores || item.presentador;
-        } else if (isMesa) {
+          isCollective = true;
+        } else if (isConversatorio) {
+          // Solicitud usuario: Panelistas en conversatorio colectivo
           roleLabel = '👥 Panelistas:';
           roleName = item.autores || item.presentador;
+          isCollective = true;
+        } else if (isMesa) {
+          // Mesa Redonda: Panelista individual por presentación (el resto son coautores)
+          roleLabel = '👥 Panelista:';
+          roleName = item.presentador || item.autores;
+          isCollective = false;
         } else if (isConf) {
           roleLabel = '🎙️ Disertante:';
           roleName = item.presentador || item.autores;
+          isCollective = true;
         }
 
-        // Botón para ver coautores (solo en Oral y Poster si hay más de 1 autor)
-        const showCoauthorsBtn = (!isCurso && !isMesa && item.autores && totalAuthorsCount > 1);
+        // Limpiar coma final de roleName si la hubiera (ej: "Anacleto,")
+        if (roleName) {
+          roleName = roleName.replace(/,\s*$/, '').trim();
+        }
 
-        // Palabras clave en badges
-        const keywordsHtml = item.palabras_clave ? item.palabras_clave.split('•').map(k => `<span class="keyword-badge">${k.trim()}</span>`).join(' ') : '';
+        // Determinación del cajón unificado de detalles
+        const showCoauthorsInDrawer = (!isCollective && item.autores && totalAuthorsCount > 1);
+        const hasAbstract = Boolean(item.resumen && item.resumen.trim().length > 0);
+        const hasKeywords = Boolean(item.palabras_clave && item.palabras_clave.trim().length > 0);
+        const hasDetails = showCoauthorsInDrawer || hasAbstract || hasKeywords;
+
+        // Botón único para ver detalles (Autores + Resumen juntos)
+        let btnOpenText = '📄 Ver autores y resumen ▾';
+        let btnCloseText = '📄 Ver autores y resumen ▴';
+
+        if (showCoauthorsInDrawer && hasAbstract) {
+          btnOpenText = '📄 Ver autores y resumen ▾';
+          btnCloseText = '📄 Ver autores y resumen ▴';
+        } else if (hasAbstract) {
+          btnOpenText = '📄 Ver resumen ▾';
+          btnCloseText = '📄 Ver resumen ▴';
+        } else if (showCoauthorsInDrawer) {
+          btnOpenText = `👥 Ver autores (${totalAuthorsCount}) ▾`;
+          btnCloseText = `👥 Ver autores (${totalAuthorsCount}) ▴`;
+        }
+
+        // Badges de palabras clave
+        const keywordsHtml = hasKeywords 
+          ? item.palabras_clave.split('•').map(k => `<span class="keyword-badge">${k.trim()}</span>`).join(' ') 
+          : '';
 
         return `
           <article class="item-card">
@@ -533,48 +613,47 @@
             
             <h3 class="item-title">${item.titulo}</h3>
 
-            <!-- Fila de personas principales -->
+            <!-- Fila de personas principales con botón único de detalles -->
             <div class="item-people-row">
               <div>
                 <span class="person-label">${roleLabel}</span>
                 <span class="person-highlight">${roleName}</span>
               </div>
-              <div style="display:flex;gap:5px;align-items:center;">
-                ${showCoauthorsBtn ? `
-                  <button class="btn-action-pill" onclick="toggleDrawer('${authorsDrawerId}', this, '👥 Ver autores', '👥 Ocultar autores')">
-                    👥 Autores (${totalAuthorsCount}) ▾
+              ${hasDetails ? `
+                <div>
+                  <button class="btn-action-pill" onclick="toggleDrawer('${detailsDrawerId}', this, '${btnOpenText}', '${btnCloseText}')">
+                    ${btnOpenText}
                   </button>
-                ` : ''}
-                ${item.resumen ? `
-                  <button class="btn-action-pill" onclick="toggleDrawer('${abstractDrawerId}', this, '📄 Ver resumen', '📄 Ocultar resumen')">
-                    📄 Resumen ▾
-                  </button>
-                ` : ''}
-              </div>
+                </div>
+              ` : ''}
             </div>
 
-            <!-- Cajón Desplegable: Todos los Autores -->
-            ${showCoauthorsBtn ? `
-              <div class="expandable-drawer" id="${authorsDrawerId}">
-                <strong>Nómina de Autores:</strong><br>
-                ${formatAuthorsWithPresenter(item.autores, item.presentador, isCurso || isMesa)}
-              </div>
-            ` : ''}
-
-            <!-- Cajón Desplegable: Resumen y Palabras Clave -->
-            ${item.resumen ? `
-              <div class="expandable-drawer" id="${abstractDrawerId}">
-                ${keywordsHtml ? `
-                  <div class="keywords-row" style="margin-top:0;padding-top:0;border-top:none;margin-bottom:6px;">
-                    <strong>Palabras clave:</strong> ${keywordsHtml}
+            <!-- Cajón Único Desplegable: Autores, Palabras Clave y Resumen -->
+            ${hasDetails ? `
+              <div class="expandable-drawer" id="${detailsDrawerId}">
+                ${showCoauthorsInDrawer ? `
+                  <div class="drawer-section" style="${(hasAbstract || hasKeywords) ? 'margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed #cde2f2;' : ''}">
+                    <strong style="color:#0f4c81;">👥 Autores:</strong><br>
+                    <span style="display:inline-block;margin-top:3px;">
+                      ${formatAuthorsWithPresenter(item.autores, item.presentador, isCollective)}
+                    </span>
                   </div>
                 ` : ''}
-                <strong>Resumen:</strong>
-                <p class="abstract-text">${item.resumen}</p>
+                ${hasKeywords ? `
+                  <div class="keywords-row" style="margin-top:0;padding-top:0;border-top:none;margin-bottom:8px;">
+                    <strong style="color:#0f4c81;">Palabras clave:</strong> ${keywordsHtml}
+                  </div>
+                ` : ''}
+                ${hasAbstract ? `
+                  <div class="drawer-section">
+                    <strong style="color:#0f4c81;">📄 Resumen:</strong>
+                    <p class="abstract-text" style="margin-top:4px;">${item.resumen}</p>
+                  </div>
+                ` : ''}
               </div>
             ` : ''}
 
-            <!-- Footer: Solo Código del Libro (sin el PROG-XXXX interno) -->
+            <!-- Footer: Código oficial del Libro (sin correlativo interno) -->
             <div class="item-footer">
               ${(item.codigo_libro || item.id_resumen_libro) && (item.codigo_libro || item.id_resumen_libro) !== 'S/ID' ? `
                 <span class="badge-cod-libro">📖 Cód. Libro: ${item.codigo_libro || item.id_resumen_libro}</span>
@@ -594,10 +673,10 @@
       const isOpen = drawer.classList.contains('open');
       if (isOpen) {
         drawer.classList.remove('open');
-        if (btn) btn.innerHTML = btn.innerHTML.replace('▴', '▾');
+        if (btn) btn.innerHTML = textOpen;
       } else {
         drawer.classList.add('open');
-        if (btn) btn.innerHTML = btn.innerHTML.replace('▾', '▴');
+        if (btn) btn.innerHTML = textClose;
       }
     };
 
@@ -625,7 +704,7 @@
         });
       });
 
-      // Buscador
+      // Buscador reactivo
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value;
         renderItems();
