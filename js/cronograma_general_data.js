@@ -1,4 +1,4 @@
-// Datos consolidados del Cronograma General a Primera Vista con colores originales
+// Datos consolidados del Cronograma General a Primera Vista con titulos limpios y clave oficial
 window.CRONOGRAMA_GENERAL = [
   {
     "day_id": "martes",
@@ -16,9 +16,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Acreditación",
         "bg_color": "#ffffff",
-        "type": "ACREDITACION",
         "session_code": "Acreditación",
-        "title": "Acreditación",
+        "clean_title": "Acreditación",
         "coordinators": ""
       },
       {
@@ -32,9 +31,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Curso 1. \nCaracterización de microplásticos y nanoplásticos mediante métodos espectroscópicos vibracionales (Infrarrojo y Raman). \n(Picone y Rodríguez Pirani)",
         "bg_color": "#ffffcc",
-        "type": "CURSO",
         "session_code": "Curso 1",
-        "title": "Curso 1. - Caracterización de microplásticos y nanoplásticos mediante métodos espectroscópicos vibracionales (Infrarrojo y Raman).",
+        "clean_title": "Caracterización de microplásticos y nanoplásticos mediante métodos espectroscópicos vibracionales (Infrarrojo y Raman).",
         "coordinators": "Picone y Rodríguez Pirani"
       },
       {
@@ -48,9 +46,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Curso 2. \nqPCR aplicada al diagnóstico ambiental y monitoreo de procesos de biorremediación. \n(Agnello, Festa y Madueño)",
         "bg_color": "#dbe5f1",
-        "type": "CURSO",
         "session_code": "Curso 2",
-        "title": "Curso 2. - qPCR aplicada al diagnóstico ambiental y monitoreo de procesos de biorremediación.",
+        "clean_title": "qPCR aplicada al diagnóstico ambiental y monitoreo de procesos de biorremediación.",
         "coordinators": "Agnello, Festa y Madueño"
       },
       {
@@ -64,9 +61,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Curso 3. \nZebrafish: un nexo entre investigación y educación ambiental. \n(Disner)",
         "bg_color": "#e5dfec",
-        "type": "CURSO",
         "session_code": "Curso 3",
-        "title": "Curso 3. - Zebrafish: un nexo entre investigación y educación ambiental.",
+        "clean_title": "Zebrafish: un nexo entre investigación y educación ambiental.",
         "coordinators": "Disner"
       },
       {
@@ -80,9 +76,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Curso 4. \nResistencia antimicrobiana en ambientes agropecuarios: desafíos para la sostenibilidad de los ecosistemas. \n(Hernández Guijarro, Pellegrini y Okada)",
         "bg_color": "#ffffcc",
-        "type": "CURSO",
         "session_code": "Curso 4",
-        "title": "Curso 4. - Resistencia antimicrobiana en ambientes agropecuarios: desafíos para la sostenibilidad de los ecosistemas.",
+        "clean_title": "Resistencia antimicrobiana en ambientes agropecuarios: desafíos para la sostenibilidad de los ecosistemas.",
         "coordinators": "Hernández Guijarro, Pellegrini y Okada"
       },
       {
@@ -96,9 +91,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Almuerzo",
         "bg_color": "#ffffff",
-        "type": "ALMUERZO",
         "session_code": "Almuerzo",
-        "title": "Almuerzo",
+        "clean_title": "Almuerzo",
         "coordinators": ""
       },
       {
@@ -112,9 +106,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Curso 1. \nCaracterización de microplásticos y nanoplásticos mediante métodos espectroscópicos vibracionales (Infrarrojo y Raman). \n(Picone y Rodríguez Pirani)",
         "bg_color": "#ffffcc",
-        "type": "CURSO",
         "session_code": "Curso 1",
-        "title": "Curso 1. - Caracterización de microplásticos y nanoplásticos mediante métodos espectroscópicos vibracionales (Infrarrojo y Raman).",
+        "clean_title": "Caracterización de microplásticos y nanoplásticos mediante métodos espectroscópicos vibracionales (Infrarrojo y Raman).",
         "coordinators": "Picone y Rodríguez Pirani"
       },
       {
@@ -128,9 +121,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Curso 5. \nEvaluación de la calidad de agua a través de índices de calidad de agua. \n(Almeida y Perez Iglesias)",
         "bg_color": "#fde9d9",
-        "type": "CURSO",
         "session_code": "Curso 5",
-        "title": "Curso 5. - Evaluación de la calidad de agua a través de índices de calidad de agua.",
+        "clean_title": "Evaluación de la calidad de agua a través de índices de calidad de agua.",
         "coordinators": "Almeida y Perez Iglesias"
       },
       {
@@ -144,9 +136,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Curso 6. \nEcotox al vuelo: metodologías y herramientas para el abordaje de la ecotoxicología de aves silvestres. \n(Cid y Poliserpi)",
         "bg_color": "#eaf1dd",
-        "type": "CURSO",
         "session_code": "Curso 6",
-        "title": "Curso 6. - Ecotox al vuelo: metodologías y herramientas para el abordaje de la ecotoxicología de aves silvestres.",
+        "clean_title": "Ecotox al vuelo: metodologías y herramientas para el abordaje de la ecotoxicología de aves silvestres.",
         "coordinators": "Cid y Poliserpi"
       },
       {
@@ -160,9 +151,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Curso 7. \nEnsayo cometa modificado como herramienta para la detección del tipo de lesiones inducidas en la molécula de ADN. \n(Soloneski, Ruiz de Arcaute y Laborde)",
         "bg_color": "#eaf1dd",
-        "type": "CURSO",
         "session_code": "Curso 7",
-        "title": "Curso 7. - Ensayo cometa modificado como herramienta para la detección del tipo de lesiones inducidas en la molécula de ADN.",
+        "clean_title": "Ensayo cometa modificado como herramienta para la detección del tipo de lesiones inducidas en la molécula de ADN.",
         "coordinators": "Soloneski, Ruiz de Arcaute y Laborde"
       },
       {
@@ -176,9 +166,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Acreditación",
         "bg_color": "#ffffff",
-        "type": "ACREDITACION",
         "session_code": "Acreditación",
-        "title": "Acreditación",
+        "clean_title": "Acreditación",
         "coordinators": ""
       },
       {
@@ -192,9 +181,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Apertura, Conferencia Inaugual",
         "bg_color": "#ffffff",
-        "type": "PLENARIA",
-        "session_code": "",
-        "title": "Apertura, Conferencia Inaugual",
+        "session_code": "Apertura",
+        "clean_title": "Apertura, Conferencia Inaugual",
         "coordinators": ""
       },
       {
@@ -208,9 +196,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Cocktail",
         "bg_color": "#ffffff",
-        "type": "SOCIAL",
         "session_code": "Cocktail",
-        "title": "Cocktail",
+        "clean_title": "Cocktail",
         "coordinators": ""
       }
     ]
@@ -231,9 +218,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Acreditación",
         "bg_color": "#ffffff",
-        "type": "ACREDITACION",
         "session_code": "Acreditación",
-        "title": "Acreditación",
+        "clean_title": "Acreditación",
         "coordinators": ""
       },
       {
@@ -247,10 +233,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TEA-02. \nMesa Tecnologías Limpias para la remediación de efluentes \n(Prevosto; Fina; Ferreyra; Santamaría)\n(76)",
         "bg_color": "#dbe5f1",
-        "type": "MESA",
-        "session_code": "Sesión TEA-02",
-        "title": "Sesión TEA-02. - Mesa Tecnologías Limpias para la remediación de efluentes",
-        "coordinators": "76"
+        "session_code": "TEA-02",
+        "clean_title": "Mesa Tecnologías Limpias para la remediación de efluentes",
+        "coordinators": "Prevosto; Fina; Ferreyra; Santamaría"
       },
       {
         "id": "miercoles-r5-c1",
@@ -263,10 +248,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-04. \nMesa.  Ictioecotoxicología: modelos de laboratorio y campo para evaluar la contaminación acuática \n(Cazenave y Carriquiriborde)\n(34)",
         "bg_color": "#eaf1dd",
-        "type": "MESA",
-        "session_code": "Sesión TOA-04",
-        "title": "Sesión TOA-04. - Mesa.  Ictioecotoxicología: modelos de laboratorio y campo para evaluar la contaminación acuática",
-        "coordinators": "34"
+        "session_code": "TOA-04",
+        "clean_title": "Mesa.  Ictioecotoxicología: modelos de laboratorio y campo para evaluar la contaminación acuática",
+        "coordinators": "Cazenave y Carriquiriborde"
       },
       {
         "id": "miercoles-r5-c2",
@@ -279,10 +263,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-03. \nMesa. Biomarcadores: estado del arte y aplicaciones \n(Amé, Soloneski y Venturino)\n(33)",
         "bg_color": "#eaf1dd",
-        "type": "MESA",
-        "session_code": "Sesión TOA-03",
-        "title": "Sesión TOA-03. - Mesa. Biomarcadores: estado del arte y aplicaciones",
-        "coordinators": "33"
+        "session_code": "TOA-03",
+        "clean_title": "Mesa. Biomarcadores: estado del arte y aplicaciones",
+        "coordinators": "Amé, Soloneski y Venturino"
       },
       {
         "id": "miercoles-r5-c3",
@@ -295,10 +278,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-10.\nMesa. Microplásticos y plastificantes emergentes: de la toxicología a la biorremediación \n(Repetti)\n(15)",
         "bg_color": "#eaf1dd",
-        "type": "MESA",
-        "session_code": "Sesión TOA-10",
-        "title": "Sesión TOA-10. - Mesa. Microplásticos y plastificantes emergentes: de la toxicología a la biorremediación",
-        "coordinators": "15"
+        "session_code": "TOA-10",
+        "clean_title": "Mesa. Microplásticos y plastificantes emergentes: de la toxicología a la biorremediación",
+        "coordinators": "Repetti"
       },
       {
         "id": "miercoles-r9-c0",
@@ -311,9 +293,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Café",
         "bg_color": "#ffffff",
-        "type": "CAFE",
         "session_code": "Café",
-        "title": "Café",
+        "clean_title": "Café",
         "coordinators": ""
       },
       {
@@ -327,9 +308,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TEA-02. \nOrales. Tecnologías Limpias para la remediación de efluentes \n(Prevosto; Fina; Ferreyra; Santamaría)",
         "bg_color": "#dbe5f1",
-        "type": "ORAL",
-        "session_code": "Sesión TEA-02",
-        "title": "Sesión TEA-02. - Orales. Tecnologías Limpias para la remediación de efluentes",
+        "session_code": "TEA-02",
+        "clean_title": "Orales. Tecnologías Limpias para la remediación de efluentes",
         "coordinators": "Prevosto; Fina; Ferreyra; Santamaría"
       },
       {
@@ -343,9 +323,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-04. \nOrales. Ictioecotoxicología: modelos de laboratorio y campo para evaluar la contaminación acuática \n(Cazenave y Carriquiriborde)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-04",
-        "title": "Sesión TOA-04. - Orales. Ictioecotoxicología: modelos de laboratorio y campo para evaluar la contaminación acuática",
+        "session_code": "TOA-04",
+        "clean_title": "Orales. Ictioecotoxicología: modelos de laboratorio y campo para evaluar la contaminación acuática",
         "coordinators": "Cazenave y Carriquiriborde"
       },
       {
@@ -359,9 +338,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-03.\nOrales. Biomarcadores: estado del arte y aplicaciones \n(Amé, Soloneski y Venturino)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-03",
-        "title": "Sesión TOA-03. - Orales. Biomarcadores: estado del arte y aplicaciones",
+        "session_code": "TOA-03",
+        "clean_title": "Orales. Biomarcadores: estado del arte y aplicaciones",
         "coordinators": "Amé, Soloneski y Venturino"
       },
       {
@@ -375,9 +353,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-10. \nOrales. Microplásticos y plastificantes emergentes: de la toxicología a la biorremediación \n(Repetti)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-10",
-        "title": "Sesión TOA-10. - Orales. Microplásticos y plastificantes emergentes: de la toxicología a la biorremediación",
+        "session_code": "TOA-10",
+        "clean_title": "Orales. Microplásticos y plastificantes emergentes: de la toxicología a la biorremediación",
         "coordinators": "Repetti"
       },
       {
@@ -391,9 +368,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Almuerzo",
         "bg_color": "#ffffff",
-        "type": "ALMUERZO",
         "session_code": "Almuerzo",
-        "title": "Almuerzo",
+        "clean_title": "Almuerzo",
         "coordinators": ""
       },
       {
@@ -407,9 +383,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TEA-02. \nOrales. Tecnologías Limpias para la remediación de efluentes \n(Prevosto; Fina; Ferreyra; Santamaría)",
         "bg_color": "#dbe5f1",
-        "type": "ORAL",
-        "session_code": "Sesión TEA-02",
-        "title": "Sesión TEA-02. - Orales. Tecnologías Limpias para la remediación de efluentes",
+        "session_code": "TEA-02",
+        "clean_title": "Orales. Tecnologías Limpias para la remediación de efluentes",
         "coordinators": "Prevosto; Fina; Ferreyra; Santamaría"
       },
       {
@@ -423,10 +398,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión GEA-02.\n Mesa. NAMs en evaluación de riesgo: estado actual, avances y desafíos en Argentina y Latinoamérica \n(Gutierrez y Pina)\n(9)",
         "bg_color": "#fde9d9",
-        "type": "MESA",
-        "session_code": "Sesión GEA-02",
-        "title": "Sesión GEA-02. - Mesa. NAMs en evaluación de riesgo: estado actual, avances y desafíos en Argentina y Latinoamérica",
-        "coordinators": "9"
+        "session_code": "GEA-02",
+        "clean_title": "Mesa. NAMs en evaluación de riesgo: estado actual, avances y desafíos en Argentina y Latinoamérica",
+        "coordinators": "Gutierrez y Pina"
       },
       {
         "id": "miercoles-r15-c2",
@@ -439,10 +413,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión GEA-05. \nMesa. “Desafíos y Sinergias en la Minería Argentina bajo el prisma de 'Una Salud': Un Diálogo entre Academia, Empresa y Estado”.\n(Fuchs)\n(10)",
         "bg_color": "#fde9d9",
-        "type": "MESA",
-        "session_code": "Sesión GEA-05",
-        "title": "Sesión GEA-05. - Mesa. “Desafíos y Sinergias en la Minería Argentina bajo el prisma de 'Una Salud': Un Diálogo entre Academia, Empresa y Estado”.",
-        "coordinators": "10"
+        "session_code": "GEA-05",
+        "clean_title": "Mesa. “Desafíos y Sinergias en la Minería Argentina bajo el prisma de 'Una Salud': Un Diálogo entre Academia, Empresa y Estado”.",
+        "coordinators": "Fuchs"
       },
       {
         "id": "miercoles-r15-c3",
@@ -455,9 +428,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Pratocinante I\nD'Amico",
         "bg_color": "#ffffff",
-        "type": "OTRO",
         "session_code": "",
-        "title": "Pratocinante I - D'Amico",
+        "clean_title": "Pratocinante I &bull; D'Amico",
         "coordinators": ""
       },
       {
@@ -471,9 +443,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Café",
         "bg_color": "#ffffff",
-        "type": "CAFE",
         "session_code": "Café",
-        "title": "Café",
+        "clean_title": "Café",
         "coordinators": ""
       },
       {
@@ -487,9 +458,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Plenaria 1.\nIsótopos Estables y su Relación con Procesos y Contaminación Ambiental.\n(Daniel Wundelrin)",
         "bg_color": "#dbe5f1",
-        "type": "PLENARIA",
         "session_code": "Plenaria 1",
-        "title": "Plenaria 1. - Isótopos Estables y su Relación con Procesos y Contaminación Ambiental.",
+        "clean_title": "Isótopos Estables y su Relación con Procesos y Contaminación Ambiental.",
         "coordinators": "Daniel Wundelrin"
       },
       {
@@ -503,10 +473,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Paneles & Sociales 1 (97)\nTEA-02 (36) TOA-04 (23)\nTOA-03 (22) TOA-10 (5)\nGEA-02 (5) GEA-03 (3) GEA-05 (4)",
         "bg_color": "#ffffff",
-        "type": "POSTER",
-        "session_code": "",
-        "title": "Paneles & Sociales 1 (97) - TEA-02 (36) TOA-04 (23)",
-        "coordinators": "4"
+        "session_code": "Pósters",
+        "clean_title": "Paneles & Sociales 1 (97) &bull; TEA-02 (36) TOA-04 (23) &bull; TOA-03 (22) TOA-10 (5) &bull; GEA-02 (5) GEA-03 (3) GEA-05 (4)",
+        "coordinators": ""
       },
       {
         "id": "miercoles-r25-c0",
@@ -519,9 +488,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Asamblea Estudiantes",
         "bg_color": "#ffffff",
-        "type": "SOCIAL",
-        "session_code": "",
-        "title": "Asamblea Estudiantes",
+        "session_code": "Asamblea",
+        "clean_title": "Asamblea Estudiantes",
         "coordinators": ""
       },
       {
@@ -535,9 +503,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Actividad Social 2",
         "bg_color": "#ffffff",
-        "type": "SOCIAL",
         "session_code": "",
-        "title": "Actividad Social 2",
+        "clean_title": "Actividad Social 2",
         "coordinators": ""
       }
     ]
@@ -558,9 +525,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Acreditación",
         "bg_color": "#ffffff",
-        "type": "ACREDITACION",
         "session_code": "Acreditación",
-        "title": "Acreditación",
+        "clean_title": "Acreditación",
         "coordinators": ""
       },
       {
@@ -574,9 +540,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión CASAFE.\nMesa. “Producir, conservar y equilibrar: ciencia colaborativa y evaluación ambiental al servicio de la agricultura” \n(Favre)",
         "bg_color": "#fde9d9",
-        "type": "MESA",
-        "session_code": "Sesión CASAFE",
-        "title": "Sesión CASAFE. - Mesa. “Producir, conservar y equilibrar: ciencia colaborativa y evaluación ambiental al servicio de la agricultura”",
+        "session_code": "CASAFE",
+        "clean_title": "Mesa. “Producir, conservar y equilibrar: ciencia colaborativa y evaluación ambiental al servicio de la agricultura”",
         "coordinators": "Favre"
       },
       {
@@ -590,10 +555,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-05.\nOrales. Desafíos de la ecotoxicología de la fauna silvestre: una visión integrada \n(Poliserpi y Cid)\n(23)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-05",
-        "title": "Sesión TOA-05. - Orales. Desafíos de la ecotoxicología de la fauna silvestre: una visión integrada",
-        "coordinators": "23"
+        "session_code": "TOA-05",
+        "clean_title": "Orales. Desafíos de la ecotoxicología de la fauna silvestre: una visión integrada",
+        "coordinators": "Poliserpi y Cid"
       },
       {
         "id": "jueves-r5-c2",
@@ -606,10 +570,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-02.\nOrales. Invertebrados acuáticos como modelos para evaluar la contaminación ambiental \n(Peluso) \n(23)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-02",
-        "title": "Sesión TOA-02. - Orales. Invertebrados acuáticos como modelos para evaluar la contaminación ambiental",
-        "coordinators": "23"
+        "session_code": "TOA-02",
+        "clean_title": "Orales. Invertebrados acuáticos como modelos para evaluar la contaminación ambiental",
+        "coordinators": "Peluso"
       },
       {
         "id": "jueves-r5-c3",
@@ -622,10 +585,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión EDA-01. \nMesa. Educación ambiental crítica, territorio y democratización del conocimiento \nOrales. Experiencias pedagógicas, participación y construcción colectiva de conocimientos\n(Celli, Pérez)\n(19)",
         "bg_color": "#e5dfec",
-        "type": "MESA",
-        "session_code": "Sesión EDA-01",
-        "title": "Sesión EDA-01. - Mesa. Educación ambiental crítica, territorio y democratización del conocimiento",
-        "coordinators": "19"
+        "session_code": "EDA-01",
+        "clean_title": "Mesa. Educación ambiental crítica, territorio y democratización del conocimiento &bull; Orales. Experiencias pedagógicas, participación y construcción colectiva de conocimientos",
+        "coordinators": "Celli, Pérez"
       },
       {
         "id": "jueves-r9-c0",
@@ -638,9 +600,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Café",
         "bg_color": "#ffffff",
-        "type": "CAFE",
         "session_code": "Café",
-        "title": "Café",
+        "clean_title": "Café",
         "coordinators": ""
       },
       {
@@ -654,9 +615,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión CASAFE.\nConferencia. “Tendencias, modelación y NAMs en ecotoxicología” \n(Souza Santos)",
         "bg_color": "#fde9d9",
-        "type": "PLENARIA",
-        "session_code": "Sesión CASAFE",
-        "title": "Sesión CASAFE. - Conferencia. “Tendencias, modelación y NAMs en ecotoxicología”",
+        "session_code": "CASAFE",
+        "clean_title": "Conferencia. “Tendencias, modelación y NAMs en ecotoxicología”",
         "coordinators": "Souza Santos"
       },
       {
@@ -670,9 +630,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-05. \nMesa. Desafíos de la ecotoxicología de la fauna silvestre: una visión integrada \n(Poliserpi y Cid)",
         "bg_color": "#eaf1dd",
-        "type": "MESA",
-        "session_code": "Sesión TOA-05",
-        "title": "Sesión TOA-05. - Mesa. Desafíos de la ecotoxicología de la fauna silvestre: una visión integrada",
+        "session_code": "TOA-05",
+        "clean_title": "Mesa. Desafíos de la ecotoxicología de la fauna silvestre: una visión integrada",
         "coordinators": "Poliserpi y Cid"
       },
       {
@@ -686,10 +645,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión GEA-06.\nEntre moléculas y organismos: descifrando la calidad del agua con bioindicadores \n(Gómez)\n(5)",
         "bg_color": "#fde9d9",
-        "type": "OTRO",
-        "session_code": "Sesión GEA-06",
-        "title": "Sesión GEA-06. - Entre moléculas y organismos: descifrando la calidad del agua con bioindicadores",
-        "coordinators": "5"
+        "session_code": "GEA-06",
+        "clean_title": "Entre moléculas y organismos: descifrando la calidad del agua con bioindicadores",
+        "coordinators": "Gómez"
       },
       {
         "id": "jueves-r10-c3",
@@ -702,10 +660,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión QUA-01.\nOrales. Contaminación del agua, la tierra y la atmosfera\n(Okada; Hernández-Guijarro; Pellegrini)\n(33)",
         "bg_color": "#ffffcc",
-        "type": "ORAL",
-        "session_code": "Sesión QUA-01",
-        "title": "Sesión QUA-01. - Orales. Contaminación del agua, la tierra y la atmosfera",
-        "coordinators": "33"
+        "session_code": "QUA-01",
+        "clean_title": "Orales. Contaminación del agua, la tierra y la atmosfera",
+        "coordinators": "Okada; Hernández-Guijarro; Pellegrini"
       },
       {
         "id": "jueves-r12-c0",
@@ -718,9 +675,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Almuerzo",
         "bg_color": "#ffffff",
-        "type": "ALMUERZO",
         "session_code": "Almuerzo",
-        "title": "Almuerzo",
+        "clean_title": "Almuerzo",
         "coordinators": ""
       },
       {
@@ -734,9 +690,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión GEA-08.\nMesa. El rol de las convenciones y organizaciones intergubernamentales en la gobernanza global de la contaminación \n(Carriquiriborde)",
         "bg_color": "#fde9d9",
-        "type": "MESA",
-        "session_code": "Sesión GEA-08",
-        "title": "Sesión GEA-08. - Mesa. El rol de las convenciones y organizaciones intergubernamentales en la gobernanza global de la contaminación",
+        "session_code": "GEA-08",
+        "clean_title": "Mesa. El rol de las convenciones y organizaciones intergubernamentales en la gobernanza global de la contaminación",
         "coordinators": "Carriquiriborde"
       },
       {
@@ -750,10 +705,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión QUA-04.\nOrales. Contaminación del agua, la tierra y la atmosfera\n(Amé y Rossen)\n(33)",
         "bg_color": "#ffffcc",
-        "type": "ORAL",
-        "session_code": "Sesión QUA-04",
-        "title": "Sesión QUA-04. - Orales. Contaminación del agua, la tierra y la atmosfera",
-        "coordinators": "33"
+        "session_code": "QUA-04",
+        "clean_title": "Orales. Contaminación del agua, la tierra y la atmosfera",
+        "coordinators": "Amé y Rossen"
       },
       {
         "id": "jueves-r15-c2",
@@ -766,9 +720,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Taller CAA.\nCuenca del Río Reconquista: diagnóstico, monitoreo y propuesta de mapeo colaborativo de contaminantes emergentes \n(Grupo Reconquista - Meschengieser)",
         "bg_color": "#fde9d9",
-        "type": "TALLER",
         "session_code": "Taller CAA",
-        "title": "Taller CAA. - Cuenca del Río Reconquista: diagnóstico, monitoreo y propuesta de mapeo colaborativo de contaminantes emergentes",
+        "clean_title": "Taller CAA. &bull; Cuenca del Río Reconquista: diagnóstico, monitoreo y propuesta de mapeo colaborativo de contaminantes emergentes",
         "coordinators": "Grupo Reconquista - Meschengieser"
       },
       {
@@ -782,9 +735,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión GEA-01\nOrales. Riesgo Ecológico y para la Salud Humana, Evaluaciones de Impacto Ambiental y Análisis de Ciclo de Vida \n(Demetrio)",
         "bg_color": "#fde9d9",
-        "type": "ORAL",
-        "session_code": "Sesión GEA-01",
-        "title": "Sesión GEA-01 - Orales. Riesgo Ecológico y para la Salud Humana, Evaluaciones de Impacto Ambiental y Análisis de Ciclo de Vida",
+        "session_code": "GEA-01",
+        "clean_title": "Orales. Riesgo Ecológico y para la Salud Humana, Evaluaciones de Impacto Ambiental y Análisis de Ciclo de Vida",
         "coordinators": "Demetrio"
       },
       {
@@ -798,9 +750,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión GPBA. \nMesa. Nuevas herramientas para la gestión y el control ambiental en la Provincia de Buenos Aires\n(Fuchs)",
         "bg_color": "#fde9d9",
-        "type": "MESA",
-        "session_code": "Sesión GPBA",
-        "title": "Sesión GPBA. - Mesa. Nuevas herramientas para la gestión y el control ambiental en la Provincia de Buenos Aires",
+        "session_code": "GPBA",
+        "clean_title": "Mesa. Nuevas herramientas para la gestión y el control ambiental en la Provincia de Buenos Aires",
         "coordinators": "Fuchs"
       },
       {
@@ -814,9 +765,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Mesa 13b.\nCONVERSATORIO. Diversidad, equidad e inclusión en SETAC argentina \n(Ossana, Pina, Lo Nostro)",
         "bg_color": "#e5dfec",
-        "type": "MESA",
-        "session_code": "Mesa 13b",
-        "title": "Mesa 13b. - CONVERSATORIO. Diversidad, equidad e inclusión en SETAC argentina",
+        "session_code": "Conversatorio",
+        "clean_title": "CONVERSATORIO. Diversidad, equidad e inclusión en SETAC argentina",
         "coordinators": "Ossana, Pina, Lo Nostro"
       },
       {
@@ -830,9 +780,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Café",
         "bg_color": "#ffffff",
-        "type": "CAFE",
         "session_code": "Café",
-        "title": "Café",
+        "clean_title": "Café",
         "coordinators": ""
       },
       {
@@ -846,9 +795,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Plenaria 2. \nMicronavegantes del Antropoceno: de la baquelita al estrecho de Magallanes, el impacto regional y la huella emergente de los plásticos en la salud humana\n(Andrés Arias)",
         "bg_color": "#dbe5f1",
-        "type": "PLENARIA",
         "session_code": "Plenaria 2",
-        "title": "Plenaria 2. - Micronavegantes del Antropoceno: de la baquelita al estrecho de Magallanes, el impacto regional y la huella emergente de los plásticos en la salud humana",
+        "clean_title": "Micronavegantes del Antropoceno: de la baquelita al estrecho de Magallanes, el impacto regional y la huella emergente de los plásticos en la salud humana",
         "coordinators": "Andrés Arias"
       },
       {
@@ -862,10 +810,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Paneles & Sociales 2 (91)\nTOA-05 (17) TOA-02 (14) TEA-01 (4)\nEDA-01 (11) GEA-06 (1) TOA-05 (11)\nQUA-01 (4) QUA-04 (19) QUA-05 (19) \nGEA-01 (7) TOA-08 (2)",
         "bg_color": "#ffffff",
-        "type": "POSTER",
-        "session_code": "",
-        "title": "Paneles & Sociales 2 (91) - TOA-05 (17) TOA-02 (14) TEA-01 (4)",
-        "coordinators": "2"
+        "session_code": "Pósters",
+        "clean_title": "Paneles & Sociales 2 (91) &bull; TOA-05 (17) TOA-02 (14) TEA-01 (4) &bull; EDA-01 (11) GEA-06 (1) TOA-05 (11) &bull; QUA-01 (4) QUA-04 (19) QUA-05 (19) &bull; GEA-01 (7) TOA-08 (2)",
+        "coordinators": ""
       },
       {
         "id": "jueves-r25-c0",
@@ -878,9 +825,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Asamblea Sociedad",
         "bg_color": "#ffffff",
-        "type": "SOCIAL",
-        "session_code": "",
-        "title": "Asamblea Sociedad",
+        "session_code": "Asamblea",
+        "clean_title": "Asamblea Sociedad",
         "coordinators": ""
       },
       {
@@ -894,9 +840,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Actividad Social 3",
         "bg_color": "#ffffff",
-        "type": "SOCIAL",
         "session_code": "",
-        "title": "Actividad Social 3",
+        "clean_title": "Actividad Social 3",
         "coordinators": ""
       }
     ]
@@ -917,9 +862,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Acreditación",
         "bg_color": "#ffffff",
-        "type": "ACREDITACION",
         "session_code": "Acreditación",
-        "title": "Acreditación",
+        "clean_title": "Acreditación",
         "coordinators": ""
       },
       {
@@ -933,10 +877,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión GEA-07. \nMesa. Monitoreo de la contaminación del agua en el hemisferio sur \n(Umbuzeiro; Beamud; Jakomin Rudez; Kandie; Amé)\n(22)",
         "bg_color": "#fde9d9",
-        "type": "MESA",
-        "session_code": "Sesión GEA-07",
-        "title": "Sesión GEA-07. - Mesa. Monitoreo de la contaminación del agua en el hemisferio sur",
-        "coordinators": "22"
+        "session_code": "GEA-07",
+        "clean_title": "Mesa. Monitoreo de la contaminación del agua en el hemisferio sur",
+        "coordinators": "Umbuzeiro; Beamud; Jakomin Rudez; Kandie; Amé"
       },
       {
         "id": "viernes-r5-c1",
@@ -949,10 +892,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión QUA-02. \nOrales. Contaminantes emergentes en ecosistemas acuáticos \n(Miglioranza)\n(58)",
         "bg_color": "#ffffcc",
-        "type": "ORAL",
-        "session_code": "Sesión QUA-02",
-        "title": "Sesión QUA-02. - Orales. Contaminantes emergentes en ecosistemas acuáticos",
-        "coordinators": "58"
+        "session_code": "QUA-02",
+        "clean_title": "Orales. Contaminantes emergentes en ecosistemas acuáticos",
+        "coordinators": "Miglioranza"
       },
       {
         "id": "viernes-r5-c2",
@@ -965,10 +907,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-01. \nMesa. Visión Verde: estudios de contaminación y ecotoxicología con algas y plantas acuáticas \n(Menone y Pérez)\n(17)",
         "bg_color": "#eaf1dd",
-        "type": "MESA",
-        "session_code": "Sesión TOA-01",
-        "title": "Sesión TOA-01. - Mesa. Visión Verde: estudios de contaminación y ecotoxicología con algas y plantas acuáticas",
-        "coordinators": "17"
+        "session_code": "TOA-01",
+        "clean_title": "Mesa. Visión Verde: estudios de contaminación y ecotoxicología con algas y plantas acuáticas",
+        "coordinators": "Menone y Pérez"
       },
       {
         "id": "viernes-r5-c3",
@@ -981,9 +922,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Taller CIESA. \nBioensayos para la evaluación de riesgo ecológico en ecosistemas acuáticos.\n(Ortega Huyhua)",
         "bg_color": "#fde9d9",
-        "type": "TALLER",
         "session_code": "Taller CIESA",
-        "title": "Taller CIESA. - Bioensayos para la evaluación de riesgo ecológico en ecosistemas acuáticos.",
+        "clean_title": "Taller CIESA. &bull; Bioensayos para la evaluación de riesgo ecológico en ecosistemas acuáticos.",
         "coordinators": "Ortega Huyhua"
       },
       {
@@ -997,9 +937,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Café",
         "bg_color": "#ffffff",
-        "type": "CAFE",
         "session_code": "Café",
-        "title": "Café",
+        "clean_title": "Café",
         "coordinators": ""
       },
       {
@@ -1013,9 +952,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión GEA-07.\nOrales. Monitoreo de la contaminación del agua en el hemisferio sur \n(Umbuzeiro; Beamud; Jakomin Rudez; Kandie; Amé)",
         "bg_color": "#fde9d9",
-        "type": "ORAL",
-        "session_code": "Sesión GEA-07",
-        "title": "Sesión GEA-07. - Orales. Monitoreo de la contaminación del agua en el hemisferio sur",
+        "session_code": "GEA-07",
+        "clean_title": "Orales. Monitoreo de la contaminación del agua en el hemisferio sur",
         "coordinators": "Umbuzeiro; Beamud; Jakomin Rudez; Kandie; Amé"
       },
       {
@@ -1029,9 +967,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión QUA-02. \nOrales. Contaminantes emergentes en ecosistemas acuáticos \n(Miglioranza)",
         "bg_color": "#ffffcc",
-        "type": "ORAL",
-        "session_code": "Sesión QUA-02",
-        "title": "Sesión QUA-02. - Orales. Contaminantes emergentes en ecosistemas acuáticos",
+        "session_code": "QUA-02",
+        "clean_title": "Orales. Contaminantes emergentes en ecosistemas acuáticos",
         "coordinators": "Miglioranza"
       },
       {
@@ -1045,9 +982,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-01. \nOrales. Visión Verde: estudios de contaminación y ecotoxicología con algas y plantas acuáticas \n(Menone y Pérez)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-01",
-        "title": "Sesión TOA-01. - Orales. Visión Verde: estudios de contaminación y ecotoxicología con algas y plantas acuáticas",
+        "session_code": "TOA-01",
+        "clean_title": "Orales. Visión Verde: estudios de contaminación y ecotoxicología con algas y plantas acuáticas",
         "coordinators": "Menone y Pérez"
       },
       {
@@ -1061,10 +997,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-09.\nOrales. Ecotoxicología de invertebrados terrestre\n(Rimoldi)\n(7)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-09",
-        "title": "Sesión TOA-09. - Orales. Ecotoxicología de invertebrados terrestre",
-        "coordinators": "7"
+        "session_code": "TOA-09",
+        "clean_title": "Orales. Ecotoxicología de invertebrados terrestre",
+        "coordinators": "Rimoldi"
       },
       {
         "id": "viernes-r12-c0",
@@ -1077,9 +1012,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Almuerzo",
         "bg_color": "#ffffff",
-        "type": "ALMUERZO",
         "session_code": "Almuerzo",
-        "title": "Almuerzo",
+        "clean_title": "Almuerzo",
         "coordinators": ""
       },
       {
@@ -1093,10 +1027,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión QUA-06. \nOrales. Contaminantes ambientales en matrices complejas desafíos analíticos, innovación. \n(Mac Loughlin)\n(38)",
         "bg_color": "#ffffcc",
-        "type": "ORAL",
-        "session_code": "Sesión QUA-06",
-        "title": "Sesión QUA-06. - Orales. Contaminantes ambientales en matrices complejas desafíos analíticos, innovación.",
-        "coordinators": "38"
+        "session_code": "QUA-06",
+        "clean_title": "Orales. Contaminantes ambientales en matrices complejas desafíos analíticos, innovación.",
+        "coordinators": "Mac Loughlin"
       },
       {
         "id": "viernes-r15-c1",
@@ -1109,10 +1042,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-07.\nOrales. Contaminación ambiental y sus efectos sobre la salud humana\n(Marina Fernadez)\n(38)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-07",
-        "title": "Sesión TOA-07. - Orales. Contaminación ambiental y sus efectos sobre la salud humana",
-        "coordinators": "38"
+        "session_code": "TOA-07",
+        "clean_title": "Orales. Contaminación ambiental y sus efectos sobre la salud humana",
+        "coordinators": "Marina Fernadez"
       },
       {
         "id": "viernes-r15-c2",
@@ -1125,9 +1057,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión CEMAS. \nDe la medición a la decisión: métricas ambientales y gestión empresarial del impacto climático \n(Melito & Garófalo)",
         "bg_color": "#fde9d9",
-        "type": "OTRO",
-        "session_code": "Sesión CEMAS",
-        "title": "Sesión CEMAS. - De la medición a la decisión: métricas ambientales y gestión empresarial del impacto climático",
+        "session_code": "CEMAS",
+        "clean_title": "De la medición a la decisión: métricas ambientales y gestión empresarial del impacto climático",
         "coordinators": "Melito & Garófalo"
       },
       {
@@ -1141,10 +1072,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 1,
         "raw_text": "Sesión TOA-06. \nOrales. Del guardapolvo a las botas: evaluar la exposición a contaminantes y sus efectos en el campo \n(Brodeur y Poliserpi)\n(6)",
         "bg_color": "#eaf1dd",
-        "type": "ORAL",
-        "session_code": "Sesión TOA-06",
-        "title": "Sesión TOA-06. - Orales. Del guardapolvo a las botas: evaluar la exposición a contaminantes y sus efectos en el campo",
-        "coordinators": "6"
+        "session_code": "TOA-06",
+        "clean_title": "Orales. Del guardapolvo a las botas: evaluar la exposición a contaminantes y sus efectos en el campo",
+        "coordinators": "Brodeur y Poliserpi"
       },
       {
         "id": "viernes-r19-c0",
@@ -1157,9 +1087,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Café",
         "bg_color": "#ffffff",
-        "type": "CAFE",
         "session_code": "Café",
-        "title": "Café",
+        "clean_title": "Café",
         "coordinators": ""
       },
       {
@@ -1173,9 +1102,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Plenaria 3. \nFrom Cells to Adverse Outcomes: Advancing New Approach Methodologies for Environmental Risk Assessment – Lessons from Fish\n(Kristin Schirmer)",
         "bg_color": "#dbe5f1",
-        "type": "PLENARIA",
         "session_code": "Plenaria 3",
-        "title": "Plenaria 3. - From Cells to Adverse Outcomes: Advancing New Approach Methodologies for Environmental Risk Assessment – Lessons from Fish",
+        "clean_title": "From Cells to Adverse Outcomes: Advancing New Approach Methodologies for Environmental Risk Assessment – Lessons from Fish",
         "coordinators": "Kristin Schirmer"
       },
       {
@@ -1189,10 +1117,9 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Paneles & Sociales 3\nGEA-07 (13) QUA-02 (116)\nTOA-01 (22) TOA-09 (2)\nQUA-06 (22) TOA-07 (27)\nTOA-06 (4)",
         "bg_color": "#ffffff",
-        "type": "POSTER",
-        "session_code": "",
-        "title": "Paneles & Sociales 3 - GEA-07 (13) QUA-02 (116)",
-        "coordinators": "4"
+        "session_code": "Pósters",
+        "clean_title": "Paneles & Sociales 3 &bull; GEA-07 (13) QUA-02 (116) &bull; TOA-01 (22) TOA-09 (2) &bull; QUA-06 (22) TOA-07 (27) &bull; TOA-06 (4)",
+        "coordinators": ""
       },
       {
         "id": "viernes-r25-c0",
@@ -1205,9 +1132,8 @@ window.CRONOGRAMA_GENERAL = [
         "col_span": 4,
         "raw_text": "Ceremonia de Clausura",
         "bg_color": "#ffffff",
-        "type": "SOCIAL",
-        "session_code": "",
-        "title": "Ceremonia de Clausura",
+        "session_code": "Clausura",
+        "clean_title": "Ceremonia de Clausura",
         "coordinators": ""
       }
     ]

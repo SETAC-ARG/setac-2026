@@ -30,7 +30,7 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 14px;
     }
     .btn-nav-action {
@@ -40,10 +40,10 @@
       color: #1b71a8;
       text-decoration: none;
       font-weight: 700;
-      font-size: 13px;
-      padding: 8px 14px;
+      font-size: 12.5px;
+      padding: 7px 12px;
       background: #ffffff;
-      border-radius: 10px;
+      border-radius: 9px;
       border: 1px solid #b8daf2;
       box-shadow: 0 2px 6px rgba(27, 113, 168, 0.08);
       transition: all .2s ease;
@@ -61,6 +61,15 @@
     .btn-nav-action.primary:hover {
       background: #1b71a8;
       color: #ffffff;
+    }
+    .btn-nav-action.secondary-alt {
+      background: #f1f5f9;
+      color: #334155;
+      border-color: #cbd5e1;
+    }
+    .btn-nav-action.secondary-alt:hover {
+      background: #e2e8f0;
+      color: #0f172a;
     }
 
     /* Banner del Título con Logo SETAC */
@@ -99,7 +108,7 @@
       margin: 0;
     }
 
-    /* Clave de Colores / Ejes Temáticos */
+    /* Clave de Colores / Ejes Temáticos Oficiales */
     .legend-panel {
       background: #ffffff;
       border-radius: 12px;
@@ -323,7 +332,7 @@
       font-size: 10px;
       font-weight: 700;
       color: #334155;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       padding: 2px 6px;
       border-radius: 4px;
       border: 1px solid #cbd5e1;
@@ -424,14 +433,19 @@
 
   <div class="schedule-container">
     
-    <!-- Barra superior de Navegación -->
+    <!-- Barra superior de Navegación con descarga de AMBOS PDFs -->
     <div class="schedule-header-nav">
       <a href="preview.html" class="btn-nav-action">
         &larr; Volver al Menú Principal
       </a>
-      <a href="docs/Programa_a_primera_vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary">
-        📥 Descargar PDF A primera vista
-      </a>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <a href="docs/Programa_a_primera_vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary" title="Versión diseñada con logo y leyenda de colores">
+          📥 PDF Diseñado (Apaisado)
+        </a>
+        <a href="docs/Programa_a_primera_vista_original_excel.pdf" target="_blank" rel="noopener" class="btn-nav-action secondary-alt" title="Exportación directa 1 a 1 del Excel original">
+          📄 PDF Original Excel
+        </a>
+      </div>
     </div>
 
     <!-- Título Principal con Logo SETAC -->
@@ -443,15 +457,15 @@
       </div>
     </header>
 
-    <!-- Referencias de Ejes Temáticos (Clave de Colores Oficial) -->
+    <!-- Referencias de Ejes Temáticos Oficiales -->
     <div class="legend-panel">
-      <span class="legend-title">🎨 Clave de Colores Oficial:</span>
+      <span class="legend-title">🎨 Ejes Temáticos Oficiales:</span>
       <div class="legend-items-wrap">
-        <span class="legend-pill"><span class="legend-dot" style="background:#eaf1dd;"></span> Toxicología (TOA)</span>
-        <span class="legend-pill"><span class="legend-dot" style="background:#dbe5f1;"></span> Tecnol. Limpias (TEA)</span>
-        <span class="legend-pill"><span class="legend-dot" style="background:#fde9d9;"></span> Gestión / CASAFE (GEA)</span>
-        <span class="legend-pill"><span class="legend-dot" style="background:#ffffcc;"></span> Química (QUA) / Cursos</span>
-        <span class="legend-pill"><span class="legend-dot" style="background:#e5dfec;"></span> Educ. Ambiental (EDA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#eaf1dd;"></span> Toxicología Ambiental (TOA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#dbe5f1;"></span> Tecnología Ambiental (TEA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#fde9d9;"></span> Gestión Ambiental (GEA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#ffffcc;"></span> Química Ambiental (QUA)</span>
+        <span class="legend-pill"><span class="legend-dot" style="background:#e5dfec;"></span> Educación Ambiental (EDA)</span>
       </div>
     </div>
 
@@ -555,7 +569,7 @@
         
         day.events.forEach(ev => {
           if (q) {
-            const rawNorm = normalizeText(ev.raw_text + ' ' + ev.session_code + ' ' + ev.coordinators);
+            const rawNorm = normalizeText(ev.raw_text + ' ' + (ev.session_code || '') + ' ' + (ev.coordinators || ''));
             if (!rawNorm.includes(q)) return;
           }
 
@@ -590,7 +604,6 @@
           `;
 
           eventsInSlot.forEach(ev => {
-            const evType = ev.type || 'OTRO';
             const cellBg = ev.bg_color && ev.bg_color !== '#ffffff' ? ev.bg_color : '#ffffff';
 
             let cardStyle = `background-color: ${cellBg};`;
@@ -600,10 +613,8 @@
               cardStyle += ' border-left: 4.5px solid #3b608d;';
             }
 
-            const lines = ev.raw_text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-            const mainTitle = lines.length > 0 ? lines[0] : '';
-            const subTitle = lines.length > 1 ? lines.slice(1, -1).join(' &bull; ') : '';
-            const lastLine = lines.length > 1 ? lines[lines.length - 1] : '';
+            // Título limpio sin duplicar el badge
+            const displayTitle = ev.clean_title || ev.raw_text;
 
             html += `
               <div class="schedule-card" style="${cardStyle}">
@@ -612,12 +623,11 @@
                     ${ev.session_code ? `<span class="badge-session-code">${ev.session_code}</span>` : '<span></span>'}
                     ${!ev.is_plenary ? `<span class="badge-track-room">Sala ${ev.track_col}</span>` : '<span class="badge-track-room" style="background:#3b608d;color:#ffffff;">Plenario / General</span>'}
                   </div>
-                  <div class="card-event-title">${mainTitle}</div>
-                  ${subTitle ? `<div style="font-size:12px;color:#1e293b;margin-bottom:4px;font-weight:600;">${subTitle}</div>` : ''}
+                  <div class="card-event-title">${displayTitle}</div>
                 </div>
-                ${lastLine && lastLine !== mainTitle ? `
+                ${ev.coordinators ? `
                   <div class="card-coordinators">
-                    ${lastLine.startsWith('(') ? `<strong>Responsables:</strong> ${lastLine}` : lastLine}
+                    <strong>Responsables:</strong> (${ev.coordinators})
                   </div>
                 ` : ''}
               </div>
@@ -637,7 +647,7 @@
         container.innerHTML = `
           <div class="empty-state">
             <p style="font-weight:700;margin-bottom:4px;">No se encontraron actividades para "${currentSearchQuery}"</p>
-            <p style="font-size:12px;margin:0;">Probá buscando por nombre de sesión, curso, tema o apellido de coordinador.</p>
+            <p style="font-size:12px;margin:0;">Probá buscando por código de sesión, tema o apellido de responsable.</p>
           </div>
         `;
         return;
@@ -687,7 +697,7 @@
             const cellBg = ev.bg_color || '#e0f2fe';
             tbodyHtml += `
               <td colspan="4" style="background-color:${cellBg};font-weight:700;color:#0f172a;text-align:center;padding:8px;vertical-align:middle;">
-                ${ev.raw_text.replace(/\n/g, '<br>')}
+                ${ev.clean_title || ev.raw_text.replace(/\n/g, '<br>')}
               </td>
             `;
           } else {
@@ -696,10 +706,10 @@
               if (ev) {
                 const cellBg = ev.bg_color || '#ffffff';
                 tbodyHtml += `
-                  <td style="background-color:${cellBg};vertical-align:top;font-size:10.5px;">
-                    ${ev.session_code ? `<span class="badge-session-code" style="margin-bottom:3px;">${ev.session_code}</span><br>` : ''}
-                    <strong>${ev.title}</strong><br>
-                    ${ev.coordinators ? `<span style="font-size:9.5px;color:#334155;">(${ev.coordinators})</span>` : ''}
+                  <td style="background-color:${cellBg};vertical-align:top;font-size:10px;line-height:1.2;">
+                    ${ev.session_code ? `<span class="badge-session-code" style="margin-bottom:2px;">${ev.session_code}</span><br>` : ''}
+                    <strong>${ev.clean_title || ev.title}</strong>
+                    ${ev.coordinators ? `<br><span style="font-size:9px;color:#334155;">(${ev.coordinators})</span>` : ''}
                   </td>
                 `;
               } else {
