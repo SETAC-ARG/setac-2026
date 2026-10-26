@@ -54,13 +54,17 @@ Programa_a_primera_vista.xlsx                                                   
 * **Motor de armado**: `motor_libro_resumenes.py` con módulos de curaduría tipográfica, cursivas de especies taxonómicas y armado de índices por autor y tema.
 * **Documento resultante**: `d_LittleLink/docs/Libro_Resumenes_SETAC_2026_Final.pdf`.
 
-#### B. Programa Detallado y Buscador Interactivo
-* **Ubicación**: `g:\Mi unidad\Inv\2026\pruebas_Congreso_SETAC\c_Programa\`
-* **Archivos base**: `Ultimo enviado Pedro/Programa_Detallado.xlsx` y `Program_Definitivo_Borrado261019.pdf`.
+#### B. Programa Detallado, PDF Oficial y Buscador Interactivo
+* **Ubicación de Fuentes**: `g:\Mi unidad\Inv\2026\pruebas_Congreso_SETAC\c_Programa\`
+* **Archivos base**:
+  * `Programa_Detallado_Final/Programa_Final_Ordenado.pdf`: Versión oficial de 40 páginas con 10 columnas (`FECHA`, `DÍA`, `TURNO`, `HORA`, `AUDITORIO/SALA`, `ID SESION`, `MODALIDAD`, `ORDEN`, `TITULO`, `AUTORES`). Ordena las actividades en salas primero (por día/turno) y agrupa los pósters de cada día en páginas dedicadas al final de la jornada.
+  * `Ultimo enviado Pedro/Programa_Detallado.xlsx` y `Program_Definitivo_Borrado261019.pdf`.
 * **Procesadores**:
-  * `procesar_programa.py`: Cruza las presentaciones del programa con el Libro de Resúmenes y emite la auditoría `informe_auditoria_libro_vs_programa.xlsx`.
+  * `procesar_programa.py`: Cruza las presentaciones del programa con el Libro de Resúmenes, homologa etiquetas a `Sala 1, 2, 3, 4` y emite la auditoría `informe_auditoria_libro_vs_programa.xlsx`.
   * `generar_pestana_autores.py`: Extrae autores completos, afiliaciones limpias, país del disertante y asegura que exactamente **1 único presentador** quede marcado.
-* **Insumo resultante para la Web**: `d_LittleLink/js/programa_autores_data.js` (utilizado por el buscador `programa.html`).
+* **Insumos resultantes para la Web**:
+  * **PDF descargable oficial**: `d_LittleLink/docs/Programa_Final_Ordenado.pdf` (también sincronizado con `docs/Programa_Detallado.pdf` y `docs/Programa_SETAC_2026.pdf` para preservar enlaces directos).
+  * **Dataset del buscador**: `d_LittleLink/js/programa_autores_data.js` (utilizado por el buscador interactivo `programa.html`).
 
 #### C. Cronograma General a Primera Vista (Cuadrícula Horaria)
 * **Ubicación**: `c_Programa/Programa_Detallado_Final/Programa_a_primera_vista.xlsx`.
@@ -88,7 +92,7 @@ Ante cualquier imprevisto durante el evento, consultar esta sección para saber 
 * **Edición estructural (Planilla maestra)**:
   * Modificar `c_Programa/Ultimo enviado Pedro/Programa_Detallado.xlsx`.
   * Ejecutar en terminal: `python c_Programa/procesar_programa.py`.
-  * Reemplazar el archivo PDF correspondiente en `d_LittleLink/docs/Programa_Detallado.pdf`.
+  * Reemplazar el archivo PDF correspondiente en `d_LittleLink/docs/Programa_Final_Ordenado.pdf` (y sincronizar `Programa_Detallado.pdf`).
 * **Publicar**: Guardar y ejecutar Git Push.
 
 ### Caso 3: Cambiar Horarios o Salas en la Cuadrícula Horaria

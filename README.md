@@ -44,8 +44,9 @@ Todos los datos visibles en el portal provienen de un pipeline auditable y valid
    * Base consolidada de 503 trabajos en `Base_Libro_Resumenes - copia.xlsx` con identificadores canónicos oficiales (ej. `EDA-01-003`, `CUR-05`, `GEA-02-001`).
    * Salida PDF: `docs/Libro_Resumenes_SETAC_2026_Final.pdf`.
 2. **Programa Detallado y Autores (`c_Programa/`)**:
-   * Archivo maestro `Programa_Detallado.xlsx` procesado mediante scripts de cruce (`procesar_programa.py` y `generar_pestana_autores.py`).
-   * Alimenta el dataset interactivo `js/programa_autores_data.js`.
+   * Archivo maestro `Programa_Detallado.xlsx` y PDF oficial `Programa_Detallado_Final/Programa_Final_Ordenado.pdf`.
+   * Procesado mediante scripts de cruce (`procesar_programa.py` y `generar_pestana_autores.py`).
+   * Alimenta el dataset interactivo `js/programa_autores_data.js` y el PDF descargable `docs/Programa_Final_Ordenado.pdf`.
 3. **Cronograma a Primera Vista**:
    * Matriz horaria en `Programa_a_primera_vista.xlsx` exportada tanto a `js/cronograma_general_data.js` como a `docs/Programa_a_primera_vista.pdf`.
 
