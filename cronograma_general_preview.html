@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Programa a Primera Vista (Preview) | X Congreso SETAC 2026</title>
+  <title>Programa a Primera Vista | X Congreso SETAC 2026</title>
   <meta name="description" content="Cronograma general y matriz horaria del X Congreso SETAC Argentina 2026.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -19,7 +19,7 @@
       font-family: Calibri, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
     .schedule-container {
-      max-width: 1040px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 16px 12px 60px 12px;
     }
@@ -72,7 +72,7 @@
       color: #0f172a;
     }
 
-    /* Banner del Título con Logo SETAC */
+    /* Banner del Título con Logos SETAC y SETAC Argentina */
     .schedule-title-banner {
       background: linear-gradient(135deg, #0f4c81 0%, #1b71a8 100%);
       color: #ffffff;
@@ -171,68 +171,23 @@
       display: inline-block;
     }
 
-    /* Barra de Controles: Tabs de Días y Selector de Vista */
+    /* Barra de Controles: Buscador en tiempo real */
     .controls-panel {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: 14px;
       border: 1px solid #b8daf2;
-      padding: 12px 16px;
-      margin-bottom: 18px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
       box-shadow: 0 3px 12px rgba(27, 113, 168, 0.06);
     }
-    .tabs-days-wrapper {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      margin-bottom: 10px;
-      scrollbar-width: thin;
-    }
-    .day-tab-btn {
-      flex: 1;
-      min-width: 105px;
-      padding: 9px 8px;
-      text-align: center;
-      background: #f1f7fc;
-      border: 1px solid #d0e5f5;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #2c4a6f;
-      cursor: pointer;
-      transition: all .2s ease;
-      white-space: nowrap;
-    }
-    .day-tab-btn:hover {
-      background: #e2f0fb;
-      color: #0f4c81;
-    }
-    .day-tab-btn.active {
-      background: #0f4c81;
-      color: #ffffff;
-      border-color: #0f4c81;
-      box-shadow: 0 2px 8px rgba(15, 76, 129, 0.25);
-    }
-
-    /* Subcontroles: Buscador y selector de vista */
-    .subcontrols-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding-top: 6px;
-      border-top: 1px solid #edf4fa;
-    }
     .search-box-wrap {
-      flex: 1;
-      min-width: 220px;
+      width: 100%;
       position: relative;
     }
     .search-box-input {
       width: 100%;
       box-sizing: border-box;
-      padding: 8px 12px 8px 32px;
+      padding: 9px 12px 9px 34px;
       border: 1px solid #b8daf2;
       border-radius: 8px;
       font-size: 13px;
@@ -249,135 +204,19 @@
       left: 10px;
       top: 50%;
       transform: translateY(-50%);
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
       stroke: #8aa4ba;
     }
-
-    .view-toggle-wrap {
-      display: inline-flex;
-      background: #eaf3fa;
-      border-radius: 8px;
-      padding: 3px;
-    }
-    .view-toggle-btn {
-      padding: 5px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #4a688a;
-      border: none;
-      background: transparent;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .view-toggle-btn.active {
-      background: #ffffff;
-      color: #0f4c81;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
-
-    /* TIMELINE VIEW (Por bloques horarios) */
-    .time-slot-block {
-      margin-bottom: 22px;
-    }
-    .slot-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .slot-time-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: #3b608d;
-      color: #ffffff;
-      font-weight: 800;
-      font-size: 13px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      letter-spacing: 0.3px;
-      box-shadow: 0 2px 6px rgba(59, 96, 141, 0.25);
-    }
-    .slot-divider-line {
-      flex: 1;
-      height: 1px;
-      background: #d4e5f3;
-    }
-
-    /* Tarjetas de eventos */
-    .events-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-    }
-    .events-grid.single-col {
-      grid-template-columns: 1fr;
-    }
-
-    .schedule-card {
-      background: #ffffff;
-      border-radius: 12px;
-      border: 1px solid #cbd5e1;
-      padding: 12px 14px;
-      box-shadow: 0 2px 8px rgba(15, 76, 129, 0.05);
-      transition: transform .15s ease, box-shadow .15s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .schedule-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(15, 76, 129, 0.1);
-    }
-
-    .card-top-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-    .badge-session-code {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 800;
-      color: #0f4c81;
-      background: #ffffff;
-      padding: 2px 7px;
-      border-radius: 6px;
-      border: 1px solid #94a3b8;
-    }
-    .badge-track-room {
-      font-size: 10px;
-      font-weight: 700;
-      color: #334155;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 2px 6px;
-      border-radius: 4px;
-      border: 1px solid #cbd5e1;
-    }
-    .card-event-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #0f172a;
-      line-height: 1.35;
-      margin-bottom: 6px;
-    }
-    .card-coordinators {
+    .search-status-bar {
       font-size: 11.5px;
-      color: #334155;
-      margin-top: 4px;
-      line-height: 1.3;
-    }
-    .card-coordinators strong {
-      color: #0f4c81;
+      color: #0369a1;
+      margin-top: 6px;
+      display: none;
     }
 
-    /* VISTA MATRIZ / TABLA (Para escritorio o tablet) */
+    /* VISTA MATRIZ / TABLA (Horizontal con scroll) */
     .matrix-table-container {
-      display: none;
       background: #ffffff;
       border-radius: 14px;
       border: 1px solid #b8daf2;
@@ -385,12 +224,21 @@
       box-shadow: 0 4px 14px rgba(27, 113, 168, 0.08);
       margin-bottom: 24px;
     }
-    .matrix-table-container.active {
-      display: block;
+    .matrix-hint {
+      padding: 10px 14px;
+      background: #eaf3fa;
+      border-bottom: 1px solid #b8daf2;
+      font-size: 12px;
+      color: #0f4c81;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
     }
     .matrix-table-inner {
       width: 100%;
-      min-width: 880px;
+      min-width: 1350px;
       border-collapse: collapse;
       font-size: 11px;
     }
@@ -398,6 +246,7 @@
       border: 1px solid #7a92a5;
       padding: 6px 8px;
       vertical-align: top;
+      transition: opacity .15s ease, box-shadow .15s ease;
     }
     .matrix-table-inner th {
       background: #3b608d;
@@ -420,20 +269,27 @@
       z-index: 2;
     }
 
-    /* Empty state */
-    .empty-state {
-      text-align: center;
-      padding: 40px 16px;
+    .badge-session-code {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #0f4c81;
       background: #ffffff;
-      border-radius: 16px;
-      border: 1px dashed #b8daf2;
-      color: #64748b;
+      padding: 1px 5px;
+      border-radius: 4px;
+      border: 1px solid #94a3b8;
+    }
+
+    .match-highlight {
+      box-shadow: inset 0 0 0 2.5px #0284c7 !important;
+      background-color: #fef08a !important;
+      color: #0f172a !important;
+    }
+    .cell-dimmed {
+      opacity: 0.22 !important;
     }
 
     @media (max-width: 600px) {
-      .events-grid {
-        grid-template-columns: 1fr;
-      }
       .schedule-title-banner {
         flex-direction: column;
         text-align: center;
@@ -444,11 +300,6 @@
       .schedule-title-banner p {
         font-size: 11.5px;
       }
-      .day-tab-btn {
-        font-size: 12px;
-        padding: 7px 6px;
-        min-width: 90px;
-      }
     }
   </style>
 </head>
@@ -456,22 +307,22 @@
 
   <div class="schedule-container">
     
-    <!-- Barra superior de Navegación con descarga de AMBOS PDFs -->
+    <!-- Barra superior de Navegación con enlace directo al PDF Diseñado oficial -->
     <div class="schedule-header-nav">
       <a href="preview.html" class="btn-nav-action">
         &larr; Volver al Menú Principal
       </a>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">
-        <a href="docs/Programa_a_primera_vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary" title="Versión diseñada con logo y leyenda de colores">
-          📥 PDF Diseñado (Apaisado)
+        <a href="programa.html" class="btn-nav-action" title="Buscador interactivo detallado con resúmenes y autores">
+          🔍 Buscador Completo
         </a>
-        <a href="docs/Programa_a_primera_vista_original_excel.pdf" target="_blank" rel="noopener" class="btn-nav-action secondary-alt" title="Exportación directa 1 a 1 del Excel original">
-          📄 PDF Original Excel
+        <a href="docs/Programa_a_primera_vista.pdf?v=20261025_final" download="Programa_SETAC_2026_A_Primera_Vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary" title="Descargar cuadrícula horaria en PDF apaisado diseñado">
+          📥 PDF Apaisado
         </a>
       </div>
     </div>
 
-    <!-- Título Principal con Logo SETAC -->
+    <!-- Título Principal con Logos SETAC y SETAC Argentina -->
     <header class="schedule-title-banner">
       <div class="banner-logos-dual">
         <img src="images/logo_setac_clean.png" class="banner-logo-hex" alt="SETAC">
@@ -496,48 +347,28 @@
       </div>
     </div>
 
-    <!-- Controles: Pestañas de Días y Selector de Vista -->
+    <!-- Buscador en tiempo real sobre la tabla -->
     <div class="controls-panel">
-      <!-- Tabs de Días -->
-      <div class="tabs-days-wrapper" id="daysTabs">
-        <button class="day-tab-btn active" data-day="todos">Todos los días</button>
-        <button class="day-tab-btn" data-day="martes">Martes 27</button>
-        <button class="day-tab-btn" data-day="miercoles">Miércoles 28</button>
-        <button class="day-tab-btn" data-day="jueves">Jueves 29</button>
-        <button class="day-tab-btn" data-day="viernes">Viernes 30</button>
-      </div>
-
-      <!-- Buscador y Alternador de Vistas -->
-      <div class="subcontrols-row">
-        <div class="search-box-wrap">
-          <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" id="scheduleSearch" class="search-box-input" placeholder="Buscar sesión, coordinador o tema...">
-        </div>
-
-        <div class="view-toggle-wrap">
-          <button class="view-toggle-btn active" id="btnViewMatrix" onclick="switchView('matrix')">Vista Matriz (Tabla)</button>
-          <button class="view-toggle-btn" id="btnViewTimeline" onclick="switchView('timeline')">Vista Timeline</button>
-        </div>
+      <div class="search-box-wrap">
+        <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="scheduleSearch" class="search-box-input" placeholder="Buscar sesión, coordinador, código o tema en la tabla...">
+        <div id="searchStatus" class="search-status-bar"></div>
       </div>
     </div>
 
-    <!-- VISTA MATRIZ / CUADRÍCULA (VISTA PRINCIPAL PREDETERMINADA) -->
-    <div class="matrix-table-container active" id="matrixViewContainer">
-      <div style="padding: 10px 14px; background: #eaf3fa; border-bottom: 1px solid #b8daf2; font-size: 12px; color: #0f4c81;">
-        💡 <strong>Deslizá horizontalmente</strong> para ver las 4 salas simultáneas de cada franja horaria.
+    <!-- VISTA MATRIZ / CUADRÍCULA (Única vista continua, fluida y completa) -->
+    <div class="matrix-table-container">
+      <div class="matrix-hint">
+        <span>💡 <strong>Deslizá horizontalmente</strong> para recorrer los 4 días completos y las 4 salas simultáneas de cada franja horaria.</span>
+        <span style="font-size:11px;color:#475569;">Toque o desplace para navegar</span>
       </div>
       <table class="matrix-table-inner" id="matrixTable">
         <!-- Renderizado dinámicamente -->
       </table>
     </div>
-
-    <!-- VISTA TIMELINE ALTERNATIVA (POR BLOQUES HORARIOS) -->
-    <main id="timelineViewContainer" style="display:none;">
-      <!-- Insertado dinámicamente -->
-    </main>
 
   </div>
 
@@ -545,9 +376,7 @@
   <script src="js/cronograma_general_data.js"></script>
 
   <script>
-    let currentDayFilter = 'todos';
     let currentSearchQuery = '';
-    let currentViewMode = 'matrix';
 
     function normalizeText(str) {
       if (!str) return '';
@@ -564,182 +393,43 @@
     }
 
     function getEventIcon(title, badge) {
-      const s = normalizeText((title || '') + ' ' + (badge || ''));
-      if (s.includes('cafe')) return '☕ ';
-      if (s.includes('almuerzo')) return '🍽️ ';
-      if (s.includes('acreditacion')) return '📋 ';
-      if (s.includes('cocktail')) return '🍸 ';
-      if (s.includes('asamblea')) return '👥 ';
-      if (s.includes('apertura')) return '🏛️ ';
-      if (s.includes('clausura')) return '🎉 ';
-      if (s.includes('paneles') || s.includes('poster')) return '🖼️ ';
+      const t = normalizeText(title);
+      const b = normalizeText(badge);
+      if (t.includes('acreditacion') || b.includes('acreditacion')) return '📋 ';
+      if (t.includes('cafe') || t.includes('coffee') || b.includes('cafe')) return '☕ ';
+      if (t.includes('almuerzo') || b.includes('almuerzo')) return '🍽️ ';
+      if (t.includes('apertura') || b.includes('apertura')) return '🎉 ';
+      if (t.includes('clausura') || b.includes('clausura')) return '🏆 ';
+      if (t.includes('asamblea') || b.includes('asamblea')) return '👥 ';
+      if (t.includes('cocktail') || b.includes('cocktail')) return '🥂 ';
+      if (t.includes('conferencia') || t.includes('plenaria')) return '🎙️ ';
+      if (t.includes('mesa redonda') || b.includes('mesa redonda')) return '🗣️ ';
+      if (t.includes('curso') || b.includes('curso')) return '📚 ';
+      if (t.includes('poster') || b.includes('poster')) return '🖼️ ';
       return '';
-    }
-
-    function switchView(mode) {
-      currentViewMode = mode;
-      const btnTimeline = document.getElementById('btnViewTimeline');
-      const btnMatrix = document.getElementById('btnViewMatrix');
-      const timelineContainer = document.getElementById('timelineViewContainer');
-      const matrixContainer = document.getElementById('matrixViewContainer');
-
-      if (mode === 'timeline') {
-        btnTimeline.classList.add('active');
-        btnMatrix.classList.remove('active');
-        timelineContainer.style.display = 'block';
-        matrixContainer.classList.remove('active');
-      } else {
-        btnMatrix.classList.add('active');
-        btnTimeline.classList.remove('active');
-        timelineContainer.style.display = 'none';
-        matrixContainer.classList.add('active');
-        renderMatrix();
-      }
-    }
-
-    function renderTimeline() {
-      const container = document.getElementById('timelineViewContainer');
-      if (!window.CRONOGRAMA_GENERAL) {
-        container.innerHTML = '<div class="empty-state">No se pudieron cargar los datos del cronograma general.</div>';
-        return;
-      }
-
-      const q = normalizeText(currentSearchQuery);
-
-      const daysToRender = window.CRONOGRAMA_GENERAL.filter(d => {
-        if (currentDayFilter !== 'todos' && d.day_id !== currentDayFilter) return false;
-        return true;
-      });
-
-      let totalEventsMatched = 0;
-      let html = '';
-
-      daysToRender.forEach(day => {
-        const slotsMap = new Map();
-        
-        day.events.forEach(ev => {
-          if (q) {
-            const rawNorm = normalizeText(ev.raw_text + ' ' + (ev.session_code || '') + ' ' + (ev.coordinators || ''));
-            if (!rawNorm.includes(q)) return;
-          }
-
-          const slotKey = `${ev.start_time} - ${ev.end_time}`;
-          if (!slotsMap.has(slotKey)) {
-            slotsMap.set(slotKey, []);
-          }
-          slotsMap.get(slotKey).push(ev);
-        });
-
-        if (slotsMap.size === 0) return;
-
-        html += `
-          <div style="margin-top: 14px; margin-bottom: 24px;">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-              <h2 style="font-size:18px;font-weight:800;color:#0f4c81;margin:0;">📅 ${day.day_name}</h2>
-              <div style="flex:1;height:2px;background:#b8daf2;"></div>
-            </div>
-        `;
-
-        slotsMap.forEach((eventsInSlot, slotTime) => {
-          totalEventsMatched += eventsInSlot.length;
-          const isSinglePlenary = (eventsInSlot.length === 1 && eventsInSlot[0].is_plenary);
-
-          html += `
-            <div class="time-slot-block">
-              <div class="slot-header">
-                <span class="slot-time-badge">⏰ ${slotTime} hs</span>
-                <div class="slot-divider-line"></div>
-              </div>
-              <div class="events-grid ${isSinglePlenary ? 'single-col' : ''}">
-          `;
-
-          eventsInSlot.forEach(ev => {
-            const evType = ev.type || 'OTRO';
-            const cellBg = ev.bg_color && ev.bg_color !== '#ffffff' ? ev.bg_color : '#ffffff';
-
-            let cardStyle = `background-color: ${cellBg};`;
-            if (ev.is_plenary) {
-              cardStyle += ' border: 2px solid #3b608d;';
-            } else {
-              cardStyle += ' border-left: 4.5px solid #3b608d;';
-            }
-
-            const displayTitle = ev.clean_title || ev.raw_text;
-            const hideBadge = shouldHideBadge(ev.session_code, displayTitle);
-            const icon = getEventIcon(displayTitle, ev.session_code);
-
-            // Ocultar badge de sala si es plenario/general
-            const roomBadgeHtml = !ev.is_plenary ? `<span class="badge-track-room">Sala ${ev.track_col}</span>` : '<span></span>';
-            const sessionBadgeHtml = (!hideBadge && ev.session_code) ? `<span class="badge-session-code">${ev.session_code}</span>` : '<span></span>';
-            const showTopRow = (!hideBadge && ev.session_code) || !ev.is_plenary;
-
-            html += `
-              <div class="schedule-card" style="${cardStyle}">
-                <div>
-                  ${showTopRow ? `
-                    <div class="card-top-info">
-                      ${sessionBadgeHtml}
-                      ${roomBadgeHtml}
-                    </div>
-                  ` : ''}
-                  <div class="card-event-title" style="${(ev.is_plenary && hideBadge) ? 'text-align:center;font-size:14px;padding:4px 0;' : ''}">
-                    ${icon}${displayTitle}
-                  </div>
-                </div>
-                ${ev.coordinators ? `
-                  <div class="card-coordinators">
-                    <strong>Responsables:</strong> (${ev.coordinators})
-                  </div>
-                ` : ''}
-              </div>
-            `;
-          });
-
-          html += `
-              </div>
-            </div>
-          `;
-        });
-
-        html += `</div>`;
-      });
-
-      if (totalEventsMatched === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <p style="font-weight:700;margin-bottom:4px;">No se encontraron actividades para "${currentSearchQuery}"</p>
-            <p style="font-size:12px;margin:0;">Probá buscando por código de sesión, tema o apellido de responsable.</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = html;
     }
 
     /**
      * VISTA MATRIZ / CUADRÍCULA:
-     * Utiliza la estructura EXACTA de celdas con rowspan y colspan de las 30 franjas horarias
-     * para que ningún curso o sesión quede cortado o con huecos vacíos.
+     * Renderiza la estructura EXACTA y completa de los 4 días continuos con búsqueda en tiempo real.
      */
     function renderMatrix() {
       const table = document.getElementById('matrixTable');
-      if (!window.EXACT_MATRIX_ROWS) return;
+      const searchStatus = document.getElementById('searchStatus');
+      if (!table || !window.EXACT_MATRIX_ROWS) return;
 
-      const dayFilter = currentDayFilter;
-      const isAllDays = (dayFilter === 'todos');
+      const query = normalizeText(currentSearchQuery);
+      let matchCount = 0;
 
-      // Definir qué días y columnas mostrar
-      const daysConfig = [
+      // Mostrar siempre todos los días (Martes a Viernes) en vista continua completa
+      const visibleDays = [
         { id: 'martes', name: 'Martes 27/10/2026', cols: [2, 3, 4, 5] },
         { id: 'miercoles', name: 'Miércoles 28/10/2026', cols: [6, 7, 8, 9] },
         { id: 'jueves', name: 'Jueves 29/10/2026', cols: [10, 11, 12, 13] },
         { id: 'viernes', name: 'Viernes 30/10/2026', cols: [14, 15, 16, 17] }
       ];
 
-      const visibleDays = isAllDays ? daysConfig : daysConfig.filter(d => d.id === dayFilter);
-      const visibleCols = new Set();
-      visibleDays.forEach(d => d.cols.forEach(c => visibleCols.add(c)));
+      const visibleCols = new Set([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
 
       // Cabecera de la tabla
       let theadHtml = `
@@ -763,37 +453,49 @@
 
       // Cuerpo de la tabla: procesar cada fila con sus rowspans y colspans exactos
       let tbodyHtml = '<tbody>';
-
-      table.style.minWidth = isAllDays ? '1350px' : '680px';
+      table.style.minWidth = '1350px';
 
       window.EXACT_MATRIX_ROWS.forEach(r => {
         const cellsInRow = r.cells.filter(c => visibleCols.has(c.col));
+
         tbodyHtml += `<tr><td class="m-time-col">${r.time} hs</td>`;
 
         cellsInRow.forEach(c => {
           if (c.is_covered) {
-            // Celda cubierta por el rowspan de un horario anterior: NO renderizar <td>
             return;
           }
 
           const rowspanAttr = c.rowspan > 1 ? `rowspan="${c.rowspan}"` : '';
-          const colspanAttr = c.colspan > 1 ? `colspan="${Math.min(c.colspan, isAllDays ? c.colspan : 4)}"` : '';
+          const colspanAttr = c.colspan > 1 ? `colspan="${c.colspan}"` : '';
           const bgAttr = c.color ? `background-color:${c.color};` : '';
-          const isPlenaryOrBreak = (c.colspan >= 4) || (c.val.includes('Café') || c.val.includes('Almuerzo') || c.val.includes('Acreditación'));
+          const isPlenaryOrBreak = (c.colspan >= 4) || (c.val && (c.val.includes('Café') || c.val.includes('Almuerzo') || c.val.includes('Acreditación')));
           const alignAttr = isPlenaryOrBreak ? 'text-align:center;vertical-align:middle;font-weight:bold;' : 'vertical-align:top;';
 
           if (!c.val) {
-            tbodyHtml += `<td ${rowspanAttr} ${colspanAttr} style="${bgAttr}${alignAttr}"></td>`;
+            const dimClass = query ? 'cell-dimmed' : '';
+            tbodyHtml += `<td ${rowspanAttr} ${colspanAttr} class="${dimClass}" style="${bgAttr}${alignAttr}"></td>`;
           } else {
             const displayTitle = c.clean_title || c.val;
             const hideBadge = shouldHideBadge(c.badge, displayTitle);
             const icon = getEventIcon(displayTitle, c.badge);
-            const sessionBadge = (!hideBadge && c.badge) ? `<span class="badge-session-code" style="margin-bottom:2px;font-size:9.5px;">${c.badge}</span><br>` : '';
+            const sessionBadge = (!hideBadge && c.badge) ? `<span class="badge-session-code" style="margin-bottom:2px;">${c.badge}</span><br>` : '';
             const titleHtml = `<strong>${icon}${displayTitle}</strong>`;
             const coordsHtml = c.coords ? `<br><span style="font-size:8.5px;color:#334155;">(${c.coords})</span>` : '';
 
+            // Búsqueda en tiempo real
+            let cellClass = '';
+            if (query) {
+              const fullSearchable = normalizeText(displayTitle + ' ' + (c.badge || '') + ' ' + (c.coords || ''));
+              if (fullSearchable.includes(query)) {
+                cellClass = 'match-highlight';
+                matchCount++;
+              } else {
+                cellClass = 'cell-dimmed';
+              }
+            }
+
             tbodyHtml += `
-              <td ${rowspanAttr} ${colspanAttr} style="${bgAttr}${alignAttr}font-size:10px;line-height:1.25;">
+              <td ${rowspanAttr} ${colspanAttr} class="${cellClass}" style="${bgAttr}${alignAttr}font-size:10px;line-height:1.25;">
                 ${sessionBadge}
                 ${titleHtml}
                 ${coordsHtml}
@@ -807,27 +509,27 @@
 
       tbodyHtml += '</tbody>';
       table.innerHTML = theadHtml + tbodyHtml;
+
+      // Actualizar estado de búsqueda
+      if (searchStatus) {
+        if (query) {
+          searchStatus.style.display = 'block';
+          searchStatus.innerHTML = `🔍 Se encontraron <strong>${matchCount}</strong> actividades coincidentes con <em>"${currentSearchQuery}"</em>`;
+        } else {
+          searchStatus.style.display = 'none';
+        }
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('#daysTabs .day-tab-btn');
-      tabs.forEach(btn => {
-        btn.addEventListener('click', () => {
-          tabs.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          currentDayFilter = btn.getAttribute('data-day');
-          renderTimeline();
+      const searchInput = document.getElementById('scheduleSearch');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearchQuery = e.target.value;
           renderMatrix();
         });
-      });
+      }
 
-      const searchInput = document.getElementById('scheduleSearch');
-      searchInput.addEventListener('input', (e) => {
-        currentSearchQuery = e.target.value;
-        renderTimeline();
-      });
-
-      renderTimeline();
       renderMatrix();
     });
   </script>

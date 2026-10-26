@@ -72,7 +72,7 @@
       color: #0f172a;
     }
 
-    /* Banner del Título con Logo SETAC */
+    /* Banner del Título con Logos SETAC y SETAC Argentina */
     .schedule-title-banner {
       background: linear-gradient(135deg, #0f4c81 0%, #1b71a8 100%);
       color: #ffffff;
@@ -171,53 +171,18 @@
       display: inline-block;
     }
 
-    /* Barra de Controles: Tabs de Días y Buscador */
+    /* Barra de Controles: Buscador en tiempo real */
     .controls-panel {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: 14px;
       border: 1px solid #b8daf2;
-      padding: 12px 16px;
-      margin-bottom: 18px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
       box-shadow: 0 3px 12px rgba(27, 113, 168, 0.06);
     }
-    .tabs-days-wrapper {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      margin-bottom: 10px;
-      scrollbar-width: thin;
-    }
-    .day-tab-btn {
-      flex: 1;
-      min-width: 105px;
-      padding: 9px 8px;
-      text-align: center;
-      background: #f1f7fc;
-      border: 1px solid #d0e5f5;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #2c4a6f;
-      cursor: pointer;
-      transition: all .2s ease;
-      white-space: nowrap;
-    }
-    .day-tab-btn:hover {
-      background: #e2f0fb;
-      color: #0f4c81;
-    }
-    .day-tab-btn.active {
-      background: #0f4c81;
-      color: #ffffff;
-      border-color: #0f4c81;
-      box-shadow: 0 2px 8px rgba(15, 76, 129, 0.25);
-    }
-
     .search-box-wrap {
       width: 100%;
       position: relative;
-      margin-top: 4px;
     }
     .search-box-input {
       width: 100%;
@@ -273,7 +238,7 @@
     }
     .matrix-table-inner {
       width: 100%;
-      min-width: 880px;
+      min-width: 1350px;
       border-collapse: collapse;
       font-size: 11px;
     }
@@ -335,11 +300,6 @@
       .schedule-title-banner p {
         font-size: 11.5px;
       }
-      .day-tab-btn {
-        font-size: 12px;
-        padding: 7px 6px;
-        min-width: 90px;
-      }
     }
   </style>
 </head>
@@ -347,7 +307,7 @@
 
   <div class="schedule-container">
     
-    <!-- Barra superior de Navegación con descarga de AMBOS PDFs -->
+    <!-- Barra superior de Navegación con enlace directo al PDF Diseñado oficial -->
     <div class="schedule-header-nav">
       <a href="index.html" class="btn-nav-action">
         &larr; Volver al Menú Principal
@@ -356,7 +316,7 @@
         <a href="programa.html" class="btn-nav-action" title="Buscador interactivo detallado con resúmenes y autores">
           🔍 Buscador Completo
         </a>
-        <a href="docs/Programa_a_primera_vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary" title="Descargar cuadrícula horaria en PDF apaisado">
+        <a href="docs/Programa_a_primera_vista.pdf?v=20261025_final" download="Programa_SETAC_2026_A_Primera_Vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary" title="Descargar cuadrícula horaria en PDF apaisado diseñado">
           📥 PDF Apaisado
         </a>
       </div>
@@ -387,18 +347,8 @@
       </div>
     </div>
 
-    <!-- Controles: Pestañas de Días y Buscador -->
+    <!-- Buscador en tiempo real sobre la tabla -->
     <div class="controls-panel">
-      <!-- Tabs de Días -->
-      <div class="tabs-days-wrapper" id="daysTabs">
-        <button class="day-tab-btn active" data-day="todos">Todos los días</button>
-        <button class="day-tab-btn" data-day="martes">Martes 27</button>
-        <button class="day-tab-btn" data-day="miercoles">Miércoles 28</button>
-        <button class="day-tab-btn" data-day="jueves">Jueves 29</button>
-        <button class="day-tab-btn" data-day="viernes">Viernes 30</button>
-      </div>
-
-      <!-- Buscador en tiempo real sobre la tabla -->
       <div class="search-box-wrap">
         <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
@@ -409,10 +359,10 @@
       </div>
     </div>
 
-    <!-- VISTA MATRIZ / CUADRÍCULA (Única vista, optimizada y fluida) -->
+    <!-- VISTA MATRIZ / CUADRÍCULA (Única vista continua, fluida y completa) -->
     <div class="matrix-table-container">
       <div class="matrix-hint">
-        <span>💡 <strong>Deslizá horizontalmente</strong> para ver las 4 salas simultáneas de cada franja horaria.</span>
+        <span>💡 <strong>Deslizá horizontalmente</strong> para recorrer los 4 días completos y las 4 salas simultáneas de cada franja horaria.</span>
         <span style="font-size:11px;color:#475569;">Toque o desplace para navegar</span>
       </div>
       <table class="matrix-table-inner" id="matrixTable">
@@ -426,7 +376,6 @@
   <script src="js/cronograma_general_data.js"></script>
 
   <script>
-    let currentDayFilter = 'todos';
     let currentSearchQuery = '';
 
     function normalizeText(str) {
@@ -462,30 +411,25 @@
 
     /**
      * VISTA MATRIZ / CUADRÍCULA:
-     * Renderiza la estructura EXACTA con soporte para filtrado de día y resaltado de búsqueda.
+     * Renderiza la estructura EXACTA y completa de los 4 días continuos con búsqueda en tiempo real.
      */
     function renderMatrix() {
       const table = document.getElementById('matrixTable');
       const searchStatus = document.getElementById('searchStatus');
       if (!table || !window.EXACT_MATRIX_ROWS) return;
 
-      const dayFilter = currentDayFilter;
-      const isAllDays = (dayFilter === 'todos');
       const query = normalizeText(currentSearchQuery);
-
       let matchCount = 0;
 
-      // Definir qué días y columnas mostrar
-      const daysConfig = [
+      // Mostrar siempre todos los días (Martes a Viernes) en vista continua completa
+      const visibleDays = [
         { id: 'martes', name: 'Martes 27/10/2026', cols: [2, 3, 4, 5] },
         { id: 'miercoles', name: 'Miércoles 28/10/2026', cols: [6, 7, 8, 9] },
         { id: 'jueves', name: 'Jueves 29/10/2026', cols: [10, 11, 12, 13] },
         { id: 'viernes', name: 'Viernes 30/10/2026', cols: [14, 15, 16, 17] }
       ];
 
-      const visibleDays = isAllDays ? daysConfig : daysConfig.filter(d => d.id === dayFilter);
-      const visibleCols = new Set();
-      visibleDays.forEach(d => d.cols.forEach(c => visibleCols.add(c)));
+      const visibleCols = new Set([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
 
       // Cabecera de la tabla
       let theadHtml = `
@@ -509,8 +453,7 @@
 
       // Cuerpo de la tabla: procesar cada fila con sus rowspans y colspans exactos
       let tbodyHtml = '<tbody>';
-
-      table.style.minWidth = isAllDays ? '1350px' : '680px';
+      table.style.minWidth = '1350px';
 
       window.EXACT_MATRIX_ROWS.forEach(r => {
         const cellsInRow = r.cells.filter(c => visibleCols.has(c.col));
@@ -523,7 +466,7 @@
           }
 
           const rowspanAttr = c.rowspan > 1 ? `rowspan="${c.rowspan}"` : '';
-          const colspanAttr = c.colspan > 1 ? `colspan="${Math.min(c.colspan, isAllDays ? c.colspan : 4)}"` : '';
+          const colspanAttr = c.colspan > 1 ? `colspan="${c.colspan}"` : '';
           const bgAttr = c.color ? `background-color:${c.color};` : '';
           const isPlenaryOrBreak = (c.colspan >= 4) || (c.val && (c.val.includes('Café') || c.val.includes('Almuerzo') || c.val.includes('Acreditación')));
           const alignAttr = isPlenaryOrBreak ? 'text-align:center;vertical-align:middle;font-weight:bold;' : 'vertical-align:top;';
@@ -579,16 +522,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('#daysTabs .day-tab-btn');
-      tabs.forEach(btn => {
-        btn.addEventListener('click', () => {
-          tabs.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          currentDayFilter = btn.getAttribute('data-day');
-          renderMatrix();
-        });
-      });
-
       const searchInput = document.getElementById('scheduleSearch');
       if (searchInput) {
         searchInput.addEventListener('input', (e) => {
