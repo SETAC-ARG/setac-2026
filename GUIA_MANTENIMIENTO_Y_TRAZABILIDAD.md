@@ -16,7 +16,7 @@ El portal web está alojado en la carpeta `d_LittleLink/` y sincronizado con el 
 | **`programa.html`** | Buscador interactivo completo con filtros por día, sala, texto reactivo, autores completos, resúmenes y palabras clave. | `js/programa_autores_data.js` |
 | **`cena.html`** | Pantalla móvil exclusiva de la Cena de Camaradería con copia rápida de CBU/Alias bancario, mapa y Google Form. | Enlace Google Maps Bukowski Bar, Formulario de Google |
 | **`qr.html`** | Herramienta auxiliar para regenerar y descargar códigos QR de alta resolución (300 DPI y vectores SVG). | Scripts de generación QR |
-| **`docs/`** | Repositorio de documentos oficiales descargables por los asistentes. | `Programa_Detallado.pdf`, `Libro_Resumenes_SETAC_2026_Final.pdf`, etc. |
+| **`docs/`** | Repositorio de documentos oficiales descargables por los asistentes. | `Programa_Final_Ordenado.pdf`, `Libro_Resumenes_SETAC_2026_Final.pdf`, etc. |
 
 ### 🛡️ Medidas de Actualización Inmediata (Anti-Caché)
 Para evitar que los teléfonos móviles guarden versiones viejas al recargar o escanear el QR, todas las páginas cuentan con:
@@ -39,7 +39,7 @@ Base_Libro_Resumenes - copia.xlsx                                               
          ▼ (Cruce cruzado estricto)
 c_Programa/                              procesar_programa.py ------------------>   js/programa_data.js
 Programa_Detallado.xlsx                  generar_pestana_autores.py ------------>   js/programa_autores_data.js (Buscador)
-                                                                                    docs/Programa_Detallado.pdf (1.1 MB)
+                                                                                    docs/Programa_Final_Ordenado.pdf (1.0 MB)
                                                                                   
 c_Programa/Programa_Detallado_Final/     Generador de Matriz ------------------->   js/cronograma_general_data.js (Cuadrícula)
 Programa_a_primera_vista.xlsx                                                       docs/Programa_a_primera_vista.pdf (172 KB)
