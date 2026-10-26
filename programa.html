@@ -379,10 +379,10 @@
 
       <div class="filter-scroll" id="roomFilters">
         <button class="filter-chip active" data-room="todas">Todas las Salas</button>
-        <button class="filter-chip" data-room="Auditorio 1">Auditorio 1</button>
-        <button class="filter-chip" data-room="Auditorio 2">Auditorio 2</button>
-        <button class="filter-chip" data-room="Auditorio 3">Auditorio 3</button>
-        <button class="filter-chip" data-room="Auditorio 4">Auditorio 4</button>
+        <button class="filter-chip" data-room="Sala 1">Sala 1</button>
+        <button class="filter-chip" data-room="Sala 2">Sala 2</button>
+        <button class="filter-chip" data-room="Sala 3">Sala 3</button>
+        <button class="filter-chip" data-room="Sala 4">Sala 4</button>
         <button class="filter-chip" data-room="Foyer">Foyer (Pósters)</button>
       </div>
     </div>
@@ -399,7 +399,7 @@
   </div>
 
   <!-- Base de datos integral enriquecida con Autores, Resúmenes y Palabras Clave -->
-  <script src="js/programa_autores_data.js?v=20261025_v7"></script>
+  <script src="js/programa_autores_data.js?v=20261026_v2"></script>
   
   <script>
     // Variables de estado
@@ -499,7 +499,8 @@
           if (currentRoom === 'Foyer') {
             if (item.auditorio !== 'Foyer' && item.modalidad !== 'POSTER') return false;
           } else {
-            if (item.auditorio !== currentRoom) return false;
+            const itemRoom = (item.auditorio || '').replace(/^Auditorio\s*/i, 'Sala ');
+            if (itemRoom !== currentRoom && item.auditorio !== currentRoom) return false;
           }
         }
 
@@ -512,9 +513,10 @@
           const normCodLibro = normalizeStr(item.codigo_libro + ' ' + (item.id_resumen_libro || '') + ' ' + (item.id_postulacion || ''));
           const normKeywords = normalizeStr(item.palabras_clave);
           const normSession = normalizeStr(item.id_sesion + ' ' + item.modalidad);
+          const normRoom = normalizeStr((item.auditorio || '').replace(/^Auditorio\s*/i, 'Sala '));
 
           // Todo el texto consolidado del trabajo
-          const fullSearchBlob = `${normAuthors} ${normPresenter} ${normTitle} ${normCodLibro} ${normKeywords} ${normSession}`;
+          const fullSearchBlob = `${normAuthors} ${normPresenter} ${normTitle} ${normCodLibro} ${normKeywords} ${normSession} ${normRoom}`;
 
           // Cada palabra buscada debe coincidir
           const allWordsMatch = queryWords.every(word => fullSearchBlob.includes(word));
@@ -611,7 +613,7 @@
             <div class="item-top-row">
               <div class="item-badges">
                 ${item.hora_inicio ? `<span class="badge-time">${item.hora_inicio} hs</span>` : ''}
-                <span class="badge-room">${item.auditorio || 'Foyer'}</span>
+                <span class="badge-room">${(item.auditorio || 'Foyer').replace(/^Auditorio\s*/i, 'Sala ')}</span>
                 <span class="badge-modality ${modClass}">${item.modalidad}</span>
               </div>
               <span class="item-session">${item.dia} &bull; ${item.id_sesion || ''}</span>

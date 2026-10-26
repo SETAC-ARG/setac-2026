@@ -84,7 +84,7 @@ Ante cualquier imprevisto durante el evento, consultar esta sección para saber 
 * **Edición inmediata en caliente (Web)**:
   * Abrir `d_LittleLink/js/programa_autores_data.js`.
   * Buscar por ID (ej. `PROG-0125`) o apellido del autor.
-  * Modificar directamente el campo deseado (`titulo`, `presentador`, `hora_inicio`, `auditorio`).
+  * Modificar directamente el campo deseado (`titulo`, `presentador`, `hora_inicio`, `auditorio` con valor `'Sala 1'`, `'Sala 2'`, `'Sala 3'`, `'Sala 4'` o `'Foyer'`).
 * **Edición estructural (Planilla maestra)**:
   * Modificar `c_Programa/Ultimo enviado Pedro/Programa_Detallado.xlsx`.
   * Ejecutar en terminal: `python c_Programa/procesar_programa.py`.
