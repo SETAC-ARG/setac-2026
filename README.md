@@ -1,93 +1,84 @@
-# Hub de Enlaces para el X Congreso SETAC Argentina 2026 (LittleLink)
+# Hub de Enlaces para el X Congreso SETAC Argentina 2026
 
-Portal móvil liviano y de carga ultrarrápida construido sobre la arquitectura abierta de **LittleLink**. Diseñado para concentrar toda la información del evento bajo **un único código QR estático** impreso en banners, credenciales y programas.
+Portal web móvil y de carga ultrarrápida diseñado para concentrar toda la información oficial, académica y social del **X Congreso de la Sociedad de Toxicología y Química Ambiental (SETAC Argentina)** bajo **un único código QR estático** impreso en banners roll-up, credenciales y programas.
 
----
-
-## 🎨 Características Implementadas
-
-- **Identidad Visual Oficial**: Paleta cromática extraída directamente del afiche del congreso (`poster setac.pdf`):
-  - Azul Institucional Profundo: `#0f4c81`
-  - Celeste de Acento: `#0284c7`
-  - Fondos suaves y degradados limpios con soporte automático de modo oscuro.
-- **Pestañas por Día con Detección Automática**:
-  - Pestañas interactivas: `General`, `Día 1 (27 Oct)`, `Día 2 (28 Oct)`, `Día 3 (29 Oct)`, `Día 4 (30 Oct)` y `Formularios`.
-  - Si el asistente abre el enlace entre el 27 y el 30 de octubre de 2026, el portal abre automáticamente el cronograma y botones del día correspondiente.
-- **Tarjeta WiFi con Copia Rápida**: Muestra el nombre de red y permite copiar la clave al portapapeles con un solo toque.
-- **Avisos en Vivo / Último Momento**: Banner destacado en la parte superior para comunicar cambios de aula o anuncios urgentes.
-- **Generador de QR para Banners (`qr.html`)**: Herramienta integrada para generar y descargar el código QR en alta resolución listo para enviar a imprenta.
+* 🌐 **URL Oficial en Producción**: [https://setac-arg.github.io/setac-2026/](https://setac-arg.github.io/setac-2026/)
+* 🗓️ **Fecha del Evento**: 27 al 30 de Octubre de 2026
+* 🏛️ **Sede Oficial**: Centro de Convenciones Sergio Karakachoff (UNLP), La Plata, Argentina
+* 📍 **Geolocalización**: [Ver en Google Maps](https://maps.google.com/?q=Centro+de+Convenciones+Karakachoff+UNLP+La+Plata)
 
 ---
 
-## 🚀 Cómo Probar Localmente
+## 🚀 Módulos y Servicios del Ecosistema
 
-1. Puedes abrir directamente el archivo `index.html` en tu navegador favorito haciendo doble clic o desde **Positron**:
-   - En Positron: Click derecho sobre `index.html` > *Preview* o *Open with Live Preview*.
-2. Para probar el generador de QR, abre `qr.html` en tu navegador.
+El portal no es solo una página de enlaces, sino una suite integrada de servicios web optimizados para teléfonos móviles y pantallas de escritorio:
+
+| Módulo / Archivo | Descripción y Funcionalidad |
+| :--- | :--- |
+| **`index.html`** | **Hub Principal**: Cabecera institucional con arte oficial del afiche, banner dinámico para avisos de último momento, tarjeta WiFi con copiado de clave en un toque, enlaces a documentos oficiales, actividades sociales y grilla de avales y patrocinadores. |
+| **`cronograma_general.html`** | **Programa a Primera Vista**: Matriz horaria apaisada y continua que despliega los 4 días del evento y las 4 salas simultáneas en una única cuadrícula con buscador reactivo y enlace de descarga al PDF diseñado. |
+| **`programa.html`** | **Buscador y Programa Interactivo**: Motor de búsqueda reactivo sobre los 503 trabajos aprobados. Permite filtrar por día, sala o texto libre (título, autores, palabras clave) y desplegar el resumen completo, afiliaciones institucionales y país del expositor. |
+| **`cena.html`** | **Cena de Camaradería**: Pantalla móvil dedicada para el evento social en Bukowski Bar con copiado rápido de CBU/Alias bancario al portapapeles, mapa interactivo y enlace directo al formulario de inscripción. |
+| **`qr.html`** | **Centro de Descarga de Códigos QR**: Permite visualizar y descargar los códigos QR en alta resolución (PNG 300 DPI y vectores SVG limpios o con recuadro) listos para imprenta. |
+| **`docs/`** | **Biblioteca de Documentos Oficiales**: Alberga los archivos PDF finales del congreso: *Programa Detallado*, *Libro de Resúmenes*, *Programa a Primera Vista* y variantes de imprenta. |
 
 ---
 
-## 🌐 Publicación en GitHub Pages (Paso a Paso)
+## 🎨 Identidad Visual y Experiencia Móvil
 
-Dado que este portal será escaneado por el público general desde los banners, **debe ser un repositorio público** para que GitHub Pages sea 100% gratuito.
+* **Paleta Oficial**: Derivada directamente del afiche del congreso:
+  * Azul Institucional Primario: `#0f4c81`
+  * Celeste de Acento y Enlaces: `#0284c7`
+  * Paleta temática para los 5 ejes científicos: Toxicología (TOA), Tecnología (TEA), Gestión (GEA), Química (QUA) y Educación Ambiental (EDA).
+* **Control Estricto de Caché**:
+  * Implementa directivas meta `Cache-Control: no-cache, no-store, must-revalidate` y sufijos de versión en estilos y scripts (`?v=...`).
+  * Garantiza que cualquier asistente que escanee el QR desde su celular reciba de inmediato los cambios y avisos urgentes sin retención de caché.
+* **Avales y Patrocinios**: Grilla responsiva categorizada en 3 niveles oficiales (Avales Institucionales, Patrocinantes y Auspiciantes) con formato sobrio integrado al fondo.
 
-### Paso 1: Crear el repositorio en GitHub
-1. Entra a [github.com/new](https://github.com/new).
-2. Nombre del repositorio: por ejemplo `setac-2026` o `littlelink-setac`.
-3. Selecciona la opción **Public** (Público).
-4. No inicialices con README (ya tenemos todo listo aquí). Haz clic en **Create repository**.
+---
 
-### Paso 2: Subir los archivos desde Positron
-Abre la terminal integrada de Positron dentro de la carpeta `d_LittleLink`:
+## 🔄 Trazabilidad de los Datos Base
+
+Todos los datos visibles en el portal provienen de un pipeline auditable y validado:
+1. **Libro de Resúmenes (`a_Libro_Resumenes/`)**:
+   * Base consolidada de 503 trabajos en `Base_Libro_Resumenes - copia.xlsx` con identificadores canónicos oficiales (ej. `EDA-01-003`, `CUR-05`, `GEA-02-001`).
+   * Salida PDF: `docs/Libro_Resumenes_SETAC_2026_Final.pdf`.
+2. **Programa Detallado y Autores (`c_Programa/`)**:
+   * Archivo maestro `Programa_Detallado.xlsx` procesado mediante scripts de cruce (`procesar_programa.py` y `generar_pestana_autores.py`).
+   * Alimenta el dataset interactivo `js/programa_autores_data.js`.
+3. **Cronograma a Primera Vista**:
+   * Matriz horaria en `Programa_a_primera_vista.xlsx` exportada tanto a `js/cronograma_general_data.js` como a `docs/Programa_a_primera_vista.pdf`.
+
+---
+
+## ✏️ Manual de Modificaciones Rápidas Durante el Evento
+
+Ante cualquier cambio imprevisto durante el transcurso del congreso:
+
+* **Modificar un Aviso Urgente**:
+  En `index.html`, editar el texto dentro del bloque `<aside id="liveAlert">`. Si no se desea mostrar ningún aviso, dejar el `<p>` vacío.
+* **Actualizar la Clave WiFi**:
+  En `index.html`, editar la clave en el atributo `data-wifi-password="CLAVE"` y en el texto visible del botón.
+* **Corregir una Charla o Autor en el Buscador**:
+  Editar directamente el registro correspondiente en `js/programa_autores_data.js` buscando por ID de presentación o autor.
+* **Ajustar una Sala o Franja Horaria en la Cuadrícula**:
+  Editar el bloque horario en `js/cronograma_general_data.js`.
+
+---
+
+## 📤 Despliegue de Cambios a GitHub Pages
+
+Para publicar cualquier modificación en vivo, abrir la terminal en esta carpeta (`d_LittleLink`) y ejecutar:
 
 ```bash
-# 1. Inicializar git
-git init -b main
-
-# 2. Agregar todos los archivos
+# 1. Registrar todos los cambios modificados
 git add .
 
-# 3. Crear el primer commit
-git commit -m "feat: Hub inicial LittleLink X Congreso SETAC 2026"
+# 2. Crear el commit descriptivo
+git commit -m "update: aviso de cambio de aula y actualización de programa"
 
-# 4. Vincular a tu repositorio de GitHub (reemplaza con tu usuario y repo)
-git remote add origin https://github.com/SETAC-ARG/setac-2026.git
-
-# 5. Subir los cambios
-git push -u origin main
+# 3. Subir a GitHub
+git push origin main
 ```
 
-### Paso 3: Activar GitHub Pages
-1. En la página de tu repositorio en GitHub, ve a **Settings** (pestaña superior).
-2. En el menú lateral izquierdo, haz clic en **Pages**.
-3. En **Build and deployment > Branch**:
-   - Selecciona la rama `main`.
-   - Selecciona la carpeta `/ (root)`.
-   - Haz clic en **Save**.
-4. En 1 o 2 minutos, GitHub te dará la URL pública oficial, con la forma:  
-   `https://setac-arg.github.io/setac-2026/`
-
----
-
-## 🖨️ Generar el QR para el Banner Impreso
-
-1. Abre `qr.html` en tu navegador.
-2. Pega la URL de GitHub Pages que obtuviste en el paso anterior.
-3. Haz clic en **Descargar PNG (Alta Resolución)**.
-4. Envía esa imagen al diseñador o imprenta para incluirla en el banner roll-up del congreso.
-   - *Tip*: Se recomienda imprimirlo de al menos 12x12 cm con margen blanco alrededor.
-
----
-
-## ✏️ Cómo Personalizar Enlaces y Avisos
-
-Todos los enlaces se editan en el archivo `index.html`:
-
-- **Reemplazar enlaces de Google Forms**:
-  Busca `#preguntas-disertantes-form`, `#votacion-premios-form` o `#encuesta-certificados-form` y reemplázalos por la URL real de tu Google Form.
-- **Reemplazar enlace al Libro de Resúmenes o Programa**:
-  Busca `#programa-pdf` y `#libro-resumenes-drive` y pon los enlaces compartidos de Google Drive o el PDF subido al repo.
-- **Cambiar la clave de WiFi**:
-  En `index.html`, busca `data-wifi-password="SETAC2026"` y edita tanto el atributo como el texto de la red.
-- **Actualizar o quitar el aviso en vivo**:
-  Edita el texto dentro de `<aside id="liveAlert">`. Si dejas el `<p>` vacío o borras el bloque, el banner no se mostrará.
+En aproximadamente 30 a 60 segundos, GitHub Pages actualizará la versión pública automáticamente.
