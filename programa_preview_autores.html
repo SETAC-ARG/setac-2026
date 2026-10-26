@@ -182,6 +182,19 @@
       text-transform: uppercase;
       letter-spacing: .04em;
     }
+    .badge-orden {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: #f0f7fc;
+      color: #0f4c81;
+      border: 1px solid #b8daf2;
+      white-space: nowrap;
+    }
     .mod-oral { background: #dbeafe; color: #1e40af; }
     .mod-poster { background: #ccfbf1; color: #0f766e; }
     .mod-curso { background: #fef3c7; color: #92400e; }
@@ -336,9 +349,14 @@
 
   <div class="hub-container">
 
+    <div style="background:#fef3c7;border:1px solid #f59e0b;color:#92400e;padding:8px 12px;border-radius:10px;font-size:12px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+      <span>🧪 <strong>MODO PREVIEW</strong>: Horarios específicos minuto a minuto y número de ORDEN desde <em>Programa_Final_Ordenado.pdf</em></span>
+      <span style="font-size:11px;background:#fde68a;padding:2px 7px;border-radius:6px;border:1px solid #f59e0b;">Versión Experimental</span>
+    </div>
+
     <!-- Navegación y Volver -->
     <div class="program-header-nav">
-      <a href="index.html" class="btn-back-hub">
+      <a href="preview.html" class="btn-back-hub">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
@@ -393,7 +411,7 @@
   </div>
 
   <!-- Base de datos integral enriquecida con Autores, Resúmenes y Palabras Clave -->
-  <script src="js/programa_autores_data.js?v=20261026_v2"></script>
+  <script src="js/programa_autores_data_preview.js?v=20261026_preview1"></script>
   
   <script>
     // Variables de estado
@@ -510,7 +528,8 @@
 
           // Todo el texto consolidado del trabajo
           const normRoom = normalizeStr((item.auditorio || '').replace(/^Auditorio\s*/i, 'Sala '));
-          const fullSearchBlob = `${normAuthors} ${normPresenter} ${normTitle} ${normCodLibro} ${normKeywords} ${normSession} ${normRoom}`;
+          const normOrden = item.orden ? `orden ${item.orden} #${item.orden}` : '';
+          const fullSearchBlob = `${normAuthors} ${normPresenter} ${normTitle} ${normCodLibro} ${normKeywords} ${normSession} ${normRoom} ${normOrden}`;
 
           // Cada palabra buscada debe coincidir
           const allWordsMatch = queryWords.every(word => fullSearchBlob.includes(word));
@@ -606,11 +625,11 @@
           <article class="item-card">
             <div class="item-top-row">
               <div class="item-badges">
-                ${item.hora_inicio ? `<span class="badge-time">${item.hora_inicio} hs</span>` : ''}
+                ${item.hora_inicio ? `<span class="badge-time">🕒 ${item.hora_inicio} hs</span>` : ''}
                 <span class="badge-room">${(item.auditorio || 'Foyer').replace(/^Auditorio\s*/i, 'Sala ')}</span>
                 <span class="badge-modality ${modClass}">${item.modalidad}</span>
               </div>
-              <span class="item-session">${item.dia} &bull; ${item.id_sesion || ''}</span>
+              <span class="item-session">${item.dia}${(item.turno && item.turno !== 'Todo el Día') ? ` (${item.turno})` : ''} &bull; ${item.id_sesion || ''}</span>
             </div>
             
             <h3 class="item-title">${item.titulo}</h3>
@@ -621,13 +640,14 @@
                 <span class="person-label">${roleLabel}</span>
                 <span class="person-highlight">${roleName}</span>
               </div>
-              ${hasDetails ? `
-                <div>
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
+                ${item.orden ? `<span class="badge-orden" title="Orden de exposición en la sesión">🏷️ Orden #${item.orden}</span>` : ''}
+                ${hasDetails ? `
                   <button class="btn-action-pill" onclick="toggleDrawer('${detailsDrawerId}', this, '${btnOpenText}', '${btnCloseText}')">
                     ${btnOpenText}
                   </button>
-                </div>
-              ` : ''}
+                ` : ''}
+              </div>
             </div>
 
             <!-- Cajón Único Desplegable: Autores, Palabras Clave y Resumen -->
