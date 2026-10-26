@@ -600,6 +600,25 @@
           } catch(e) {}
         });
       }
+
+      // Enrutamiento inteligente del botón Cena de Camaradería
+      const btnCena = document.getElementById('actividadSocial2');
+      if (btnCena) {
+        function updateCenaPreviewLink() {
+          const isDesktop = window.innerWidth > 768;
+          if (isDesktop) {
+            btnCena.href = 'https://setacargentina.setac.org/cena-de-camaraderia';
+            btnCena.target = '_blank';
+            btnCena.rel = 'noopener';
+          } else {
+            btnCena.href = 'cena_preview.html?v=20261025_v7';
+            btnCena.removeAttribute('target');
+            btnCena.removeAttribute('rel');
+          }
+        }
+        updateCenaPreviewLink();
+        window.addEventListener('resize', updateCenaPreviewLink);
+      }
     });
   </script>
 </body>

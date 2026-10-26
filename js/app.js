@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   initWiFiCopy();
   initLiveAlert();
+  initCenaLink();
 });
 
 /**
@@ -131,4 +132,30 @@ function initLiveAlert() {
   if (!text || text.textContent.trim() === '') {
     alertCard.style.display = 'none';
   }
+}
+
+/**
+ * Enrutamiento inteligente del botón Cena de Camaradería:
+ * - Computadora / Pantalla ancha (> 768px): abre la página web oficial completa en pestaña nueva.
+ * - Celular / Dispositivo móvil (<= 768px): abre la pantalla optimizada para celular (cena.html).
+ */
+function initCenaLink() {
+  const btnCena = document.getElementById('actividadSocial2');
+  if (!btnCena) return;
+
+  function updateCenaLink() {
+    const isDesktop = window.innerWidth > 768;
+    if (isDesktop) {
+      btnCena.href = 'https://setacargentina.setac.org/cena-de-camaraderia';
+      btnCena.target = '_blank';
+      btnCena.rel = 'noopener';
+    } else {
+      btnCena.href = 'cena.html?v=20261025_v7';
+      btnCena.removeAttribute('target');
+      btnCena.removeAttribute('rel');
+    }
+  }
+
+  updateCenaLink();
+  window.addEventListener('resize', updateCenaLink);
 }
