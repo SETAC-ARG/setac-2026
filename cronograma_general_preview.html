@@ -5,12 +5,18 @@
   <title>Programa a Primera Vista | X Congreso SETAC 2026</title>
   <meta name="description" content="Cronograma general y matriz horaria del X Congreso SETAC Argentina 2026.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Control de Caché para actualización inmediata en móviles -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <link rel="icon" type="image/png" href="images/favicon.png">
 
   <!-- Estilos base y tema -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v6">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v7">
 
   <style>
     body {
@@ -309,14 +315,14 @@
     
     <!-- Barra superior de Navegación con enlace directo al PDF Diseñado oficial -->
     <div class="schedule-header-nav">
-      <a href="preview.html" class="btn-nav-action">
+      <a href="index.html?v=20261025_v7" class="btn-nav-action">
         &larr; Volver al Menú Principal
       </a>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">
-        <a href="programa.html" class="btn-nav-action" title="Buscador interactivo detallado con resúmenes y autores">
+        <a href="programa.html?v=20261025_v7" class="btn-nav-action" title="Buscador interactivo detallado con resúmenes y autores">
           🔍 Buscador Completo
         </a>
-        <a href="docs/Programa_a_primera_vista.pdf?v=20261025_final" download="Programa_SETAC_2026_A_Primera_Vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary" title="Descargar cuadrícula horaria en PDF apaisado diseñado">
+        <a href="docs/Programa_a_primera_vista.pdf?v=20261025_v7" download="Programa_SETAC_2026_A_Primera_Vista.pdf" target="_blank" rel="noopener" class="btn-nav-action primary" title="Descargar cuadrícula horaria en PDF apaisado diseñado">
           📥 PDF Apaisado
         </a>
       </div>
@@ -372,8 +378,8 @@
 
   </div>
 
-  <!-- Carga de datos del cronograma -->
-  <script src="js/cronograma_general_data.js"></script>
+  <!-- Carga de datos del cronograma con control de versión -->
+  <script src="js/cronograma_general_data.js?v=20261025_v7"></script>
 
   <script>
     let currentSearchQuery = '';

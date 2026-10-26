@@ -6,6 +6,11 @@
   <meta name="description" content="Acceso directo al programa, libro de resúmenes, preguntas en vivo, votación y datos del X Congreso SETAC Argentina.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Control de Caché para actualización inmediata en móviles -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Open Graph / Meta Compartir -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="X Congreso SETAC Argentina 2026">
@@ -19,14 +24,14 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/brands.css">
-  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v5">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v7">
 </head>
 <body data-sponsors-style="sin-cajitas">
 
   <!-- Capa de Marca de Agua Fija en el fondo durante el scroll (Hexágono Gigante) -->
   <div class="fixed-watermark-layer" aria-hidden="true"></div>
 
-    <!-- WIDGET LATERAL FLOTANTE DE QR (VISIBLE SOLO EN ESCRITORIO) -->
+  <!-- WIDGET LATERAL FLOTANTE DE QR (VISIBLE SOLO EN ESCRITORIO) -->
   <aside class="desktop-qr-card" aria-label="Llevá el congreso en tu celular">
     <div class="desktop-qr-badge">📱 VERSIÓN MÓVIL</div>
     <div class="desktop-qr-frame">
@@ -109,11 +114,11 @@
       </button>
     </section>
 
-        <!-- NAVEGACIÓN Y ACCESOS PRINCIPALES (Hub Unificado y Limpio) -->
+    <!-- NAVEGACIÓN Y ACCESOS PRINCIPALES (Hub Unificado y Limpio) -->
     <main>
 
       <!-- BOTÓN PRINCIPAL DESTACADO: PROGRAMA A PRIMERA VISTA (TABLA RÁPIDA) -->
-      <a class="btn-congress" href="cronograma_general.html">
+      <a class="btn-congress" href="cronograma_general.html?v=20261025_v7">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -132,7 +137,7 @@
       </a>
 
       <!-- BOTÓN PRINCIPAL DESTACADO: CRONOGRAMA Y BUSCADOR INTERACTIVO -->
-      <a class="btn-congress" href="programa.html?v=20261025_v4">
+      <a class="btn-congress" href="programa.html?v=20261025_v7">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
@@ -213,7 +218,7 @@
         </svg>
       </a>
 
-            <!-- Secretaría del Congreso (Información, Certificados y Consultas) -->
+      <!-- Secretaría del Congreso (Información, Certificados y Consultas) -->
       <a class="btn-congress" href="mailto:setaclaplata2026@gmail.com?subject=Consulta%20-%20X%20Congreso%20SETAC%202026" id="secretariaEmailCard">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -230,7 +235,7 @@
         </svg>
       </a>
 
-                  <!-- SEPARADOR: ACTIVIDADES SOCIALES -->
+      <!-- SEPARADOR: ACTIVIDADES SOCIALES -->
       <div class="section-divider">
         <div class="divider-line"></div>
         <div class="divider-badge">
@@ -322,28 +327,7 @@
         </svg>
       </a>
 
-      <!-- Formulario para asociarse a SETAC Argentina (Oculto) -->
-      <!--
-      <a class="btn-congress" href="#formulario-socios-setac" id="sociosSetac" target="_blank" rel="noopener">
-        <div class="btn-content-left">
-          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="8.5" cy="7" r="4"></circle>
-            <line x1="20" y1="8" x2="20" y2="14"></line>
-            <line x1="23" y1="11" x2="17" y2="11"></line>
-          </svg>
-          <div class="btn-text-group">
-            <span class="btn-title">🤝 ¿SOS SOCIO O QUERÉS SER SOCIO DE SETAC?</span>
-            <span class="btn-desc">Completá el formulario para asociarte o actualizar tus datos</span>
-          </div>
-        </div>
-        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </a>
-      -->
-
-<!-- SEPARADOR: ENLACES Y COMUNIDAD -->
+      <!-- SEPARADOR: ENLACES Y COMUNIDAD -->
       <div class="section-divider">
         <div class="divider-line"></div>
         <div class="divider-badge">
@@ -388,7 +372,7 @@
       </a>
 
       <!-- Galería Colaborativa de Fotos (Google Drive) -->
-      <a class="btn-congress" href="https://drive.google.com/drive/folders/TU_CARPETA_DE_FOTOS_SETAC" target="_blank" rel="noopener">
+      <a class="btn-congress" href="https://drive.google.com/drive/folders/1R2fzSYVZuTL24_2_kIXYKwE_MeXzcJDt?usp=sharing" target="_blank" rel="noopener">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
@@ -396,19 +380,13 @@
           </svg>
           <div class="btn-text-group">
             <span class="btn-title">📂 FOTOS DEL CONGRESO</span>
-            <span class="btn-desc">Comparti tus foto del congreso con nosotros</span>
+            <span class="btn-desc">Compartí tus fotos del congreso con nosotros</span>
           </div>
         </div>
         <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </a>
-
-      
-
-      
-
-      
 
     </main>
 
@@ -425,7 +403,7 @@
             <span class="sponsors-badge">🏛️ AVALES INSTITUCIONALES</span>
             <div class="sponsors-line"></div>
           </div>
-                    <!-- Fila Unica: 4 Avales Institucionales en linea -->
+          <!-- Fila Unica: 4 Avales Institucionales en linea -->
           <div class="sponsors-row sponsors-row-avales">
             <div class="sponsor-box box-aval-1">
               <img src="images/sponsors/sponsor_1.png?v=clean_inta" alt="Aval Institucional" class="sponsor-logo logo-aval-1" loading="lazy">
@@ -507,6 +485,6 @@
   </div>
 
   <!-- Script interactivo -->
-  <script src="js/app.js?v=20261025_v1"></script>
+  <script src="js/app.js?v=20261025_v7"></script>
 </body>
 </html>
