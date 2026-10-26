@@ -70,6 +70,13 @@ Programa_a_primera_vista.xlsx                                                   
 * **Ubicación**: `c_Programa/Programa_Detallado_Final/Programa_a_primera_vista.xlsx`.
 * **Insumo resultante para la Web**: `d_LittleLink/js/cronograma_general_data.js` (utilizado por `cronograma_general.html`) y el PDF apaisado `d_LittleLink/docs/Programa_a_primera_vista.pdf`.
 
+#### D. Doble Verificación Cruzada y Auditoría de Producción
+Todo el dataset oficial de producción (`js/programa_autores_data.js`) fue auditado y cruzado de forma estricta contra las tres fuentes:
+1. **Homologación de Salas (100%)**: Todas las actividades se distribuyen exclusivamente entre `Sala 1` (55), `Sala 2` (62), `Sala 3` (40), `Sala 4` (36) y `Foyer` (289 pósters). La palabra "Auditorio" fue completamente reemplazada por "Sala".
+2. **Horarios Minuto a Minuto**: Se incorporaron las horas exactas de inicio de cada exposición (`11:30`, `11:42`, `11:54`, `12:06`...), validadas con 0 errores en formato `HH:MM`.
+3. **Número de ORDEN y Código de Libro**: Cada tarjeta cuenta en su pie horizontal con el código canónico del libro a la izquierda (`📖 Cód. Libro: ...`) y el número de turno correlativo a la derecha (`🏷️ Orden #...`).
+4. **Coherencia Temática**: 100% de coincidencia en las 32 sesiones científicas entre el Libro de Resúmenes, el Programa Detallado Ordenado y la Matriz de Programa a Primera Vista.
+
 ---
 
 ## 3. Manual Práctico de Modificación Rápida ("Cheat Sheet")

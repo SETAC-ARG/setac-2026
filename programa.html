@@ -188,6 +188,19 @@
       text-transform: uppercase;
       letter-spacing: .04em;
     }
+    .badge-orden {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: #f0f7fc;
+      color: #0f4c81;
+      border: 1px solid #b8daf2;
+      white-space: nowrap;
+    }
     .mod-oral { background: #dbeafe; color: #1e40af; }
     .mod-poster { background: #ccfbf1; color: #0f766e; }
     .mod-curso { background: #fef3c7; color: #92400e; }
@@ -399,7 +412,7 @@
   </div>
 
   <!-- Base de datos integral enriquecida con Autores, Resúmenes y Palabras Clave -->
-  <script src="js/programa_autores_data.js?v=20261026_v2"></script>
+  <script src="js/programa_autores_data.js?v=20261026_v3"></script>
   
   <script>
     // Variables de estado
@@ -514,9 +527,10 @@
           const normKeywords = normalizeStr(item.palabras_clave);
           const normSession = normalizeStr(item.id_sesion + ' ' + item.modalidad);
           const normRoom = normalizeStr((item.auditorio || '').replace(/^Auditorio\s*/i, 'Sala '));
+          const normOrden = item.orden ? `orden ${item.orden} #${item.orden}` : '';
 
           // Todo el texto consolidado del trabajo
-          const fullSearchBlob = `${normAuthors} ${normPresenter} ${normTitle} ${normCodLibro} ${normKeywords} ${normSession} ${normRoom}`;
+          const fullSearchBlob = `${normAuthors} ${normPresenter} ${normTitle} ${normCodLibro} ${normKeywords} ${normSession} ${normRoom} ${normOrden}`;
 
           // Cada palabra buscada debe coincidir
           const allWordsMatch = queryWords.every(word => fullSearchBlob.includes(word));
@@ -612,11 +626,11 @@
           <article class="item-card">
             <div class="item-top-row">
               <div class="item-badges">
-                ${item.hora_inicio ? `<span class="badge-time">${item.hora_inicio} hs</span>` : ''}
+                ${item.hora_inicio ? `<span class="badge-time">🕒 ${item.hora_inicio} hs</span>` : ''}
                 <span class="badge-room">${(item.auditorio || 'Foyer').replace(/^Auditorio\s*/i, 'Sala ')}</span>
                 <span class="badge-modality ${modClass}">${item.modalidad}</span>
               </div>
-              <span class="item-session">${item.dia} &bull; ${item.id_sesion || ''}</span>
+              <span class="item-session">${item.dia}${(item.turno && item.turno !== 'Todo el Día') ? ` (${item.turno})` : ''} &bull; ${item.id_sesion || ''}</span>
             </div>
             
             <h3 class="item-title">${item.titulo}</h3>
@@ -661,10 +675,13 @@
               </div>
             ` : ''}
 
-            <!-- Footer: Código oficial del Libro (sin correlativo interno) -->
+            <!-- Footer: Código oficial del Libro (Izquierda) y Orden de exposición (Derecha) -->
             <div class="item-footer">
               ${(item.codigo_libro || item.id_resumen_libro) && (item.codigo_libro || item.id_resumen_libro) !== 'S/ID' ? `
                 <span class="badge-cod-libro">📖 Cód. Libro: ${item.codigo_libro || item.id_resumen_libro}</span>
+              ` : '<span></span>'}
+              ${item.orden ? `
+                <span class="badge-orden" title="Orden de exposición en la sesión">🏷️ Orden #${item.orden}</span>
               ` : '<span></span>'}
             </div>
           </article>
