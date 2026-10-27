@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Actividad Social 2 | X Congreso SETAC 2026 (Preview)</title>
+  <meta name="description" content="Información, ubicación y registro para la Actividad Social 2 del X Congreso SETAC Argentina 2026 en León Bar Bistró.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Control de Caché para actualización inmediata en móviles -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Estilos base y temas -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/brands.css">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261025_v7">
+
+  <style>
+    /* Estilos sobrios e institucionales acordes a la web oficial */
+    body {
+      background: linear-gradient(180deg, #bbd6ed 0%, #cbe1f4 240px, #d8eaf7 480px, #edf5fa 100%) !important;
+      background-attachment: fixed !important;
+      color: #0c2b48;
+      min-height: 100vh;
+      margin: 0;
+      padding: 14px 12px 60px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cena-container {
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Barra de navegación superior */
+    .top-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+
+    .btn-back-hub {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #124d79;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      border: 1px solid #b8daf2;
+      box-shadow: 0 2px 6px rgba(18, 77, 121, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    .btn-back-hub:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(18, 77, 121, 0.12);
+    }
+
+    .nav-badge-pill {
+      font-size: 12px;
+      font-weight: 700;
+      color: #d97706;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      padding: 6px 12px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Tarjeta Principal */
+    .cena-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid #b8daf2;
+      box-shadow: 0 6px 20px rgba(18, 77, 121, 0.08);
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .cena-card-header {
+      background: linear-gradient(135deg, #0f4c81 0%, #1b71a8 100%);
+      color: #ffffff;
+      padding: 18px 20px;
+      text-align: center;
+    }
+
+    .cena-card-header .event-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+
+    .cena-card-header h1 {
+      font-size: 21px;
+      font-weight: 800;
+      margin: 0 0 4px 0;
+      letter-spacing: -0.2px;
+      line-height: 1.25;
+    }
+
+    .cena-card-header p {
+      font-size: 13px;
+      margin: 0;
+      opacity: 0.95;
+    }
+
+    .cena-card-body {
+      padding: 20px 18px;
+    }
+
+    .cena-intro-text {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #1e293b;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    /* Píldoras de características / resumen */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #0f4c81;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      color: #0f172a;
+    }
+
+    .highlight-item .item-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .highlight-item strong {
+      color: #0f4c81;
+    }
+
+    /* Tarjeta de Ubicación */
+    .location-card {
+      background: #f0f7fc;
+      border: 1px solid #b8daf2;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+    }
+
+    .location-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .location-pin-icon {
+      width: 26px;
+      height: 26px;
+      color: #0f4c81;
+      flex-shrink: 0;
+    }
+
+    .btn-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btn-location-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      background: #ffffff;
+      color: #0f4c81;
+      border: 1.5px solid #0f4c81;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 10px 10px;
+      border-radius: 9px;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(15, 76, 129, 0.08);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .btn-location-action:hover {
+      background: #0f4c81;
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(15, 76, 129, 0.16);
+    }
+
+    .btn-location-action.btn-insta {
+      border-color: #d946ef;
+      color: #c026d3;
+    }
+
+    .btn-location-action.btn-insta:hover {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    /* Bloque Bancario Sobrio */
+    .bank-card {
+      background: #f4f8fb;
+      border: 1px solid #b8daf2;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .bank-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    .bank-header h3 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f4c81;
+      margin: 0;
+    }
+
+    .bank-data-list {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: #334155;
+    }
+
+    .bank-data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 4px 0;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+
+    .bank-data-row:last-child {
+      border-bottom: none;
+    }
+
+    .bank-label {
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .bank-value {
+      font-weight: 700;
+      color: #0f172a;
+      text-align: right;
+      user-select: all;
+      -webkit-user-select: all;
+    }
+
+    /* Botones de Copiado Rápido */
+    .copy-button-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .btn-copy-bank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid #0f4c81;
+      color: #0f4c81;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .btn-copy-bank:hover {
+      background: #0f4c81;
+      color: #ffffff;
+    }
+
+    .btn-copy-bank.copied {
+      background: #16a34a !important;
+      border-color: #16a34a !important;
+      color: #ffffff !important;
+    }
+
+    /* Estado de Preview / Borrador */
+    .preview-banner {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 18px;
+      font-size: 12.5px;
+      color: #92400e;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Botón Principal para el Formulario de Google */
+    .form-cta-container {
+      text-align: center;
+      margin: 22px 0 10px 0;
+    }
+
+    .btn-form-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #0f4c81 0%, #1b71a8 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 14px 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(15, 76, 129, 0.25);
+      transition: all 0.2s ease;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-form-cta.btn-disabled {
+      background: #cbd5e1;
+      color: #64748b !important;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    .form-note {
+      font-size: 11.5px;
+      color: #64748b;
+      margin-top: 8px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    /* Footer Institucional de la tarjeta */
+    .cena-footer-info {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 14px 18px;
+      text-align: center;
+      font-size: 11.5px;
+      color: #64748b;
+    }
+
+    .cena-footer-info a {
+      color: #0f4c81;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .cena-footer-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Capa de Marca de Agua Fija en el fondo durante el scroll -->
+  <div class="fixed-watermark-layer" aria-hidden="true"></div>
+
+  <div class="cena-container">
+
+    <!-- Barra de Navegación Superior -->
+    <nav class="top-nav-bar" aria-label="Navegación">
+      <a href="preview.html" class="btn-back-hub">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Volver a la App
+      </a>
+      <span class="nav-badge-pill">
+        <span>⚠️</span> Modo Preview
+      </span>
+    </nav>
+
+    <!-- Tarjeta Principal de la Actividad -->
+    <main class="cena-card">
+
+      <!-- Cabecera Institucional Sobria -->
+      <header class="cena-card-header">
+        <span class="event-tag">X Congreso SETAC Argentina 2026</span>
+        <h1>Actividad Social 2: Encuentro y Networking</h1>
+        <p>Miércoles 28 de Octubre • 20:30 hs • León Bar Bistró, La Plata</p>
+      </header>
+
+      <!-- Cuerpo de Contenido -->
+      <div class="cena-card-body">
+
+        <!-- Banner de modo borrador -->
+        <div class="preview-banner">
+          <span style="font-size: 18px;">ℹ️</span>
+          <div>
+            <strong>Pantalla en modo borrador:</strong> Los datos de menú, monto final de la tarjeta y enlace de inscripción se actualizarán en breve.
+          </div>
+        </div>
+
+        <!-- Texto introductorio oficial -->
+        <p class="cena-intro-text">
+          Al finalizar la jornada científica y las asambleas del día miércoles, te invitamos a sumarte a un espacio distendido de encuentro, tapeo y networking entre colegas y amistades de SETAC en uno de los lugares gastronómicos más modernos de La Plata.
+        </p>
+
+        <!-- Puntos Destacados -->
+        <div class="highlights-grid">
+          <div class="highlight-item">
+            <span class="item-icon">📍</span>
+            <div><strong>Lugar:</strong> León Bar Bistró (Paseo de los Profesores, Estadio UNO).</div>
+          </div>
+          <div class="highlight-item">
+            <span class="item-icon">🍻</span>
+            <div><strong>Propuesta:</strong> Tapeo, pizzas, bebidas y cervezas artesanales.</div>
+          </div>
+          <div class="highlight-item">
+            <span class="item-icon">🎟️</span>
+            <div><strong>Valor de la tarjeta:</strong> <em>[A definir próximamente]</em></div>
+          </div>
+          <div class="highlight-item">
+            <span class="item-icon">🚶</span>
+            <div><strong>Cercanía:</strong> A sólo 10 cuadras del Centro de Convenciones Karakachoff (UNLP).</div>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Ubicación con enlace a Google Maps e Instagram -->
+        <section class="location-card" aria-label="Lugar y Ubicación de León Bar Bistró">
+          <div class="location-header">
+            <svg class="location-pin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <div>
+              <h3 style="margin:0; font-size:14px; font-weight:800; color:#0f4c81;">Lugar y Punto de Encuentro</h3>
+              <p style="margin:2px 0 0 0; font-size:12.5px; color:#334155;"><strong>León Bar Bistró</strong> &bull; Paseo de los Profesores (Av. 1 e/ 55 y 57), Estadio UNO, La Plata</p>
+            </div>
+          </div>
+
+          <div class="btn-actions-grid">
+            <a href="https://maps.google.com/?q=Leon+Bar+Bistro+Estadio+UNO+La+Plata" target="_blank" rel="noopener" class="btn-location-action">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                <line x1="8" y1="2" x2="8" y2="18"></line>
+                <line x1="16" y1="6" x2="16" y2="22"></line>
+              </svg>
+              <span>Ver en Maps</span>
+            </a>
+
+            <a href="https://www.instagram.com/leonbarbistro/?hl=es" target="_blank" rel="noopener" class="btn-location-action btn-insta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span>Instagram @leonbarbistro</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Datos Bancarios para la Transferencia (Misma cuenta institucional) -->
+        <section class="bank-card" aria-label="Datos bancarios para la transferencia">
+          <div class="bank-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f4c81" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+            <h3>Datos de Pago para Transferencia</h3>
+          </div>
+
+          <div class="bank-data-list">
+            <div class="bank-data-row">
+              <span class="bank-label">Titular:</span>
+              <span class="bank-value">Fundación Ciencias Exactas</span>
+            </div>
+            <div class="bank-data-row">
+              <span class="bank-label">CUIT:</span>
+              <span class="bank-value">30-64390899-5</span>
+            </div>
+            <div class="bank-data-row">
+              <span class="bank-label">Banco:</span>
+              <span class="bank-value">Galicia</span>
+            </div>
+            <div class="bank-data-row">
+              <span class="bank-label">C/C en Pesos:</span>
+              <span class="bank-value">0013262-4 172-4</span>
+            </div>
+            <div class="bank-data-row">
+              <span class="bank-label">CBU:</span>
+              <span class="bank-value" id="cbuValue">0070172920000013262444</span>
+            </div>
+            <div class="bank-data-row">
+              <span class="bank-label">Alias:</span>
+              <span class="bank-value" id="aliasValue" style="color:#0f4c81; font-weight:800;">fundacion.exactas</span>
+            </div>
+          </div>
+
+          <!-- Botones para copiar al portapapeles con 1 toque en el celular -->
+          <div class="copy-button-group">
+            <button type="button" class="btn-copy-bank" id="btnCopyAlias" onclick="copyToClipboard('fundacion.exactas', this, 'Alias copiado')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copiar Alias
+            </button>
+            <button type="button" class="btn-copy-bank" id="btnCopyCbu" onclick="copyToClipboard('0070172920000013262444', this, 'CBU copiado')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copiar CBU
+            </button>
+          </div>
+        </section>
+
+        <!-- Llamado a la Acción: Formulario de Google (Pendiente) -->
+        <div class="form-cta-container">
+          <p style="font-size:13px; color:#334155; margin-bottom:10px;">
+            El enlace para subir el comprobante y completar tu inscripción se habilitará en breve:
+          </p>
+          <a href="#" class="btn-form-cta btn-disabled" onclick="event.preventDefault(); alert('El formulario se habilitará una vez confirmado el monto final.');">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Formulario de Inscripción (Próximamente)
+          </a>
+          <p class="form-note">
+            En cuanto esté definido el menú y el valor por persona, se habilitará el formulario de registro.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Pie Institucional con enlace a la web oficial -->
+      <footer class="cena-footer-info">
+        <p style="margin: 0 0 6px 0;">
+          🌐 Más información institucional en el <a href="https://setacargentina.setac.org/congreso2026" target="_blank" rel="noopener">sitio web oficial del Congreso</a>
+        </p>
+        <p style="margin: 0; font-size: 11px; opacity: 0.85;">
+          ✉️ Consultas: <a href="mailto:setaclaplata2026@gmail.com">setaclaplata2026@gmail.com</a>
+        </p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Script para copiado rápido de Alias y CBU -->
+  <script>
+    async function copyToClipboard(text, btnElement, successMsg) {
+      let ok = false;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          ok = true;
+        }
+      } catch (err) {
+        // Fallback a document.execCommand
+      }
+
+      if (!ok) {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.top = '0';
+          ta.style.left = '0';
+          ta.style.width = '2em';
+          ta.style.height = '2em';
+          ta.style.padding = '0';
+          ta.style.border = 'none';
+          ta.style.outline = 'none';
+          ta.style.boxShadow = 'none';
+          document.body.appendChild(ta);
+          ta.select();
+          ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+        } catch (e) {
+          ok = false;
+        }
+      }
+
+      if (ok) {
+        const originalHtml = btnElement.innerHTML;
+        btnElement.classList.add('copied');
+        btnElement.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          ¡${successMsg}!
+        `;
+        setTimeout(() => {
+          btnElement.classList.remove('copied');
+          btnElement.innerHTML = originalHtml;
+        }, 2200);
+      } else {
+        alert('Copiá manualmente: ' + text);
+      }
+    }
+  </script>
+
+</body>
+</html>
