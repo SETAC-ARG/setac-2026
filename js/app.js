@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWiFiCopy();
   initLiveAlert();
   initCenaLink();
+  initRegistroLink();
 });
 
 /**
@@ -158,4 +159,30 @@ function initCenaLink() {
 
   updateCenaLink();
   window.addEventListener('resize', updateCenaLink);
+}
+
+/**
+ * Enrutamiento inteligente del botón Registro e Inscripción:
+ * - Computadora / Pantalla ancha (> 768px): abre la página web oficial completa en pestaña nueva.
+ * - Celular / Dispositivo móvil (<= 768px): abre la pantalla optimizada para celular (registro.html).
+ */
+function initRegistroLink() {
+  const btnReg = document.getElementById('btnRegistroInscripcion');
+  if (!btnReg) return;
+
+  function updateRegistroLink() {
+    const isDesktop = window.innerWidth > 768;
+    if (isDesktop) {
+      btnReg.href = 'https://setacargentina.setac.org/inscripciones';
+      btnReg.target = '_blank';
+      btnReg.rel = 'noopener';
+    } else {
+      btnReg.href = 'registro.html?v=20261027_v1';
+      btnReg.removeAttribute('target');
+      btnReg.removeAttribute('rel');
+    }
+  }
+
+  updateRegistroLink();
+  window.addEventListener('resize', updateRegistroLink);
 }

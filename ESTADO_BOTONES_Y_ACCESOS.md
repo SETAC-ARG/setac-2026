@@ -39,6 +39,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | **Sitio Web Oficial** | — | 🟢 Visible | `https://setacargentina.setac.org/congreso2026` | Web institucional SETAC. |
 | **Programa Completo (PDF)** | — | 🟢 Visible | `docs/Programa_Final_Ordenado.pdf` | Descarga de PDF oficial ordenado. |
 | **Libro de Resúmenes (PDF)** | — | 🟢 Visible | `docs/Libro_Resumenes_SETAC_2026_Final.pdf` | Descarga de compendio de resúmenes. |
+| **📝 Registro e Inscripción** | `btnRegistroInscripcion` | 🟢 Visible | Móvil: `registro.html`<br>Desktop: Web oficial (`/inscripciones`) | Operativo: Aranceles, CBU/Alias Fundación Exactas y Formulario Google. |
 | **Mail Oficial de Secretaría** | `secretariaEmailCard` | 🟢 Visible | `mailto:setaclaplata2026@gmail.com` | Correo de contacto y coordinación. |
 
 ---

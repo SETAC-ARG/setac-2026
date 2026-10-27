@@ -243,6 +243,24 @@
         <span style="color:#475569;font-size:11px;">Los accesos interactivos (cuadrícula y buscador) reflejan minuto a minuto los institutos y mapas. Los documentos PDF descargables corresponden a la programación oficial centralizada en Karakachoff.</span>
       </div>
 
+            <!-- Registro e Inscripción (Enrutamiento Inteligente: Desktop -> Web Oficial / Celular -> registro_preview.html) -->
+      <a class="btn-congress" href="registro_preview.html?v=20261027_v1" id="btnRegistroInscripcion">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M19 8v6M22 11h-6"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">📝 REGISTRO E INSCRIPCIÓN <span style="font-size:10px;background:#e0f2fe;color:#0369a1;padding:1px 6px;border-radius:4px;border:1px solid #bae6fd;margin-left:4px;font-weight:bold;">NUEVO</span></span>
+            <span class="btn-desc">Aranceles, datos de transferencia bancaria y formulario oficial</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
       <!-- Sitio Web Oficial del Congreso -->
       <a class="btn-congress" href="https://setacargentina.setac.org/congreso2026" target="_blank" rel="noopener">
         <div class="btn-content-left">
@@ -645,5 +663,25 @@
 
   <!-- Script interactivo -->
   <script src="js/app.js?v=20261026_v1"></script>
+  <script>
+    // Enrutamiento inteligente para Registro e Inscripción (Desktop -> Web Oficial / Celular -> registro_preview.html)
+    (function() {
+      const btnReg = document.getElementById('btnRegistroInscripcion');
+      if (!btnReg) return;
+      function updateRegLink() {
+        if (window.innerWidth > 768) {
+          btnReg.href = 'https://setacargentina.setac.org/inscripciones';
+          btnReg.target = '_blank';
+          btnReg.rel = 'noopener';
+        } else {
+          btnReg.href = 'registro_preview.html?v=20261027_v1';
+          btnReg.removeAttribute('target');
+          btnReg.removeAttribute('rel');
+        }
+      }
+      updateRegLink();
+      window.addEventListener('resize', updateRegLink);
+    })();
+  </script>
 </body>
 </html>
