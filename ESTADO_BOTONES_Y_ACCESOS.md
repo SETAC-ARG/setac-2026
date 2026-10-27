@@ -46,8 +46,9 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 ### D. Actividades Sociales
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas y Estado de Preparación |
 | :--- | :--- | :---: | :--- | :--- |
-| **🍻 Actividad Social 2 (Miércoles 28)** | `actividadSocial1` | 🟡 **PREVIEW** | **Prod**: Web oficial<br>**Preview**: `actividad_social_2_preview.html` | **Lugar propuesto**: León Bar Bistró (Estadio UNO).<br>⏳ **Pendiente**: Definir monto de tarjeta y enlace al Google Form de inscripción. |
-| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocial2` | 🟢 Visible | Móvil: `cena.html`<br>Desktop: Web oficial SETAC | **Lugar**: Bukowski Bar.<br>Totalmente operativo con datos bancarios y formulario. |
+| **🍸 Cóctel (Martes 27)** | `actividadSocial1` | 🟢 Visible | [Google Maps (Espacio Dickinson)](https://maps.app.goo.gl/wrUP3BJ9NAPMGW5MA) | **Horario**: 20:00 hs.<br>**Lugar**: Espacio Dickinson (Mismo edificio Sergio Karakachoff, UNLP). |
+| **🍻 Actividad Social 2: Encuentro (Miércoles 28)** | `actividadSocial2` | 🟡 **PREVIEW** | **Prod**: Web oficial<br>**Preview**: `actividad_social_2_preview.html` | **Horario**: 20:30 hs.<br>**Lugar propuesto**: León Bar Bistró (Estadio UNO).<br>⏳ **Pendiente**: Definir monto de tarjeta y enlace al Form de pago. |
+| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 Visible | Móvil: `cena.html`<br>Desktop: Web oficial SETAC | **Horario**: 20:30 hs.<br>**Lugar**: Bukowski Bar.<br>Totalmente operativo con datos bancarios y formulario. |
 
 ---
 
