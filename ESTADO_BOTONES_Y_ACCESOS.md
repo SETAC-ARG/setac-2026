@@ -56,8 +56,8 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 ### E. Actividades SETAC Argentina
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas |
 | :--- | :--- | :---: | :--- | :--- |
-| **🎓 Asamblea de Estudiantes** | `asambleaEstudiantes` | 🟢 Visible | Grupo WhatsApp / Convocatoria | Miércoles 28 Oct • 19:00 hs. |
-| **🏛️ Asamblea General SETAC ARG** | `asambleaSetac` | 🟢 Visible | Web oficial institucional | Jueves 29 Oct • 19:00 hs. |
+| **🎓 Asamblea de Estudiantes** | `asambleaEstudiantes` | 🟢 Visible | Grupo WhatsApp / Convocatoria | Miércoles 28 Oct • 19:00 hs • Sala 4. |
+| **🏛️ Asamblea General SETAC ARG** | `asambleaSetac` | 🟢 Visible | Web oficial institucional | Jueves 29 Oct • 19:00 hs • Sala 4. |
 
 ---
 
