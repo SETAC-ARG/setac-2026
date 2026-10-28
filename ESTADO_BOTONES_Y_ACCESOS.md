@@ -47,7 +47,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 ### D. Actividades Sociales
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas y Estado de Preparación |
 | :--- | :--- | :---: | :--- | :--- |
-| **🍸 Cóctel (Martes 27)** | `actividadSocial1` | 🟢 Visible | [Google Maps (Espacio Dickinson)](https://maps.app.goo.gl/wrUP3BJ9NAPMGW5MA) | **Horario**: 20:00 hs.<br>**Lugar**: Espacio Dickinson (Mismo edificio Sergio Karakachoff, UNLP). |
+| **📸 Foto del Congreso (Jueves 29)** | otoCongreso | 🟢 Visible | [Google Maps (Rectorado UNLP)](https://maps.google.com/?q=Rectorado+UNLP+La+Plata) | **Horario**: Jueves 17:30 hs (después de la Conferencia Plenaria).<br>**Lugar**: Escalinatas de Rectorado UNLP. |
 | **🍻 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🟢 **VISIBLE (DESTACADO)** | `actividad_social_2.html` | **Horario**: 20:30 hs.<br>**Lugar**: León Bar Bistró (Estadio UNO).<br>**Estilo**: Festivo dorado con badge animado `🍺 ¡HOY 20:30 HS!`. Operativo con transferencia (AR), PayPal (USD) y QR. |
 | **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 **PRIORITARIO (CABECERA)** | `cena.html` | **Ubicación**: En cabecera (primer botón).<br>**Estilo**: Gourmet cálido con badge animado `⏰ ¡CIERRA HOY A LAS 18 HS!`.<br>**Horario**: 20:30 hs.<br>**Lugar**: Bukowski Bar. Operativo con transferencia (AR), PayPal (USD) y QR. |
 
