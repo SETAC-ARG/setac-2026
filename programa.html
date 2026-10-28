@@ -412,7 +412,7 @@
   </div>
 
   <!-- Base de datos integral enriquecida con Autores, Resúmenes y Palabras Clave -->
-  <script src="js/programa_autores_data.js?v=20261026_v3"></script>
+  <script src="js/programa_autores_data.js?v=20261028_v9"></script>
   
   <script>
     // Variables de estado
@@ -463,6 +463,14 @@
         .filter(w => w.length >= 3 && !stopwords.has(w));
 
       const authorsList = allAuthorsStr.split(',').map(a => a.trim());
+      const exactMatch = authorsList.find(a => normalizeStr(a) === normalizeStr(presenterStr));
+      if (exactMatch) {
+        return authorsList.map(author =>
+          normalizeStr(author) === normalizeStr(presenterStr)
+            ? `<span class="author-highlight-inline">${author}</span> 🎤`
+            : author
+        ).join(', ');
+      }
       
       const formatted = authorsList.map(author => {
         const autNorm = normalizeStr(author).replace(/-/g, ' ');
@@ -527,7 +535,8 @@
           const normKeywords = normalizeStr(item.palabras_clave);
           const normSession = normalizeStr(item.id_sesion + ' ' + item.modalidad);
           const normRoom = normalizeStr((item.auditorio || '').replace(/^Auditorio\s*/i, 'Sala '));
-          const normOrden = item.orden ? `orden ${item.orden} #${item.orden}` : '';
+          const ordenInt = item.orden ? String(parseInt(item.orden, 10)) : '';
+          const normOrden = item.orden ? `orden ${item.orden} orden ${ordenInt} #${item.orden} #${ordenInt} poster ${item.orden} poster ${ordenInt}` : '';
 
           // Todo el texto consolidado del trabajo
           const fullSearchBlob = `${normAuthors} ${normPresenter} ${normTitle} ${normCodLibro} ${normKeywords} ${normSession} ${normRoom} ${normOrden}`;

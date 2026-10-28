@@ -567,8 +567,7 @@ window.CRONOGRAMA_GENERAL = [
         "coordinators": ""
       }
     ],
-    "reestructurado": true,
-    "aviso_reestructuracion": "La jornada del día miércoles 28/10 fue reestructurada en institutos de CONICET."
+    "reestructurado": true
   },
   {
     "day_id": "jueves",
