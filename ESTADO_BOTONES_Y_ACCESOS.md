@@ -8,9 +8,9 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 
 | Estado | Significado | Cantidad |
 | :--- | :--- | :---: |
-| 🟢 **VISIBLE (PROD)** | Activo y visible para todos los asistentes en `index.html`. | 12 |
+| 🟢 **VISIBLE (PROD)** | Activo y visible para todos los asistentes en `index.html`. | 11 |
 | 🟡 **MODO PREVIEW** | En prueba en `preview.html`, no visible aún en producción. | 0 |
-| 🔴 **OCULTO / PENDIENTE** | Maquetado en el código (`style="display: none;"`), esperando confirmación o enlace para publicarse. | 0 |
+| 🔒 **OCULTO / PENDIENTE** | Maquetado en el código (`style="display: none;"`), actividad cerrada o pendiente. | 2 |
 
 ---
 
@@ -49,7 +49,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | :--- | :--- | :---: | :--- | :--- |
 | **📸 Foto del Congreso (Jueves 29)** | otoCongreso | 🟢 Visible | [Google Maps (Rectorado UNLP)](https://maps.google.com/?q=Rectorado+UNLP+La+Plata) | **Horario**: Jueves 17:30 hs (después de la Conferencia Plenaria).<br>**Lugar**: Escalinatas de Rectorado UNLP. |
 | **🍺 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🔒 **OCULTO (CERRADA)** | `actividad_social_2.html` | **Estado**: Actividad cerrada.<br>**Visualización**: Ocultado en `index.html` con `style="display: none;"`. |
-| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 **PRIORITARIO (CABECERA)** | `cena.html` | **Ubicación**: En cabecera (primer botón).<br>**Estilo**: Gourmet cálido con badge animado `⏰ ¡CIERRA HOY A LAS 18 HS!`.<br>**Horario**: 20:30 hs.<br>**Lugar**: Bukowski Bar. Operativo con transferencia (AR), PayPal (USD) y QR. |
+| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🔒 **OCULTO (CERRADA)** | `cena.html` | **Estado**: Actividad cerrada.<br>**Visualización**: Ocultado en `index.html` con `style="display: none;"`. |
 
 ---
 
