@@ -144,7 +144,7 @@ function initCenaLink() {
   const btnCena = document.getElementById('actividadSocialCena');
   if (!btnCena) return;
 
-  btnCena.href = 'cena.html?v=20261028_v5';
+  btnCena.href = 'cena.html?v=20261028_v6';
   btnCena.removeAttribute('target');
   btnCena.removeAttribute('rel');
 }

@@ -8,8 +8,8 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 
 | Estado | Significado | Cantidad |
 | :--- | :--- | :---: |
-| 🟢 **VISIBLE (PROD)** | Activo y visible para todos los asistentes en `index.html`. | 12 |
-| 🟡 **MODO PREVIEW** | En prueba en `preview.html`, no visible aún en producción. | 1 |
+| 🟢 **VISIBLE (PROD)** | Activo y visible para todos los asistentes en `index.html`. | 13 |
+| 🟡 **MODO PREVIEW** | En prueba en `preview.html`, no visible aún en producción. | 0 |
 | 🔴 **OCULTO / PENDIENTE** | Maquetado en el código (`style="display: none;"`), esperando confirmación o enlace para publicarse. | 0 |
 
 ---
@@ -65,7 +65,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas y Próxima Acción |
 | :--- | :--- | :---: | :--- | :--- |
 | **📋 Encuesta DE&I (Diversidad, Equidad e Inclusión)** | `encuestaDEI` | 🟢 **VISIBLE** | [Google Forms](https://forms.gle/uWp6z9FiVvN1q83h9) | Formulario activo para el conversatorio del Jueves 29. |
-| **💬 ¿Nos ayudás con SETAC Argentina?** | `encuestaAyudaSetac` | 🟡 **PREVIEW** | [Google Forms](https://forms.gle/WxMeWgRoLFZAnASr5) | Activo en `preview.html`. En producción (`index.html`) listo y a la espera de aprobación. |
+| **💬 ¿Nos ayudás con SETAC Argentina?** | `encuestaAyudaSetac` | 🟢 **VISIBLE** | [Google Forms](https://forms.gle/WxMeWgRoLFZAnASr5) | Formulario de feedback y fortalecimiento de la comunidad. Totalmente operativo en producción. |
 
 ---
 
