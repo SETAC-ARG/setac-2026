@@ -20,6 +20,113 @@
   <link rel="stylesheet" href="css/brands.css">
   <link rel="stylesheet" href="css/setac-theme.css?v=20261027_v8">
   <link rel="stylesheet" href="css/variantes.css?v=20261027_v8">
+  <style>
+    /* ========================================================
+       ESTILOS Y VARIANTES PARA DESTACAR PINCHA DEBATE (PREVIEW)
+       ======================================================== */
+    /* Píldora Badge Animada */
+    .pincha-badge-live {
+      position: absolute;
+      top: -8px;
+      right: 14px;
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-transform: uppercase;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .pincha-badge-live .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: inline-block;
+      animation: pulseDotLive 1.5s infinite;
+    }
+    @keyframes pulseDotLive {
+      0% { transform: scale(0.8); opacity: 0.6; }
+      50% { transform: scale(1.35); opacity: 1; }
+      100% { transform: scale(0.8); opacity: 0.6; }
+    }
+
+    /* Variante 1: Badge flotante en botón estándar */
+    .pincha-opt-badge {
+      position: relative !important;
+      border-color: #0284c7 !important;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22) !important;
+    }
+
+    /* Variante 2: Festivo Dorado (Cerveza y Networking) */
+    .pincha-opt-festivo {
+      position: relative !important;
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 40%, #fde68a 100%) !important;
+      border: 1.8px solid #f59e0b !important;
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    }
+    .pincha-opt-festivo:hover {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 45%, #fcd34d 100%) !important;
+      box-shadow: 0 8px 26px rgba(217, 119, 6, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+      transform: translateY(-2px);
+    }
+    .pincha-opt-festivo .btn-title {
+      color: #78350f !important;
+      font-weight: 900 !important;
+    }
+    .pincha-opt-festivo .btn-desc {
+      color: #92400e !important;
+      font-weight: 600 !important;
+    }
+    .pincha-opt-festivo .btn-icon {
+      stroke: #b45309 !important;
+      background: rgba(245, 158, 11, 0.18) !important;
+      border-color: #f59e0b !important;
+    }
+    .pincha-opt-festivo .btn-arrow {
+      stroke: #b45309 !important;
+    }
+
+    /* Variante 3: León Bar Bistró / Estadio UNO Glow */
+    .pincha-opt-leon {
+      position: relative !important;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+      border: 1.8px solid #ef4444 !important;
+      box-shadow: 0 6px 24px rgba(239, 68, 68, 0.32), 0 0 12px rgba(245, 158, 11, 0.2) !important;
+      animation: neonLeonGlow 2.5s infinite alternate ease-in-out;
+    }
+    @keyframes neonLeonGlow {
+      0% { box-shadow: 0 4px 18px rgba(239, 68, 68, 0.22), 0 0 8px rgba(245, 158, 11, 0.15); }
+      100% { box-shadow: 0 8px 28px rgba(239, 68, 68, 0.45), 0 0 18px rgba(245, 158, 11, 0.35); }
+    }
+    .pincha-opt-leon:hover {
+      background: linear-gradient(135deg, #334155 0%, #1e293b 100%) !important;
+      border-color: #f87171 !important;
+      transform: translateY(-2px);
+    }
+    .pincha-opt-leon .btn-title {
+      color: #ffffff !important;
+      font-weight: 900 !important;
+    }
+    .pincha-opt-leon .btn-desc {
+      color: #fca5a5 !important;
+    }
+    .pincha-opt-leon .btn-icon {
+      stroke: #fca5a5 !important;
+      background: rgba(239, 68, 68, 0.25) !important;
+      border-color: #ef4444 !important;
+    }
+    .pincha-opt-leon .btn-arrow {
+      stroke: #f87171 !important;
+    }
+  </style>
+
 </head>
 <body data-sponsors-style="sin-cajitas" data-theme="celeste" data-header="banner-faded" data-watermark="dual">
 
@@ -69,6 +176,26 @@
           <button class="ctrl-btn" data-control="sponsors-style" data-value="panel-glass">🪟 Vidrio</button>
         </div>
       </div>
+      <!-- Fila 5: Destacado Pincha Debate (Hoy Miércoles 28) -->
+      <div class="control-row">
+        <div class="control-label"><span class="dot" style="background:#f59e0b;"></span>Pincha</div>
+        <div class="control-button-group" role="radiogroup" aria-label="Destacado Pincha Debate">
+          <button class="ctrl-btn" data-control="pincha-style" data-value="estandar">🔵 Normal</button>
+          <button class="ctrl-btn" data-control="pincha-style" data-value="badge">🟡 Badge ¡Hoy!</button>
+          <button class="ctrl-btn active" data-control="pincha-style" data-value="festivo">🍺 Festivo Dorado</button>
+          <button class="ctrl-btn" data-control="pincha-style" data-value="leon">🦁 León Estadio</button>
+        </div>
+      </div>
+
+      <!-- Fila 6: Posición Pincha Debate -->
+      <div class="control-row">
+        <div class="control-label"><span class="dot" style="background:#ef4444;"></span>Ubicación</div>
+        <div class="control-button-group" role="radiogroup" aria-label="Posición Pincha Debate">
+          <button class="ctrl-btn active" data-control="pincha-pos" data-value="sociales">📍 En Sociales</button>
+          <button class="ctrl-btn" data-control="pincha-pos" data-value="top">⭐ Arriba (Prioritario)</button>
+        </div>
+      </div>
+
     </div>
   </aside>
 
@@ -322,8 +449,11 @@
         </svg>
       </a>
 
-      <!-- Actividad Social 2 (Modo Preview: León Bar Bistró) -->
-      <a class="btn-congress" href="actividad_social_2_preview.html?v=20261028_v5" id="actividadSocial2">
+      <!-- Actividad Social 2 (Pincha Debate - Con Opciones de Destacado) -->
+      <a class="btn-congress pincha-opt-festivo" href="actividad_social_2_preview.html?v=20261028_v5" id="actividadSocial2">
+        <span class="pincha-badge-live" id="pinchaBadge" style="background:#d97706;">
+          <span class="pulse-dot"></span> <span id="pinchaBadgeText">¡HOY 20:30 HS!</span>
+        </span>
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 11h1a3 3 0 0 1 0 6h-1"></path>
@@ -632,23 +762,22 @@
         localStorage.setItem('setac_preview_header_v4', currentHeader);
         localStorage.setItem('setac_preview_watermark_v4', currentWatermark);
 
-        themeButtons.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-value') === currentTheme);
-        });
-
-        headerButtons.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-value') === currentHeader);
-        });
-
-        watermarkButtons.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-value') === currentWatermark);
-        });
-      }
-
-      themeButtons.forEach(btn => {
+              themeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           currentTheme = btn.getAttribute('data-value');
           applyState();
+        });
+      });
+
+      pinchaPosButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentPinchaPos = btn.getAttribute('data-value');
+          applyPinchaState();
+        });
+      });
+
+      applyPinchaState();
+
         });
       });
 
@@ -675,6 +804,84 @@
 
       // Inicializar
       applyState();
+
+      // Controles Interactivos para Destacar Pincha Debate
+      const pinchaStyleButtons = document.querySelectorAll('[data-control="pincha-style"]');
+      const pinchaPosButtons = document.querySelectorAll('[data-control="pincha-pos"]');
+      const btnPincha = document.getElementById('actividadSocial2');
+      const badgePincha = document.getElementById('pinchaBadge');
+      const badgeTextPincha = document.getElementById('pinchaBadgeText');
+      const topContainer = document.getElementById('pinchaTopContainer');
+      const originalParent = btnPincha ? btnPincha.parentElement : null;
+      const nextSibling = btnPincha ? btnPincha.nextElementSibling : null;
+
+      let currentPinchaStyle = localStorage.getItem('setac_pincha_style_preview') || 'festivo';
+      let currentPinchaPos = localStorage.getItem('setac_pincha_pos_preview') || 'sociales';
+
+      function applyPinchaState() {
+        if (!btnPincha) return;
+
+        // Reset classes
+        btnPincha.classList.remove('pincha-opt-badge', 'pincha-opt-festivo', 'pincha-opt-leon');
+
+        if (currentPinchaStyle === 'estandar') {
+          if (badgePincha) badgePincha.style.display = 'none';
+        } else if (currentPinchaStyle === 'badge') {
+          btnPincha.classList.add('pincha-opt-badge');
+          if (badgePincha) {
+            badgePincha.style.display = 'inline-flex';
+            badgePincha.style.background = '#d97706';
+            if (badgeTextPincha) badgeTextPincha.textContent = '¡HOY 20:30 HS!';
+          }
+        } else if (currentPinchaStyle === 'festivo') {
+          btnPincha.classList.add('pincha-opt-festivo');
+          if (badgePincha) {
+            badgePincha.style.display = 'inline-flex';
+            badgePincha.style.background = '#b45309';
+            if (badgeTextPincha) badgeTextPincha.textContent = '🍺 ¡HOY 20:30 HS!';
+          }
+        } else if (currentPinchaStyle === 'leon') {
+          btnPincha.classList.add('pincha-opt-leon');
+          if (badgePincha) {
+            badgePincha.style.display = 'inline-flex';
+            badgePincha.style.background = '#dc2626';
+            if (badgeTextPincha) badgeTextPincha.textContent = '🦁 ¡ESTA NOCHE!';
+          }
+        }
+
+        pinchaStyleButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-value') === currentPinchaStyle);
+        });
+        localStorage.setItem('setac_pincha_style_preview', currentPinchaStyle);
+
+        // Position handling
+        if (currentPinchaPos === 'top' && topContainer) {
+          topContainer.appendChild(btnPincha);
+        } else if (originalParent && nextSibling) {
+          originalParent.insertBefore(btnPincha, nextSibling);
+        }
+
+        pinchaPosButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-value') === currentPinchaPos);
+        });
+        localStorage.setItem('setac_pincha_pos_preview', currentPinchaPos);
+      }
+
+      pinchaStyleButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentPinchaStyle = btn.getAttribute('data-value');
+          applyPinchaState();
+        });
+      });
+
+      pinchaPosButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentPinchaPos = btn.getAttribute('data-value');
+          applyPinchaState();
+        });
+      });
+
+      applyPinchaState();
 
       // Copiado de WiFi
       const copyBtn = document.getElementById('copyWifiBtn');
