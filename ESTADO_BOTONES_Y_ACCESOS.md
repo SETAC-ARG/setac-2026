@@ -48,8 +48,8 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas y Estado de Preparación |
 | :--- | :--- | :---: | :--- | :--- |
 | **🍸 Cóctel (Martes 27)** | `actividadSocial1` | 🟢 Visible | [Google Maps (Espacio Dickinson)](https://maps.app.goo.gl/wrUP3BJ9NAPMGW5MA) | **Horario**: 20:00 hs.<br>**Lugar**: Espacio Dickinson (Mismo edificio Sergio Karakachoff, UNLP). |
-| **🍻 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🟢 **VISIBLE** | `actividad_social_2.html` | **Horario**: 20:30 hs.<br>**Lugar**: León Bar Bistró (Estadio UNO).<br>**Propuesta**: 1 cerveza con papas ($ 10.000 ARS / 10 USD).<br>Totalmente operativo con transferencia bancaria (AR), pago internacional vía PayPal (10 USD), código QR y formulario. |
-| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 Visible | Móvil: `cena.html`<br>Desktop: Web oficial SETAC | **Horario**: 20:30 hs.<br>**Lugar**: Bukowski Bar.<br>Totalmente operativo con transferencia bancaria (AR), pago internacional vía PayPal (10 USD), código QR y formulario. |
+| **🍻 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🟢 **VISIBLE (DESTACADO)** | `actividad_social_2.html` | **Horario**: 20:30 hs.<br>**Lugar**: León Bar Bistró (Estadio UNO).<br>**Estilo**: Festivo dorado con badge animado `🍺 ¡HOY 20:30 HS!`. Operativo con transferencia (AR), PayPal (USD) y QR. |
+| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 **PRIORITARIO (CABECERA)** | `cena.html` | **Ubicación**: En cabecera (primer botón).<br>**Estilo**: Gourmet cálido con badge animado `⏰ ¡CIERRA HOY A LAS 18 HS!`.<br>**Horario**: 20:30 hs.<br>**Lugar**: Bukowski Bar. Operativo con transferencia (AR), PayPal (USD) y QR. |
 
 ---
 
