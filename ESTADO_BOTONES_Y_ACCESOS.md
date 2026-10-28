@@ -48,7 +48,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas y Estado de Preparación |
 | :--- | :--- | :---: | :--- | :--- |
 | **🍸 Cóctel (Martes 27)** | `actividadSocial1` | 🟢 Visible | [Google Maps (Espacio Dickinson)](https://maps.app.goo.gl/wrUP3BJ9NAPMGW5MA) | **Horario**: 20:00 hs.<br>**Lugar**: Espacio Dickinson (Mismo edificio Sergio Karakachoff, UNLP). |
-| **🍻 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🟡 **PREVIEW** | **Prod**: Web oficial<br>**Preview**: `actividad_social_2_preview.html` | **Horario**: 20:30 hs.<br>**Lugar**: León Bar Bistró (Estadio UNO).<br>**Propuesta**: 1 cerveza con papas ($ 10.000).<br>✅ Formulario de Google configurado y operativo en preview. |
+| **🍻 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🟡 **PREVIEW** | **Prod**: Web oficial<br>**Preview**: `actividad_social_2_preview.html` | **Horario**: 20:30 hs.<br>**Lugar**: León Bar Bistró (Estadio UNO).<br>**Propuesta**: 1 cerveza con papas ($ 10.000 ARS / 10 USD).<br>✅ Formulario de Google, CBU/Alias y pago internacional vía PayPal (10 USD) con QR operativos en preview. |
 | **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 Visible | Móvil: `cena.html`<br>Desktop: Web oficial SETAC | **Horario**: 20:30 hs.<br>**Lugar**: Bukowski Bar.<br>Totalmente operativo con transferencia bancaria (AR), pago internacional vía PayPal (10 USD), código QR y formulario. |
 
 ---
