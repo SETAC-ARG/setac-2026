@@ -327,6 +327,100 @@
       color: #ffffff !important;
     }
 
+    /* Bloque de Pago Internacional */
+    .intl-card {
+      background: #f0f7fc;
+      border: 1.5px solid #0070ba;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .intl-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    .intl-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .intl-header h3 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #003087;
+      margin: 0;
+    }
+
+    .intl-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: #ffffff;
+      background: #0070ba;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-paypal-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #0070ba 0%, #003087 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 13px 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 112, 186, 0.28);
+      transition: all 0.2s ease;
+      margin-top: 14px;
+      box-sizing: border-box;
+      width: 100%;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-paypal-cta:hover {
+      background: linear-gradient(135deg, #005ea6 0%, #002568 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 112, 186, 0.38);
+    }
+
+    .qr-box {
+      text-align: center;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed #cbd5e1;
+    }
+
+    .qr-box p {
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+      margin: 0 0 10px 0;
+    }
+
+    .qr-img {
+      width: 180px;
+      max-width: 80%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      padding: 8px;
+      background: #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+      display: inline-block;
+    }
+
+
     /* Botón Principal para el Formulario de Google */
     .form-cta-container {
       text-align: center;
@@ -436,7 +530,7 @@
           </div>
           <div class="highlight-item">
             <span class="item-icon">🎟️</span>
-            <div><strong>Valor de la tarjeta:</strong> $15.000 por persona.</div>
+            <div><strong>Valor de la tarjeta:</strong> $15.000 ARS (Nacionales) / 10 USD (Internacionales).</div>
           </div>
           <div class="highlight-item">
             <span class="item-icon">⏳</span>
@@ -482,7 +576,7 @@
               <rect x="2" y="5" width="20" height="14" rx="2"></rect>
               <line x1="2" y1="10" x2="22" y2="10"></line>
             </svg>
-            <h3>Datos de Pago para Transferencia</h3>
+            <h3>Datos de Pago para Transferencia (Argentina)</h3>
           </div>
 
           <div class="bank-data-list">
@@ -531,10 +625,76 @@
           </div>
         </section>
 
+        <!-- Datos de Pago para Participantes Internacionales (PayPal & Tarjetas) -->
+        <section class="intl-card" aria-label="Datos de pago online para participantes internacionales">
+          <div class="intl-header">
+            <div class="intl-header-left">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0070ba" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <h3>Pago Internacional (PayPal / Tarjeta)</h3>
+            </div>
+            <span class="intl-badge">Online / USD</span>
+          </div>
+
+          <div class="bank-data-list">
+            <div class="bank-data-row">
+              <span class="bank-label">Concepto:</span>
+              <span class="bank-value">Cena de camaradería Congreso SETAC</span>
+            </div>
+            <div class="bank-data-row">
+              <span class="bank-label">Importe:</span>
+              <span class="bank-value" style="color:#0070ba; font-size:14px; font-weight:800;">10.00 USD</span>
+            </div>
+            <div class="bank-data-row">
+              <span class="bank-label">Medios aceptados:</span>
+              <span class="bank-value">PayPal, Tarjetas de Crédito / Débito</span>
+            </div>
+          </div>
+
+          <!-- Botón Directo PayPal -->
+          <a href="https://www.paypal.com/ncp/payment/ENBKR7D2B5LWL" target="_blank" rel="noopener" class="btn-paypal-cta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+              <line x1="1" y1="10" x2="23" y2="10"></line>
+            </svg>
+            <span>Pagar con PayPal / Tarjeta (10 USD)</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+
+          <!-- Botón Copiar Link de Pago -->
+          <div style="margin-top: 10px;">
+            <button type="button" class="btn-copy-bank" style="border-color:#0070ba; color:#0070ba;" onclick="copyToClipboard('https://www.paypal.com/ncp/payment/ENBKR7D2B5LWL', this, 'Link PayPal copiado')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copiar Link de Pago PayPal
+            </button>
+          </div>
+
+          <!-- Código QR Oficial PayPal -->
+          <div class="qr-box">
+            <p>📱 O escaneá el código QR desde tu celular para pagar:</p>
+            <a href="https://www.paypal.com/ncp/payment/ENBKR7D2B5LWL" target="_blank" rel="noopener" title="Abrir link de pago PayPal">
+              <img src="images/cena_paypal_qr.png" alt="Código QR de Pago PayPal - Cena de Camaradería SETAC 2026" class="qr-img">
+            </a>
+            <div style="font-size: 11px; color: #64748b; margin-top: 6px;">
+              Enlace directo: <a href="https://www.paypal.com/ncp/payment/ENBKR7D2B5LWL" target="_blank" rel="noopener" style="color:#0070ba; word-break:break-all;">paypal.com/ncp/payment/ENBKR7D2B5LWL</a>
+            </div>
+          </div>
+        </section>
+
+
         <!-- Llamado a la Acción: Formulario de Google -->
         <div class="form-cta-container">
           <p style="font-size:13px; color:#334155; margin-bottom:10px;">
-            Una vez realizada la transferencia, completá el formulario y adjuntá el comprobante:
+            Una vez realizado el pago (transferencia bancaria o PayPal), completá el formulario y adjuntá el comprobante:
           </p>
           <a href="https://forms.gle/1A2nAqG5qYhzYz2BA" target="_blank" rel="noopener" class="btn-form-cta">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">

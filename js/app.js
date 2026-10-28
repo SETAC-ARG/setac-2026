@@ -151,7 +151,7 @@ function initCenaLink() {
       btnCena.target = '_blank';
       btnCena.rel = 'noopener';
     } else {
-      btnCena.href = 'cena.html?v=20261025_v7';
+      btnCena.href = 'cena.html?v=20261028_v1';
       btnCena.removeAttribute('target');
       btnCena.removeAttribute('rel');
     }
