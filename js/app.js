@@ -144,21 +144,9 @@ function initCenaLink() {
   const btnCena = document.getElementById('actividadSocialCena');
   if (!btnCena) return;
 
-  function updateCenaLink() {
-    const isDesktop = window.innerWidth > 768;
-    if (isDesktop) {
-      btnCena.href = 'https://setacargentina.setac.org/cena-de-camaraderia';
-      btnCena.target = '_blank';
-      btnCena.rel = 'noopener';
-    } else {
-      btnCena.href = 'cena.html?v=20261028_v1';
-      btnCena.removeAttribute('target');
-      btnCena.removeAttribute('rel');
-    }
-  }
-
-  updateCenaLink();
-  window.addEventListener('resize', updateCenaLink);
+  btnCena.href = 'cena.html?v=20261028_v5';
+  btnCena.removeAttribute('target');
+  btnCena.removeAttribute('rel');
 }
 
 /**
