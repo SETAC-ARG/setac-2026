@@ -319,13 +319,22 @@
 
       <!-- Fila Destacado Cena de Camaradería (Jueves 29) -->
       <div class="control-row">
-        <div class="control-label"><span class="dot" style="background:#eab308;"></span>Cena</div>
+        <div class="control-label"><span class="dot" style="background:#ea580c;"></span>Cena</div>
         <div class="control-button-group" role="radiogroup" aria-label="Destacado Cena de Camaradería">
           <button class="ctrl-btn" data-control="cena-style" data-value="estandar">🔵 Normal</button>
-          <button class="ctrl-btn" data-control="cena-style" data-value="badge">🏷️ Badge Cupos</button>
-          <button class="ctrl-btn active" data-control="cena-style" data-value="gala">✨ Noche & Oro</button>
-          <button class="ctrl-btn" data-control="cena-style" data-value="gourmet">🍷 Gourmet</button>
+          <button class="ctrl-btn" data-control="cena-style" data-value="badge">🏷️ Badge</button>
+          <button class="ctrl-btn" data-control="cena-style" data-value="gala">✨ Noche & Oro</button>
+          <button class="ctrl-btn active" data-control="cena-style" data-value="gourmet">🍷 Gourmet</button>
           <button class="ctrl-btn" data-control="cena-style" data-value="esmeralda">💳 Pago Listo</button>
+        </div>
+      </div>
+
+      <!-- Fila Posición Cena de Camaradería -->
+      <div class="control-row">
+        <div class="control-label"><span class="dot" style="background:#dc2626;"></span>Ubicación Cena</div>
+        <div class="control-button-group" role="radiogroup" aria-label="Posición Cena de Camaradería">
+          <button class="ctrl-btn active" data-control="cena-pos" data-value="top">⭐ Arriba (Prioritario)</button>
+          <button class="ctrl-btn" data-control="cena-pos" data-value="sociales">📍 En Sociales</button>
         </div>
       </div>
 
@@ -426,6 +435,9 @@
 
     <!-- NAVEGACIÓN Y ACCESOS PRINCIPALES (Hub Unificado y Limpio) -->
     <main>
+
+      <!-- CONTENEDOR PRIORITARIO (Para elementos destacados en cabecera en Preview) -->
+      <div id="prioritarioTopContainer" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 4px;"></div>
 
       <!-- NUEVO ACCESO PREVIEW: CRONOGRAMA Y PROGRAMA A PRIMERA VISTA -->
       <a class="btn-congress" href="cronograma_general.html?v=20261027_v8">
@@ -615,9 +627,9 @@
       </a>
 
       <!-- Actividad Social 2 (Cena de Camaradería) -->
-      <a class="btn-congress" href="cena_preview.html?v=20261028_v7" id="actividadSocialCena">
-        <span class="cena-badge-live" id="cenaBadge" style="background:#d97706;">
-          <span class="pulse-dot"></span> <span id="cenaBadgeText">✨ JUEVES 20:30 HS</span>
+      <a class="btn-congress cena-opt-gourmet" href="cena_preview.html?v=20261028_v8" id="actividadSocialCena">
+        <span class="cena-badge-live" id="cenaBadge" style="background:#c2410c;">
+          <span class="pulse-dot"></span> <span id="cenaBadgeText">⏰ ¡CIERRA HOY A LAS 18 HS!</span>
         </span>
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -625,7 +637,7 @@
           </svg>
           <div class="btn-text-group">
             <span class="btn-title">🍽️ CENA DE CAMARADERÍA</span>
-            <span class="btn-desc">Jueves 29 Oct • 20:30 hs • Bukowski Bar • Menú y pago</span>
+            <span class="btn-desc">Jueves 29 Oct • 20:30 hs • Bukowski Bar • ¡Cierra hoy a las 18 hs!</span>
           </div>
         </div>
         <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -998,11 +1010,16 @@
       // Controles Cena de Camaradería
       // ==========================================
       const cenaStyleButtons = document.querySelectorAll('[data-control="cena-style"]');
+      const cenaPosButtons = document.querySelectorAll('[data-control="cena-pos"]');
       const btnCenaElem = document.getElementById('actividadSocialCena');
       const badgeCena = document.getElementById('cenaBadge');
       const badgeTextCena = document.getElementById('cenaBadgeText');
+      const topContainer = document.getElementById('prioritarioTopContainer');
+      const originalCenaParent = btnCenaElem ? btnCenaElem.parentElement : null;
+      const nextCenaSibling = btnCenaElem ? btnCenaElem.nextElementSibling : null;
 
-      let currentCenaStyle = localStorage.getItem('setac_cena_style_preview') || 'gala';
+      let currentCenaStyle = localStorage.getItem('setac_cena_style_preview') || 'gourmet';
+      let currentCenaPos = localStorage.getItem('setac_cena_pos_preview') || 'top';
 
       function applyCenaState() {
         if (!btnCenaElem) return;
@@ -1015,29 +1032,29 @@
           btnCenaElem.classList.add('cena-opt-badge');
           if (badgeCena) {
             badgeCena.style.display = 'inline-flex';
-            badgeCena.style.background = '#0284c7';
-            if (badgeTextCena) badgeTextCena.textContent = '🏷️ ¡CUPOS LIMITADOS!';
+            badgeCena.style.background = '#dc2626';
+            if (badgeTextCena) badgeTextCena.textContent = '⏰ ¡CIERRA HOY A LAS 18 HS!';
           }
         } else if (currentCenaStyle === 'gala') {
           btnCenaElem.classList.add('cena-opt-gala');
           if (badgeCena) {
             badgeCena.style.display = 'inline-flex';
             badgeCena.style.background = '#d97706';
-            if (badgeTextCena) badgeTextCena.textContent = '✨ JUEVES 20:30 HS';
+            if (badgeTextCena) badgeTextCena.textContent = '⏰ ¡CIERRA HOY A LAS 18 HS!';
           }
         } else if (currentCenaStyle === 'gourmet') {
           btnCenaElem.classList.add('cena-opt-gourmet');
           if (badgeCena) {
             badgeCena.style.display = 'inline-flex';
-            badgeCena.style.background = '#9a3412';
-            if (badgeTextCena) badgeTextCena.textContent = '🍷 CENA OFICIAL';
+            badgeCena.style.background = '#c2410c';
+            if (badgeTextCena) badgeTextCena.textContent = '⏰ ¡CIERRA HOY A LAS 18 HS!';
           }
         } else if (currentCenaStyle === 'esmeralda') {
           btnCenaElem.classList.add('cena-opt-esmeralda');
           if (badgeCena) {
             badgeCena.style.display = 'inline-flex';
             badgeCena.style.background = '#15803d';
-            if (badgeTextCena) badgeTextCena.textContent = '💳 ¡PAGO DISPONIBLE!';
+            if (badgeTextCena) badgeTextCena.textContent = '⏰ ¡CIERRA HOY A LAS 18 HS!';
           }
         }
 
@@ -1045,11 +1062,30 @@
           btn.classList.toggle('active', btn.getAttribute('data-value') === currentCenaStyle);
         });
         localStorage.setItem('setac_cena_style_preview', currentCenaStyle);
+
+        // Ubicación
+        if (currentCenaPos === 'top' && topContainer) {
+          topContainer.appendChild(btnCenaElem);
+        } else if (originalCenaParent && nextCenaSibling) {
+          originalCenaParent.insertBefore(btnCenaElem, nextCenaSibling);
+        }
+
+        cenaPosButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-value') === currentCenaPos);
+        });
+        localStorage.setItem('setac_cena_pos_preview', currentCenaPos);
       }
 
       cenaStyleButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           currentCenaStyle = btn.getAttribute('data-value');
+          applyCenaState();
+        });
+      });
+
+      cenaPosButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentCenaPos = btn.getAttribute('data-value');
           applyCenaState();
         });
       });
