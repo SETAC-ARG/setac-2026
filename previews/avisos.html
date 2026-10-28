@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>X Congreso SETAC Argentina 2026 | Portal de Enlaces</title>
+  <meta name="description" content="Acceso directo al programa, libro de resúmenes, preguntas en vivo, votación y datos del X Congreso SETAC Argentina.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Control de Caché para actualización inmediata en móviles -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- Open Graph / Meta Compartir -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="X Congreso SETAC Argentina 2026">
+  <meta property="og:description" content="Portal oficial de enlaces y servicios para los asistentes al congreso.">
+  <meta property="og:image" content="images/avatar.png?v=3">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/brands.css">
+  <link rel="stylesheet" href="../css/setac-theme.css?v=20261027_v8">
+</head>
+<body data-sponsors-style="sin-cajitas">
+
+  <!-- BARRA SUPERIOR INDICADORA DE MODO PREVIEW -->
+  <div style="background: linear-gradient(90deg, #1e3a8a 0%, #0369a1 100%); color: #ffffff; text-align: center; padding: 7px 12px; font-size: 12px; font-weight: 700; position: sticky; top: 0; z-index: 9999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 8px;">
+    <span>👁️ MODO PREVIEW • Aviso Compacto (Acreditaciones, Pósters y Presentaciones)</span>
+    <span style="opacity: 0.6;">|</span>
+    <a href="../index.html" style="color: #fef08a; text-decoration: underline; font-weight: 600;">Ver versión actual en producción</a>
+  </div>
+
+
+  <!-- Capa de Marca de Agua Fija en el fondo durante el scroll (Hexágono Gigante) -->
+  <div class="fixed-watermark-layer" aria-hidden="true"></div>
+
+  <!-- WIDGET LATERAL FLOTANTE DE QR (VISIBLE SOLO EN ESCRITORIO) -->
+  <aside class="desktop-qr-card" aria-label="Llevá el congreso en tu celular">
+    <div class="desktop-qr-badge">📱 VERSIÓN MÓVIL</div>
+    <div class="desktop-qr-frame">
+      <img src="../images/qr_oficial_setac_2026.png" alt="Código QR Oficial X Congreso SETAC 2026" class="desktop-qr-img" loading="lazy">
+    </div>
+    <p class="desktop-qr-title">Llevá el Congreso en tu Celular</p>
+    <p class="desktop-qr-desc">Escaneá este código QR para abrir el cronograma interactivo y los accesos en tu teléfono.</p>
+  </aside>
+
+<div class="hub-container">
+
+    <!-- CABECERA OFICIAL: BANNER REAL DIFUMINADO (Selección Final) -->
+    <header class="asym-header">
+      <div class="header-banner-faded">
+        <img src="../images/banner_afiche_faded_fluid.png?v=official" alt="X Congreso SETAC Argentina 2026 - La Plata" class="banner-faded-img">
+      </div>
+
+      <!-- FRANJA METADATA DEL EVENTO: FECHA Y SEDE KARAKACHOFF CON ENLACE DIRECTO A MAPS -->
+      <div class="event-meta-strip" role="region" aria-label="Fecha y Sede del Congreso">
+        <div class="meta-item meta-date">
+          <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span><strong>27 al 30 de Octubre 2026</strong></span>
+        </div>
+        <span class="meta-divider">•</span>
+        <a class="meta-item meta-venue-link" href="https://maps.google.com/?q=Centro+de+Convenciones+Karakachoff+UNLP+La+Plata" target="_blank" rel="noopener" title="Abrir ubicación en Google Maps">
+          <svg class="meta-icon icon-pin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Sede: <strong>Centro de Convenciones Karakachoff (UNLP)</strong>, La Plata</span>
+          <svg class="meta-external" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+        <!-- BANNER DE ALERTA / AVISOS EN VIVO (COMPACTO: 3 PUNTOS CLAVE) -->
+    <aside id="liveAlert" class="live-alert-card" role="alert" style="border-left: 5px solid #d97706; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); padding: 10px 14px; margin-bottom: 14px;">
+      <svg class="live-alert-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px; min-width: 20px;">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+      <div class="live-alert-content">
+        <h4 style="color:#92400e; font-weight:800; font-size:12px; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing:.03em;">Avisos Importantes</h4>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <p style="margin: 0; font-size: 12px; line-height: 1.35; color: #78350f;">
+            <strong>• Acreditaciones:</strong> Habilitadas a partir de las 08:30 hs en el Hall Central (2do Subsuelo).
+          </p>
+          <p style="margin: 0; font-size: 12px; line-height: 1.35; color: #78350f;">
+            <strong>• Pósters:</strong> Deben permanecer colocados toda la jornada del día de su presentación.
+          </p>
+          <p style="margin: 0; font-size: 12px; line-height: 1.35; color: #78350f;">
+            <strong>• Mesas Redondas y Sesiones Orales:</strong> Acercar previamente el archivo de su presentación a los encargados de la sala asignada.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- TARJETA CONEXIÓN WIFI -->
+    <section class="wifi-card" aria-label="Información de Red WiFi">
+      <div class="wifi-info">
+        <div class="wifi-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+            <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+            <line x1="12" y1="20" x2="12.01" y2="20"></line>
+          </svg>
+        </div>
+        <div class="wifi-details">
+          <p class="wifi-label">Red WiFi del Evento</p>
+          <p class="wifi-ssid">Centro-Convenciones</p>
+        </div>
+      </div>
+      <button id="copyWifiBtn" class="wifi-copy-btn" data-wifi-password="ConvencionesUNLP" title="Copiar contraseña de WiFi">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        Copiar Clave
+      </button>
+    </section>
+
+    <!-- NAVEGACIÓN Y ACCESOS PRINCIPALES (Hub Unificado y Limpio) -->
+    <main>
+
+      <!-- BOTÓN PRINCIPAL DESTACADO: PROGRAMA A PRIMERA VISTA (TABLA RÁPIDA) -->
+      <a class="btn-congress" href="../cronograma_general.html?v=20261027_v8">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">🗓️ CRONOGRAMA Y PRIMERA VISTA</span>
+            <span class="btn-desc">Cronograma general por día y horario y vista rápida en tabla</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- BOTÓN PRINCIPAL DESTACADO: CRONOGRAMA Y BUSCADOR INTERACTIVO -->
+      <a class="btn-congress" href="../programa.html?v=20261026_v3">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">🔍 BUSCADOR Y PROGRAMA INTERACTIVO</span>
+            <span class="btn-desc">Filtrar por día, sala, autor o título</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- SEPARADOR: DOCUMENTOS OFICIALES -->
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-badge">
+          <span class="divider-symbol">🏛️</span>
+          <span>INFORMACIÓN DEL CONGRESO</span>
+        </div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Sitio Web Oficial del Congreso -->
+      <a class="btn-congress" href="https://setacargentina.setac.org/congreso2026" target="_blank" rel="noopener">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">🌐 SITIO WEB OFICIAL DEL CONGRESO</span>
+            <span class="btn-desc">setacargentina.setac.org/congreso2026 • Información institucional del evento</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Registro e Inscripción (Móvil: registro.html / Desktop: Web Oficial) -->
+      <a class="btn-congress" href="registro.html?v=20261027_v1" id="btnRegistroInscripcion">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M19 8v6M22 11h-6"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">📝 REGISTRO E INSCRIPCIÓN</span>
+            <span class="btn-desc">Aranceles, datos de transferencia bancaria y formulario oficial</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Programa Oficial en PDF -->
+      <a class="btn-congress" href="../docs/Programa_Final_Ordenado.pdf?v=20261026_v3" target="_blank" rel="noopener">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">📄 PROGRAMA COMPLETO (PDF)</span>
+            <span class="btn-desc">Descargar o consultar el archivo oficial del programa</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Libro de Resúmenes en PDF -->
+      <a class="btn-congress" href="../docs/Libro_Resumenes_SETAC_2026_Final.pdf" target="_blank" rel="noopener">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">📖 LIBRO DE RESÚMENES (PDF)</span>
+            <span class="btn-desc">Consultar trabajos, resúmenes y conferencias</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Secretaría del Congreso (Información, Certificados y Consultas) -->
+      <a class="btn-congress" href="mailto:setaclaplata2026@gmail.com?subject=Consulta%20-%20X%20Congreso%20SETAC%202026" id="secretariaEmailCard">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">✉️ MAIL OFICIAL DEL CONGRESO</span>
+            <span class="btn-desc">setaclaplata2026@gmail.com • Consultas y coordinación</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- SEPARADOR: ACTIVIDADES SOCIALES -->
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-badge">
+          <span class="divider-symbol">🎉</span>
+          <span>ACTIVIDADES SOCIALES</span>
+        </div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Actividad Social 1 (Cóctel de Bienvenida) -->
+      <a class="btn-congress" href="https://maps.app.goo.gl/wrUP3BJ9NAPMGW5MA" target="_blank" rel="noopener" id="actividadSocial1">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 22h8"></path>
+            <path d="M12 11v11"></path>
+            <path d="M19 3l-7 8-7-8Z"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">🍸 CÓCTEL</span>
+            <span class="btn-desc">Martes 27 Oct • 20:00 hs • Espacio Dickinson (Mismo edificio Karakachoff)</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Actividad Social 2 -->
+      <a class="btn-congress" href="https://setacargentina.setac.org/congreso2026" target="_blank" rel="noopener" id="actividadSocial2">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 11h1a3 3 0 0 1 0 6h-1"></path>
+            <path d="M9 12v6"></path>
+            <path d="M13 12v6"></path>
+            <path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5s1.44-.5 3-.5 2 .5 3 .5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5z"></path>
+            <path d="M5 11v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">🍻 ACTIVIDAD SOCIAL 2</span>
+            <span class="btn-desc">Miércoles 28 Oct • 20:30 hs • Encuentro y networking post-asamblea</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Actividad Social 2 (Cena de Camaradería) -->
+      <a class="btn-congress" href="../cena.html?v=20261027_v8" id="actividadSocialCena">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2v20M2 15h10a4 4 0 0 1 4 4v3M2 2v6a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V2M6 2v6M10 2v6"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">🍽️ CENA DE CAMARADERÍA</span>
+            <span class="btn-desc">Jueves 29 Oct • 20:30 hs • Cena de camaradería y festejo del congreso</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- SEPARADOR: ACTIVIDADES SETAC ARGENTINA -->
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-badge">
+          <span class="divider-symbol">🇦🇷</span>
+          <span>ACTIVIDADES SETAC ARGENTINA</span>
+        </div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Asamblea de Estudiantes -->
+      <a class="btn-congress" href="https://chat.whatsapp.com/DPH2Vh3xdHG4SmiHa19KaY" target="_blank" rel="noopener" id="asambleaEstudiantes">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">🎓 ASAMBLEA DE ESTUDIANTES</span>
+            <span class="btn-desc">Miércoles 28 Oct • 19:00 hs • Encuentro y asamblea estudiantil</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Asamblea SETAC ARG -->
+      <a class="btn-congress" href="https://setacargentina.setac.org/congreso2026" target="_blank" rel="noopener" id="asambleaSetac">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">🏛️ ASAMBLEA SETAC ARG</span>
+            <span class="btn-desc">Jueves 29 Oct • 19:00 hs • Asamblea general ordinaria de socios</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- SEPARADOR: TU OPINIÓN NOS INTERESA -->
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-badge">
+          <span class="divider-symbol">💡</span>
+          <span>TU OPINIÓN NOS INTERESA</span>
+        </div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Encuesta DE&I (Diversidad, Equidad e Inclusión) -->
+      <a class="btn-congress" href="https://forms.gle/uWp6z9FiVvN1q83h9" target="_blank" rel="noopener" id="encuestaDEI">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">📋 ENCUESTA DE&amp;I (DIVERSIDAD, EQUIDAD E INCLUSIÓN)</span>
+            <span class="btn-desc">Encuesta anónima para socios y asistentes • Conversatorio Jueves 29</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- ¿Nos ayudás con SETAC Argentina? (Oculto por ahora) -->
+      <a class="btn-congress" href="#" target="_blank" rel="noopener" id="encuestaAyudaSetac" style="display: none;">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">💬 ¿NOS AYUDÁS CON SETAC ARGENTINA?</span>
+            <span class="btn-desc">Nos interesa tu opinión • Tu feedback para seguir fortaleciendo la comunidad</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- SEPARADOR: ENLACES Y COMUNIDAD -->
+      <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-badge">
+          <span class="divider-symbol">👥</span>
+          <span>COMUNIDAD Y REDES SOCIALES</span>
+        </div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Grupo WhatsApp Estudiantes -->
+      <a class="btn-congress" href="https://chat.whatsapp.com/DPH2Vh3xdHG4SmiHa19KaY" target="_blank" rel="noopener">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">💬 GRUPO WHATSAPP ESTUDIANTES</span>
+            <span class="btn-desc">Comunidad de estudiantes, avisos y consultas</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Instagram Oficial -->
+      <a class="btn-congress" href="https://instagram.com/setacarg" target="_blank" rel="noopener">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">📸 INSTAGRAM</span>
+            <span class="btn-desc">Historias y novedades del congreso</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Galería Colaborativa de Fotos (Google Drive) -->
+      <a class="btn-congress" href="https://drive.google.com/drive/folders/1R2fzSYVZuTL24_2_kIXYKwE_MeXzcJDt?usp=sharing" target="_blank" rel="noopener">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">📂 FOTOS DEL CONGRESO</span>
+            <span class="btn-desc">Compartí tus fotos del congreso con nosotros</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+    </main>
+
+    <!-- FOOTER / REDES SOCIALES -->
+    <footer class="hub-footer">
+
+      <!-- BLOQUE DE AVALES Y PATROCINIOS (Estructura oficial del documento Word) -->
+      <section class="sponsors-container" aria-label="Avales Institucionales y Patrocinadores">
+
+        <!-- 1. AVALES INSTITUCIONALES -->
+        <div class="sponsors-group">
+          <div class="sponsors-header">
+            <div class="sponsors-line"></div>
+            <span class="sponsors-badge">🏛️ AVALES INSTITUCIONALES</span>
+            <div class="sponsors-line"></div>
+          </div>
+          <!-- Fila Unica: 4 Avales Institucionales en linea -->
+          <div class="sponsors-row sponsors-row-avales">
+            <div class="sponsor-box box-aval-1">
+              <img src="../images/sponsors/sponsor_1.png?v=clean_inta" alt="Aval Institucional" class="sponsor-logo logo-aval-1" loading="lazy">
+            </div>
+            <div class="sponsor-box box-aval-2">
+              <img src="../images/sponsors/sponsor_2.png" alt="Aval Institucional" class="sponsor-logo logo-aval-2" loading="lazy">
+            </div>
+            <div class="sponsor-box box-aval-3">
+              <img src="../images/sponsors/sponsor_3.png?v=clean3" alt="Aval Institucional" class="sponsor-logo logo-aval-3" loading="lazy">
+            </div>
+            <div class="sponsor-box box-aval-4">
+              <img src="../images/sponsors/sponsor_4.png" alt="Aval Institucional" class="sponsor-logo logo-aval-4" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. PATROCINANTES -->
+        <div class="sponsors-group">
+          <div class="sponsors-header">
+            <div class="sponsors-line"></div>
+            <span class="sponsors-badge">⭐ PATROCINANTES</span>
+            <div class="sponsors-line"></div>
+          </div>
+          <!-- Nivel Principal / Hero: Bayer (100.0 mm x 41.4 mm) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-pat-hero">
+              <img src="../images/sponsors/sponsor_5.png" alt="Patrocinante Principal - Bayer" class="sponsor-logo logo-pat-hero" loading="lazy">
+            </div>
+          </div>
+          <!-- Nivel Medio: Tier 2 (75.0 mm cada uno) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-pat-t2a">
+              <img src="../images/sponsors/sponsor_6.png" alt="Patrocinante" class="sponsor-logo logo-pat-t2a" loading="lazy">
+            </div>
+            <div class="sponsor-box box-pat-t2b">
+              <img src="../images/sponsors/sponsor_7.png" alt="Patrocinante" class="sponsor-logo logo-pat-t2b" loading="lazy">
+            </div>
+          </div>
+          <!-- Nivel Estándar: Tier 3 (50.0 mm cada uno: 8, Induser y Silvarum) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-pat-t3a">
+              <img src="../images/sponsors/sponsor_8.png" alt="Patrocinante" class="sponsor-logo logo-pat-t3a" loading="lazy">
+            </div>
+            <div class="sponsor-box box-pat-induser">
+              <img src="../images/sponsors/sponsor_9.png" alt="Patrocinante Induser" class="sponsor-logo logo-pat-induser" loading="lazy">
+            </div>
+            <div class="sponsor-box box-pat-silvarum">
+              <img src="../images/sponsors/sponsor_10.png?v=clean" alt="Patrocinante Silvarum" class="sponsor-logo logo-pat-silvarum" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. AUSPICIANTES -->
+        <div class="sponsors-group">
+          <div class="sponsors-header">
+            <div class="sponsors-line"></div>
+            <span class="sponsors-badge">🤝 AUSPICIANTES</span>
+            <div class="sponsors-line"></div>
+          </div>
+          <!-- Fila Auspiciantes: Sponsor 11 (46.1mm), CEMAS (47.9mm), Sponsor 13 (37mm) -->
+          <div class="sponsors-row">
+            <div class="sponsor-box box-ausp-1">
+              <img src="../images/sponsors/sponsor_11.png?v=clean3" alt="Auspiciante" class="sponsor-logo logo-ausp-1" loading="lazy">
+            </div>
+            <div class="sponsor-box box-ausp-cemas">
+              <img src="../images/sponsors/sponsor_12.png" alt="Auspiciante CEMAS" class="sponsor-logo logo-ausp-cemas" loading="lazy">
+            </div>
+            <div class="sponsor-box box-ausp-3">
+              <img src="../images/sponsors/sponsor_13.png" alt="Auspiciante" class="sponsor-logo logo-ausp-3" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <p class="footer-copy">&copy; 2026 SETAC Argentina &bull; 27 al 30 de Octubre 2026 &bull; Sede Karakachoff (UNLP), La Plata</p>
+    </footer>
+
+  </div>
+
+  <!-- Script interactivo -->
+  <script src="../js/app.js?v=20261027_v2"></script>
+</body>
+</html>

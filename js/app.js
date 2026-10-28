@@ -129,7 +129,7 @@ function initLiveAlert() {
   if (!alertCard) return;
 
   // Si está vacío o configurado como oculto, no mostrar
-  const text = alertCard.querySelector('p');
+  const text = alertCard.querySelector('p, li, .live-alert-content') || alertCard;
   if (!text || text.textContent.trim() === '') {
     alertCard.style.display = 'none';
   }

@@ -1,0 +1,10 @@
+# Backups locales
+backups_produccion/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# SO
+.DS_Store
+Thumbs.db

@@ -20,7 +20,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | Bloque / Elemento | ID en Código | Estado | Destino / Enlace | Notas / Acción pendiente |
 | :--- | :--- | :---: | :--- | :--- |
 | **Sede Karakachoff** | `meta-venue-link` | 🟢 Visible | Google Maps (Karakachoff UNLP) | Operativo. |
-| **Alerta en Vivo** | `liveAlert` | 🟢 Visible | Banner de texto superior | Modificable día por día en el HTML. |
+| **Alerta en Vivo** | liveAlert | 🟢 Visible | Banner de texto superior | Publicado: Acreditaciones, Pósters (toda la jornada) y Mesas Redondas/Orales. |
 | **Tarjeta WiFi** | `copyWifiBtn` | 🟢 Visible | Red `Centro-Convenciones` / Clave `ConvencionesUNLP` | Botón interactivo de 1 clic para copiar clave. |
 
 ---
@@ -48,7 +48,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas y Estado de Preparación |
 | :--- | :--- | :---: | :--- | :--- |
 | **🍸 Cóctel (Martes 27)** | `actividadSocial1` | 🟢 Visible | [Google Maps (Espacio Dickinson)](https://maps.app.goo.gl/wrUP3BJ9NAPMGW5MA) | **Horario**: 20:00 hs.<br>**Lugar**: Espacio Dickinson (Mismo edificio Sergio Karakachoff, UNLP). |
-| **🍻 Actividad Social 2: Encuentro (Miércoles 28)** | `actividadSocial2` | 🟡 **PREVIEW** | **Prod**: Web oficial<br>**Preview**: `actividad_social_2_preview.html` | **Horario**: 20:30 hs.<br>**Lugar propuesto**: León Bar Bistró (Estadio UNO).<br>⏳ **Pendiente**: Definir monto de tarjeta y enlace al Form de pago. |
+| **🍻 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🟡 **PREVIEW** | **Prod**: Web oficial<br>**Preview**: `actividad_social_2_preview.html` | **Horario**: 20:30 hs.<br>**Lugar**: León Bar Bistró (Estadio UNO).<br>**Propuesta**: 1 cerveza con papas ($ 10.000).<br>✅ Formulario de Google configurado y operativo en preview. |
 | **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 Visible | Móvil: `cena.html`<br>Desktop: Web oficial SETAC | **Horario**: 20:30 hs.<br>**Lugar**: Bukowski Bar.<br>Totalmente operativo con datos bancarios y formulario. |
 
 ---
@@ -86,7 +86,17 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 3. Reemplazar `href="#"` por la URL de Google Forms.
 4. Quitar `style="display: none;"`.
 
-### Caso 2: Promover "Actividad Social 2 - León Bar Bistró" de Preview a Producción
-1. Definir monto por persona y enlace al Formulario de Google en `actividad_social_2_preview.html`.
-2. Renombrar o copiar a `actividad_social_2.html`.
-3. En `index.html` (y en `js/app.js`), cambiar el destino del botón para que apunte a la página final.
+### Caso 2: Promover "Pincha Debate (León Bar Bistró)" de Preview a Producción
+1. Los datos ya están listos en `actividad_social_2_preview.html` ($ 10.000, 1 cerveza con papas, Formulario y CBU/Alias).
+2. Si se decide pasar a producción: copiar a `actividad_social_2.html` o activar en `index.html` (y en `js/app.js`).
+
+
+
+
+### Caso 3: Aviso Oficial para Expositores (Pósters y Sesiones Orales)
+1. **Archivos de Preview Generados**:
+   - `preview_avisos.html`: Versión 1:1 idéntica a producción con barra indicadora superior.
+   - `preview.html`: Laboratorio de variantes estéticas con el aviso incorporado.
+   - `preview_sedes_miercoles.html`: Versión alternativa de sedes del miércoles con el aviso integrado.
+2. **Promoción a Producción**:
+   - Ejecutar: `python scripts/activar_aviso_produccion.py` (crea backup automático y actualiza `index.html`).
