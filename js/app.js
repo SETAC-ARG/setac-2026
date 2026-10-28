@@ -141,7 +141,7 @@ function initLiveAlert() {
  * - Celular / Dispositivo móvil (<= 768px): abre la pantalla optimizada para celular (cena.html).
  */
 function initCenaLink() {
-  const btnCena = document.getElementById('actividadSocialCena') || document.getElementById('actividadSocial2');
+  const btnCena = document.getElementById('actividadSocialCena');
   if (!btnCena) return;
 
   function updateCenaLink() {
