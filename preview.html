@@ -125,6 +125,136 @@
     .pincha-opt-leon .btn-arrow {
       stroke: #f87171 !important;
     }
+
+    /* ========================================================
+       ESTILOS Y VARIANTES PARA DESTACAR CENA DE CAMARADERÍA
+       ======================================================== */
+    .cena-badge-live {
+      position: absolute;
+      top: -8px;
+      right: 14px;
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-transform: uppercase;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .cena-badge-live .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: inline-block;
+      animation: pulseDotLive 1.5s infinite;
+    }
+
+    /* Variante 1: Badge flotante en botón estándar */
+    .cena-opt-badge {
+      position: relative !important;
+      border-color: #0284c7 !important;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22) !important;
+    }
+
+    /* Variante 2: Noche de Gala / Bukowski Gold (Dark Luxury & Gold) */
+    .cena-opt-gala {
+      position: relative !important;
+      background: linear-gradient(135deg, #090d16 0%, #1e1b4b 55%, #172554 100%) !important;
+      border: 1.8px solid #f59e0b !important;
+      box-shadow: 0 6px 24px rgba(245, 158, 11, 0.28), 0 0 12px rgba(217, 119, 6, 0.2) !important;
+      animation: neonGalaGlow 3s infinite alternate ease-in-out;
+    }
+    @keyframes neonGalaGlow {
+      0% { box-shadow: 0 4px 18px rgba(245, 158, 11, 0.2), 0 0 8px rgba(217, 119, 6, 0.15); }
+      100% { box-shadow: 0 8px 28px rgba(245, 158, 11, 0.45), 0 0 18px rgba(251, 191, 36, 0.35); }
+    }
+    .cena-opt-gala:hover {
+      background: linear-gradient(135deg, #172554 0%, #1e1b4b 50%, #090d16 100%) !important;
+      border-color: #fbbf24 !important;
+      transform: translateY(-2px);
+    }
+    .cena-opt-gala .btn-title {
+      color: #ffffff !important;
+      font-weight: 900 !important;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+    .cena-opt-gala .btn-desc {
+      color: #fef08a !important;
+    }
+    .cena-opt-gala .btn-icon {
+      stroke: #fbbf24 !important;
+      background: rgba(245, 158, 11, 0.2) !important;
+      border-color: #f59e0b !important;
+    }
+    .cena-opt-gala .btn-arrow {
+      stroke: #fbbf24 !important;
+    }
+
+    /* Variante 3: Bukowski Gourmet / Cálido Terracota & Vino */
+    .cena-opt-gourmet {
+      position: relative !important;
+      background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 45%, #fed7aa 100%) !important;
+      border: 1.8px solid #ea580c !important;
+      box-shadow: 0 6px 20px rgba(234, 88, 12, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    }
+    .cena-opt-gourmet:hover {
+      background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 45%, #fdba74 100%) !important;
+      box-shadow: 0 8px 26px rgba(234, 88, 12, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+      transform: translateY(-2px);
+    }
+    .cena-opt-gourmet .btn-title {
+      color: #7c2d12 !important;
+      font-weight: 900 !important;
+    }
+    .cena-opt-gourmet .btn-desc {
+      color: #9a3412 !important;
+      font-weight: 600 !important;
+    }
+    .cena-opt-gourmet .btn-icon {
+      stroke: #c2410c !important;
+      background: rgba(234, 88, 12, 0.15) !important;
+      border-color: #ea580c !important;
+    }
+    .cena-opt-gourmet .btn-arrow {
+      stroke: #c2410c !important;
+    }
+
+    /* Variante 4: Esmeralda & Pago Listo (Alta Conversión) */
+    .cena-opt-esmeralda {
+      position: relative !important;
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%) !important;
+      border: 1.8px solid #16a34a !important;
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    }
+    .cena-opt-esmeralda:hover {
+      background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #86efac 100%) !important;
+      box-shadow: 0 8px 26px rgba(22, 163, 74, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+      transform: translateY(-2px);
+    }
+    .cena-opt-esmeralda .btn-title {
+      color: #14532d !important;
+      font-weight: 900 !important;
+    }
+    .cena-opt-esmeralda .btn-desc {
+      color: #166534 !important;
+      font-weight: 600 !important;
+    }
+    .cena-opt-esmeralda .btn-icon {
+      stroke: #15803d !important;
+      background: rgba(22, 163, 74, 0.18) !important;
+      border-color: #16a34a !important;
+    }
+    .cena-opt-esmeralda .btn-arrow {
+      stroke: #15803d !important;
+    }
+
   </style>
 
 </head>
@@ -184,6 +314,18 @@
           <button class="ctrl-btn" data-control="pincha-style" data-value="badge">🟡 Badge ¡Hoy!</button>
           <button class="ctrl-btn active" data-control="pincha-style" data-value="festivo">🍺 Festivo Dorado</button>
           <button class="ctrl-btn" data-control="pincha-style" data-value="leon">🦁 León Estadio</button>
+        </div>
+      </div>
+
+      <!-- Fila Destacado Cena de Camaradería (Jueves 29) -->
+      <div class="control-row">
+        <div class="control-label"><span class="dot" style="background:#eab308;"></span>Cena</div>
+        <div class="control-button-group" role="radiogroup" aria-label="Destacado Cena de Camaradería">
+          <button class="ctrl-btn" data-control="cena-style" data-value="estandar">🔵 Normal</button>
+          <button class="ctrl-btn" data-control="cena-style" data-value="badge">🏷️ Badge Cupos</button>
+          <button class="ctrl-btn active" data-control="cena-style" data-value="gala">✨ Noche & Oro</button>
+          <button class="ctrl-btn" data-control="cena-style" data-value="gourmet">🍷 Gourmet</button>
+          <button class="ctrl-btn" data-control="cena-style" data-value="esmeralda">💳 Pago Listo</button>
         </div>
       </div>
 
@@ -473,14 +615,17 @@
       </a>
 
       <!-- Actividad Social 2 (Cena de Camaradería) -->
-      <a class="btn-congress" href="cena_preview.html?v=20261028_v5" id="actividadSocialCena">
+      <a class="btn-congress" href="cena_preview.html?v=20261028_v7" id="actividadSocialCena">
+        <span class="cena-badge-live" id="cenaBadge" style="background:#d97706;">
+          <span class="pulse-dot"></span> <span id="cenaBadgeText">✨ JUEVES 20:30 HS</span>
+        </span>
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 2v20M2 15h10a4 4 0 0 1 4 4v3M2 2v6a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V2M6 2v6M10 2v6"></path>
           </svg>
           <div class="btn-text-group">
-            <span class="btn-title">🍽️ ACTIVIDAD SOCIAL 2 (CENA DE CAMARADERÍA)</span>
-            <span class="btn-desc">Jueves 29 Oct • 20:30 hs • Cena de camaradería y festejo del congreso</span>
+            <span class="btn-title">🍽️ CENA DE CAMARADERÍA</span>
+            <span class="btn-desc">Jueves 29 Oct • 20:30 hs • Bukowski Bar • Menú y pago</span>
           </div>
         </div>
         <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -761,23 +906,12 @@
         localStorage.setItem('setac_preview_theme_v4', currentTheme);
         localStorage.setItem('setac_preview_header_v4', currentHeader);
         localStorage.setItem('setac_preview_watermark_v4', currentWatermark);
+      }
 
-              themeButtons.forEach(btn => {
+      themeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           currentTheme = btn.getAttribute('data-value');
           applyState();
-        });
-      });
-
-      pinchaPosButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          currentPinchaPos = btn.getAttribute('data-value');
-          applyPinchaState();
-        });
-      });
-
-      applyPinchaState();
-
         });
       });
 
@@ -805,23 +939,19 @@
       // Inicializar
       applyState();
 
-      // Controles Interactivos para Destacar Pincha Debate
+      // ==========================================
+      // Controles Pincha Debate
+      // ==========================================
       const pinchaStyleButtons = document.querySelectorAll('[data-control="pincha-style"]');
-      const pinchaPosButtons = document.querySelectorAll('[data-control="pincha-pos"]');
       const btnPincha = document.getElementById('actividadSocial2');
       const badgePincha = document.getElementById('pinchaBadge');
       const badgeTextPincha = document.getElementById('pinchaBadgeText');
-      const topContainer = document.getElementById('pinchaTopContainer');
-      const originalParent = btnPincha ? btnPincha.parentElement : null;
-      const nextSibling = btnPincha ? btnPincha.nextElementSibling : null;
 
       let currentPinchaStyle = localStorage.getItem('setac_pincha_style_preview') || 'festivo';
-      let currentPinchaPos = localStorage.getItem('setac_pincha_pos_preview') || 'sociales';
 
       function applyPinchaState() {
         if (!btnPincha) return;
 
-        // Reset classes
         btnPincha.classList.remove('pincha-opt-badge', 'pincha-opt-festivo', 'pincha-opt-leon');
 
         if (currentPinchaStyle === 'estandar') {
@@ -853,18 +983,6 @@
           btn.classList.toggle('active', btn.getAttribute('data-value') === currentPinchaStyle);
         });
         localStorage.setItem('setac_pincha_style_preview', currentPinchaStyle);
-
-        // Position handling
-        if (currentPinchaPos === 'top' && topContainer) {
-          topContainer.appendChild(btnPincha);
-        } else if (originalParent && nextSibling) {
-          originalParent.insertBefore(btnPincha, nextSibling);
-        }
-
-        pinchaPosButtons.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-value') === currentPinchaPos);
-        });
-        localStorage.setItem('setac_pincha_pos_preview', currentPinchaPos);
       }
 
       pinchaStyleButtons.forEach(btn => {
@@ -874,14 +992,69 @@
         });
       });
 
-      pinchaPosButtons.forEach(btn => {
+      applyPinchaState();
+
+      // ==========================================
+      // Controles Cena de Camaradería
+      // ==========================================
+      const cenaStyleButtons = document.querySelectorAll('[data-control="cena-style"]');
+      const btnCenaElem = document.getElementById('actividadSocialCena');
+      const badgeCena = document.getElementById('cenaBadge');
+      const badgeTextCena = document.getElementById('cenaBadgeText');
+
+      let currentCenaStyle = localStorage.getItem('setac_cena_style_preview') || 'gala';
+
+      function applyCenaState() {
+        if (!btnCenaElem) return;
+
+        btnCenaElem.classList.remove('cena-opt-badge', 'cena-opt-gala', 'cena-opt-gourmet', 'cena-opt-esmeralda');
+
+        if (currentCenaStyle === 'estandar') {
+          if (badgeCena) badgeCena.style.display = 'none';
+        } else if (currentCenaStyle === 'badge') {
+          btnCenaElem.classList.add('cena-opt-badge');
+          if (badgeCena) {
+            badgeCena.style.display = 'inline-flex';
+            badgeCena.style.background = '#0284c7';
+            if (badgeTextCena) badgeTextCena.textContent = '🏷️ ¡CUPOS LIMITADOS!';
+          }
+        } else if (currentCenaStyle === 'gala') {
+          btnCenaElem.classList.add('cena-opt-gala');
+          if (badgeCena) {
+            badgeCena.style.display = 'inline-flex';
+            badgeCena.style.background = '#d97706';
+            if (badgeTextCena) badgeTextCena.textContent = '✨ JUEVES 20:30 HS';
+          }
+        } else if (currentCenaStyle === 'gourmet') {
+          btnCenaElem.classList.add('cena-opt-gourmet');
+          if (badgeCena) {
+            badgeCena.style.display = 'inline-flex';
+            badgeCena.style.background = '#9a3412';
+            if (badgeTextCena) badgeTextCena.textContent = '🍷 CENA OFICIAL';
+          }
+        } else if (currentCenaStyle === 'esmeralda') {
+          btnCenaElem.classList.add('cena-opt-esmeralda');
+          if (badgeCena) {
+            badgeCena.style.display = 'inline-flex';
+            badgeCena.style.background = '#15803d';
+            if (badgeTextCena) badgeTextCena.textContent = '💳 ¡PAGO DISPONIBLE!';
+          }
+        }
+
+        cenaStyleButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-value') === currentCenaStyle);
+        });
+        localStorage.setItem('setac_cena_style_preview', currentCenaStyle);
+      }
+
+      cenaStyleButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-          currentPinchaPos = btn.getAttribute('data-value');
-          applyPinchaState();
+          currentCenaStyle = btn.getAttribute('data-value');
+          applyCenaState();
         });
       });
 
-      applyPinchaState();
+      applyCenaState();
 
       // Copiado de WiFi
       const copyBtn = document.getElementById('copyWifiBtn');
@@ -897,12 +1070,11 @@
         });
       }
 
-      // Enrutamiento en modo Preview: abre cena_preview.html para probar en cualquier dispositivo
-      const btnCena = document.getElementById('actividadSocialCena') || document.getElementById('actividadSocial2');
-      if (btnCena) {
-        btnCena.href = 'cena_preview.html?v=20261028_v1';
-        btnCena.removeAttribute('target');
-        btnCena.removeAttribute('rel');
+      // Enrutamiento en modo Preview
+      if (btnCenaElem) {
+        btnCenaElem.href = 'cena_preview.html?v=20261028_v7';
+        btnCenaElem.removeAttribute('target');
+        btnCenaElem.removeAttribute('rel');
       }
     });
   </script>
