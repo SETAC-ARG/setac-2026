@@ -1,6 +1,6 @@
 # Registro y Control de Botones, Enlaces y Estados (Congreso SETAC 2026)
 
-Este documento es la **fuente única de verdad** para consultar rápidamente qué botones y secciones están actualmente visibles en producción (`index.html`), cuáles están en modo borrador (`preview.html`) y cuáles están ocultos o esperando datos (links de Forms, montos, etc.).
+Este documento es la **fuente única de verdad** para consultar rápidamente qué botones y secciones están actualmente visibles en producción (`index.html`), cuáles están en modo borrador (`preview.html` / `preview_avisos.html`) y cuáles están ocultos o esperando datos (links de Forms, montos, etc.).
 
 ---
 
@@ -8,9 +8,9 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 
 | Estado | Significado | Cantidad |
 | :--- | :--- | :---: |
-| 🟢 **VISIBLE (PROD)** | Activo y visible para todos los asistentes en `index.html`. | 11 |
-| 🟡 **MODO PREVIEW** | En prueba en `preview.html`, no visible aún en producción. | 0 |
-| 🔒 **OCULTO / PENDIENTE** | Maquetado en el código (`style="display: none;"`), actividad cerrada o pendiente. | 2 |
+| 🟢 **VISIBLE (PROD)** | Activo y visible para todos los asistentes en `index.html`. | 12 |
+| 🟡 **MODO PREVIEW** | En prueba en `preview.html` / `preview_avisos.html`, no visible aún en producción. | 0 |
+| 🔒 **OCULTO / PENDIENTE** | Maquetado en el código (`style="display: none;"`), actividad cerrada o pendiente. | 1 |
 
 ---
 
@@ -20,7 +20,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | Bloque / Elemento | ID en Código | Estado | Destino / Enlace | Notas / Acción pendiente |
 | :--- | :--- | :---: | :--- | :--- |
 | **Sede Karakachoff** | `meta-venue-link` | 🟢 Visible | Google Maps (Karakachoff UNLP) | Operativo. |
-| **Alerta en Vivo** | liveAlert | 🟢 Visible | Banner de texto superior | Publicado: Acreditaciones, Pósters (toda la jornada) y Mesas Redondas/Orales. |
+| **Alerta en Vivo** | `liveAlert` | 🟢 Visible | Banner de texto superior | Publicado: Acreditaciones, Pósters (toda la jornada) y Mesas Redondas/Orales. |
 | **Tarjeta WiFi** | `copyWifiBtn` | 🟢 Visible | Red `Centro-Convenciones` / Clave `ConvencionesUNLP` | Botón interactivo de 1 clic para copiar clave. |
 
 ---
@@ -47,9 +47,9 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 ### D. Actividades Sociales
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas y Estado de Preparación |
 | :--- | :--- | :---: | :--- | :--- |
-| **📸 Foto del Congreso (Jueves 29)** | otoCongreso | 🟢 Visible | [Google Maps (Rectorado UNLP)](https://maps.google.com/?q=Rectorado+UNLP+La+Plata) | **Horario**: Jueves 17:30 hs (después de la Conferencia Plenaria).<br>**Lugar**: Escalinatas de Rectorado UNLP. |
-| **🍺 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🔒 **OCULTO (CERRADA)** | `actividad_social_2.html` | **Estado**: Actividad cerrada.<br>**Visualización**: Ocultado en `index.html` con `style="display: none;"`. |
-| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🔒 **OCULTO (CERRADA)** | `cena.html` | **Estado**: Actividad cerrada.<br>**Visualización**: Ocultado en `index.html` con `style="display: none;"`. |
+| **📸 Foto del Congreso (Jueves 29)** | `fotoCongreso` | 🟢 Visible | [Google Maps (Rectorado UNLP)](https://maps.google.com/?q=Rectorado+UNLP+La+Plata) | **Horario**: Jueves 17:30 hs (después de la Conferencia Plenaria).<br>**Lugar**: Escalinatas de Rectorado UNLP.<br>**Badge activo en producción**: Cartelito destacado animado *"HOY 17:30 hs"*. |
+| **🍺 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🔒 **OCULTO (CERRADA)** | `actividad_social_2.html` | **Estado**: Actividad finalizada.<br>**Visualización**: Ocultado con `style="display: none;"`. |
+| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 **VISIBLE (PROD)** | `cena.html` | **Estado**: Inscripción cerrada. Publicado en producción con cartelito animado *"Inscripción cerrada - Retirar pulsera"*. En `cena.html` conserva info de punto de encuentro (Bukowski Bar), mapa y flyer, y oculta CBU/Alias, link PayPal, QR PayPal y link de Google Forms. |
 
 ---
 
@@ -57,7 +57,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas |
 | :--- | :--- | :---: | :--- | :--- |
 | **🎓 Asamblea de Estudiantes** | `asambleaEstudiantes` | 🟢 Visible | Grupo WhatsApp / Convocatoria | Miércoles 28 Oct • 19:00 hs • Sala 4. |
-| **🏛️ Asamblea General SETAC ARG** | `asambleaSetac` | 🟢 Visible | Web oficial institucional | Jueves 29 Oct • 19:00 hs • Sala 4. |
+| **🏛️ Asamblea General SETAC ARG** | `asambleaSetac` | 🟢 Visible | Web oficial institucional | Jueves 29 Oct • 19:00 hs • Sala 4.<br>**Badge activo en producción**: Cartelito destacado animado *"HOY 19:00"*. |
 
 ---
 
@@ -75,28 +75,3 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | **💬 WhatsApp Estudiantes** | — | 🟢 Visible | Grupo de WhatsApp oficial | Comunidad estudiantil. |
 | **📸 Instagram Oficial** | — | 🟢 Visible | `https://instagram.com/setacarg` | Novedades y fotos del evento. |
 | **📂 Fotos del Congreso** | — | 🟢 Visible | Google Drive colaborativo | Carpeta abierta para compartir fotos. |
-
----
-
-## 🛠️ 3. Procedimiento para Activar Botones Ocultos o en Preview
-
-### Caso 1: Publicar el botón "¿Nos ayudás con SETAC Argentina?"
-1. Abrir `index.html` (y `preview.html`).
-2. Buscar `id="encuestaAyudaSetac"`.
-3. Reemplazar `href="#"` por la URL de Google Forms.
-4. Quitar `style="display: none;"`.
-
-### Caso 2: Promover "Pincha Debate (León Bar Bistró)" de Preview a Producción
-1. Los datos ya están listos en `actividad_social_2_preview.html` ($ 10.000, 1 cerveza con papas, Formulario y CBU/Alias).
-2. Si se decide pasar a producción: copiar a `actividad_social_2.html` o activar en `index.html` (y en `js/app.js`).
-
-
-
-
-### Caso 3: Aviso Oficial para Expositores (Pósters y Sesiones Orales)
-1. **Archivos de Preview Generados**:
-   - `preview_avisos.html`: Versión 1:1 idéntica a producción con barra indicadora superior.
-   - `preview.html`: Laboratorio de variantes estéticas con el aviso incorporado.
-   - `preview_sedes_miercoles.html`: Versión alternativa de sedes del miércoles con el aviso integrado.
-2. **Promoción a Producción**:
-   - Ejecutar: `python scripts/activar_aviso_produccion.py` (crea backup automático y actualiza `index.html`).

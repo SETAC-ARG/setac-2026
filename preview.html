@@ -18,8 +18,8 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/brands.css">
-  <link rel="stylesheet" href="css/setac-theme.css?v=20261027_v8">
-  <link rel="stylesheet" href="css/variantes.css?v=20261027_v8">
+  <link rel="stylesheet" href="css/setac-theme.css?v=20261029_v1">
+  <link rel="stylesheet" href="css/variantes.css?v=20261029_v1">
   <style>
     /* ========================================================
        ESTILOS Y VARIANTES PARA DESTACAR PINCHA DEBATE (PREVIEW)
@@ -306,25 +306,15 @@
           <button class="ctrl-btn" data-control="sponsors-style" data-value="panel-glass">🪟 Vidrio</button>
         </div>
       </div>
-      <!-- Fila 5: Destacado Pincha Debate (Hoy Miércoles 28) -->
-      <div class="control-row">
-        <div class="control-label"><span class="dot" style="background:#f59e0b;"></span>Pincha</div>
-        <div class="control-button-group" role="radiogroup" aria-label="Destacado Pincha Debate">
-          <button class="ctrl-btn" data-control="pincha-style" data-value="estandar">🔵 Normal</button>
-          <button class="ctrl-btn" data-control="pincha-style" data-value="badge">🟡 Badge ¡Hoy!</button>
-          <button class="ctrl-btn active" data-control="pincha-style" data-value="festivo">🍺 Festivo Dorado</button>
-          <button class="ctrl-btn" data-control="pincha-style" data-value="leon">🦁 León Estadio</button>
-        </div>
-      </div>
 
       <!-- Fila Destacado Cena de Camaradería (Jueves 29) -->
       <div class="control-row">
         <div class="control-label"><span class="dot" style="background:#ea580c;"></span>Cena</div>
         <div class="control-button-group" role="radiogroup" aria-label="Destacado Cena de Camaradería">
-          <button class="ctrl-btn" data-control="cena-style" data-value="estandar">🔵 Normal</button>
+          <button class="ctrl-btn active" data-control="cena-style" data-value="estandar">🔵 Normal (Original)</button>
           <button class="ctrl-btn" data-control="cena-style" data-value="badge">🏷️ Badge</button>
-          <button class="ctrl-btn" data-control="cena-style" data-value="gala">✨ Noche & Oro</button>
-          <button class="ctrl-btn active" data-control="cena-style" data-value="gourmet">🍷 Gourmet</button>
+          <button class="ctrl-btn" data-control="cena-style" data-value="gala">✨ Noche &amp; Oro</button>
+          <button class="ctrl-btn" data-control="cena-style" data-value="gourmet">🍷 Gourmet</button>
           <button class="ctrl-btn" data-control="cena-style" data-value="esmeralda">💳 Pago Listo</button>
         </div>
       </div>
@@ -333,17 +323,8 @@
       <div class="control-row">
         <div class="control-label"><span class="dot" style="background:#dc2626;"></span>Ubicación Cena</div>
         <div class="control-button-group" role="radiogroup" aria-label="Posición Cena de Camaradería">
-          <button class="ctrl-btn active" data-control="cena-pos" data-value="top">⭐ Arriba (Prioritario)</button>
-          <button class="ctrl-btn" data-control="cena-pos" data-value="sociales">📍 En Sociales</button>
-        </div>
-      </div>
-
-      <!-- Fila 6: Posición Pincha Debate -->
-      <div class="control-row">
-        <div class="control-label"><span class="dot" style="background:#ef4444;"></span>Ubicación</div>
-        <div class="control-button-group" role="radiogroup" aria-label="Posición Pincha Debate">
-          <button class="ctrl-btn active" data-control="pincha-pos" data-value="sociales">📍 En Sociales</button>
-          <button class="ctrl-btn" data-control="pincha-pos" data-value="top">⭐ Arriba (Prioritario)</button>
+          <button class="ctrl-btn active" data-control="cena-pos" data-value="sociales">📍 En Sociales</button>
+          <button class="ctrl-btn" data-control="cena-pos" data-value="top">⭐ Arriba (Prioritario)</button>
         </div>
       </div>
 
@@ -385,7 +366,7 @@
       </div>
     </header>
 
-                <!-- BANNER DE ALERTA / AVISOS EN VIVO (COMPACTO: 3 PUNTOS CLAVE) -->
+    <!-- BANNER DE ALERTA / AVISOS EN VIVO (COMPACTO: 3 PUNTOS CLAVE) -->
     <aside id="liveAlert" class="live-alert-card" role="alert" style="border-left: 5px solid #d97706; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); padding: 10px 14px; margin-bottom: 14px;">
       <svg class="live-alert-icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px; min-width: 20px;">
         <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
@@ -421,10 +402,10 @@
         </div>
         <div class="wifi-details">
           <p class="wifi-label">Red WiFi del Evento</p>
-          <p class="wifi-ssid">UNLP_Congresos</p>
+          <p class="wifi-ssid">Centro-Convenciones</p>
         </div>
       </div>
-      <button id="copyWifiBtn" class="wifi-copy-btn" data-wifi-password="SETAC2026" title="Copiar contraseña de WiFi">
+      <button id="copyWifiBtn" class="wifi-copy-btn" data-wifi-password="ConvencionesUNLP" title="Copiar contraseña de WiFi">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -439,7 +420,7 @@
       <!-- CONTENEDOR PRIORITARIO (Para elementos destacados en cabecera en Preview) -->
       <div id="prioritarioTopContainer" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 4px;"></div>
 
-      <!-- NUEVO ACCESO PREVIEW: CRONOGRAMA Y PROGRAMA A PRIMERA VISTA -->
+      <!-- BOTÓN PRINCIPAL DESTACADO: PROGRAMA A PRIMERA VISTA (TABLA RÁPIDA) -->
       <a class="btn-congress" href="cronograma_general.html?v=20261027_v8">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -449,7 +430,7 @@
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
           <div class="btn-text-group">
-            <span class="btn-title">🗓️ CRONOGRAMA Y PROGRAMA A PRIMERA VISTA <span style="font-size:10px;background:#e0f2fe;color:#0369a1;padding:1px 6px;border-radius:4px;border:1px solid #bae6fd;margin-left:4px;">NUEVO PREVIEW</span></span>
+            <span class="btn-title">🗓️ CRONOGRAMA Y PRIMERA VISTA</span>
             <span class="btn-desc">Cronograma general por día y horario y vista rápida en tabla</span>
           </div>
         </div>
@@ -458,8 +439,8 @@
         </svg>
       </a>
 
-      <!-- BOTÓN PRINCIPAL DESTACADO: CRONOGRAMA Y BUSCADOR INTERACTIVO (PREVIEW) -->
-      <a class="btn-congress" href="programa_preview_autores.html?v=20261026_v3">
+      <!-- BOTÓN PRINCIPAL DESTACADO: CRONOGRAMA Y BUSCADOR INTERACTIVO -->
+      <a class="btn-congress" href="programa.html?v=20261028_v9">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
@@ -485,24 +466,6 @@
         <div class="divider-line"></div>
       </div>
 
-            <!-- Registro e Inscripción (Enrutamiento Inteligente: Desktop -> Web Oficial / Celular -> registro_preview.html) -->
-      <a class="btn-congress" href="registro_preview.html?v=20261027_v1" id="btnRegistroInscripcion">
-        <div class="btn-content-left">
-          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M19 8v6M22 11h-6"></path>
-          </svg>
-          <div class="btn-text-group">
-            <span class="btn-title">📝 REGISTRO E INSCRIPCIÓN <span style="font-size:10px;background:#e0f2fe;color:#0369a1;padding:1px 6px;border-radius:4px;border:1px solid #bae6fd;margin-left:4px;font-weight:bold;">NUEVO</span></span>
-            <span class="btn-desc">Aranceles, datos de transferencia bancaria y formulario oficial</span>
-          </div>
-        </div>
-        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </a>
-
       <!-- Sitio Web Oficial del Congreso -->
       <a class="btn-congress" href="https://setacargentina.setac.org/congreso2026" target="_blank" rel="noopener">
         <div class="btn-content-left">
@@ -514,6 +477,24 @@
           <div class="btn-text-group">
             <span class="btn-title">🌐 SITIO WEB OFICIAL DEL CONGRESO</span>
             <span class="btn-desc">setacargentina.setac.org/congreso2026 • Información institucional del evento</span>
+          </div>
+        </div>
+        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Registro e Inscripción (Enrutamiento Inteligente: Desktop -> Web Oficial / Celular -> registro_preview.html) -->
+      <a class="btn-congress" href="registro_preview.html?v=20261027_v1" id="btnRegistroInscripcion">
+        <div class="btn-content-left">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M19 8v6M22 11h-6"></path>
+          </svg>
+          <div class="btn-text-group">
+            <span class="btn-title">📝 REGISTRO E INSCRIPCIÓN</span>
+            <span class="btn-desc">Aranceles, datos de transferencia bancaria y formulario oficial</span>
           </div>
         </div>
         <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -533,7 +514,7 @@
           </svg>
           <div class="btn-text-group">
             <span class="btn-title">📄 PROGRAMA COMPLETO (PDF)</span>
-            <span class="btn-desc">Descargar o consultar el archivo oficial del programa detallado</span>
+            <span class="btn-desc">Descargar o consultar el archivo oficial del programa</span>
           </div>
         </div>
         <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -586,7 +567,11 @@
       </div>
 
       <!-- Foto del Congreso (Escalinatas de Rectorado UNLP) -->
-      <a class="btn-congress" href="https://maps.google.com/?q=Rectorado+UNLP+La+Plata" target="_blank" rel="noopener" id="fotoCongreso">
+      <a class="btn-congress" href="https://maps.google.com/?q=Rectorado+UNLP+La+Plata" target="_blank" rel="noopener" id="fotoCongreso" style="position: relative !important;">
+        <span class="foto-badge-live" id="fotoBadge" style="position: absolute; top: -9px; right: 14px; background: linear-gradient(135deg, #d97706 0%, #b45309 100%); color: #ffffff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.4px; padding: 3px 10px; border-radius: 999px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28); border: 1px solid rgba(255, 255, 255, 0.4); display: inline-flex; align-items: center; gap: 5px; text-transform: uppercase; pointer-events: none; z-index: 5;">
+          <span class="pulse-dot" style="width: 6px; height: 6px; border-radius: 50%; background: #ffffff; display: inline-block;"></span>
+          <span id="fotoBadgeText">HOY 17:30 hs</span>
+        </span>
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
@@ -602,9 +587,9 @@
         </svg>
       </a>
 
-      <!-- Actividad Social 2 (Pincha Debate - Con Opciones de Destacado) -->
-      <a class="btn-congress pincha-opt-festivo" href="actividad_social_2_preview.html?v=20261028_v5" id="actividadSocial2">
-        <span class="pincha-badge-live" id="pinchaBadge" style="background:#d97706;">
+      <!-- Actividad Social 2 (Pincha Debate - Cerrada y Ocultada) -->
+      <a class="btn-congress" href="actividad_social_2_preview.html?v=20261028_v5" id="actividadSocial2" style="display: none;">
+        <span class="pincha-badge-live" id="pinchaBadge" style="background:#d97706; display: none;">
           <span class="pulse-dot"></span> <span id="pinchaBadgeText">¡HOY 20:30 HS!</span>
         </span>
         <div class="btn-content-left">
@@ -625,10 +610,11 @@
         </svg>
       </a>
 
-      <!-- Actividad Social 2 (Cena de Camaradería) -->
-      <a class="btn-congress cena-opt-gourmet" href="cena_preview.html?v=20261028_v8" id="actividadSocialCena">
-        <span class="cena-badge-live" id="cenaBadge" style="background:#c2410c;">
-          <span class="pulse-dot"></span> <span id="cenaBadgeText">⏰ ¡CIERRA HOY A LAS 18 HS!</span>
+      <!-- Actividad Social: Cena de Camaradería (Original, sin destacar con cartelito destacado) -->
+      <a class="btn-congress cena-opt-badge" href="cena_preview.html?v=20261029_v2" id="actividadSocialCena" style="position: relative !important;">
+        <span class="cena-badge-live" id="cenaBadge" style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28); display: inline-flex;">
+          <span class="pulse-dot" style="background: #ffffff;"></span>
+          <span id="cenaBadgeText">Inscripción cerrada - Retirar pulsera</span>
         </span>
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -636,7 +622,7 @@
           </svg>
           <div class="btn-text-group">
             <span class="btn-title">🍽️ CENA DE CAMARADERÍA</span>
-            <span class="btn-desc">Jueves 29 Oct • 20:30 hs • Bukowski Bar • ¡Cierra hoy a las 18 hs!</span>
+            <span class="btn-desc">Jueves 29 Oct • 20:30 hs • Bukowski Bar • Retirar pulsera en mesa de acreditación</span>
           </div>
         </div>
         <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -655,7 +641,7 @@
       </div>
 
       <!-- Asamblea de Estudiantes -->
-      <a class="btn-congress" href="#asamblea-estudiantes" id="asambleaEstudiantes">
+      <a class="btn-congress" href="https://chat.whatsapp.com/DPH2Vh3xdHG4SmiHa19KaY" target="_blank" rel="noopener" id="asambleaEstudiantes">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
@@ -672,7 +658,11 @@
       </a>
 
       <!-- Asamblea SETAC ARG -->
-      <a class="btn-congress" href="#asamblea-setac-arg" id="asambleaSetac">
+      <a class="btn-congress" href="https://setacargentina.setac.org/congreso2026" target="_blank" rel="noopener" id="asambleaSetac" style="position: relative !important;">
+        <span class="asamblea-badge-live" id="asambleaBadge" style="position: absolute; top: -9px; right: 14px; background: linear-gradient(135deg, #d97706 0%, #b45309 100%); color: #ffffff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.4px; padding: 3px 10px; border-radius: 999px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28); border: 1px solid rgba(255, 255, 255, 0.4); display: inline-flex; align-items: center; gap: 5px; text-transform: uppercase; pointer-events: none; z-index: 5;">
+          <span class="pulse-dot" style="width: 6px; height: 6px; border-radius: 50%; background: #ffffff; display: inline-block;"></span>
+          <span id="asambleaBadgeText">HOY 19:00</span>
+        </span>
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -717,7 +707,7 @@
         </svg>
       </a>
 
-      <!-- ¿Nos ayudás con SETAC Argentina? (Oculto por ahora) -->
+      <!-- ¿Nos ayudás con SETAC Argentina? -->
       <a class="btn-congress" href="https://forms.gle/WxMeWgRoLFZAnASr5" target="_blank" rel="noopener" id="encuestaAyudaSetac">
         <div class="btn-content-left">
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -890,7 +880,7 @@
 
   </div>
 
-<script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Manejo modular de Paleta, Cabecera y Marca de Agua Fija
       const themeButtons = document.querySelectorAll('[data-control="theme"]');
@@ -951,62 +941,7 @@
       applyState();
 
       // ==========================================
-      // Controles Pincha Debate
-      // ==========================================
-      const pinchaStyleButtons = document.querySelectorAll('[data-control="pincha-style"]');
-      const btnPincha = document.getElementById('actividadSocial2');
-      const badgePincha = document.getElementById('pinchaBadge');
-      const badgeTextPincha = document.getElementById('pinchaBadgeText');
-
-      let currentPinchaStyle = localStorage.getItem('setac_pincha_style_preview') || 'festivo';
-
-      function applyPinchaState() {
-        if (!btnPincha) return;
-
-        btnPincha.classList.remove('pincha-opt-badge', 'pincha-opt-festivo', 'pincha-opt-leon');
-
-        if (currentPinchaStyle === 'estandar') {
-          if (badgePincha) badgePincha.style.display = 'none';
-        } else if (currentPinchaStyle === 'badge') {
-          btnPincha.classList.add('pincha-opt-badge');
-          if (badgePincha) {
-            badgePincha.style.display = 'inline-flex';
-            badgePincha.style.background = '#d97706';
-            if (badgeTextPincha) badgeTextPincha.textContent = '¡HOY 20:30 HS!';
-          }
-        } else if (currentPinchaStyle === 'festivo') {
-          btnPincha.classList.add('pincha-opt-festivo');
-          if (badgePincha) {
-            badgePincha.style.display = 'inline-flex';
-            badgePincha.style.background = '#b45309';
-            if (badgeTextPincha) badgeTextPincha.textContent = '🍺 ¡HOY 20:30 HS!';
-          }
-        } else if (currentPinchaStyle === 'leon') {
-          btnPincha.classList.add('pincha-opt-leon');
-          if (badgePincha) {
-            badgePincha.style.display = 'inline-flex';
-            badgePincha.style.background = '#dc2626';
-            if (badgeTextPincha) badgeTextPincha.textContent = '🦁 ¡ESTA NOCHE!';
-          }
-        }
-
-        pinchaStyleButtons.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-value') === currentPinchaStyle);
-        });
-        localStorage.setItem('setac_pincha_style_preview', currentPinchaStyle);
-      }
-
-      pinchaStyleButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          currentPinchaStyle = btn.getAttribute('data-value');
-          applyPinchaState();
-        });
-      });
-
-      applyPinchaState();
-
-      // ==========================================
-      // Controles Cena de Camaradería
+      // Controles Cena de Camaradería (Original / Sin Destacar en Sociales por defecto)
       // ==========================================
       const cenaStyleButtons = document.querySelectorAll('[data-control="cena-style"]');
       const cenaPosButtons = document.querySelectorAll('[data-control="cena-pos"]');
@@ -1017,8 +952,8 @@
       const originalCenaParent = btnCenaElem ? btnCenaElem.parentElement : null;
       const nextCenaSibling = btnCenaElem ? btnCenaElem.nextElementSibling : null;
 
-      let currentCenaStyle = localStorage.getItem('setac_cena_style_preview') || 'gourmet';
-      let currentCenaPos = localStorage.getItem('setac_cena_pos_preview') || 'top';
+      let currentCenaStyle = localStorage.getItem('setac_cena_style_preview_29oct') || 'estandar';
+      let currentCenaPos = localStorage.getItem('setac_cena_pos_preview_29oct') || 'sociales';
 
       function applyCenaState() {
         if (!btnCenaElem) return;
@@ -1026,41 +961,46 @@
         btnCenaElem.classList.remove('cena-opt-badge', 'cena-opt-gala', 'cena-opt-gourmet', 'cena-opt-esmeralda');
 
         if (currentCenaStyle === 'estandar') {
-          if (badgeCena) badgeCena.style.display = 'none';
+          btnCenaElem.classList.add('cena-opt-badge');
+          if (badgeCena) {
+            badgeCena.style.display = 'inline-flex';
+            badgeCena.style.background = 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)';
+            if (badgeTextCena) badgeTextCena.textContent = 'Inscripción cerrada - Retirar pulsera';
+          }
         } else if (currentCenaStyle === 'badge') {
           btnCenaElem.classList.add('cena-opt-badge');
           if (badgeCena) {
             badgeCena.style.display = 'inline-flex';
-            badgeCena.style.background = '#dc2626';
-            if (badgeTextCena) badgeTextCena.textContent = '⏰ ¡CIERRA HOY A LAS 18 HS!';
+            badgeCena.style.background = 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)';
+            if (badgeTextCena) badgeTextCena.textContent = 'Inscripción cerrada - Retirar pulsera';
           }
         } else if (currentCenaStyle === 'gala') {
           btnCenaElem.classList.add('cena-opt-gala');
           if (badgeCena) {
             badgeCena.style.display = 'inline-flex';
             badgeCena.style.background = '#d97706';
-            if (badgeTextCena) badgeTextCena.textContent = '⏰ ¡CIERRA HOY A LAS 18 HS!';
+            if (badgeTextCena) badgeTextCena.textContent = '🔒 INSCRIPCIÓN CERRADA';
           }
         } else if (currentCenaStyle === 'gourmet') {
           btnCenaElem.classList.add('cena-opt-gourmet');
           if (badgeCena) {
             badgeCena.style.display = 'inline-flex';
             badgeCena.style.background = '#c2410c';
-            if (badgeTextCena) badgeTextCena.textContent = '⏰ ¡CIERRA HOY A LAS 18 HS!';
+            if (badgeTextCena) badgeTextCena.textContent = '🔒 INSCRIPCIÓN CERRADA';
           }
         } else if (currentCenaStyle === 'esmeralda') {
           btnCenaElem.classList.add('cena-opt-esmeralda');
           if (badgeCena) {
             badgeCena.style.display = 'inline-flex';
             badgeCena.style.background = '#15803d';
-            if (badgeTextCena) badgeTextCena.textContent = '⏰ ¡CIERRA HOY A LAS 18 HS!';
+            if (badgeTextCena) badgeTextCena.textContent = '🔒 INSCRIPCIÓN CERRADA';
           }
         }
 
         cenaStyleButtons.forEach(btn => {
           btn.classList.toggle('active', btn.getAttribute('data-value') === currentCenaStyle);
         });
-        localStorage.setItem('setac_cena_style_preview', currentCenaStyle);
+        localStorage.setItem('setac_cena_style_preview_29oct', currentCenaStyle);
 
         // Ubicación
         if (currentCenaPos === 'top' && topContainer) {
@@ -1072,7 +1012,7 @@
         cenaPosButtons.forEach(btn => {
           btn.classList.toggle('active', btn.getAttribute('data-value') === currentCenaPos);
         });
-        localStorage.setItem('setac_cena_pos_preview', currentCenaPos);
+        localStorage.setItem('setac_cena_pos_preview_29oct', currentCenaPos);
       }
 
       cenaStyleButtons.forEach(btn => {
@@ -1095,7 +1035,7 @@
       const copyBtn = document.getElementById('copyWifiBtn');
       if (copyBtn) {
         copyBtn.addEventListener('click', async () => {
-          const pwd = copyBtn.getAttribute('data-wifi-password') || 'SETAC2026';
+          const pwd = copyBtn.getAttribute('data-wifi-password') || 'ConvencionesUNLP';
           try {
             await navigator.clipboard.writeText(pwd);
             const orig = copyBtn.innerHTML;
@@ -1107,7 +1047,7 @@
 
       // Enrutamiento en modo Preview
       if (btnCenaElem) {
-        btnCenaElem.href = 'cena_preview.html?v=20261028_v7';
+        btnCenaElem.href = 'cena_preview.html?v=20261029_v1';
         btnCenaElem.removeAttribute('target');
         btnCenaElem.removeAttribute('rel');
       }
