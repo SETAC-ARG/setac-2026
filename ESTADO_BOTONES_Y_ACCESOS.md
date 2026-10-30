@@ -47,9 +47,9 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 ### D. Actividades Sociales
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas y Estado de Preparación |
 | :--- | :--- | :---: | :--- | :--- |
-| **📸 Foto del Congreso (Jueves 29)** | `fotoCongreso` | 🟢 Visible | [Google Maps (Rectorado UNLP)](https://maps.google.com/?q=Rectorado+UNLP+La+Plata) | **Horario**: Jueves 17:30 hs (después de la Conferencia Plenaria).<br>**Lugar**: Escalinatas de Rectorado UNLP.<br>**Badge activo en producción**: Cartelito destacado animado *"HOY 17:30 hs"*. |
+| **📸 Foto del Congreso (Jueves 29)** | `fotoCongreso` | 🟢 Visible | [Google Maps (Rectorado UNLP)](https://maps.google.com/?q=Rectorado+UNLP+La+Plata) | **Horario**: Jueves 17:30 hs (después de la Conferencia Plenaria).<br>**Lugar**: Escalinatas de Rectorado UNLP.<br>**Badge**: Sin badge destacado (estándar). |
 | **🍺 Pincha Debate (Miércoles 28)** | `actividadSocial2` | 🔒 **OCULTO (CERRADA)** | `actividad_social_2.html` | **Estado**: Actividad finalizada.<br>**Visualización**: Ocultado con `style="display: none;"`. |
-| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 **VISIBLE (PROD)** | `cena.html` | **Estado**: Inscripción cerrada. Publicado en producción con cartelito animado *"Inscripción cerrada - Retirar pulsera"*. En `cena.html` conserva info de punto de encuentro (Bukowski Bar), mapa y flyer, y oculta CBU/Alias, link PayPal, QR PayPal y link de Google Forms. |
+| **🍽️ Cena de Camaradería (Jueves 29)** | `actividadSocialCena` | 🟢 **VISIBLE (PROD)** | `cena.html` | **Estado**: Inscripción cerrada. Publicado en producción sin badge destacado. En `cena.html` conserva info de punto de encuentro (Bukowski Bar), mapa y flyer, y oculta CBU/Alias, link PayPal, QR PayPal y link de Google Forms. |
 
 ---
 
@@ -57,7 +57,7 @@ Este documento es la **fuente única de verdad** para consultar rápidamente qu�
 | Bloque / Elemento | ID en Código | Estado | Destino Actual | Notas |
 | :--- | :--- | :---: | :--- | :--- |
 | **🎓 Asamblea de Estudiantes** | `asambleaEstudiantes` | 🟢 Visible | Grupo WhatsApp / Convocatoria | Miércoles 28 Oct • 19:00 hs • Sala 4. |
-| **🏛️ Asamblea General SETAC ARG** | `asambleaSetac` | 🟢 Visible | Web oficial institucional | Jueves 29 Oct • 19:00 hs • Sala 4.<br>**Badge activo en producción**: Cartelito destacado animado *"HOY 19:00"*. |
+| **🏛️ Asamblea General SETAC ARG** | `asambleaSetac` | 🟢 Visible | Web oficial institucional | Jueves 29 Oct • 19:00 hs • Sala 4.<br>**Badge**: Sin badge destacado (estándar). |
 
 ---
 
